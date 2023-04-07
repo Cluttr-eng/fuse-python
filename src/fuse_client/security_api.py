@@ -57,44 +57,6 @@ def get_token_fuseClientId(
     ...
 
 
-def get_token_mxApiKey(
-    token_api_key_header: str = Security(
-        APIKeyHeader(name="Mx-Api-Key", auto_error=False)
-    ),
-) -> TokenModel:
-    """
-    Check and retrieve authentication information from api_key.
-
-    :param token_api_key_header API key provided by Authorization[Mx-Api-Key] header
-    
-    
-    :type token_api_key_header: str
-    :return: Information attached to provided api_key or None if api_key is invalid or does not allow access to called API
-    :rtype: TokenModel | None
-    """
-
-    ...
-
-
-def get_token_mxClientId(
-    token_api_key_header: str = Security(
-        APIKeyHeader(name="Mx-Client-Id", auto_error=False)
-    ),
-) -> TokenModel:
-    """
-    Check and retrieve authentication information from api_key.
-
-    :param token_api_key_header API key provided by Authorization[Mx-Client-Id] header
-    
-    
-    :type token_api_key_header: str
-    :return: Information attached to provided api_key or None if api_key is invalid or does not allow access to called API
-    :rtype: TokenModel | None
-    """
-
-    ...
-
-
 def get_token_plaidClientId(
     token_api_key_header: str = Security(
         APIKeyHeader(name="Plaid-Client-Id", auto_error=False)
@@ -123,63 +85,6 @@ def get_token_plaidSecret(
     Check and retrieve authentication information from api_key.
 
     :param token_api_key_header API key provided by Authorization[Plaid-Secret] header
-    
-    
-    :type token_api_key_header: str
-    :return: Information attached to provided api_key or None if api_key is invalid or does not allow access to called API
-    :rtype: TokenModel | None
-    """
-
-    ...
-
-
-def get_token_proxyUrlKey(
-    token_api_key_header: str = Security(
-        APIKeyHeader(name="Proxy-Url", auto_error=False)
-    ),
-) -> TokenModel:
-    """
-    Check and retrieve authentication information from api_key.
-
-    :param token_api_key_header API key provided by Authorization[Proxy-Url] header
-    
-    
-    :type token_api_key_header: str
-    :return: Information attached to provided api_key or None if api_key is invalid or does not allow access to called API
-    :rtype: TokenModel | None
-    """
-
-    ...
-
-
-def get_token_snaptradeClientId(
-    token_api_key_header: str = Security(
-        APIKeyHeader(name="Snaptrade-Client-Id", auto_error=False)
-    ),
-) -> TokenModel:
-    """
-    Check and retrieve authentication information from api_key.
-
-    :param token_api_key_header API key provided by Authorization[Snaptrade-Client-Id] header
-    
-    
-    :type token_api_key_header: str
-    :return: Information attached to provided api_key or None if api_key is invalid or does not allow access to called API
-    :rtype: TokenModel | None
-    """
-
-    ...
-
-
-def get_token_snaptradeConsumerKey(
-    token_api_key_header: str = Security(
-        APIKeyHeader(name="Snaptrade-Consumer-Id", auto_error=False)
-    ),
-) -> TokenModel:
-    """
-    Check and retrieve authentication information from api_key.
-
-    :param token_api_key_header API key provided by Authorization[Snaptrade-Consumer-Id] header
     
     
     :type token_api_key_header: str
@@ -247,6 +152,25 @@ def get_token_tellerPrivateKey(
     ...
 
 
+def get_token_tellerTokenSigningKey(
+    token_api_key_header: str = Security(
+        APIKeyHeader(name="Teller-Token-Signing-Key", auto_error=False)
+    ),
+) -> TokenModel:
+    """
+    Check and retrieve authentication information from api_key.
+
+    :param token_api_key_header API key provided by Authorization[Teller-Token-Signing-Key] header
+    
+    
+    :type token_api_key_header: str
+    :return: Information attached to provided api_key or None if api_key is invalid or does not allow access to called API
+    :rtype: TokenModel | None
+    """
+
+    ...
+
+
 def get_token_tellerSigningSecret(
     token_api_key_header: str = Security(
         APIKeyHeader(name="Teller-Signing-Secret", auto_error=False)
@@ -266,15 +190,91 @@ def get_token_tellerSigningSecret(
     ...
 
 
-def get_token_tellerTokenSigningKey(
+def get_token_mxClientId(
     token_api_key_header: str = Security(
-        APIKeyHeader(name="Teller-Token-Signing-Key", auto_error=False)
+        APIKeyHeader(name="Mx-Client-Id", auto_error=False)
     ),
 ) -> TokenModel:
     """
     Check and retrieve authentication information from api_key.
 
-    :param token_api_key_header API key provided by Authorization[Teller-Token-Signing-Key] header
+    :param token_api_key_header API key provided by Authorization[Mx-Client-Id] header
+    
+    
+    :type token_api_key_header: str
+    :return: Information attached to provided api_key or None if api_key is invalid or does not allow access to called API
+    :rtype: TokenModel | None
+    """
+
+    ...
+
+
+def get_token_mxApiKey(
+    token_api_key_header: str = Security(
+        APIKeyHeader(name="Mx-Api-Key", auto_error=False)
+    ),
+) -> TokenModel:
+    """
+    Check and retrieve authentication information from api_key.
+
+    :param token_api_key_header API key provided by Authorization[Mx-Api-Key] header
+    
+    
+    :type token_api_key_header: str
+    :return: Information attached to provided api_key or None if api_key is invalid or does not allow access to called API
+    :rtype: TokenModel | None
+    """
+
+    ...
+
+
+def get_token_snaptradeClientId(
+    token_api_key_header: str = Security(
+        APIKeyHeader(name="Snaptrade-Client-Id", auto_error=False)
+    ),
+) -> TokenModel:
+    """
+    Check and retrieve authentication information from api_key.
+
+    :param token_api_key_header API key provided by Authorization[Snaptrade-Client-Id] header
+    
+    
+    :type token_api_key_header: str
+    :return: Information attached to provided api_key or None if api_key is invalid or does not allow access to called API
+    :rtype: TokenModel | None
+    """
+
+    ...
+
+
+def get_token_snaptradeConsumerKey(
+    token_api_key_header: str = Security(
+        APIKeyHeader(name="Snaptrade-Consumer-Id", auto_error=False)
+    ),
+) -> TokenModel:
+    """
+    Check and retrieve authentication information from api_key.
+
+    :param token_api_key_header API key provided by Authorization[Snaptrade-Consumer-Id] header
+    
+    
+    :type token_api_key_header: str
+    :return: Information attached to provided api_key or None if api_key is invalid or does not allow access to called API
+    :rtype: TokenModel | None
+    """
+
+    ...
+
+
+def get_token_proxyUrlKey(
+    token_api_key_header: str = Security(
+        APIKeyHeader(name="Proxy-Url", auto_error=False)
+    ),
+) -> TokenModel:
+    """
+    Check and retrieve authentication information from api_key.
+
+    :param token_api_key_header API key provided by Authorization[Proxy-Url] header
     
     
     :type token_api_key_header: str
