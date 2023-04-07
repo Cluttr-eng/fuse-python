@@ -1,15 +1,15 @@
 openapi: 3.0.0
 info:
   title: Fuse
-  version: 1.0.0
+  version: 1.0.1
 servers:
-  - description: sandbox
-    url: https://sandbox-api.letsfuse.com
+- description: sandbox
+  url: https://sandbox-api.letsfuse.com
 security:
-  - fuseApiKey: []
-  - fuseClientId: []
+- fuseApiKey: []
+- fuseClientId: []
 tags:
-  - name: Fuse
+- name: Fuse
 paths:
   /v1/financial_connections/accounts/details:
     post:
@@ -18,18 +18,18 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/GetFinancialConnectionsAccountDetailsRequest"
+              $ref: '#/components/schemas/GetFinancialConnectionsAccountDetailsRequest'
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetFinancialConnectionsAccountDetailsResponse"
+                $ref: '#/components/schemas/GetFinancialConnectionsAccountDetailsResponse'
           description: Success
       summary: Get account details
       tags:
-        - Fuse
+      - Fuse
     summary: Get account details
   /v1/financial_connections/owners:
     post:
@@ -38,18 +38,18 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/GetFinancialConnectionsOwnersRequest"
+              $ref: '#/components/schemas/GetFinancialConnectionsOwnersRequest'
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetFinancialConnectionsOwnersResponse"
+                $ref: '#/components/schemas/GetFinancialConnectionsOwnersResponse'
           description: Success
       summary: Get account owners
       tags:
-        - Fuse
+      - Fuse
   /v1/financial_connections/accounts:
     post:
       operationId: getFinancialConnectionsAccounts
@@ -57,18 +57,18 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/GetFinancialConnectionsAccountsRequest"
+              $ref: '#/components/schemas/GetFinancialConnectionsAccountsRequest'
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetFinancialConnectionsAccountsResponse"
+                $ref: '#/components/schemas/GetFinancialConnectionsAccountsResponse'
           description: Successful response
       summary: Get accounts
       tags:
-        - Fuse
+      - Fuse
   /v1/asset_report/create:
     post:
       description: Use this endpoint to generate an Asset Report for a user.
@@ -78,25 +78,23 @@ paths:
           application/json:
             examples:
               "0":
-                value:
-                  "{\n\t\"access_token\": \"3e0cc775-3588-460d-863a-a4baee8ac7c5\"\
+                value: "{\n\t\"access_token\": \"3e0cc775-3588-460d-863a-a4baee8ac7c5\"\
                   ,\n\t\"days_requested\": 90,\n}"
             schema:
-              $ref: "#/components/schemas/CreateAssetReportRequest"
+              $ref: '#/components/schemas/CreateAssetReportRequest'
       responses:
         "200":
           content:
             application/json:
               examples:
                 "0":
-                  value:
-                    "{\"asset_report_token\":\"fuse_ar_dev_1MV8sa\",\"asset_report_id\"\
+                  value: "{\"asset_report_token\":\"fuse_ar_dev_1MV8sa\",\"asset_report_id\"\
                     :\"3256bf0f-6881-4ff4-9f27-54c396572320\"}"
               schema:
-                $ref: "#/components/schemas/CreateAssetReportResponse"
+                $ref: '#/components/schemas/CreateAssetReportResponse'
           description: Response
       tags:
-        - Fuse
+      - Fuse
     summary: Create an Asset Report
   /v1/asset_report/refresh:
     post:
@@ -109,21 +107,20 @@ paths:
               "0":
                 value: "{\n\t\"asset_report_token\": \"fuse_ar_dev_1MV8sa\"\n}"
             schema:
-              $ref: "#/components/schemas/RefreshAssetReportRequest"
+              $ref: '#/components/schemas/RefreshAssetReportRequest'
       responses:
         "200":
           content:
             application/json:
               examples:
                 "0":
-                  value:
-                    "{\"asset_report_token\":\"fuse_ar_dev_1MV8sa\",\"asset_report_id\"\
+                  value: "{\"asset_report_token\":\"fuse_ar_dev_1MV8sa\",\"asset_report_id\"\
                     :\"3256bf0f-6881-4ff4-9f27-54c396572320\"}"
               schema:
-                $ref: "#/components/schemas/CreateAssetReportResponse"
+                $ref: '#/components/schemas/CreateAssetReportResponse'
           description: Response
       tags:
-        - Fuse
+      - Fuse
     summary: Refresh Asset Report
   /v1/asset_report:
     post:
@@ -136,16 +133,16 @@ paths:
               "0":
                 value: "{\n\t\"asset_report_token\": \"fuse_ar_dev_1MV8sa\"\n}"
             schema:
-              $ref: "#/components/schemas/GetAssetReportRequest"
+              $ref: '#/components/schemas/GetAssetReportRequest'
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetAssetReportResponse"
+                $ref: '#/components/schemas/GetAssetReportResponse'
           description: Response
       tags:
-        - Fuse
+      - Fuse
     summary: Get an asset report
   /v1/financial_connections/balances:
     post:
@@ -154,39 +151,39 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/GetFinancialConnectionsBalanceRequest"
+              $ref: '#/components/schemas/GetFinancialConnectionsBalanceRequest'
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetFinancialConnectionsBalanceResponse"
+                $ref: '#/components/schemas/GetFinancialConnectionsBalanceResponse'
           description: Successful response
       summary: Get balances
       tags:
-        - Fuse
+      - Fuse
   /v1/entities/{entity_id}:
     get:
       operationId: getEntity
       parameters:
-        - explode: false
-          in: path
-          name: entity_id
-          required: true
-          schema:
-            type: string
-          style: simple
+      - explode: false
+        in: path
+        name: entity_id
+        required: true
+        schema:
+          type: string
+        style: simple
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetEntityResponse"
+                $ref: '#/components/schemas/GetEntityResponse'
           description: Success
       summary: Get entity
       tags:
-        - Fuse
+      - Fuse
     summary: Get entity
   /v1/entities:
     post:
@@ -195,155 +192,153 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/CreateEntityRequest"
+              $ref: '#/components/schemas/CreateEntityRequest'
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/CreateEntityResponse"
+                $ref: '#/components/schemas/CreateEntityResponse'
           description: Success
       summary: Create entity
       tags:
-        - Fuse
+      - Fuse
     summary: Create entity
   /v1/entities/{entity_id_to_update}:
     put:
       operationId: updateEntity
       parameters:
-        - explode: false
-          in: path
-          name: entity_id_to_update
-          required: true
-          schema:
-            type: string
-          style: simple
+      - explode: false
+        in: path
+        name: entity_id_to_update
+        required: true
+        schema:
+          type: string
+        style: simple
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/UpdateEntityRequest"
+              $ref: '#/components/schemas/UpdateEntityRequest'
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/UpdateEntityResponse"
+                $ref: '#/components/schemas/UpdateEntityResponse'
           description: Success
       summary: Update entity
       tags:
-        - Fuse
+      - Fuse
     summary: Update entity
   /v1/financial_connections/public_token/exchange:
     post:
-      description:
-        API to exchange a public token for an access token and financial
+      description: API to exchange a public token for an access token and financial
         connection id
       operationId: exchangeFinancialConnectionsPublicToken
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/ExchangeFinancialConnectionsPublicTokenRequest"
+              $ref: '#/components/schemas/ExchangeFinancialConnectionsPublicTokenRequest'
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ExchangeFinancialConnectionsPublicTokenResponse"
+                $ref: '#/components/schemas/ExchangeFinancialConnectionsPublicTokenResponse'
           description: Response
       tags:
-        - Fuse
+      - Fuse
     summary: Exchange public token
   /v1/financial_connections/sync:
     post:
-      description:
-        Call this endpoint upon receiving a SYNC_REQUIRED webhook. This
+      description: Call this endpoint upon receiving a SYNC_REQUIRED webhook. This
         will keep the financial connections data up to date.
       operationId: syncFinancialConnectionsData
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/SyncFinancialConnectionsDataRequest"
+              $ref: '#/components/schemas/SyncFinancialConnectionsDataRequest'
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/SyncFinancialConnectionsDataResponse"
+                $ref: '#/components/schemas/SyncFinancialConnectionsDataResponse'
           description: Successfully synchronized transactions
       summary: Sync financial connections data
       tags:
-        - Fuse
+      - Fuse
   /v1/financial_connections/institutions/{institution_id}:
     get:
       description: Receive metadata for a financial institution
       operationId: getFinancialInstitution
       parameters:
-        - explode: false
-          in: path
-          name: institution_id
-          required: true
-          schema:
-            type: string
-          style: simple
+      - explode: false
+        in: path
+        name: institution_id
+        required: true
+        schema:
+          type: string
+        style: simple
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetFinancialInstitutionResponse"
+                $ref: '#/components/schemas/GetFinancialInstitutionResponse'
           description: Financial institution metadata
       summary: Get a financial institution
       tags:
-        - Fuse
+      - Fuse
   /v1/financial_connections/{financial_connection_id_to_delete}:
     delete:
       operationId: deleteFinancialConnection
       parameters:
-        - explode: false
-          in: path
-          name: financial_connection_id_to_delete
-          required: true
-          schema:
-            type: string
-          style: simple
+      - explode: false
+        in: path
+        name: financial_connection_id_to_delete
+        required: true
+        schema:
+          type: string
+        style: simple
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/DeleteFinancialConnectionResponse"
+                $ref: '#/components/schemas/DeleteFinancialConnectionResponse'
           description: Success
       summary: Delete a financial connection
       tags:
-        - Fuse
+      - Fuse
     summary: Delete a financial connection
   /v1/financial_connections/{financial_connection_id}:
     get:
       operationId: getFinancialConnection
       parameters:
-        - explode: false
-          in: path
-          name: financial_connection_id
-          required: true
-          schema:
-            type: string
-          style: simple
+      - explode: false
+        in: path
+        name: financial_connection_id
+        required: true
+        schema:
+          type: string
+        style: simple
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetFinancialConnectionResponse"
+                $ref: '#/components/schemas/GetFinancialConnectionResponse'
           description: Success
       summary: Get financial connection details
       tags:
-        - Fuse
+      - Fuse
     summary: Get financial connection details
   /v1/financial_connections/investments/holdings:
     post:
@@ -352,18 +347,18 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/GetInvestmentHoldingsRequest"
+              $ref: '#/components/schemas/GetInvestmentHoldingsRequest'
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetInvestmentHoldingsResponse"
+                $ref: '#/components/schemas/GetInvestmentHoldingsResponse'
           description: Successful response
       summary: Get investment holdings
       tags:
-        - Fuse
+      - Fuse
   /v1/financial_connections/investments/transactions:
     post:
       operationId: getInvestmentTransactions
@@ -371,77 +366,75 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/GetInvestmentTransactionsRequest"
+              $ref: '#/components/schemas/GetInvestmentTransactionsRequest'
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetInvestmentTransactionsResponse"
+                $ref: '#/components/schemas/GetInvestmentTransactionsResponse'
           description: Successful response
       summary: Get investment transactions
       tags:
-        - Fuse
+      - Fuse
   /v1/financial_connections/liabilities:
     post:
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/GetLiabilitiesRequest"
+              $ref: '#/components/schemas/GetLiabilitiesRequest'
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetLiabilitiesResponse"
+                $ref: '#/components/schemas/GetLiabilitiesResponse'
           description: Successful response
       summary: Get liabilities
       tags:
-        - Fuse
+      - Fuse
   /v1/link/token:
     post:
-      description:
-        Create a link token to start the process of a user connecting to
+      description: Create a link token to start the process of a user connecting to
         a specific financial institution.
       operationId: createLinkToken
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/CreateLinkTokenRequest"
+              $ref: '#/components/schemas/CreateLinkTokenRequest'
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/CreateLinkTokenResponse"
+                $ref: '#/components/schemas/CreateLinkTokenResponse'
           description: Response
       tags:
-        - Fuse
+      - Fuse
     summary: Create link token
   /v1/session:
     post:
-      description:
-        Creates a session that returns a client_secret which is required
+      description: Creates a session that returns a client_secret which is required
         as a parameter when initializing the Fuse SDK.
       operationId: createSession
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/CreateSessionRequest"
+              $ref: '#/components/schemas/CreateSessionRequest'
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/CreateSessionResponse"
+                $ref: '#/components/schemas/CreateSessionResponse'
           description: Response
       tags:
-        - Fuse
+      - Fuse
     summary: Create session
   /v1/financial_connections/transactions:
     post:
@@ -450,18 +443,18 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/GetFinancialConnectionsTransactionsRequest"
+              $ref: '#/components/schemas/GetFinancialConnectionsTransactionsRequest'
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetFinancialConnectionsTransactionsResponse"
+                $ref: '#/components/schemas/GetFinancialConnectionsTransactionsResponse'
           description: Success
       summary: Get transactions
       tags:
-        - Fuse
+      - Fuse
     summary: Get transactions
   /v1/financial_connections/transactions/sync:
     post:
@@ -470,18 +463,18 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/SyncTransactionsRequest"
+              $ref: '#/components/schemas/SyncTransactionsRequest'
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/SyncTransactionsResponse"
+                $ref: '#/components/schemas/SyncTransactionsResponse'
           description: Successfully synchronized transactions
       summary: Sync transactions
       tags:
-        - Fuse
+      - Fuse
 components:
   schemas:
     FinancialConnectionsAccount:
@@ -505,13 +498,12 @@ components:
           title: remote_id
           type: string
         fingerprint:
-          description:
-            "Uniquely identifies this account across all accounts associated\
+          description: "Uniquely identifies this account across all accounts associated\
             \ with your organization. See more information here: https://letsfuse.readme.io/docs/duplicate-accounts"
           title: fingerprint
           type: string
         institution:
-          $ref: "#/components/schemas/FinancialConnectionsAccount_institution"
+          $ref: '#/components/schemas/FinancialConnectionsAccount_institution'
         mask:
           description: The partial account number.
           title: mask
@@ -521,17 +513,17 @@ components:
           title: name
           type: string
         type:
-          $ref: "#/components/schemas/AccountType"
+          $ref: '#/components/schemas/AccountType'
         subtype:
-          $ref: "#/components/schemas/AccountSubtype"
+          $ref: '#/components/schemas/AccountSubtype'
         balance:
-          $ref: "#/components/schemas/FinancialConnectionsAccountCachedBalance"
+          $ref: '#/components/schemas/FinancialConnectionsAccountCachedBalance'
       required:
-        - balance
-        - fingerprint
-        - name
-        - remote_id
-        - type
+      - balance
+      - fingerprint
+      - name
+      - remote_id
+      - type
       title: FinancialConnectionsAccount
       type: object
     FinancialConnectionsAccountCachedBalance:
@@ -586,79 +578,78 @@ components:
           title: iso_currency_code
           type: string
         last_updated_date:
-          description:
-            "The last time the account balance was updated, represented\
+          description: "The last time the account balance was updated, represented\
             \ as an ISO 8601 timestamp (YYYY-MM-DDTHH:mm:ssZ). This value may not\
             \ be available for some accounts."
           title: last_updated_date
           type: string
       required:
-        - remote_account_id
+      - remote_account_id
       title: FinancialConnectionsAccountBalance
       type: object
     FinancialConnectionsOwner:
       example:
         emails:
-          - data: data
-            type: primary
-            primary: true
-          - data: data
-            type: primary
-            primary: true
+        - data: data
+          type: primary
+          primary: true
+        - data: data
+          type: primary
+          primary: true
         phone_numbers:
-          - data: data
-            type: home
-            primary: true
-          - data: data
-            type: home
-            primary: true
+        - data: data
+          type: home
+          primary: true
+        - data: data
+          type: home
+          primary: true
         addresses:
-          - data:
-              country: country
-              city: city
-              street: street
-              postal_code: postal_code
-              region: region
-            primary: true
-          - data:
-              country: country
-              city: city
-              street: street
-              postal_code: postal_code
-              region: region
-            primary: true
+        - data:
+            country: country
+            city: city
+            street: street
+            postal_code: postal_code
+            region: region
+          primary: true
+        - data:
+            country: country
+            city: city
+            street: street
+            postal_code: postal_code
+            region: region
+          primary: true
         names:
-          - data: data
-            type: type
-          - data: data
-            type: type
+        - data: data
+          type: type
+        - data: data
+          type: type
       properties:
         addresses:
           items:
-            $ref: "#/components/schemas/FinancialConnectionsOwner_addresses_inner"
+            $ref: '#/components/schemas/FinancialConnectionsOwner_addresses_inner'
           title: addresses
           type: array
         emails:
           items:
-            $ref: "#/components/schemas/FinancialConnectionsOwner_emails_inner"
+            $ref: '#/components/schemas/FinancialConnectionsOwner_emails_inner'
           title: emails
           type: array
         names:
           description: List of names associated with the owner
           items:
-            $ref: "#/components/schemas/FinancialConnectionsOwner_names_inner"
+            $ref: '#/components/schemas/FinancialConnectionsOwner_names_inner'
           title: names
           type: array
         phone_numbers:
           items:
-            $ref: "#/components/schemas/FinancialConnectionsOwner_phone_numbers_inner"
+            $ref: '#/components/schemas/FinancialConnectionsOwner_phone_numbers_inner'
           title: phone_numbers
           type: array
       required:
-        - addresses
-        - emails
-        - names
-        - phone_numbers
+      - addresses
+      - emails
+      - names
+      - phone_numbers
       title: FinancialConnectionsOwner
       type: object
     FuseApiError:
@@ -671,44 +662,44 @@ components:
           type: string
         code:
           enum:
-            - client_error
-            - invalid_headers
-            - invalid_request_body
-            - internal_server_error
-            - organization_not_found
-            - entity_not_found
-            - session_not_found
-            - financial_institution_not_found
-            - missing_access_token
-            - missing_plaid_client_id_header
-            - missing_plaid_secret_header
-            - missing_mx_client_id_header
-            - missing_mx_api_key_header
-            - missing_teller_private_key_header
-            - missing_teller_certificate_header
-            - missing_teller_application_id_header
-            - aggregator_error
-            - aggregator_disconnected_error
-            - aggregator_connection_finished_error
-            - request_body_missing
+          - client_error
+          - invalid_headers
+          - invalid_request_body
+          - internal_server_error
+          - organization_not_found
+          - entity_not_found
+          - session_not_found
+          - financial_institution_not_found
+          - missing_access_token
+          - missing_plaid_client_id_header
+          - missing_plaid_secret_header
+          - missing_mx_client_id_header
+          - missing_mx_api_key_header
+          - missing_teller_private_key_header
+          - missing_teller_certificate_header
+          - missing_teller_application_id_header
+          - aggregator_error
+          - aggregator_disconnected_error
+          - aggregator_connection_finished_error
+          - request_body_missing
           title: code
           type: string
         type:
           enum:
-            - auth_error
-            - not_found
-            - bad_request
-            - server_error
+          - auth_error
+          - not_found
+          - bad_request
+          - server_error
           title: type
           type: string
         source:
           enum:
-            - internal
-            - aggregator
+          - internal
+          - aggregator
           title: source
           type: string
         data:
-          $ref: "#/components/schemas/FuseApiError_data"
+          $ref: '#/components/schemas/FuseApiError_data'
       title: FuseApiError
       type: object
     FuseApiWarning:
@@ -717,16 +708,16 @@ components:
         data:
           aggregator: null
           warnings:
-            - code: code
-              details: details
-              source: internal
-              title: title
-              type: type
-            - code: code
-              details: details
-              source: internal
-              title: title
-              type: type
+          - code: code
+            details: details
+            source: internal
+            title: title
+            type: type
+          - code: code
+            details: details
+            source: internal
+            title: title
+            type: type
         details: details
         source: internal
         title: title
@@ -746,235 +737,235 @@ components:
           type: string
         source:
           enum:
-            - internal
-            - aggregator
+          - internal
+          - aggregator
           title: source
           type: string
         data:
-          $ref: "#/components/schemas/FuseApiWarning_data"
+          $ref: '#/components/schemas/FuseApiWarning_data'
       title: FuseApiWarning
       type: object
     Product:
       enum:
-        - account_details
-        - balance
-        - ownership
-        - transactions
-        - liabilities
-        - investments
+      - account_details
+      - balance
+      - ownership
+      - transactions
+      - liabilities
+      - investments
       title: Product
       type: string
     CountryCode:
       enum:
-        - US
-        - CA
+      - US
+      - CA
       title: CountryCode
       type: string
     Aggregator:
       enum:
-        - plaid
-        - teller
-        - mx
-        - snaptrade
+      - plaid
+      - teller
+      - mx
+      - snaptrade
       title: Aggregator
       type: string
     WebhookSource:
       enum:
-        - plaid
-        - teller
-        - mx
-        - fuse
-        - snaptrade
+      - plaid
+      - teller
+      - mx
+      - fuse
+      - snaptrade
       title: WebhookSource
       type: string
     WebhookType:
       enum:
-        - financial_connection.sync_data
-        - financial_connection.disconnected
-        - financial_connection.finished
-        - transaction.updates
+      - financial_connection.sync_data
+      - financial_connection.disconnected
+      - financial_connection.finished
+      - transaction.updates
       title: WebhookType
       type: string
     WebhookEvent:
       properties:
         type:
-          $ref: "#/components/schemas/WebhookType"
+          $ref: '#/components/schemas/WebhookType'
         financial_connection_id:
           description: Financial connection id associated with the webhook
           type: string
         environment:
           enum:
-            - sandbox
-            - production
+          - sandbox
+          - production
           type: string
         source:
-          $ref: "#/components/schemas/WebhookSource"
+          $ref: '#/components/schemas/WebhookSource'
         verification_token:
           description: Aggregator verification data needed to verify the webhook
           type: string
         remote_data: {}
       required:
-        - environment
-        - financial_connection_id
-        - remote_data
-        - source
-        - type
+      - environment
+      - financial_connection_id
+      - remote_data
+      - source
+      - type
       type: object
     AccountType:
       description: The account's type
       enum:
-        - depository
-        - credit
-        - loan
-        - investment
-        - insurance
-        - property
-        - other
+      - depository
+      - credit
+      - loan
+      - investment
+      - insurance
+      - property
+      - other
       title: AccountType
       type: string
     AccountSubtype:
       description: The account's subtype
       enum:
-        - checking
-        - savings
-        - money_market
-        - certificate_of_deposit
-        - treasury
-        - credit_card
-        - hsa
-        - paypal
-        - prepaid
-        - cash_management
-        - ebt
-        - auto
-        - business
-        - commercial
-        - construction
-        - consumer
-        - home_equity
-        - loan
-        - mortgage
-        - overdraft
-        - line_of_credit
-        - student
-        - "529"
-        - 401_a
-        - 401_k
-        - 403_b
-        - 457_b
-        - brokerage
-        - cash_isa
-        - crypto_exchange
-        - education_saving_account
-        - fixed_annuity
-        - gic
-        - health_reimbursement_arrangement
-        - ira
-        - isa
-        - keogh
-        - lif
-        - life_insurance
-        - lira
-        - lrif
-        - lrsp
-        - mutual_fund
-        - non_custodial_wallet
-        - non_taxable_brokerage_account
-        - other_annuity
-        - other_insurance
-        - pension
-        - prif
-        - profit_sharing_plan
-        - qshr
-        - rdsp
-        - resp
-        - retirement
-        - rlif
-        - roth_ira
-        - roth_401_k
-        - rrif
-        - rrsp
-        - sarsep
-        - sep_ira
-        - simple_ira
-        - sipp
-        - stock_plan
-        - tfsa
-        - trust
-        - ugma
-        - utma
-        - variable_annuity
-        - small_business
-        - personal
-        - personal_with_collateral
-        - "457"
-        - rollover_ira
-        - taxable
-        - non_taxable
-        - employee_stock_ownership_plan
-        - individual
-        - cash_management_account
-        - employee_stock_purchase_plan
-        - registered_education_savings_plan
-        - fixed_annuity_traditional_ira
-        - inherited_traditional_ira
-        - fixed_annuity_roth_ira
-        - variable_annuity_roth_ira
-        - inherited_roth_ira
-        - advisory_account
-        - brokerage_margin
-        - charitable_gift_account
-        - church_account
-        - conservatorship
-        - custodial
-        - defined_benefit_plan
-        - defined_contribution_plan
-        - educational
-        - estate
-        - executor
-        - group_retirement_savings_plan
-        - guaranteed_investment_certificate
-        - indexed_annuity
-        - investment_club
-        - irrevocable_trust
-        - joint_tenants_by_entirety
-        - joint_tenants_community_property
-        - joint_tenants_in_common
-        - joint_tenants_with_rights_of_survivorship
-        - keough_plan
-        - living_trust
-        - locked_in_retirement_account
-        - locked_in_retirement_investment_fund
-        - locked_in_retirement_savings_account
-        - money_purchase_plan
-        - partnership
-        - 409_a
-        - rpp
-        - revocable_trust
-        - roth_conversion
-        - sole_proprietorship
-        - spousal_ira
-        - spousal_roth_ira
-        - testamentary_trust
-        - thrift_savings_plan
-        - inherited_annuity
-        - corporate_account
-        - limited_liability_account
-        - boat
-        - powersports
-        - rv
-        - heloc
-        - vehicle_insurance
-        - disability
-        - health
-        - long_term_care
-        - property_and_casualty
-        - universal_life
-        - term_life
-        - whole_life
-        - accidental_death_and_dismemberment
-        - variable_universal_life
-        - other
+      - checking
+      - savings
+      - money_market
+      - certificate_of_deposit
+      - treasury
+      - credit_card
+      - hsa
+      - paypal
+      - prepaid
+      - cash_management
+      - ebt
+      - auto
+      - business
+      - commercial
+      - construction
+      - consumer
+      - home_equity
+      - loan
+      - mortgage
+      - overdraft
+      - line_of_credit
+      - student
+      - "529"
+      - 401_a
+      - 401_k
+      - 403_b
+      - 457_b
+      - brokerage
+      - cash_isa
+      - crypto_exchange
+      - education_saving_account
+      - fixed_annuity
+      - gic
+      - health_reimbursement_arrangement
+      - ira
+      - isa
+      - keogh
+      - lif
+      - life_insurance
+      - lira
+      - lrif
+      - lrsp
+      - mutual_fund
+      - non_custodial_wallet
+      - non_taxable_brokerage_account
+      - other_annuity
+      - other_insurance
+      - pension
+      - prif
+      - profit_sharing_plan
+      - qshr
+      - rdsp
+      - resp
+      - retirement
+      - rlif
+      - roth_ira
+      - roth_401_k
+      - rrif
+      - rrsp
+      - sarsep
+      - sep_ira
+      - simple_ira
+      - sipp
+      - stock_plan
+      - tfsa
+      - trust
+      - ugma
+      - utma
+      - variable_annuity
+      - small_business
+      - personal
+      - personal_with_collateral
+      - "457"
+      - rollover_ira
+      - taxable
+      - non_taxable
+      - employee_stock_ownership_plan
+      - individual
+      - cash_management_account
+      - employee_stock_purchase_plan
+      - registered_education_savings_plan
+      - fixed_annuity_traditional_ira
+      - inherited_traditional_ira
+      - fixed_annuity_roth_ira
+      - variable_annuity_roth_ira
+      - inherited_roth_ira
+      - advisory_account
+      - brokerage_margin
+      - charitable_gift_account
+      - church_account
+      - conservatorship
+      - custodial
+      - defined_benefit_plan
+      - defined_contribution_plan
+      - educational
+      - estate
+      - executor
+      - group_retirement_savings_plan
+      - guaranteed_investment_certificate
+      - indexed_annuity
+      - investment_club
+      - irrevocable_trust
+      - joint_tenants_by_entirety
+      - joint_tenants_community_property
+      - joint_tenants_in_common
+      - joint_tenants_with_rights_of_survivorship
+      - keough_plan
+      - living_trust
+      - locked_in_retirement_account
+      - locked_in_retirement_investment_fund
+      - locked_in_retirement_savings_account
+      - money_purchase_plan
+      - partnership
+      - 409_a
+      - rpp
+      - revocable_trust
+      - roth_conversion
+      - sole_proprietorship
+      - spousal_ira
+      - spousal_roth_ira
+      - testamentary_trust
+      - thrift_savings_plan
+      - inherited_annuity
+      - corporate_account
+      - limited_liability_account
+      - boat
+      - powersports
+      - rv
+      - heloc
+      - vehicle_insurance
+      - disability
+      - health
+      - long_term_care
+      - property_and_casualty
+      - universal_life
+      - term_life
+      - whole_life
+      - accidental_death_and_dismemberment
+      - variable_universal_life
+      - other
       title: AccountSubtype
       type: string
     Entity:
@@ -996,7 +987,7 @@ components:
           title: email
           type: string
       required:
-        - id
+      - id
       title: Entity
       type: object
     FinancialConnectionData:
@@ -1013,8 +1004,8 @@ components:
           title: institution_id
           type: string
       required:
-        - id
-        - institution_id
+      - id
+      - institution_id
       title: FinancialConnectionData
       type: object
     FinancialConnectionDetails:
@@ -1041,9 +1032,9 @@ components:
         connection_status:
           description: Connection status of the current financial connection
           enum:
-            - connected
-            - disconnected
-            - finished
+          - connected
+          - disconnected
+          - finished
           title: connection_status
           type: string
         connection_status_updated_at:
@@ -1055,19 +1046,19 @@ components:
           title: is_oauth
           type: boolean
         aggregator:
-          $ref: "#/components/schemas/Aggregator"
+          $ref: '#/components/schemas/Aggregator'
         plaid:
-          $ref: "#/components/schemas/FinancialConnectionDetails_plaid"
+          $ref: '#/components/schemas/FinancialConnectionDetails_plaid'
         teller:
-          $ref: "#/components/schemas/FinancialConnectionDetails_teller"
+          $ref: '#/components/schemas/FinancialConnectionDetails_teller'
         mx:
-          $ref: "#/components/schemas/FinancialConnectionDetails_mx"
+          $ref: '#/components/schemas/FinancialConnectionDetails_mx'
       required:
-        - aggregator
-        - connection_status
-        - connection_status_updated_at
-        - id
-        - is_oauth
+      - aggregator
+      - connection_status
+      - connection_status_updated_at
+      - id
+      - is_oauth
       title: FinancialConnectionDetails
       type: object
     FinancialInstitution:
@@ -1079,8 +1070,8 @@ components:
           format: png
           type: base64
         country_codes:
-          - null
-          - null
+        - null
+        - null
         id: id
       properties:
         id:
@@ -1092,7 +1083,7 @@ components:
           title: name
           type: string
         logo:
-          $ref: "#/components/schemas/FinancialInstitution_logo"
+          $ref: '#/components/schemas/FinancialInstitution_logo'
         website:
           description: Website of the financial institution.
           title: website
@@ -1100,13 +1091,13 @@ components:
         country_codes:
           description: List of country codes supported by this institution
           items:
-            $ref: "#/components/schemas/CountryCode"
+            $ref: '#/components/schemas/CountryCode'
           title: country_codes
           type: array
       required:
-        - country_codes
-        - id
-        - name
+      - country_codes
+      - id
+      - name
       title: FinancialInstitution
       type: object
     Transaction:
@@ -1119,8 +1110,8 @@ components:
         merchant:
           name: name
         category:
-          - category
-          - category
+        - category
+        - category
         type: type
         remote_account_id: remote_account_id
         status: pending
@@ -1153,14 +1144,13 @@ components:
           title: category
           type: array
         merchant:
-          $ref: "#/components/schemas/Transaction_merchant"
+          $ref: '#/components/schemas/Transaction_merchant'
         status:
-          description:
-            The status of the transaction. This will be either posted or
+          description: The status of the transaction. This will be either posted or
             pending.
           enum:
-            - pending
-            - posted
+          - pending
+          - posted
           title: status
           type: string
         type:
@@ -1174,17 +1164,34 @@ components:
         remote_data:
           title: remote_data
       required:
-        - amount
-        - category
-        - date
-        - description
-        - merchant
-        - remote_account_id
-        - remote_data
-        - remote_id
-        - status
-        - type
+      - amount
+      - category
+      - date
+      - description
+      - merchant
+      - remote_account_id
+      - remote_data
+      - remote_id
+      - status
+      - type
       title: Transaction
+      type: object
+    Currency:
+      example:
+        code: code
+        name: name
+      properties:
+        code:
+          description: The ISO-4217 currency code
+          title: code
+          type: string
+        name:
+          description: The name of the currency
+          title: name
+          type: string
+      required:
+      - code
+      title: Currency
       type: object
     GetFinancialConnectionsAccountDetailsRequest:
       example:
@@ -1195,7 +1202,7 @@ components:
           title: access_token
           type: string
       required:
-        - access_token
+      - access_token
       title: GetFinancialConnectionsAccountDetailsRequest
       type: object
     FinancialConnectionsAccountDetails:
@@ -1212,10 +1219,10 @@ components:
           title: remote_id
           type: string
         ach:
-          $ref: "#/components/schemas/FinancialConnectionsAccountDetails_ach"
+          $ref: '#/components/schemas/FinancialConnectionsAccountDetails_ach'
       required:
-        - ach
-        - remote_id
+      - ach
+      - remote_id
       title: FinancialConnectionsAccountDetails
       type: object
     GetFinancialConnectionsAccountDetailsResponse:
@@ -1224,37 +1231,36 @@ components:
           id: id
           institution_id: institution_id
         account_details:
-          - remote_id: remote_id
-            ach:
-              wire_routing: wire_routing
-              routing: routing
-              bacs_routing: bacs_routing
-              account: account
-          - remote_id: remote_id
-            ach:
-              wire_routing: wire_routing
-              routing: routing
-              bacs_routing: bacs_routing
-              account: account
+        - remote_id: remote_id
+          ach:
+            wire_routing: wire_routing
+            routing: routing
+            bacs_routing: bacs_routing
+            account: account
+        - remote_id: remote_id
+          ach:
+            wire_routing: wire_routing
+            routing: routing
+            bacs_routing: bacs_routing
+            account: account
         request_id: request_id
       properties:
         account_details:
           items:
-            $ref: "#/components/schemas/FinancialConnectionsAccountDetails"
+            $ref: '#/components/schemas/FinancialConnectionsAccountDetails'
           title: account_details
           type: array
         financial_connection:
-          $ref: "#/components/schemas/FinancialConnectionData"
+          $ref: '#/components/schemas/FinancialConnectionData'
         request_id:
-          description:
-            An identifier that is exclusive to the request and can serve
+          description: An identifier that is exclusive to the request and can serve
             as a means for investigating and resolving issues.
           title: request_id
           type: string
       required:
-        - account_details
-        - financial_connection
-        - request_id
+      - account_details
+      - financial_connection
+      - request_id
       title: GetFinancialConnectionsAccountDetailsResponse
       type: object
     GetFinancialConnectionsOwnersRequest:
@@ -1266,162 +1272,162 @@ components:
           title: access_token
           type: string
       required:
-        - access_token
+      - access_token
       title: GetFinancialConnectionsOwnersRequest
       type: object
     GetFinancialConnectionsOwnersResponse:
       example:
         accounts:
-          - owners:
-              - emails:
-                  - data: data
-                    type: primary
-                    primary: true
-                  - data: data
-                    type: primary
-                    primary: true
-                phone_numbers:
-                  - data: data
-                    type: home
-                    primary: true
-                  - data: data
-                    type: home
-                    primary: true
-                addresses:
-                  - data:
-                      country: country
-                      city: city
-                      street: street
-                      postal_code: postal_code
-                      region: region
-                    primary: true
-                  - data:
-                      country: country
-                      city: city
-                      street: street
-                      postal_code: postal_code
-                      region: region
-                    primary: true
-                names:
-                  - data: data
-                    type: type
-                  - data: data
-                    type: type
-              - emails:
-                  - data: data
-                    type: primary
-                    primary: true
-                  - data: data
-                    type: primary
-                    primary: true
-                phone_numbers:
-                  - data: data
-                    type: home
-                    primary: true
-                  - data: data
-                    type: home
-                    primary: true
-                addresses:
-                  - data:
-                      country: country
-                      city: city
-                      street: street
-                      postal_code: postal_code
-                      region: region
-                    primary: true
-                  - data:
-                      country: country
-                      city: city
-                      street: street
-                      postal_code: postal_code
-                      region: region
-                    primary: true
-                names:
-                  - data: data
-                    type: type
-                  - data: data
-                    type: type
-            request_id: request_id
-            remote_account_id: remote_account_id
-          - owners:
-              - emails:
-                  - data: data
-                    type: primary
-                    primary: true
-                  - data: data
-                    type: primary
-                    primary: true
-                phone_numbers:
-                  - data: data
-                    type: home
-                    primary: true
-                  - data: data
-                    type: home
-                    primary: true
-                addresses:
-                  - data:
-                      country: country
-                      city: city
-                      street: street
-                      postal_code: postal_code
-                      region: region
-                    primary: true
-                  - data:
-                      country: country
-                      city: city
-                      street: street
-                      postal_code: postal_code
-                      region: region
-                    primary: true
-                names:
-                  - data: data
-                    type: type
-                  - data: data
-                    type: type
-              - emails:
-                  - data: data
-                    type: primary
-                    primary: true
-                  - data: data
-                    type: primary
-                    primary: true
-                phone_numbers:
-                  - data: data
-                    type: home
-                    primary: true
-                  - data: data
-                    type: home
-                    primary: true
-                addresses:
-                  - data:
-                      country: country
-                      city: city
-                      street: street
-                      postal_code: postal_code
-                      region: region
-                    primary: true
-                  - data:
-                      country: country
-                      city: city
-                      street: street
-                      postal_code: postal_code
-                      region: region
-                    primary: true
-                names:
-                  - data: data
-                    type: type
-                  - data: data
-                    type: type
-            request_id: request_id
-            remote_account_id: remote_account_id
+        - owners:
+          - emails:
+            - data: data
+              type: primary
+              primary: true
+            - data: data
+              type: primary
+              primary: true
+            phone_numbers:
+            - data: data
+              type: home
+              primary: true
+            - data: data
+              type: home
+              primary: true
+            addresses:
+            - data:
+                country: country
+                city: city
+                street: street
+                postal_code: postal_code
+                region: region
+              primary: true
+            - data:
+                country: country
+                city: city
+                street: street
+                postal_code: postal_code
+                region: region
+              primary: true
+            names:
+            - data: data
+              type: type
+            - data: data
+              type: type
+          - emails:
+            - data: data
+              type: primary
+              primary: true
+            - data: data
+              type: primary
+              primary: true
+            phone_numbers:
+            - data: data
+              type: home
+              primary: true
+            - data: data
+              type: home
+              primary: true
+            addresses:
+            - data:
+                country: country
+                city: city
+                street: street
+                postal_code: postal_code
+                region: region
+              primary: true
+            - data:
+                country: country
+                city: city
+                street: street
+                postal_code: postal_code
+                region: region
+              primary: true
+            names:
+            - data: data
+              type: type
+            - data: data
+              type: type
+          request_id: request_id
+          remote_account_id: remote_account_id
+        - owners:
+          - emails:
+            - data: data
+              type: primary
+              primary: true
+            - data: data
+              type: primary
+              primary: true
+            phone_numbers:
+            - data: data
+              type: home
+              primary: true
+            - data: data
+              type: home
+              primary: true
+            addresses:
+            - data:
+                country: country
+                city: city
+                street: street
+                postal_code: postal_code
+                region: region
+              primary: true
+            - data:
+                country: country
+                city: city
+                street: street
+                postal_code: postal_code
+                region: region
+              primary: true
+            names:
+            - data: data
+              type: type
+            - data: data
+              type: type
+          - emails:
+            - data: data
+              type: primary
+              primary: true
+            - data: data
+              type: primary
+              primary: true
+            phone_numbers:
+            - data: data
+              type: home
+              primary: true
+            - data: data
+              type: home
+              primary: true
+            addresses:
+            - data:
+                country: country
+                city: city
+                street: street
+                postal_code: postal_code
+                region: region
+              primary: true
+            - data:
+                country: country
+                city: city
+                street: street
+                postal_code: postal_code
+                region: region
+              primary: true
+            names:
+            - data: data
+              type: type
+            - data: data
+              type: type
+          request_id: request_id
+          remote_account_id: remote_account_id
       properties:
         accounts:
           items:
-            $ref: "#/components/schemas/GetFinancialConnectionsOwnersResponse_accounts_inner"
+            $ref: '#/components/schemas/GetFinancialConnectionsOwnersResponse_accounts_inner'
           title: accounts
           type: array
       required:
-        - accounts
+      - accounts
       title: GetFinancialConnectionsOwnersResponse
       type: object
     GetFinancialConnectionsAccountsRequest:
@@ -1433,7 +1439,7 @@ components:
           title: access_token
           type: string
       required:
-        - access_token
+      - access_token
       title: GetFinancialConnectionsAccountsRequest
       type: object
     GetFinancialConnectionsAccountsResponse:
@@ -1442,51 +1448,50 @@ components:
           id: id
           institution_id: institution_id
         accounts:
-          - institution:
-              name: name
-            balance:
-              current: 6.027456183070403
-              available: 0.8008281904610115
-              iso_currency_code: iso_currency_code
-              last_updated_date: last_updated_date
-            subtype: null
-            remote_id: remote_id
-            fingerprint: fingerprint
+        - institution:
             name: name
-            type: null
-            mask: mask
-          - institution:
-              name: name
-            balance:
-              current: 6.027456183070403
-              available: 0.8008281904610115
-              iso_currency_code: iso_currency_code
-              last_updated_date: last_updated_date
-            subtype: null
-            remote_id: remote_id
-            fingerprint: fingerprint
+          balance:
+            current: 6.027456183070403
+            available: 0.8008281904610115
+            iso_currency_code: iso_currency_code
+            last_updated_date: last_updated_date
+          subtype: null
+          remote_id: remote_id
+          fingerprint: fingerprint
+          name: name
+          type: null
+          mask: mask
+        - institution:
             name: name
-            type: null
-            mask: mask
+          balance:
+            current: 6.027456183070403
+            available: 0.8008281904610115
+            iso_currency_code: iso_currency_code
+            last_updated_date: last_updated_date
+          subtype: null
+          remote_id: remote_id
+          fingerprint: fingerprint
+          name: name
+          type: null
+          mask: mask
         request_id: request_id
       properties:
         accounts:
           items:
-            $ref: "#/components/schemas/FinancialConnectionsAccount"
+            $ref: '#/components/schemas/FinancialConnectionsAccount'
           title: accounts
           type: array
         financial_connection:
-          $ref: "#/components/schemas/FinancialConnectionData"
+          $ref: '#/components/schemas/FinancialConnectionData'
         request_id:
-          description:
-            An identifier that is exclusive to the request and can serve
+          description: An identifier that is exclusive to the request and can serve
             as a means for investigating and resolving issues.
           title: request_id
           type: string
       required:
-        - accounts
-        - financial_connection
-        - request_id
+      - accounts
+      - financial_connection
+      - request_id
       title: GetFinancialConnectionsAccountsResponse
       type: object
     CreateAssetReportRequest:
@@ -1500,8 +1505,7 @@ components:
           title: access_token
           type: string
         days_requested:
-          description:
-            The maximum integer number of days of history to include in
+          description: The maximum integer number of days of history to include in
             the Asset Report
           maximum: 365
           minimum: 1
@@ -1513,8 +1517,8 @@ components:
           title: include_identity
           type: boolean
       required:
-        - access_token
-        - days_requested
+      - access_token
+      - days_requested
       title: CreateAssetReportRequest
       type: object
     RefreshAssetReportRequest:
@@ -1528,8 +1532,7 @@ components:
           title: access_token
           type: string
         days_requested:
-          description:
-            The maximum integer number of days of history to include in
+          description: The maximum integer number of days of history to include in
             the Asset Report
           maximum: 365
           minimum: 1
@@ -1541,8 +1544,8 @@ components:
           title: include_identity
           type: boolean
       required:
-        - assert_report_token
-        - days_requested
+      - assert_report_token
+      - days_requested
       title: RefreshAssetReportRequest
       type: object
     CreateAssetReportResponse:
@@ -1552,18 +1555,16 @@ components:
         asset_report_id: asset_report_id
       properties:
         asset_report_token:
-          description:
-            A token that can be provided to endpoints such as /asset_report
+          description: A token that can be provided to endpoints such as /asset_report
             or /asset_report/pdf to fetch an Asset Report.
           title: asset_report_token
           type: string
         asset_report_id:
-          description: "A unique ID identifying an Asset Report. "
+          description: 'A unique ID identifying an Asset Report. '
           title: asset_report_id
           type: string
         request_id:
-          description:
-            An identifier that is exclusive to the request and can serve
+          description: An identifier that is exclusive to the request and can serve
             as a means for investigating and resolving issues.
           title: request_id
           type: string
@@ -1578,7 +1579,7 @@ components:
           title: asset_report_token
           type: string
       required:
-        - asset_report_token
+      - asset_report_token
       title: GetAssetReportRequest
       type: object
     GetAssetReportResponse:
@@ -1586,215 +1587,214 @@ components:
         report:
           date_generated: date_generated
           warnings:
-            - code: code
-              data:
-                aggregator: null
-                warnings:
-                  - code: code
-                    details: details
-                    source: internal
-                    title: title
-                    type: type
-                  - code: code
-                    details: details
-                    source: internal
-                    title: title
-                    type: type
-              details: details
-              source: internal
-              title: title
-              type: type
-            - code: code
-              data:
-                aggregator: null
-                warnings:
-                  - code: code
-                    details: details
-                    source: internal
-                    title: title
-                    type: type
-                  - code: code
-                    details: details
-                    source: internal
-                    title: title
-                    type: type
-              details: details
-              source: internal
-              title: title
-              type: type
+          - code: code
+            data:
+              aggregator: null
+              warnings:
+              - code: code
+                details: details
+                source: internal
+                title: title
+                type: type
+              - code: code
+                details: details
+                source: internal
+                title: title
+                type: type
+            details: details
+            source: internal
+            title: title
+            type: type
+          - code: code
+            data:
+              aggregator: null
+              warnings:
+              - code: code
+                details: details
+                source: internal
+                title: title
+                type: type
+              - code: code
+                details: details
+                source: internal
+                title: title
+                type: type
+            details: details
+            source: internal
+            title: title
+            type: type
           client_report_id: client_report_id
           accounts:
-            - balances:
-                current: 1.4658129805029452
-                available: 6.027456183070403
-                iso_currency_code: iso_currency_code
-              historical_balances:
-                - date: date
-                  current: 5.962133916683182
-                  iso_currency_code: iso_currency_code
-                - date: date
-                  current: 5.962133916683182
-                  iso_currency_code: iso_currency_code
-              owners:
-                - emails:
-                    - data: data
-                      type: primary
-                      primary: true
-                    - data: data
-                      type: primary
-                      primary: true
-                  phone_numbers:
-                    - data: data
-                      type: home
-                      primary: true
-                    - data: data
-                      type: home
-                      primary: true
-                  addresses:
-                    - data:
-                        country: country
-                        city: city
-                        street: street
-                        postal_code: postal_code
-                        region: region
-                      primary: true
-                    - data:
-                        country: country
-                        city: city
-                        street: street
-                        postal_code: postal_code
-                        region: region
-                      primary: true
-                  names:
-                    - data: data
-                      type: type
-                    - data: data
-                      type: type
-                - emails:
-                    - data: data
-                      type: primary
-                      primary: true
-                    - data: data
-                      type: primary
-                      primary: true
-                  phone_numbers:
-                    - data: data
-                      type: home
-                      primary: true
-                    - data: data
-                      type: home
-                      primary: true
-                  addresses:
-                    - data:
-                        country: country
-                        city: city
-                        street: street
-                        postal_code: postal_code
-                        region: region
-                      primary: true
-                    - data:
-                        country: country
-                        city: city
-                        street: street
-                        postal_code: postal_code
-                        region: region
-                      primary: true
-                  names:
-                    - data: data
-                      type: type
-                    - data: data
-                      type: type
-              remote_account_id: remote_account_id
-            - balances:
-                current: 1.4658129805029452
-                available: 6.027456183070403
-                iso_currency_code: iso_currency_code
-              historical_balances:
-                - date: date
-                  current: 5.962133916683182
-                  iso_currency_code: iso_currency_code
-                - date: date
-                  current: 5.962133916683182
-                  iso_currency_code: iso_currency_code
-              owners:
-                - emails:
-                    - data: data
-                      type: primary
-                      primary: true
-                    - data: data
-                      type: primary
-                      primary: true
-                  phone_numbers:
-                    - data: data
-                      type: home
-                      primary: true
-                    - data: data
-                      type: home
-                      primary: true
-                  addresses:
-                    - data:
-                        country: country
-                        city: city
-                        street: street
-                        postal_code: postal_code
-                        region: region
-                      primary: true
-                    - data:
-                        country: country
-                        city: city
-                        street: street
-                        postal_code: postal_code
-                        region: region
-                      primary: true
-                  names:
-                    - data: data
-                      type: type
-                    - data: data
-                      type: type
-                - emails:
-                    - data: data
-                      type: primary
-                      primary: true
-                    - data: data
-                      type: primary
-                      primary: true
-                  phone_numbers:
-                    - data: data
-                      type: home
-                      primary: true
-                    - data: data
-                      type: home
-                      primary: true
-                  addresses:
-                    - data:
-                        country: country
-                        city: city
-                        street: street
-                        postal_code: postal_code
-                        region: region
-                      primary: true
-                    - data:
-                        country: country
-                        city: city
-                        street: street
-                        postal_code: postal_code
-                        region: region
-                      primary: true
-                  names:
-                    - data: data
-                      type: type
-                    - data: data
-                      type: type
-              remote_account_id: remote_account_id
+          - balances:
+              current: 1.4658129805029452
+              available: 6.027456183070403
+              iso_currency_code: iso_currency_code
+            historical_balances:
+            - date: date
+              current: 5.962133916683182
+              iso_currency_code: iso_currency_code
+            - date: date
+              current: 5.962133916683182
+              iso_currency_code: iso_currency_code
+            owners:
+            - emails:
+              - data: data
+                type: primary
+                primary: true
+              - data: data
+                type: primary
+                primary: true
+              phone_numbers:
+              - data: data
+                type: home
+                primary: true
+              - data: data
+                type: home
+                primary: true
+              addresses:
+              - data:
+                  country: country
+                  city: city
+                  street: street
+                  postal_code: postal_code
+                  region: region
+                primary: true
+              - data:
+                  country: country
+                  city: city
+                  street: street
+                  postal_code: postal_code
+                  region: region
+                primary: true
+              names:
+              - data: data
+                type: type
+              - data: data
+                type: type
+            - emails:
+              - data: data
+                type: primary
+                primary: true
+              - data: data
+                type: primary
+                primary: true
+              phone_numbers:
+              - data: data
+                type: home
+                primary: true
+              - data: data
+                type: home
+                primary: true
+              addresses:
+              - data:
+                  country: country
+                  city: city
+                  street: street
+                  postal_code: postal_code
+                  region: region
+                primary: true
+              - data:
+                  country: country
+                  city: city
+                  street: street
+                  postal_code: postal_code
+                  region: region
+                primary: true
+              names:
+              - data: data
+                type: type
+              - data: data
+                type: type
+            remote_account_id: remote_account_id
+          - balances:
+              current: 1.4658129805029452
+              available: 6.027456183070403
+              iso_currency_code: iso_currency_code
+            historical_balances:
+            - date: date
+              current: 5.962133916683182
+              iso_currency_code: iso_currency_code
+            - date: date
+              current: 5.962133916683182
+              iso_currency_code: iso_currency_code
+            owners:
+            - emails:
+              - data: data
+                type: primary
+                primary: true
+              - data: data
+                type: primary
+                primary: true
+              phone_numbers:
+              - data: data
+                type: home
+                primary: true
+              - data: data
+                type: home
+                primary: true
+              addresses:
+              - data:
+                  country: country
+                  city: city
+                  street: street
+                  postal_code: postal_code
+                  region: region
+                primary: true
+              - data:
+                  country: country
+                  city: city
+                  street: street
+                  postal_code: postal_code
+                  region: region
+                primary: true
+              names:
+              - data: data
+                type: type
+              - data: data
+                type: type
+            - emails:
+              - data: data
+                type: primary
+                primary: true
+              - data: data
+                type: primary
+                primary: true
+              phone_numbers:
+              - data: data
+                type: home
+                primary: true
+              - data: data
+                type: home
+                primary: true
+              addresses:
+              - data:
+                  country: country
+                  city: city
+                  street: street
+                  postal_code: postal_code
+                  region: region
+                primary: true
+              - data:
+                  country: country
+                  city: city
+                  street: street
+                  postal_code: postal_code
+                  region: region
+                primary: true
+              names:
+              - data: data
+                type: type
+              - data: data
+                type: type
+            remote_account_id: remote_account_id
           asset_report_id: asset_report_id
           days_requested: 0
         request_id: request_id
       properties:
         report:
-          $ref: "#/components/schemas/GetAssetReportResponse_report"
+          $ref: '#/components/schemas/GetAssetReportResponse_report'
         request_id:
-          description:
-            An identifier that is exclusive to the request and can serve
+          description: An identifier that is exclusive to the request and can serve
             as a means for investigating and resolving issues.
           title: request_id
           type: string
@@ -1809,78 +1809,77 @@ components:
           title: access_token
           type: string
       required:
-        - access_token
+      - access_token
       title: GetFinancialConnectionsBalanceRequest
       type: object
     GetFinancialConnectionsBalanceResponse:
       example:
         balances:
-          - current: 6.027456183070403
-            available: 0.8008281904610115
-            iso_currency_code: iso_currency_code
-            last_updated_date: last_updated_date
-            remote_account_id: remote_account_id
-          - current: 6.027456183070403
-            available: 0.8008281904610115
-            iso_currency_code: iso_currency_code
-            last_updated_date: last_updated_date
-            remote_account_id: remote_account_id
+        - current: 6.027456183070403
+          available: 0.8008281904610115
+          iso_currency_code: iso_currency_code
+          last_updated_date: last_updated_date
+          remote_account_id: remote_account_id
+        - current: 6.027456183070403
+          available: 0.8008281904610115
+          iso_currency_code: iso_currency_code
+          last_updated_date: last_updated_date
+          remote_account_id: remote_account_id
         request_id: request_id
       properties:
         balances:
           items:
-            $ref: "#/components/schemas/FinancialConnectionsAccountBalance"
+            $ref: '#/components/schemas/FinancialConnectionsAccountBalance'
           title: balances
           type: array
         request_id:
-          description:
-            An identifier that is exclusive to the request and can serve
+          description: An identifier that is exclusive to the request and can serve
             as a means for investigating and resolving issues.
           title: request_id
           type: string
       required:
-        - balances
-        - request_id
+      - balances
+      - request_id
       title: GetFinancialConnectionsBalanceResponse
       type: object
     GetEntityResponse:
       example:
         aggregators:
-          - null
-          - null
+        - null
+        - null
         financial_connections:
-          - connection_status: connected
-            aggregator: null
-            teller:
-              access_token: access_token
-              enrollment_id: enrollment_id
-            id: id
-            mx:
-              member_guid: member_guid
-              user_guid: user_guid
-            connection_status_updated_at: connection_status_updated_at
-            is_oauth: true
-            plaid:
-              access_token: access_token
-              item_id: item_id
-          - connection_status: connected
-            aggregator: null
-            teller:
-              access_token: access_token
-              enrollment_id: enrollment_id
-            id: id
-            mx:
-              member_guid: member_guid
-              user_guid: user_guid
-            connection_status_updated_at: connection_status_updated_at
-            is_oauth: true
-            plaid:
-              access_token: access_token
-              item_id: item_id
+        - connection_status: connected
+          aggregator: null
+          teller:
+            access_token: access_token
+            enrollment_id: enrollment_id
+          id: id
+          mx:
+            member_guid: member_guid
+            user_guid: user_guid
+          connection_status_updated_at: connection_status_updated_at
+          is_oauth: true
+          plaid:
+            access_token: access_token
+            item_id: item_id
+        - connection_status: connected
+          aggregator: null
+          teller:
+            access_token: access_token
+            enrollment_id: enrollment_id
+          id: id
+          mx:
+            member_guid: member_guid
+            user_guid: user_guid
+          connection_status_updated_at: connection_status_updated_at
+          is_oauth: true
+          plaid:
+            access_token: access_token
+            item_id: item_id
         id: id
         institution_ids:
-          - institution_ids
-          - institution_ids
+        - institution_ids
+        - institution_ids
         request_id: request_id
         email: email
       properties:
@@ -1895,14 +1894,13 @@ components:
         aggregators:
           description: These will force the user to connect through all of these aggregators
           items:
-            $ref: "#/components/schemas/Aggregator"
+            $ref: '#/components/schemas/Aggregator'
           minItems: 1
           title: aggregators
           type: array
         institution_ids:
           items:
-            description:
-              This will make the 'aggregators' field only apply to this
+            description: This will make the 'aggregators' field only apply to this
               list of institution ids.
             type: string
           title: institution_ids
@@ -1910,29 +1908,28 @@ components:
         financial_connections:
           description: Data needed to query data from the various aggregators
           items:
-            $ref: "#/components/schemas/FinancialConnectionDetails"
+            $ref: '#/components/schemas/FinancialConnectionDetails'
           title: financial_connections
           type: array
         request_id:
-          description:
-            An identifier that is exclusive to the request and can serve
+          description: An identifier that is exclusive to the request and can serve
             as a means for investigating and resolving issues.
           title: request_id
           type: string
       required:
-        - financial_connections
-        - id
-        - request_id
+      - financial_connections
+      - id
+      - request_id
       title: GetEntityResponse
       type: object
     UpdateEntityRequest:
       example:
         aggregators:
-          - null
-          - null
+        - null
+        - null
         institution_ids:
-          - institution_ids
-          - institution_ids
+        - institution_ids
+        - institution_ids
         email: email
       properties:
         email:
@@ -1942,14 +1939,13 @@ components:
         aggregators:
           description: These will force the user to connect through all of these aggregators
           items:
-            $ref: "#/components/schemas/Aggregator"
+            $ref: '#/components/schemas/Aggregator'
           minItems: 1
           title: aggregators
           type: array
         institution_ids:
           items:
-            description:
-              This will make the 'aggregators' field only apply to this
+            description: This will make the 'aggregators' field only apply to this
               list of institution ids.
             type: string
           title: institution_ids
@@ -1959,12 +1955,12 @@ components:
     UpdateEntityResponse:
       example:
         aggregators:
-          - null
-          - null
+        - null
+        - null
         id: id
         institution_ids:
-          - institution_ids
-          - institution_ids
+        - institution_ids
+        - institution_ids
         request_id: request_id
         email: email
       properties:
@@ -1979,21 +1975,19 @@ components:
         aggregators:
           description: These will force the user to connect through all of these aggregators
           items:
-            $ref: "#/components/schemas/Aggregator"
+            $ref: '#/components/schemas/Aggregator'
           minItems: 1
           title: aggregators
           type: array
         institution_ids:
           items:
-            description:
-              This will make the 'aggregators' field only apply to this
+            description: This will make the 'aggregators' field only apply to this
               list of institution ids.
             type: string
           title: institution_ids
           type: array
         request_id:
-          description:
-            An identifier that is exclusive to the request and can serve
+          description: An identifier that is exclusive to the request and can serve
             as a means for investigating and resolving issues.
           title: request_id
           type: string
@@ -2002,12 +1996,12 @@ components:
     CreateEntityRequest:
       example:
         aggregators:
-          - null
-          - null
+        - null
+        - null
         id: id
         institution_ids:
-          - institution_ids
-          - institution_ids
+        - institution_ids
+        - institution_ids
         email: email
       properties:
         id:
@@ -2021,14 +2015,13 @@ components:
         aggregators:
           description: These will force the user to connect through all of these aggregators
           items:
-            $ref: "#/components/schemas/Aggregator"
+            $ref: '#/components/schemas/Aggregator'
           minItems: 1
           title: aggregators
           type: array
         institution_ids:
           items:
-            description:
-              This will make the 'aggregators' field only apply to this
+            description: This will make the 'aggregators' field only apply to this
               list of institution ids.
             type: string
           title: institution_ids
@@ -2038,12 +2031,12 @@ components:
     CreateEntityResponse:
       example:
         aggregators:
-          - null
-          - null
+        - null
+        - null
         id: id
         institution_ids:
-          - institution_ids
-          - institution_ids
+        - institution_ids
+        - institution_ids
         request_id: request_id
         email: email
       properties:
@@ -2058,21 +2051,19 @@ components:
         aggregators:
           description: These will force the user to connect through all of these aggregators
           items:
-            $ref: "#/components/schemas/Aggregator"
+            $ref: '#/components/schemas/Aggregator'
           minItems: 1
           title: aggregators
           type: array
         institution_ids:
           items:
-            description:
-              This will make the 'aggregators' field only apply to this
+            description: This will make the 'aggregators' field only apply to this
               list of institution ids.
             type: string
           title: institution_ids
           type: array
         request_id:
-          description:
-            An identifier that is exclusive to the request and can serve
+          description: An identifier that is exclusive to the request and can serve
             as a means for investigating and resolving issues.
           title: request_id
           type: string
@@ -2083,8 +2074,7 @@ components:
         public_token: public_token
       properties:
         public_token:
-          description:
-            The public token created after a user connects with their financial
+          description: The public token created after a user connects with their financial
             institution
           title: public_token
           type: string
@@ -2101,21 +2091,19 @@ components:
           title: access_token
           type: string
         financial_connection_id:
-          description:
-            The id of the new financial connection. Every webhook will
+          description: The id of the new financial connection. Every webhook will
             be sent with this id.
           title: financial_connection_id
           type: string
         request_id:
-          description:
-            An identifier that is exclusive to the request and can serve
+          description: An identifier that is exclusive to the request and can serve
             as a means for investigating and resolving issues.
           title: request_id
           type: string
       required:
-        - access_token
-        - financial_connection_id
-        - request_id
+      - access_token
+      - financial_connection_id
+      - request_id
       title: ExchangeFinancialConnectionsPublicTokenResponse
       type: object
     SyncFinancialConnectionsDataRequest:
@@ -2131,8 +2119,7 @@ components:
           title: message
           type: string
         request_id:
-          description:
-            An identifier that is exclusive to the request and can serve
+          description: An identifier that is exclusive to the request and can serve
             as a means for investigating and resolving issues.
           title: request_id
           type: string
@@ -2148,64 +2135,61 @@ components:
             format: png
             type: base64
           country_codes:
-            - null
-            - null
+          - null
+          - null
           id: id
         request_id: request_id
       properties:
         financial_institution:
-          $ref: "#/components/schemas/FinancialInstitution"
+          $ref: '#/components/schemas/FinancialInstitution'
         request_id:
-          description:
-            An identifier that is exclusive to the request and can serve
+          description: An identifier that is exclusive to the request and can serve
             as a means for investigating and resolving issues.
           title: request_id
           type: string
       required:
-        - financial_institution
-        - request_id
+      - financial_institution
+      - request_id
       title: GetFinancialInstitutionResponse
       type: object
     MigrateFinancialConnectionsTokenRequest:
       properties:
         connection_data:
-          $ref: "#/components/schemas/MigrateFinancialConnectionsAggregatorConnectionData"
+          $ref: '#/components/schemas/MigrateFinancialConnectionsAggregatorConnectionData'
         aggregator:
           description: The aggregator being migrated (either 'plaid' or 'mx').
           enum:
-            - plaid
-            - mx
+          - plaid
+          - mx
           type: string
         entity:
-          $ref: "#/components/schemas/MigrateFinancialConnectionsTokenRequest_entity"
+          $ref: '#/components/schemas/MigrateFinancialConnectionsTokenRequest_entity'
         fuse_products:
-          description:
-            A list of Fuse products that the migrated connection will have
+          description: A list of Fuse products that the migrated connection will have
             access to.
           items:
-            $ref: "#/components/schemas/Product"
+            $ref: '#/components/schemas/Product'
           type: array
       required:
-        - aggregator
-        - connection_data
-        - entity
-        - fuse_products
+      - aggregator
+      - connection_data
+      - entity
+      - fuse_products
       type: object
     MigrateFinancialConnectionsAggregatorConnectionData:
-      description:
-        The input data for the financial connections to be migrated into
+      description: The input data for the financial connections to be migrated into
         the unified Fuse API.
       properties:
         plaid:
-          $ref: "#/components/schemas/MigrateFinancialConnectionsAggregatorConnectionData_plaid"
+          $ref: '#/components/schemas/MigrateFinancialConnectionsAggregatorConnectionData_plaid'
         mx:
-          $ref: "#/components/schemas/MigrateFinancialConnectionsAggregatorConnectionData_mx"
+          $ref: '#/components/schemas/MigrateFinancialConnectionsAggregatorConnectionData_mx'
       title: MigrateFinancialConnectionsAggregatorConnectionData
       type: object
     MigrateFinancialConnectionsTokenResponse:
       properties:
         connection_data:
-          $ref: "#/components/schemas/MigrateFinancialConnectionsAggregatorConnectionData"
+          $ref: '#/components/schemas/MigrateFinancialConnectionsAggregatorConnectionData'
         fuse_access_token:
           description: Fuse access token for the fuse connection
           type: string
@@ -2213,14 +2197,13 @@ components:
           description: Financial connection id for the fuse connection
           type: string
         request_id:
-          description:
-            An identifier that is exclusive to the request and can serve
+          description: An identifier that is exclusive to the request and can serve
             as a means for investigating and resolving issues.
           type: string
       required:
-        - connection_data
-        - fuse_access_token
-        - fuse_financial_connection_id
+      - connection_data
+      - fuse_access_token
+      - fuse_financial_connection_id
       type: object
     DeleteFinancialConnectionResponse:
       example:
@@ -2237,15 +2220,14 @@ components:
           title: access_token
           type: string
         request_id:
-          description:
-            An identifier that is exclusive to the request and can serve
+          description: An identifier that is exclusive to the request and can serve
             as a means for investigating and resolving issues.
           title: request_id
           type: string
       required:
-        - access_token
-        - financial_connection_id
-        - request_id
+      - access_token
+      - financial_connection_id
+      - request_id
       title: DeleteFinancialConnectionResponse
       type: object
     GetFinancialConnectionResponse:
@@ -2268,16 +2250,15 @@ components:
         request_id: request_id
       properties:
         financial_connection:
-          $ref: "#/components/schemas/FinancialConnectionDetails"
+          $ref: '#/components/schemas/FinancialConnectionDetails'
         request_id:
-          description:
-            An identifier that is exclusive to the request and can serve
+          description: An identifier that is exclusive to the request and can serve
             as a means for investigating and resolving issues.
           title: request_id
           type: string
       required:
-        - financial_connection
-        - request_id
+      - financial_connection
+      - request_id
       title: GetFinancialConnectionResponse
       type: object
     GetInvestmentHoldingsRequest:
@@ -2285,17 +2266,17 @@ components:
         access_token: access_token
         options:
           remote_account_ids:
-            - remote_account_ids
-            - remote_account_ids
+          - remote_account_ids
+          - remote_account_ids
       properties:
         access_token:
           description: The access token of the financial institution connection
           title: access_token
           type: string
         options:
-          $ref: "#/components/schemas/GetInvestmentHoldingsRequest_options"
+          $ref: '#/components/schemas/GetInvestmentHoldingsRequest_options'
       required:
-        - access_token
+      - access_token
       title: GetInvestmentHoldingsRequest
       type: object
     GetInvestmentTransactionsRequest:
@@ -2305,8 +2286,8 @@ components:
         records_per_page: 64
         options:
           remote_account_ids:
-            - remote_account_ids
-            - remote_account_ids
+          - remote_account_ids
+          - remote_account_ids
         page: 1
         start_date: start_date
       properties:
@@ -2315,14 +2296,12 @@ components:
           title: access_token
           type: string
         start_date:
-          description:
-            The earliest date for which data should be returned. Dates
+          description: The earliest date for which data should be returned. Dates
             should be formatted as YYYY-MM-DD.
           title: start_date
           type: string
         end_date:
-          description:
-            The latest date for which data should be returned. Dates should
+          description: The latest date for which data should be returned. Dates should
             be formatted as YYYY-MM-DD.
           title: end_date
           type: string
@@ -2339,9 +2318,9 @@ components:
           title: records_per_page
           type: integer
         options:
-          $ref: "#/components/schemas/GetInvestmentTransactionsRequest_options"
+          $ref: '#/components/schemas/GetInvestmentTransactionsRequest_options'
       required:
-        - access_token
+      - access_token
       title: GetInvestmentTransactionsRequest
       type: object
     FinancialConnectionsHolding:
@@ -2356,6 +2335,7 @@ components:
           name: name
           currency:
             code: code
+            name: name
           exchange:
             mic_code: mic_code
           sedol: sedol
@@ -2382,81 +2362,26 @@ components:
           title: quantity
           type: number
         institution_price:
-          description:
-            The price of the security as provided by the financial institution
+          description: The price of the security as provided by the financial institution
             managing the holding.
           title: institution_price
           type: number
         security:
-          $ref: "#/components/schemas/FinancialConnectionsInvestmentSecurity"
+          $ref: '#/components/schemas/FinancialConnectionsInvestmentSecurity'
       required:
-        - cost_basis
-        - institution_price
-        - quantity
-        - remote_account_id
-        - security
-        - value
+      - cost_basis
+      - institution_price
+      - quantity
+      - remote_account_id
+      - security
+      - value
       title: FinancialConnectionsHolding
-      type: object
-    FinancialConnectionsInvestmentAccount:
-      example:
-        institution:
-          name: name
-        balance:
-          current: 6.027456183070403
-          available: 0.8008281904610115
-          iso_currency_code: iso_currency_code
-          last_updated_date: last_updated_date
-        last_four: last_four
-        subtype: subtype
-        remote_id: remote_id
-        fingerprint: fingerprint
-        name: name
-        type: type
-      properties:
-        remote_id:
-          description: "Remote Id of the account, ie Plaid or Teller account id"
-          title: remote_id
-          type: string
-        fingerprint:
-          description:
-            "Uniquely identifies this account across all accounts associated\
-            \ with your organization. See more information here: https://letsfuse.readme.io/docs/duplicate-accounts"
-          title: fingerprint
-          type: string
-        institution:
-          $ref: "#/components/schemas/FinancialConnectionsAccount_institution"
-        last_four:
-          description: The last four digits of the account number.
-          title: last_four
-          type: string
-        name:
-          description: "The account's name, ie 'My Checking'"
-          title: name
-          type: string
-        type:
-          description: The account's type e.g depository.
-          title: type
-          type: string
-        subtype:
-          description: The account's subtype e.g checking
-          title: subtype
-          type: string
-        balance:
-          $ref: "#/components/schemas/FinancialConnectionsInvestmentAccount_balance"
-      required:
-        - balance
-        - fingerprint
-        - name
-        - remote_id
-        - type
-      title: FinancialConnectionsInvestmentAccount
       type: object
     FinancialConnectionsInvestmentTransaction:
       example:
         date: 2000-01-23T04:56:07.000+00:00
-        amount: 1.4658129805029452
-        fees: 5.962133916683182
+        amount: 0.8008281904610115
+        fees: 6.027456183070403
         security:
           symbol: symbol
           cusip: cusip
@@ -2465,19 +2390,17 @@ components:
           name: name
           currency:
             code: code
+            name: name
           exchange:
             mic_code: mic_code
           sedol: sedol
           type: type
           isin: isin
-        quantity: 5.637376656633329
-        price: 2.3021358869347655
+        quantity: 1.4658129805029452
+        price: 5.962133916683182
         remote_id: remote_id
         account_name: account_name
         description: description
-        currency:
-          code: code
-          name: name
         type: type
         remote_account_id: remote_account_id
       properties:
@@ -2497,8 +2420,6 @@ components:
           description: The amount of the investment transaction
           title: amount
           type: number
-        currency:
-          $ref: "#/components/schemas/FinancialConnectionsInvestmentTransaction_currency"
         description:
           description: A description of the investment transaction
           title: description
@@ -2513,8 +2434,7 @@ components:
           title: date
           type: string
         type:
-          description:
-            "The type of the investment transaction (e.g., 'buy', 'sell',\
+          description: "The type of the investment transaction (e.g., 'buy', 'sell',\
             \ 'dividend')"
           title: type
           type: string
@@ -2527,19 +2447,19 @@ components:
           title: price
           type: number
         security:
-          $ref: "#/components/schemas/FinancialConnectionsInvestmentSecurity"
+          $ref: '#/components/schemas/FinancialConnectionsInvestmentSecurity'
       required:
-        - amount
-        - currency
-        - date
-        - description
-        - fees
-        - price
-        - quantity
-        - remote_account_id
-        - remote_id
-        - security
-        - type
+      - amount
+      - currency
+      - date
+      - description
+      - fees
+      - price
+      - quantity
+      - remote_account_id
+      - remote_id
+      - security
+      - type
       title: FinancialConnectionsInvestmentTransaction
       type: object
     FinancialConnectionsInvestmentSecurity:
@@ -2551,6 +2471,7 @@ components:
         name: name
         currency:
           code: code
+          name: name
         exchange:
           mic_code: mic_code
         sedol: sedol
@@ -2558,44 +2479,38 @@ components:
         isin: isin
       properties:
         remote_id:
-          description:
-            "Remote Id of the security, ie Plaid or Snaptrade security\
+          description: "Remote Id of the security, ie Plaid or Snaptrade security\
             \ id"
           title: remote_id
           type: string
         symbol:
-          description:
-            "The trading symbol for publicly traded securities, or a short\
+          description: "The trading symbol for publicly traded securities, or a short\
             \ identifier if available."
           title: symbol
           type: string
         isin:
-          description:
-            The International Securities Identification Number (ISIN) uniquely
+          description: The International Securities Identification Number (ISIN) uniquely
             identifies the security.
           title: isin
           type: string
         sedol:
-          description:
-            "The Stock Exchange Daily Official List (SEDOL) code uniquely\
+          description: "The Stock Exchange Daily Official List (SEDOL) code uniquely\
             \ identifies the security, primarily used in the United Kingdom and Ireland."
           title: sedol
           type: string
         cusip:
-          description:
-            "The Committee on Uniform Securities Identification Procedures\
+          description: "The Committee on Uniform Securities Identification Procedures\
             \ (CUSIP) number uniquely identifies the security, primarily used in the\
             \ United States and Canada."
           title: cusip
           type: string
         close_price:
-          description:
-            The closing price of the security at the end of the most recent
+          description: The closing price of the security at the end of the most recent
             trading day.
           title: close_price
           type: number
         currency:
-          $ref: "#/components/schemas/FinancialConnectionsInvestmentSecurity_currency"
+          $ref: '#/components/schemas/Currency'
         name:
           description: "A descriptive name for the security, suitable for display."
           title: name
@@ -2605,239 +2520,205 @@ components:
           title: type
           type: string
         exchange:
-          $ref: "#/components/schemas/FinancialConnectionsInvestmentSecurity_exchange"
+          $ref: '#/components/schemas/FinancialConnectionsInvestmentSecurity_exchange'
       required:
-        - close_price
-        - currency
-        - remote_id
-        - symbol
+      - close_price
+      - currency
+      - remote_id
+      - symbol
       title: FinancialConnectionsInvestmentSecurity
       type: object
     GetInvestmentHoldingsResponse:
       example:
         accounts:
-          - institution:
-              name: name
-            balance:
-              current: 6.027456183070403
-              available: 0.8008281904610115
-              iso_currency_code: iso_currency_code
-              last_updated_date: last_updated_date
-            subtype: null
-            remote_id: remote_id
-            fingerprint: fingerprint
+        - institution:
             name: name
-            type: null
-            mask: mask
-          - institution:
-              name: name
-            balance:
-              current: 6.027456183070403
-              available: 0.8008281904610115
-              iso_currency_code: iso_currency_code
-              last_updated_date: last_updated_date
-            subtype: null
-            remote_id: remote_id
-            fingerprint: fingerprint
+          balance:
+            current: 6.027456183070403
+            available: 0.8008281904610115
+            iso_currency_code: iso_currency_code
+            last_updated_date: last_updated_date
+          subtype: null
+          remote_id: remote_id
+          fingerprint: fingerprint
+          name: name
+          type: null
+          mask: mask
+        - institution:
             name: name
-            type: null
-            mask: mask
+          balance:
+            current: 6.027456183070403
+            available: 0.8008281904610115
+            iso_currency_code: iso_currency_code
+            last_updated_date: last_updated_date
+          subtype: null
+          remote_id: remote_id
+          fingerprint: fingerprint
+          name: name
+          type: null
+          mask: mask
         holdings:
-          - cost_basis: 0.8008281904610115
-            institution_price: 5.962133916683182
-            security:
-              symbol: symbol
-              cusip: cusip
-              close_price: 5.637376656633329
-              remote_id: remote_id
+        - cost_basis: 0.8008281904610115
+          institution_price: 5.962133916683182
+          security:
+            symbol: symbol
+            cusip: cusip
+            close_price: 5.637376656633329
+            remote_id: remote_id
+            name: name
+            currency:
+              code: code
               name: name
-              currency:
-                code: code
-              exchange:
-                mic_code: mic_code
-              sedol: sedol
-              type: type
-              isin: isin
-            quantity: 1.4658129805029452
-            value: 6.027456183070403
-            remote_account_id: remote_account_id
-          - cost_basis: 0.8008281904610115
-            institution_price: 5.962133916683182
-            security:
-              symbol: symbol
-              cusip: cusip
-              close_price: 5.637376656633329
-              remote_id: remote_id
+            exchange:
+              mic_code: mic_code
+            sedol: sedol
+            type: type
+            isin: isin
+          quantity: 1.4658129805029452
+          value: 6.027456183070403
+          remote_account_id: remote_account_id
+        - cost_basis: 0.8008281904610115
+          institution_price: 5.962133916683182
+          security:
+            symbol: symbol
+            cusip: cusip
+            close_price: 5.637376656633329
+            remote_id: remote_id
+            name: name
+            currency:
+              code: code
               name: name
-              currency:
-                code: code
-              exchange:
-                mic_code: mic_code
-              sedol: sedol
-              type: type
-              isin: isin
-            quantity: 1.4658129805029452
-            value: 6.027456183070403
-            remote_account_id: remote_account_id
+            exchange:
+              mic_code: mic_code
+            sedol: sedol
+            type: type
+            isin: isin
+          quantity: 1.4658129805029452
+          value: 6.027456183070403
+          remote_account_id: remote_account_id
         request_id: request_id
       properties:
         accounts:
           items:
-            $ref: "#/components/schemas/FinancialConnectionsAccount"
+            $ref: '#/components/schemas/FinancialConnectionsAccount'
           title: accounts
           type: array
         holdings:
           items:
-            $ref: "#/components/schemas/FinancialConnectionsHolding"
+            $ref: '#/components/schemas/FinancialConnectionsHolding'
           title: holdings
           type: array
         request_id:
-          description:
-            An identifier that is exclusive to the request and can serve
+          description: An identifier that is exclusive to the request and can serve
             as a means for investigating and resolving issues.
           title: request_id
           type: string
       required:
-        - accounts
-        - holdings
-        - request_id
+      - accounts
+      - holdings
+      - request_id
       title: GetInvestmentHoldingsResponse
       type: object
     GetInvestmentTransactionsResponse:
       example:
         accounts:
-          - institution:
-              name: name
-            balance:
-              current: 6.027456183070403
-              available: 0.8008281904610115
-              iso_currency_code: iso_currency_code
-              last_updated_date: last_updated_date
-            last_four: last_four
-            subtype: subtype
-            remote_id: remote_id
-            fingerprint: fingerprint
+        - institution:
             name: name
-            type: type
-          - institution:
-              name: name
-            balance:
-              current: 6.027456183070403
-              available: 0.8008281904610115
-              iso_currency_code: iso_currency_code
-              last_updated_date: last_updated_date
-            last_four: last_four
-            subtype: subtype
-            remote_id: remote_id
-            fingerprint: fingerprint
+          balance:
+            current: 6.027456183070403
+            available: 0.8008281904610115
+            iso_currency_code: iso_currency_code
+            last_updated_date: last_updated_date
+          subtype: null
+          remote_id: remote_id
+          fingerprint: fingerprint
+          name: name
+          type: null
+          mask: mask
+        - institution:
             name: name
-            type: type
+          balance:
+            current: 6.027456183070403
+            available: 0.8008281904610115
+            iso_currency_code: iso_currency_code
+            last_updated_date: last_updated_date
+          subtype: null
+          remote_id: remote_id
+          fingerprint: fingerprint
+          name: name
+          type: null
+          mask: mask
         investment_transactions:
-          - date: 2000-01-23T04:56:07.000+00:00
-            amount: 1.4658129805029452
-            fees: 5.962133916683182
-            security:
-              symbol: symbol
-              cusip: cusip
-              close_price: 5.637376656633329
-              remote_id: remote_id
-              name: name
-              currency:
-                code: code
-              exchange:
-                mic_code: mic_code
-              sedol: sedol
-              type: type
-              isin: isin
-            quantity: 5.637376656633329
-            price: 2.3021358869347655
+        - date: 2000-01-23T04:56:07.000+00:00
+          amount: 0.8008281904610115
+          fees: 6.027456183070403
+          security:
+            symbol: symbol
+            cusip: cusip
+            close_price: 5.637376656633329
             remote_id: remote_id
-            account_name: account_name
-            description: description
+            name: name
             currency:
               code: code
               name: name
+            exchange:
+              mic_code: mic_code
+            sedol: sedol
             type: type
-            remote_account_id: remote_account_id
-          - date: 2000-01-23T04:56:07.000+00:00
-            amount: 1.4658129805029452
-            fees: 5.962133916683182
-            security:
-              symbol: symbol
-              cusip: cusip
-              close_price: 5.637376656633329
-              remote_id: remote_id
-              name: name
-              currency:
-                code: code
-              exchange:
-                mic_code: mic_code
-              sedol: sedol
-              type: type
-              isin: isin
-            quantity: 5.637376656633329
-            price: 2.3021358869347655
+            isin: isin
+          quantity: 1.4658129805029452
+          price: 5.962133916683182
+          remote_id: remote_id
+          account_name: account_name
+          description: description
+          type: type
+          remote_account_id: remote_account_id
+        - date: 2000-01-23T04:56:07.000+00:00
+          amount: 0.8008281904610115
+          fees: 6.027456183070403
+          security:
+            symbol: symbol
+            cusip: cusip
+            close_price: 5.637376656633329
             remote_id: remote_id
-            account_name: account_name
-            description: description
+            name: name
             currency:
               code: code
               name: name
+            exchange:
+              mic_code: mic_code
+            sedol: sedol
             type: type
-            remote_account_id: remote_account_id
+            isin: isin
+          quantity: 1.4658129805029452
+          price: 5.962133916683182
+          remote_id: remote_id
+          account_name: account_name
+          description: description
+          type: type
+          remote_account_id: remote_account_id
         request_id: request_id
-        securities:
-          - symbol: symbol
-            cusip: cusip
-            close_price: 5.637376656633329
-            remote_id: remote_id
-            name: name
-            currency:
-              code: code
-            exchange:
-              mic_code: mic_code
-            sedol: sedol
-            type: type
-            isin: isin
-          - symbol: symbol
-            cusip: cusip
-            close_price: 5.637376656633329
-            remote_id: remote_id
-            name: name
-            currency:
-              code: code
-            exchange:
-              mic_code: mic_code
-            sedol: sedol
-            type: type
-            isin: isin
       properties:
         accounts:
           items:
-            $ref: "#/components/schemas/FinancialConnectionsInvestmentAccount"
+            $ref: '#/components/schemas/FinancialConnectionsAccount'
           title: accounts
           type: array
         investment_transactions:
           items:
-            $ref: "#/components/schemas/FinancialConnectionsInvestmentTransaction"
+            $ref: '#/components/schemas/FinancialConnectionsInvestmentTransaction'
           title: investment_transactions
           type: array
-        securities:
-          items:
-            $ref: "#/components/schemas/FinancialConnectionsInvestmentSecurity"
-          title: securities
-          type: array
         request_id:
-          description:
-            An identifier that is exclusive to the request and can serve
+          description: An identifier that is exclusive to the request and can serve
             as a means for investigating and resolving issues.
           title: request_id
           type: string
       required:
-        - accounts
-        - investment_transactions
-        - request_id
-        - securities
+      - accounts
+      - investment_transactions
+      - request_id
+      - securities
       title: GetInvestmentTransactionsResponse
       type: object
     GetLiabilitiesRequest:
@@ -2849,29 +2730,28 @@ components:
           title: access_token
           type: string
       required:
-        - access_token
+      - access_token
       title: GetLiabilitiesRequest
       type: object
     FinancialConnectionsAccountLiability:
       allOf:
-        - $ref: "#/components/schemas/FinancialConnectionsAccount"
-        - $ref: "#/components/schemas/FinancialConnectionsAccountLiability_allOf"
+      - $ref: '#/components/schemas/FinancialConnectionsAccount'
+      - $ref: '#/components/schemas/FinancialConnectionsAccountLiability_allOf'
       title: FinancialConnectionsAccountLiability
     GetLiabilitiesResponse:
       example:
         liabilities:
-          - null
-          - null
+        - null
+        - null
         request_id: request_id
       properties:
         liabilities:
           items:
-            $ref: "#/components/schemas/FinancialConnectionsAccountLiability"
+            $ref: '#/components/schemas/FinancialConnectionsAccountLiability'
           title: liabilities
           type: array
         request_id:
-          description:
-            An identifier that is exclusive to the request and can serve
+          description: An identifier that is exclusive to the request and can serve
             as a means for investigating and resolving issues.
           title: request_id
           type: string
@@ -2897,10 +2777,9 @@ components:
           title: institution_id
           type: string
         entity:
-          $ref: "#/components/schemas/Entity"
+          $ref: '#/components/schemas/Entity'
         reconnection_url:
-          description:
-            This field is used to provide the user with a link to reconnect
+          description: This field is used to provide the user with a link to reconnect
             their financial account. It may be included in an automated email sent
             by Fuse to the entity's registered email address. It's important to note
             that the reconnection_url should be a valid URL and can only be used once
@@ -2912,20 +2791,19 @@ components:
           title: client_name
           type: string
         session_client_secret:
-          description:
-            The session client secret created from the 'Create session
+          description: The session client secret created from the 'Create session
             client secret' endpoint
           title: session_client_secret
           type: string
         mx:
-          $ref: "#/components/schemas/CreateLinkTokenRequest_mx"
+          $ref: '#/components/schemas/CreateLinkTokenRequest_mx'
         plaid:
-          $ref: "#/components/schemas/CreateLinkTokenRequest_plaid"
+          $ref: '#/components/schemas/CreateLinkTokenRequest_plaid'
       required:
-        - client_name
-        - entity
-        - institution_id
-        - session_client_secret
+      - client_name
+      - entity
+      - institution_id
+      - session_client_secret
       title: CreateLinkTokenRequest
       type: object
     CreateLinkTokenResponse:
@@ -2938,60 +2816,57 @@ components:
           title: link_token
           type: string
         request_id:
-          description:
-            An identifier that is exclusive to the request and can serve
+          description: An identifier that is exclusive to the request and can serve
             as a means for investigating and resolving issues.
           title: request_id
           type: string
       required:
-        - link_token
-        - request_id
+      - link_token
+      - request_id
       title: CreateLinkTokenResponse
       type: object
     CreateSessionRequest:
       example:
         access_token: access_token
         supported_financial_institution_aggregators:
-          - null
-          - null
+        - null
+        - null
         country_codes:
-          - null
-          - null
+        - null
+        - null
         is_web_view: true
         entity:
           name: name
           id: id
           email: email
         products:
-          - null
-          - null
+        - null
+        - null
       properties:
         supported_financial_institution_aggregators:
           items:
-            $ref: "#/components/schemas/Aggregator"
+            $ref: '#/components/schemas/Aggregator'
           minItems: 1
           title: supported_financial_institution_aggregators
           type: array
         products:
           description: List of products that you would like the institutions to support
           items:
-            $ref: "#/components/schemas/Product"
+            $ref: '#/components/schemas/Product'
           minItems: 1
           title: products
           type: array
         country_codes:
-          description:
-            List of country codes that you would like the institutions
+          description: List of country codes that you would like the institutions
             to support
           items:
-            $ref: "#/components/schemas/CountryCode"
+            $ref: '#/components/schemas/CountryCode'
           title: country_codes
           type: array
         entity:
-          $ref: "#/components/schemas/Entity"
+          $ref: '#/components/schemas/Entity'
         access_token:
-          description:
-            The fuse access token for an existing account integration.
+          description: The fuse access token for an existing account integration.
             This will perform the process to reconnect an existing disconnected account.
           title: access_token
           type: string
@@ -3016,15 +2891,14 @@ components:
           title: client_secret
           type: string
         request_id:
-          description:
-            An identifier that is exclusive to the request and can serve
+          description: An identifier that is exclusive to the request and can serve
             as a means for investigating and resolving issues.
           title: request_id
           type: string
       required:
-        - client_secret
-        - expiration
-        - request_id
+      - client_secret
+      - expiration
+      - request_id
       title: CreateSessionResponse
       type: object
     GetFinancialConnectionsTransactionsRequest:
@@ -3040,14 +2914,12 @@ components:
           title: access_token
           type: string
         start_date:
-          description:
-            The earliest date for which data should be returned. Dates
+          description: The earliest date for which data should be returned. Dates
             should be formatted as YYYY-MM-DD.
           title: start_date
           type: string
         end_date:
-          description:
-            The latest date for which data should be returned. Dates should
+          description: The latest date for which data should be returned. Dates should
             be formatted as YYYY-MM-DD.
           title: end_date
           type: string
@@ -3064,50 +2936,50 @@ components:
           title: records_per_page
           type: integer
       required:
-        - access_token
-        - end_date
-        - page
-        - records_per_page
-        - start_date
+      - access_token
+      - end_date
+      - page
+      - records_per_page
+      - start_date
       title: GetFinancialConnectionsTransactionsRequest
       type: object
     GetFinancialConnectionsTransactionsResponse:
       example:
         total_transactions: 6.027456183070403
         transactions:
-          - date: date
-            amount: 0.8008281904610115
-            remote_id: remote_id
-            iso_currency_code: iso_currency_code
-            description: description
-            merchant:
-              name: name
-            category:
-              - category
-              - category
-            type: type
-            remote_account_id: remote_account_id
-            status: pending
-            remote_data: ""
-          - date: date
-            amount: 0.8008281904610115
-            remote_id: remote_id
-            iso_currency_code: iso_currency_code
-            description: description
-            merchant:
-              name: name
-            category:
-              - category
-              - category
-            type: type
-            remote_account_id: remote_account_id
-            status: pending
-            remote_data: ""
+        - date: date
+          amount: 0.8008281904610115
+          remote_id: remote_id
+          iso_currency_code: iso_currency_code
+          description: description
+          merchant:
+            name: name
+          category:
+          - category
+          - category
+          type: type
+          remote_account_id: remote_account_id
+          status: pending
+          remote_data: ""
+        - date: date
+          amount: 0.8008281904610115
+          remote_id: remote_id
+          iso_currency_code: iso_currency_code
+          description: description
+          merchant:
+            name: name
+          category:
+          - category
+          - category
+          type: type
+          remote_account_id: remote_account_id
+          status: pending
+          remote_data: ""
         request_id: request_id
       properties:
         transactions:
           items:
-            $ref: "#/components/schemas/Transaction"
+            $ref: '#/components/schemas/Transaction'
           title: transactions
           type: array
         total_transactions:
@@ -3115,15 +2987,14 @@ components:
           title: total_transactions
           type: number
         request_id:
-          description:
-            An identifier that is exclusive to the request and can serve
+          description: An identifier that is exclusive to the request and can serve
             as a means for investigating and resolving issues.
           title: request_id
           type: string
       required:
-        - request_id
-        - total_transactions
-        - transactions
+      - request_id
+      - total_transactions
+      - transactions
       title: GetFinancialConnectionsTransactionsResponse
       type: object
     SyncTransactionsRequest:
@@ -3137,8 +3008,7 @@ components:
           title: access_token
           type: string
         cursor:
-          description:
-            "The cursor value represents the last update requested. Providing\
+          description: "The cursor value represents the last update requested. Providing\
             \ it will cause the response to only return changes after this update.\
             \ If omitted, the entire history of updates will be returned, starting\
             \ with the first-added transactions on the item."
@@ -3149,111 +3019,106 @@ components:
           title: count
           type: integer
       required:
-        - access_token
+      - access_token
       title: SyncTransactionsRequest
       type: object
     SyncTransactionsResponse:
       example:
         next_cursor: next_cursor
         removed:
-          - transaction_id: transaction_id
-          - transaction_id: transaction_id
+        - transaction_id: transaction_id
+        - transaction_id: transaction_id
         added:
-          - date: date
-            amount: 0.8008281904610115
-            remote_id: remote_id
-            iso_currency_code: iso_currency_code
-            description: description
-            merchant:
-              name: name
-            category:
-              - category
-              - category
-            type: type
-            remote_account_id: remote_account_id
-            status: pending
-            remote_data: ""
-          - date: date
-            amount: 0.8008281904610115
-            remote_id: remote_id
-            iso_currency_code: iso_currency_code
-            description: description
-            merchant:
-              name: name
-            category:
-              - category
-              - category
-            type: type
-            remote_account_id: remote_account_id
-            status: pending
-            remote_data: ""
+        - date: date
+          amount: 0.8008281904610115
+          remote_id: remote_id
+          iso_currency_code: iso_currency_code
+          description: description
+          merchant:
+            name: name
+          category:
+          - category
+          - category
+          type: type
+          remote_account_id: remote_account_id
+          status: pending
+          remote_data: ""
+        - date: date
+          amount: 0.8008281904610115
+          remote_id: remote_id
+          iso_currency_code: iso_currency_code
+          description: description
+          merchant:
+            name: name
+          category:
+          - category
+          - category
+          type: type
+          remote_account_id: remote_account_id
+          status: pending
+          remote_data: ""
         modified:
-          - date: date
-            amount: 0.8008281904610115
-            remote_id: remote_id
-            iso_currency_code: iso_currency_code
-            description: description
-            merchant:
-              name: name
-            category:
-              - category
-              - category
-            type: type
-            remote_account_id: remote_account_id
-            status: pending
-            remote_data: ""
-          - date: date
-            amount: 0.8008281904610115
-            remote_id: remote_id
-            iso_currency_code: iso_currency_code
-            description: description
-            merchant:
-              name: name
-            category:
-              - category
-              - category
-            type: type
-            remote_account_id: remote_account_id
-            status: pending
-            remote_data: ""
+        - date: date
+          amount: 0.8008281904610115
+          remote_id: remote_id
+          iso_currency_code: iso_currency_code
+          description: description
+          merchant:
+            name: name
+          category:
+          - category
+          - category
+          type: type
+          remote_account_id: remote_account_id
+          status: pending
+          remote_data: ""
+        - date: date
+          amount: 0.8008281904610115
+          remote_id: remote_id
+          iso_currency_code: iso_currency_code
+          description: description
+          merchant:
+            name: name
+          category:
+          - category
+          - category
+          type: type
+          remote_account_id: remote_account_id
+          status: pending
+          remote_data: ""
         has_next: true
         request_id: request_id
       properties:
         added:
-          description:
-            Transactions that have been added to the item since `cursor`
+          description: Transactions that have been added to the item since `cursor`
             ordered by ascending last modified time.
           items:
-            $ref: "#/components/schemas/Transaction"
+            $ref: '#/components/schemas/Transaction'
           title: added
           type: array
         modified:
-          description:
-            Transactions that have been modified on the item since `cursor`
+          description: Transactions that have been modified on the item since `cursor`
             ordered by ascending last modified time.
           items:
-            $ref: "#/components/schemas/Transaction"
+            $ref: '#/components/schemas/Transaction'
           title: modified
           type: array
         removed:
-          description:
-            Transactions that have been removed from the item since `cursor`
+          description: Transactions that have been removed from the item since `cursor`
             ordered by ascending last modified time.
           items:
-            $ref: "#/components/schemas/SyncTransactionsResponse_removed_inner"
+            $ref: '#/components/schemas/SyncTransactionsResponse_removed_inner'
           title: removed
           type: array
         next_cursor:
-          description:
-            Cursor used for fetching any future updates after the latest
+          description: Cursor used for fetching any future updates after the latest
             update provided in this response. The cursor obtained after all pages
             have been pulled (indicated by `has_next` being `false`) will be valid
             for at least 1 year. This cursor should be persisted for later calls.
           title: next_cursor
           type: string
         has_next:
-          description:
-            "Represents if more than requested count of transaction updates\
+          description: "Represents if more than requested count of transaction updates\
             \ exist. If true, the additional updates can be fetched by making an additional\
             \ request with `cursor` set to `next_cursor`. If `has_next` is true, it's\
             \ important to pull all available pages, to make it less likely for underlying\
@@ -3261,8 +3126,7 @@ components:
           title: has_next
           type: boolean
         request_id:
-          description:
-            An identifier that is exclusive to the request and can serve
+          description: An identifier that is exclusive to the request and can serve
             as a means for investigating and resolving issues.
           title: request_id
           type: string
@@ -3318,7 +3182,7 @@ components:
         primary: true
       properties:
         data:
-          $ref: "#/components/schemas/FinancialConnectionsOwner_addresses_inner_data"
+          $ref: '#/components/schemas/FinancialConnectionsOwner_addresses_inner_data'
         primary:
           description: Indicating if it is the primary address
           title: primary
@@ -3342,13 +3206,13 @@ components:
         type:
           description: Type of the email
           enum:
-            - primary
-            - secondary
-            - other
+          - primary
+          - secondary
+          - other
           title: type
           type: string
       required:
-        - data
+      - data
       title: FinancialConnectionsOwner_emails_inner
       type: object
     FinancialConnectionsOwner_names_inner:
@@ -3365,7 +3229,7 @@ components:
           title: type
           type: string
       required:
-        - data
+      - data
       title: FinancialConnectionsOwner_names_inner
       type: object
     FinancialConnectionsOwner_phone_numbers_inner:
@@ -3385,22 +3249,22 @@ components:
         type:
           description: Type of the phone number
           enum:
-            - home
-            - work
-            - mobile
+          - home
+          - work
+          - mobile
           title: type
           type: string
       required:
-        - data
+      - data
       title: FinancialConnectionsOwner_phone_numbers_inner
       type: object
     FuseApiError_data:
       properties:
         aggregator:
-          $ref: "#/components/schemas/Aggregator"
+          $ref: '#/components/schemas/Aggregator'
         errors:
           items:
-            $ref: "#/components/schemas/FuseApiError"
+            $ref: '#/components/schemas/FuseApiError'
           title: errors
           type: array
       title: FuseApiError_data
@@ -3427,8 +3291,8 @@ components:
           type: string
         source:
           enum:
-            - internal
-            - aggregator
+          - internal
+          - aggregator
           title: source
           type: string
       title: FuseApiWarning_data_warnings_inner
@@ -3437,22 +3301,22 @@ components:
       example:
         aggregator: null
         warnings:
-          - code: code
-            details: details
-            source: internal
-            title: title
-            type: type
-          - code: code
-            details: details
-            source: internal
-            title: title
-            type: type
+        - code: code
+          details: details
+          source: internal
+          title: title
+          type: type
+        - code: code
+          details: details
+          source: internal
+          title: title
+          type: type
       properties:
         aggregator:
-          $ref: "#/components/schemas/Aggregator"
+          $ref: '#/components/schemas/Aggregator'
         warnings:
           items:
-            $ref: "#/components/schemas/FuseApiWarning_data_warnings_inner"
+            $ref: '#/components/schemas/FuseApiWarning_data_warnings_inner'
           title: warnings
           type: array
       title: FuseApiWarning_data
@@ -3472,8 +3336,8 @@ components:
           title: item_id
           type: string
       required:
-        - access_token
-        - item_id
+      - access_token
+      - item_id
       title: FinancialConnectionDetails_plaid
       type: object
     FinancialConnectionDetails_teller:
@@ -3491,8 +3355,8 @@ components:
           title: enrollment_id
           type: string
       required:
-        - access_token
-        - enrollment_id
+      - access_token
+      - enrollment_id
       title: FinancialConnectionDetails_teller
       type: object
     FinancialConnectionDetails_mx:
@@ -3510,8 +3374,8 @@ components:
           title: member_guid
           type: string
       required:
-        - member_guid
-        - user_guid
+      - member_guid
+      - user_guid
       title: FinancialConnectionDetails_mx
       type: object
     FinancialInstitution_logo:
@@ -3527,22 +3391,22 @@ components:
         type:
           description: Type of the image.
           enum:
-            - base64
-            - url
+          - base64
+          - url
           title: type
           type: string
         format:
           description: "Optional format of the image, if known."
           enum:
-            - png
-            - jpeg
-            - gif
-            - svg+xml
+          - png
+          - jpeg
+          - gif
+          - svg+xml
           title: format
           type: string
       required:
-        - image
-        - type
+      - image
+      - type
       title: FinancialInstitution_logo
       type: object
     Transaction_merchant:
@@ -3583,74 +3447,74 @@ components:
     GetFinancialConnectionsOwnersResponse_accounts_inner:
       example:
         owners:
-          - emails:
-              - data: data
-                type: primary
-                primary: true
-              - data: data
-                type: primary
-                primary: true
-            phone_numbers:
-              - data: data
-                type: home
-                primary: true
-              - data: data
-                type: home
-                primary: true
-            addresses:
-              - data:
-                  country: country
-                  city: city
-                  street: street
-                  postal_code: postal_code
-                  region: region
-                primary: true
-              - data:
-                  country: country
-                  city: city
-                  street: street
-                  postal_code: postal_code
-                  region: region
-                primary: true
-            names:
-              - data: data
-                type: type
-              - data: data
-                type: type
-          - emails:
-              - data: data
-                type: primary
-                primary: true
-              - data: data
-                type: primary
-                primary: true
-            phone_numbers:
-              - data: data
-                type: home
-                primary: true
-              - data: data
-                type: home
-                primary: true
-            addresses:
-              - data:
-                  country: country
-                  city: city
-                  street: street
-                  postal_code: postal_code
-                  region: region
-                primary: true
-              - data:
-                  country: country
-                  city: city
-                  street: street
-                  postal_code: postal_code
-                  region: region
-                primary: true
-            names:
-              - data: data
-                type: type
-              - data: data
-                type: type
+        - emails:
+          - data: data
+            type: primary
+            primary: true
+          - data: data
+            type: primary
+            primary: true
+          phone_numbers:
+          - data: data
+            type: home
+            primary: true
+          - data: data
+            type: home
+            primary: true
+          addresses:
+          - data:
+              country: country
+              city: city
+              street: street
+              postal_code: postal_code
+              region: region
+            primary: true
+          - data:
+              country: country
+              city: city
+              street: street
+              postal_code: postal_code
+              region: region
+            primary: true
+          names:
+          - data: data
+            type: type
+          - data: data
+            type: type
+        - emails:
+          - data: data
+            type: primary
+            primary: true
+          - data: data
+            type: primary
+            primary: true
+          phone_numbers:
+          - data: data
+            type: home
+            primary: true
+          - data: data
+            type: home
+            primary: true
+          addresses:
+          - data:
+              country: country
+              city: city
+              street: street
+              postal_code: postal_code
+              region: region
+            primary: true
+          - data:
+              country: country
+              city: city
+              street: street
+              postal_code: postal_code
+              region: region
+            primary: true
+          names:
+          - data: data
+            type: type
+          - data: data
+            type: type
         request_id: request_id
         remote_account_id: remote_account_id
       properties:
@@ -3660,19 +3524,18 @@ components:
           type: string
         owners:
           items:
-            $ref: "#/components/schemas/FinancialConnectionsOwner"
+            $ref: '#/components/schemas/FinancialConnectionsOwner'
           title: owners
           type: array
         request_id:
-          description:
-            An identifier that is exclusive to the request and can serve
+          description: An identifier that is exclusive to the request and can serve
             as a means for investigating and resolving issues.
           title: request_id
           type: string
       required:
-        - owners
-        - remote_account_id
-        - request_id
+      - owners
+      - remote_account_id
+      - request_id
       title: GetFinancialConnectionsOwnersResponse_accounts_inner
       type: object
     GetAssetReportResponse_report_accounts_inner_balances:
@@ -3702,14 +3565,12 @@ components:
         iso_currency_code: iso_currency_code
       properties:
         date:
-          description:
-            "The date of the calculated historical balance, in an ISO 8601\
+          description: "The date of the calculated historical balance, in an ISO 8601\
             \ format (YYYY-MM-DD)"
           title: date
           type: string
         current:
-          description:
-            "The total amount of funds in the account, calculated from\
+          description: "The total amount of funds in the account, calculated from\
             \ the current balance in the balance object by subtracting inflows and\
             \ adding back outflows according to the posted date of each transaction."
           title: current
@@ -3727,98 +3588,98 @@ components:
           available: 6.027456183070403
           iso_currency_code: iso_currency_code
         historical_balances:
-          - date: date
-            current: 5.962133916683182
-            iso_currency_code: iso_currency_code
-          - date: date
-            current: 5.962133916683182
-            iso_currency_code: iso_currency_code
+        - date: date
+          current: 5.962133916683182
+          iso_currency_code: iso_currency_code
+        - date: date
+          current: 5.962133916683182
+          iso_currency_code: iso_currency_code
         owners:
-          - emails:
-              - data: data
-                type: primary
-                primary: true
-              - data: data
-                type: primary
-                primary: true
-            phone_numbers:
-              - data: data
-                type: home
-                primary: true
-              - data: data
-                type: home
-                primary: true
-            addresses:
-              - data:
-                  country: country
-                  city: city
-                  street: street
-                  postal_code: postal_code
-                  region: region
-                primary: true
-              - data:
-                  country: country
-                  city: city
-                  street: street
-                  postal_code: postal_code
-                  region: region
-                primary: true
-            names:
-              - data: data
-                type: type
-              - data: data
-                type: type
-          - emails:
-              - data: data
-                type: primary
-                primary: true
-              - data: data
-                type: primary
-                primary: true
-            phone_numbers:
-              - data: data
-                type: home
-                primary: true
-              - data: data
-                type: home
-                primary: true
-            addresses:
-              - data:
-                  country: country
-                  city: city
-                  street: street
-                  postal_code: postal_code
-                  region: region
-                primary: true
-              - data:
-                  country: country
-                  city: city
-                  street: street
-                  postal_code: postal_code
-                  region: region
-                primary: true
-            names:
-              - data: data
-                type: type
-              - data: data
-                type: type
+        - emails:
+          - data: data
+            type: primary
+            primary: true
+          - data: data
+            type: primary
+            primary: true
+          phone_numbers:
+          - data: data
+            type: home
+            primary: true
+          - data: data
+            type: home
+            primary: true
+          addresses:
+          - data:
+              country: country
+              city: city
+              street: street
+              postal_code: postal_code
+              region: region
+            primary: true
+          - data:
+              country: country
+              city: city
+              street: street
+              postal_code: postal_code
+              region: region
+            primary: true
+          names:
+          - data: data
+            type: type
+          - data: data
+            type: type
+        - emails:
+          - data: data
+            type: primary
+            primary: true
+          - data: data
+            type: primary
+            primary: true
+          phone_numbers:
+          - data: data
+            type: home
+            primary: true
+          - data: data
+            type: home
+            primary: true
+          addresses:
+          - data:
+              country: country
+              city: city
+              street: street
+              postal_code: postal_code
+              region: region
+            primary: true
+          - data:
+              country: country
+              city: city
+              street: street
+              postal_code: postal_code
+              region: region
+            primary: true
+          names:
+          - data: data
+            type: type
+          - data: data
+            type: type
         remote_account_id: remote_account_id
       properties:
         remote_account_id:
-          description: '"The remote account ID of the account.",'
+          description: "\"The remote account ID of the account.\","
           title: remote_account_id
           type: string
         balances:
-          $ref: "#/components/schemas/GetAssetReportResponse_report_accounts_inner_balances"
+          $ref: '#/components/schemas/GetAssetReportResponse_report_accounts_inner_balances'
         historical_balances:
           description: An array of historical balances for the account.
           items:
-            $ref: "#/components/schemas/GetAssetReportResponse_report_accounts_inner_historical_balances_inner"
+            $ref: '#/components/schemas/GetAssetReportResponse_report_accounts_inner_historical_balances_inner'
           title: historical_balances
           type: array
         owners:
           items:
-            $ref: "#/components/schemas/FinancialConnectionsOwner"
+            $ref: '#/components/schemas/FinancialConnectionsOwner'
           title: owners
           type: array
       title: GetAssetReportResponse_report_accounts_inner
@@ -3828,206 +3689,206 @@ components:
       example:
         date_generated: date_generated
         warnings:
-          - code: code
-            data:
-              aggregator: null
-              warnings:
-                - code: code
-                  details: details
-                  source: internal
-                  title: title
-                  type: type
-                - code: code
-                  details: details
-                  source: internal
-                  title: title
-                  type: type
-            details: details
-            source: internal
-            title: title
-            type: type
-          - code: code
-            data:
-              aggregator: null
-              warnings:
-                - code: code
-                  details: details
-                  source: internal
-                  title: title
-                  type: type
-                - code: code
-                  details: details
-                  source: internal
-                  title: title
-                  type: type
-            details: details
-            source: internal
-            title: title
-            type: type
+        - code: code
+          data:
+            aggregator: null
+            warnings:
+            - code: code
+              details: details
+              source: internal
+              title: title
+              type: type
+            - code: code
+              details: details
+              source: internal
+              title: title
+              type: type
+          details: details
+          source: internal
+          title: title
+          type: type
+        - code: code
+          data:
+            aggregator: null
+            warnings:
+            - code: code
+              details: details
+              source: internal
+              title: title
+              type: type
+            - code: code
+              details: details
+              source: internal
+              title: title
+              type: type
+          details: details
+          source: internal
+          title: title
+          type: type
         client_report_id: client_report_id
         accounts:
-          - balances:
-              current: 1.4658129805029452
-              available: 6.027456183070403
-              iso_currency_code: iso_currency_code
-            historical_balances:
-              - date: date
-                current: 5.962133916683182
-                iso_currency_code: iso_currency_code
-              - date: date
-                current: 5.962133916683182
-                iso_currency_code: iso_currency_code
-            owners:
-              - emails:
-                  - data: data
-                    type: primary
-                    primary: true
-                  - data: data
-                    type: primary
-                    primary: true
-                phone_numbers:
-                  - data: data
-                    type: home
-                    primary: true
-                  - data: data
-                    type: home
-                    primary: true
-                addresses:
-                  - data:
-                      country: country
-                      city: city
-                      street: street
-                      postal_code: postal_code
-                      region: region
-                    primary: true
-                  - data:
-                      country: country
-                      city: city
-                      street: street
-                      postal_code: postal_code
-                      region: region
-                    primary: true
-                names:
-                  - data: data
-                    type: type
-                  - data: data
-                    type: type
-              - emails:
-                  - data: data
-                    type: primary
-                    primary: true
-                  - data: data
-                    type: primary
-                    primary: true
-                phone_numbers:
-                  - data: data
-                    type: home
-                    primary: true
-                  - data: data
-                    type: home
-                    primary: true
-                addresses:
-                  - data:
-                      country: country
-                      city: city
-                      street: street
-                      postal_code: postal_code
-                      region: region
-                    primary: true
-                  - data:
-                      country: country
-                      city: city
-                      street: street
-                      postal_code: postal_code
-                      region: region
-                    primary: true
-                names:
-                  - data: data
-                    type: type
-                  - data: data
-                    type: type
-            remote_account_id: remote_account_id
-          - balances:
-              current: 1.4658129805029452
-              available: 6.027456183070403
-              iso_currency_code: iso_currency_code
-            historical_balances:
-              - date: date
-                current: 5.962133916683182
-                iso_currency_code: iso_currency_code
-              - date: date
-                current: 5.962133916683182
-                iso_currency_code: iso_currency_code
-            owners:
-              - emails:
-                  - data: data
-                    type: primary
-                    primary: true
-                  - data: data
-                    type: primary
-                    primary: true
-                phone_numbers:
-                  - data: data
-                    type: home
-                    primary: true
-                  - data: data
-                    type: home
-                    primary: true
-                addresses:
-                  - data:
-                      country: country
-                      city: city
-                      street: street
-                      postal_code: postal_code
-                      region: region
-                    primary: true
-                  - data:
-                      country: country
-                      city: city
-                      street: street
-                      postal_code: postal_code
-                      region: region
-                    primary: true
-                names:
-                  - data: data
-                    type: type
-                  - data: data
-                    type: type
-              - emails:
-                  - data: data
-                    type: primary
-                    primary: true
-                  - data: data
-                    type: primary
-                    primary: true
-                phone_numbers:
-                  - data: data
-                    type: home
-                    primary: true
-                  - data: data
-                    type: home
-                    primary: true
-                addresses:
-                  - data:
-                      country: country
-                      city: city
-                      street: street
-                      postal_code: postal_code
-                      region: region
-                    primary: true
-                  - data:
-                      country: country
-                      city: city
-                      street: street
-                      postal_code: postal_code
-                      region: region
-                    primary: true
-                names:
-                  - data: data
-                    type: type
-                  - data: data
-                    type: type
-            remote_account_id: remote_account_id
+        - balances:
+            current: 1.4658129805029452
+            available: 6.027456183070403
+            iso_currency_code: iso_currency_code
+          historical_balances:
+          - date: date
+            current: 5.962133916683182
+            iso_currency_code: iso_currency_code
+          - date: date
+            current: 5.962133916683182
+            iso_currency_code: iso_currency_code
+          owners:
+          - emails:
+            - data: data
+              type: primary
+              primary: true
+            - data: data
+              type: primary
+              primary: true
+            phone_numbers:
+            - data: data
+              type: home
+              primary: true
+            - data: data
+              type: home
+              primary: true
+            addresses:
+            - data:
+                country: country
+                city: city
+                street: street
+                postal_code: postal_code
+                region: region
+              primary: true
+            - data:
+                country: country
+                city: city
+                street: street
+                postal_code: postal_code
+                region: region
+              primary: true
+            names:
+            - data: data
+              type: type
+            - data: data
+              type: type
+          - emails:
+            - data: data
+              type: primary
+              primary: true
+            - data: data
+              type: primary
+              primary: true
+            phone_numbers:
+            - data: data
+              type: home
+              primary: true
+            - data: data
+              type: home
+              primary: true
+            addresses:
+            - data:
+                country: country
+                city: city
+                street: street
+                postal_code: postal_code
+                region: region
+              primary: true
+            - data:
+                country: country
+                city: city
+                street: street
+                postal_code: postal_code
+                region: region
+              primary: true
+            names:
+            - data: data
+              type: type
+            - data: data
+              type: type
+          remote_account_id: remote_account_id
+        - balances:
+            current: 1.4658129805029452
+            available: 6.027456183070403
+            iso_currency_code: iso_currency_code
+          historical_balances:
+          - date: date
+            current: 5.962133916683182
+            iso_currency_code: iso_currency_code
+          - date: date
+            current: 5.962133916683182
+            iso_currency_code: iso_currency_code
+          owners:
+          - emails:
+            - data: data
+              type: primary
+              primary: true
+            - data: data
+              type: primary
+              primary: true
+            phone_numbers:
+            - data: data
+              type: home
+              primary: true
+            - data: data
+              type: home
+              primary: true
+            addresses:
+            - data:
+                country: country
+                city: city
+                street: street
+                postal_code: postal_code
+                region: region
+              primary: true
+            - data:
+                country: country
+                city: city
+                street: street
+                postal_code: postal_code
+                region: region
+              primary: true
+            names:
+            - data: data
+              type: type
+            - data: data
+              type: type
+          - emails:
+            - data: data
+              type: primary
+              primary: true
+            - data: data
+              type: primary
+              primary: true
+            phone_numbers:
+            - data: data
+              type: home
+              primary: true
+            - data: data
+              type: home
+              primary: true
+            addresses:
+            - data:
+                country: country
+                city: city
+                street: street
+                postal_code: postal_code
+                region: region
+              primary: true
+            - data:
+                country: country
+                city: city
+                street: street
+                postal_code: postal_code
+                region: region
+              primary: true
+            names:
+            - data: data
+              type: type
+            - data: data
+              type: type
+          remote_account_id: remote_account_id
         asset_report_id: asset_report_id
         days_requested: 0
       properties:
@@ -4041,8 +3902,7 @@ components:
           title: client_report_id
           type: string
         date_generated:
-          description:
-            "The date and time when the Asset Report was created, in ISO\
+          description: "The date and time when the Asset Report was created, in ISO\
             \ 8601 format"
           title: date_generated
           type: string
@@ -4051,20 +3911,18 @@ components:
           title: days_requested
           type: integer
         accounts:
-          description:
-            "An array of Asset Reports, one for each account in the Asset\
+          description: "An array of Asset Reports, one for each account in the Asset\
             \ Report."
           items:
-            $ref: "#/components/schemas/GetAssetReportResponse_report_accounts_inner"
+            $ref: '#/components/schemas/GetAssetReportResponse_report_accounts_inner'
           title: accounts
           type: array
         warnings:
-          description:
-            "If the Asset Report generation was successful but identity\
+          description: "If the Asset Report generation was successful but identity\
             \ information cannot be returned, this array will contain information\
             \ about the errors causing identity information to be missing"
           items:
-            $ref: "#/components/schemas/FuseApiWarning"
+            $ref: '#/components/schemas/FuseApiWarning'
           title: warnings
           type: array
       title: GetAssetReportResponse_report
@@ -4072,26 +3930,23 @@ components:
     MigrateFinancialConnectionsTokenRequest_entity:
       properties:
         id:
-          description:
-            The unique identifier of the entity (user or business) associated
+          description: The unique identifier of the entity (user or business) associated
             with the financial connections.
           title: id
           type: string
       title: MigrateFinancialConnectionsTokenRequest_entity
       type: object
     MigrateFinancialConnectionsAggregatorConnectionData_plaid:
-      description:
-        Details of the Plaid connection to migrate into the unified Fuse
+      description: Details of the Plaid connection to migrate into the unified Fuse
         API.
       properties:
         access_token:
-          description:
-            The Plaid access token associated with the user's financial
+          description: The Plaid access token associated with the user's financial
             accounts.
           title: access_token
           type: string
       required:
-        - access_token
+      - access_token
       title: MigrateFinancialConnectionsAggregatorConnectionData_plaid
       type: object
     MigrateFinancialConnectionsAggregatorConnectionData_mx:
@@ -4102,21 +3957,20 @@ components:
           title: user_guid
           type: string
         member_guid:
-          description:
-            The unique identifier (GUID) of the member (connection) associated
+          description: The unique identifier (GUID) of the member (connection) associated
             with the user within the MX platform.
           title: member_guid
           type: string
       required:
-        - mx_guid
-        - user_guid
+      - mx_guid
+      - user_guid
       title: MigrateFinancialConnectionsAggregatorConnectionData_mx
       type: object
     GetInvestmentHoldingsRequest_options:
       example:
         remote_account_ids:
-          - remote_account_ids
-          - remote_account_ids
+        - remote_account_ids
+        - remote_account_ids
       properties:
         remote_account_ids:
           description: An array of account_ids to retrieve holdings for.
@@ -4129,8 +3983,8 @@ components:
     GetInvestmentTransactionsRequest_options:
       example:
         remote_account_ids:
-          - remote_account_ids
-          - remote_account_ids
+        - remote_account_ids
+        - remote_account_ids
       properties:
         remote_account_ids:
           description: An array of account_ids to retrieve transactions for.
@@ -4140,68 +3994,12 @@ components:
           type: array
       title: GetInvestmentTransactionsRequest_options
       type: object
-    FinancialConnectionsInvestmentAccount_balance:
-      example:
-        current: 6.027456183070403
-        available: 0.8008281904610115
-        iso_currency_code: iso_currency_code
-        last_updated_date: last_updated_date
-      properties:
-        available:
-          description: |-
-            The amount of funds available to be withdrawn from the account, as determined by the financial institution
-            Available balance may be cached and is not guaranteed to be up-to-date in realtime unless the value was returned by /financial_connections/balances.
-          title: available
-          type: number
-        current:
-          description: Amount without factoring in pending balances
-          title: current
-          type: number
-        iso_currency_code:
-          description: The ISO-4217 currency code of the balance.
-          title: iso_currency_code
-          type: string
-        last_updated_date:
-          description: The date of the last update to the balance.
-          title: last_updated_date
-          type: string
-      title: FinancialConnectionsInvestmentAccount_balance
-      type: object
-    FinancialConnectionsInvestmentTransaction_currency:
-      example:
-        code: code
-        name: name
-      properties:
-        code:
-          description: The ISO-4217 currency code of the investment transaction
-          title: code
-          type: string
-        name:
-          description: The name of the currency
-          title: name
-          type: string
-      required:
-        - code
-      title: FinancialConnectionsInvestmentTransaction_currency
-      type: object
-    FinancialConnectionsInvestmentSecurity_currency:
-      description: The currency in which the holding is denominated.
-      example:
-        code: code
-      properties:
-        code:
-          description: The ISO-4217 currency code.
-          title: code
-          type: string
-      title: FinancialConnectionsInvestmentSecurity_currency
-      type: object
     FinancialConnectionsInvestmentSecurity_exchange:
       example:
         mic_code: mic_code
       properties:
         mic_code:
-          description:
-            The Market Identifier Code (MIC) associated with the specific
+          description: The Market Identifier Code (MIC) associated with the specific
             financial market or exchange where the security is traded.
           title: mic_code
           type: string
@@ -4223,11 +4021,10 @@ components:
     FinancialConnectionsAccountLiability_allOf:
       properties:
         aprs:
-          description:
-            "The various interest rates that apply to the account. If APR\
+          description: "The various interest rates that apply to the account. If APR\
             \ data is not available, this array will be empty."
           items:
-            $ref: "#/components/schemas/FinancialConnectionsAccountLiability_allOf_aprs"
+            $ref: '#/components/schemas/FinancialConnectionsAccountLiability_allOf_aprs'
           title: aprs
           type: array
         interest_rate_percentage:
@@ -4239,14 +4036,12 @@ components:
           title: origination_principal_amount
           type: number
         next_payment_due_date:
-          description:
-            The due date for the next payment. The due date is null if
+          description: The due date for the next payment. The due date is null if
             a payment is not expected.
           title: next_payment_due_date
           type: string
         last_payment_date:
-          description:
-            The date of the last payment. Dates are returned in an ISO
+          description: The date of the last payment. Dates are returned in an ISO
             8601 format (YYYY-MM-DD).
           title: last_payment_date
           type: string
@@ -4255,8 +4050,7 @@ components:
           title: last_payment_amount
           type: number
         minimum_payment_amount:
-          description:
-            The minimum payment required for an account. This can apply
+          description: The minimum payment required for an account. This can apply
             to any debt account.
           title: minimum_payment_amount
           type: number
@@ -4264,15 +4058,13 @@ components:
       type: object
       example: null
     CreateLinkTokenRequest_mx:
-      description:
-        An object specifying information about the MX configuration to
+      description: An object specifying information about the MX configuration to
         use for deciding which MX supported financial institutions to display.
       example:
         config: "{}"
       properties:
         config:
-          description:
-            Follows the same schema as MX's request a connect url(https://docs.mx.com/api#connect_request_a_url)
+          description: Follows the same schema as MX's request a connect url(https://docs.mx.com/api#connect_request_a_url)
             schema.
           properties: {}
           title: config
@@ -4280,15 +4072,13 @@ components:
       title: CreateLinkTokenRequest_mx
       type: object
     CreateLinkTokenRequest_plaid:
-      description:
-        "An object specifying information about the Plaid configuration
-        to use when creating a link token. "
+      description: 'An object specifying information about the Plaid configuration
+        to use when creating a link token. '
       example:
         config: "{}"
       properties:
         config:
-          description:
-            "Follows the same schema as Plaid's Link Token Create Schema(https://plaid.com/docs/api/tokens/#linktokencreate).\
+          description: "Follows the same schema as Plaid's Link Token Create Schema(https://plaid.com/docs/api/tokens/#linktokencreate).\
             \ 'products', 'client_id', 'secret', 'client_user_id', 'client_name',\
             \ 'webhook', 'institution_data' and 'country_codes' (only US supported\
             \ right now) will be set by Fuse and override any values you set."

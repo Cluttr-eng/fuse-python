@@ -8,7 +8,6 @@ from typing import Any, Dict, List, Optional  # noqa: F401
 
 from pydantic import AnyUrl, BaseModel, EmailStr, Field, validator  # noqa: F401
 from fuse_client.models.financial_connections_investment_security import FinancialConnectionsInvestmentSecurity
-from fuse_client.models.financial_connections_investment_transaction_currency import FinancialConnectionsInvestmentTransactionCurrency
 
 
 class FinancialConnectionsInvestmentTransaction(BaseModel):
@@ -22,7 +21,6 @@ class FinancialConnectionsInvestmentTransaction(BaseModel):
         remote_account_id: The remote_account_id of this FinancialConnectionsInvestmentTransaction.
         account_name: The account_name of this FinancialConnectionsInvestmentTransaction [Optional].
         amount: The amount of this FinancialConnectionsInvestmentTransaction.
-        currency: The currency of this FinancialConnectionsInvestmentTransaction.
         description: The description of this FinancialConnectionsInvestmentTransaction.
         fees: The fees of this FinancialConnectionsInvestmentTransaction.
         date: The date of this FinancialConnectionsInvestmentTransaction.
@@ -36,7 +34,6 @@ class FinancialConnectionsInvestmentTransaction(BaseModel):
     remote_account_id: str = Field(alias="remote_account_id")
     account_name: Optional[str] = Field(alias="account_name", default=None)
     amount: float = Field(alias="amount")
-    currency: FinancialConnectionsInvestmentTransactionCurrency = Field(alias="currency")
     description: str = Field(alias="description")
     fees: float = Field(alias="fees")
     date: datetime = Field(alias="date")

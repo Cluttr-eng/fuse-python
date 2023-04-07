@@ -7,7 +7,7 @@ import re  # noqa: F401
 from typing import Any, Dict, List, Optional  # noqa: F401
 
 from pydantic import AnyUrl, BaseModel, EmailStr, Field, validator  # noqa: F401
-from fuse_client.models.financial_connections_investment_security_currency import FinancialConnectionsInvestmentSecurityCurrency
+from fuse_client.models.currency import Currency
 from fuse_client.models.financial_connections_investment_security_exchange import FinancialConnectionsInvestmentSecurityExchange
 
 
@@ -36,7 +36,7 @@ class FinancialConnectionsInvestmentSecurity(BaseModel):
     sedol: Optional[str] = Field(alias="sedol", default=None)
     cusip: Optional[str] = Field(alias="cusip", default=None)
     close_price: float = Field(alias="close_price")
-    currency: FinancialConnectionsInvestmentSecurityCurrency = Field(alias="currency")
+    currency: Currency = Field(alias="currency")
     name: Optional[str] = Field(alias="name", default=None)
     type: Optional[str] = Field(alias="type", default=None)
     exchange: Optional[FinancialConnectionsInvestmentSecurityExchange] = Field(alias="exchange", default=None)
