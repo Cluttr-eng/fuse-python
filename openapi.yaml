@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Fuse
-  version: 1.0.2
+  version: 1.0.3
 servers:
 - description: sandbox
   url: https://sandbox-api.letsfuse.com
