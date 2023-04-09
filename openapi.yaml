@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Fuse
-  version: 1.0.3
+  version: 1.0.4
 servers:
 - description: sandbox
   url: https://sandbox-api.letsfuse.com
@@ -181,58 +181,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetEntityResponse'
           description: Success
-      summary: Get entity
+      summary: Get an entity - an entity is automatically created after a successful
+        institution connection
       tags:
       - Fuse
     summary: Get entity
-  /v1/entities:
-    post:
-      operationId: createEntity
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CreateEntityRequest'
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CreateEntityResponse'
-          description: Success
-      summary: Create entity
-      tags:
-      - Fuse
-    summary: Create entity
-  /v1/entities/{entity_id_to_update}:
-    put:
-      operationId: updateEntity
-      parameters:
-      - explode: false
-        in: path
-        name: entity_id_to_update
-        required: true
-        schema:
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/UpdateEntityRequest'
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UpdateEntityResponse'
-          description: Success
-      summary: Update entity
-      tags:
-      - Fuse
-    summary: Update entity
   /v1/financial_connections/public_token/exchange:
     post:
       description: API to exchange a public token for an access token and financial
@@ -255,8 +208,8 @@ paths:
     summary: Exchange public token
   /v1/financial_connections/sync:
     post:
-      description: Call this endpoint upon receiving a SYNC_REQUIRED webhook. This
-        will keep the financial connections data up to date.
+      description: Call this endpoint upon receiving a financial_connection.sync_data
+        webhook. This will keep the financial connections data up to date.
       operationId: syncFinancialConnectionsData
       requestBody:
         content:
@@ -340,6 +293,30 @@ paths:
       tags:
       - Fuse
     summary: Get financial connection details
+  /v1/financial_connections/migrate:
+    post:
+      description: "This endpoint migrates financial connections from Plaid or MX\
+        \ into the unified Fuse API. It accepts a POST request with connection data,\
+        \ aggregator, entity, and Fuse products, and responds with a JSON payload\
+        \ containing the migrated connection's data, access token, ID, and request\
+        \ ID."
+      operationId: migrateFinancialConnection
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MigrateFinancialConnectionsTokenRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MigrateFinancialConnectionsTokenResponse'
+          description: Success
+      summary: Migrate financial connection
+      tags:
+      - Fuse
+    summary: Migrate financial connection
   /v1/financial_connections/investments/holdings:
     post:
       operationId: getInvestmentHoldings
@@ -456,25 +433,6 @@ paths:
       tags:
       - Fuse
     summary: Get transactions
-  /v1/financial_connections/transactions/sync:
-    post:
-      operationId: syncFinancialConnectionsTransactions
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/SyncTransactionsRequest'
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/SyncTransactionsResponse'
-          description: Successfully synchronized transactions
-      summary: Sync transactions
-      tags:
-      - Fuse
 components:
   schemas:
     FinancialConnectionsAccount:
@@ -751,8 +709,8 @@ components:
       - balance
       - ownership
       - transactions
-      - liabilities
       - investments
+      - asset_report
       title: Product
       type: string
     CountryCode:
@@ -1803,11 +1761,17 @@ components:
     GetFinancialConnectionsBalanceRequest:
       example:
         access_token: access_token
+        options:
+          remote_account_ids:
+          - remote_account_ids
+          - remote_account_ids
       properties:
         access_token:
           description: Access token for authentication
           title: access_token
           type: string
+        options:
+          $ref: '#/components/schemas/GetFinancialConnectionsBalanceRequest_options'
       required:
       - access_token
       title: GetFinancialConnectionsBalanceRequest
@@ -1923,151 +1887,93 @@ components:
       title: GetEntityResponse
       type: object
     UpdateEntityRequest:
-      example:
-        aggregators:
-        - null
-        - null
-        institution_ids:
-        - institution_ids
-        - institution_ids
-        email: email
       properties:
         email:
           description: Email of the entity
-          title: email
           type: string
         aggregators:
           description: These will force the user to connect through all of these aggregators
           items:
             $ref: '#/components/schemas/Aggregator'
           minItems: 1
-          title: aggregators
           type: array
         institution_ids:
           items:
             description: This will make the 'aggregators' field only apply to this
               list of institution ids.
             type: string
-          title: institution_ids
           type: array
-      title: UpdateEntityRequest
       type: object
     UpdateEntityResponse:
-      example:
-        aggregators:
-        - null
-        - null
-        id: id
-        institution_ids:
-        - institution_ids
-        - institution_ids
-        request_id: request_id
-        email: email
       properties:
         id:
           description: Id of the entity
-          title: id
           type: string
         email:
           description: Email of the entity
-          title: email
           type: string
         aggregators:
           description: These will force the user to connect through all of these aggregators
           items:
             $ref: '#/components/schemas/Aggregator'
           minItems: 1
-          title: aggregators
           type: array
         institution_ids:
           items:
             description: This will make the 'aggregators' field only apply to this
               list of institution ids.
             type: string
-          title: institution_ids
           type: array
         request_id:
           description: An identifier that is exclusive to the request and can serve
             as a means for investigating and resolving issues.
-          title: request_id
           type: string
-      title: UpdateEntityResponse
       type: object
     CreateEntityRequest:
-      example:
-        aggregators:
-        - null
-        - null
-        id: id
-        institution_ids:
-        - institution_ids
-        - institution_ids
-        email: email
       properties:
         id:
           description: Id of the entity
-          title: id
           type: string
         email:
           description: Email of the entity
-          title: email
           type: string
         aggregators:
           description: These will force the user to connect through all of these aggregators
           items:
             $ref: '#/components/schemas/Aggregator'
           minItems: 1
-          title: aggregators
           type: array
         institution_ids:
           items:
             description: This will make the 'aggregators' field only apply to this
               list of institution ids.
             type: string
-          title: institution_ids
           type: array
-      title: CreateEntityRequest
       type: object
     CreateEntityResponse:
-      example:
-        aggregators:
-        - null
-        - null
-        id: id
-        institution_ids:
-        - institution_ids
-        - institution_ids
-        request_id: request_id
-        email: email
       properties:
         id:
           description: Id of the entity
-          title: id
           type: string
         email:
           description: Email of the entity
-          title: email
           type: string
         aggregators:
           description: These will force the user to connect through all of these aggregators
           items:
             $ref: '#/components/schemas/Aggregator'
           minItems: 1
-          title: aggregators
           type: array
         institution_ids:
           items:
             description: This will make the 'aggregators' field only apply to this
               list of institution ids.
             type: string
-          title: institution_ids
           type: array
         request_id:
           description: An identifier that is exclusive to the request and can serve
             as a means for investigating and resolving issues.
-          title: request_id
           type: string
-      title: CreateEntityResponse
       type: object
     ExchangeFinancialConnectionsPublicTokenRequest:
       example:
@@ -2153,6 +2059,19 @@ components:
       title: GetFinancialInstitutionResponse
       type: object
     MigrateFinancialConnectionsTokenRequest:
+      example:
+        aggregator: plaid
+        connection_data:
+          mx:
+            member_guid: member_guid
+            user_guid: user_guid
+          plaid:
+            access_token: access_token
+        entity:
+          id: id
+        fuse_products:
+        - null
+        - null
       properties:
         connection_data:
           $ref: '#/components/schemas/MigrateFinancialConnectionsAggregatorConnectionData'
@@ -2161,6 +2080,7 @@ components:
           enum:
           - plaid
           - mx
+          title: aggregator
           type: string
         entity:
           $ref: '#/components/schemas/MigrateFinancialConnectionsTokenRequest_entity'
@@ -2169,16 +2089,24 @@ components:
             access to.
           items:
             $ref: '#/components/schemas/Product'
+          title: fuse_products
           type: array
       required:
       - aggregator
       - connection_data
       - entity
       - fuse_products
+      title: MigrateFinancialConnectionsTokenRequest
       type: object
     MigrateFinancialConnectionsAggregatorConnectionData:
       description: The input data for the financial connections to be migrated into
         the unified Fuse API.
+      example:
+        mx:
+          member_guid: member_guid
+          user_guid: user_guid
+        plaid:
+          access_token: access_token
       properties:
         plaid:
           $ref: '#/components/schemas/MigrateFinancialConnectionsAggregatorConnectionData_plaid'
@@ -2187,23 +2115,37 @@ components:
       title: MigrateFinancialConnectionsAggregatorConnectionData
       type: object
     MigrateFinancialConnectionsTokenResponse:
+      example:
+        fuse_financial_connection_id: fuse_financial_connection_id
+        fuse_access_token: fuse_access_token
+        connection_data:
+          mx:
+            member_guid: member_guid
+            user_guid: user_guid
+          plaid:
+            access_token: access_token
+        request_id: request_id
       properties:
         connection_data:
           $ref: '#/components/schemas/MigrateFinancialConnectionsAggregatorConnectionData'
         fuse_access_token:
           description: Fuse access token for the fuse connection
+          title: fuse_access_token
           type: string
         fuse_financial_connection_id:
           description: Financial connection id for the fuse connection
+          title: fuse_financial_connection_id
           type: string
         request_id:
           description: An identifier that is exclusive to the request and can serve
             as a means for investigating and resolving issues.
+          title: request_id
           type: string
       required:
       - connection_data
       - fuse_access_token
       - fuse_financial_connection_id
+      title: MigrateFinancialConnectionsTokenResponse
       type: object
     DeleteFinancialConnectionResponse:
       example:
@@ -2983,7 +2925,9 @@ components:
           title: transactions
           type: array
         total_transactions:
-          description: The total number of transactions.
+          description: "The total number of transactions available within the date\
+            \ range specified. If total_transactions is larger than the size of the\
+            \ transactions array, more transactions are available and can be fetched"
           title: total_transactions
           type: number
         request_id:
@@ -2998,124 +2942,47 @@ components:
       title: GetFinancialConnectionsTransactionsResponse
       type: object
     SyncTransactionsRequest:
-      example:
-        access_token: access_token
-        cursor: cursor
-        count: 0
       properties:
         access_token:
           description: The access token of the financial institution connection
-          title: access_token
           type: string
         cursor:
           description: "The cursor value represents the last update requested. Providing\
             \ it will cause the response to only return changes after this update.\
             \ If omitted, the entire history of updates will be returned, starting\
             \ with the first-added transactions on the item."
-          title: cursor
           type: string
         count:
           description: The number of transaction updates to fetch.
-          title: count
           type: integer
       required:
       - access_token
-      title: SyncTransactionsRequest
       type: object
     SyncTransactionsResponse:
-      example:
-        next_cursor: next_cursor
-        removed:
-        - transaction_id: transaction_id
-        - transaction_id: transaction_id
-        added:
-        - date: date
-          amount: 0.8008281904610115
-          remote_id: remote_id
-          iso_currency_code: iso_currency_code
-          description: description
-          merchant:
-            name: name
-          category:
-          - category
-          - category
-          type: type
-          remote_account_id: remote_account_id
-          status: pending
-          remote_data: ""
-        - date: date
-          amount: 0.8008281904610115
-          remote_id: remote_id
-          iso_currency_code: iso_currency_code
-          description: description
-          merchant:
-            name: name
-          category:
-          - category
-          - category
-          type: type
-          remote_account_id: remote_account_id
-          status: pending
-          remote_data: ""
-        modified:
-        - date: date
-          amount: 0.8008281904610115
-          remote_id: remote_id
-          iso_currency_code: iso_currency_code
-          description: description
-          merchant:
-            name: name
-          category:
-          - category
-          - category
-          type: type
-          remote_account_id: remote_account_id
-          status: pending
-          remote_data: ""
-        - date: date
-          amount: 0.8008281904610115
-          remote_id: remote_id
-          iso_currency_code: iso_currency_code
-          description: description
-          merchant:
-            name: name
-          category:
-          - category
-          - category
-          type: type
-          remote_account_id: remote_account_id
-          status: pending
-          remote_data: ""
-        has_next: true
-        request_id: request_id
       properties:
         added:
           description: Transactions that have been added to the item since `cursor`
             ordered by ascending last modified time.
           items:
             $ref: '#/components/schemas/Transaction'
-          title: added
           type: array
         modified:
           description: Transactions that have been modified on the item since `cursor`
             ordered by ascending last modified time.
           items:
             $ref: '#/components/schemas/Transaction'
-          title: modified
           type: array
         removed:
           description: Transactions that have been removed from the item since `cursor`
             ordered by ascending last modified time.
           items:
             $ref: '#/components/schemas/SyncTransactionsResponse_removed_inner'
-          title: removed
           type: array
         next_cursor:
           description: Cursor used for fetching any future updates after the latest
             update provided in this response. The cursor obtained after all pages
             have been pulled (indicated by `has_next` being `false`) will be valid
             for at least 1 year. This cursor should be persisted for later calls.
-          title: next_cursor
           type: string
         has_next:
           description: "Represents if more than requested count of transaction updates\
@@ -3123,14 +2990,11 @@ components:
             \ request with `cursor` set to `next_cursor`. If `has_next` is true, it's\
             \ important to pull all available pages, to make it less likely for underlying\
             \ data changes to conflict with pagination."
-          title: has_next
           type: boolean
         request_id:
           description: An identifier that is exclusive to the request and can serve
             as a means for investigating and resolving issues.
-          title: request_id
           type: string
-      title: SyncTransactionsResponse
       type: object
     FinancialConnectionsAccount_institution:
       example:
@@ -3927,7 +3791,23 @@ components:
           type: array
       title: GetAssetReportResponse_report
       type: object
+    GetFinancialConnectionsBalanceRequest_options:
+      example:
+        remote_account_ids:
+        - remote_account_ids
+        - remote_account_ids
+      properties:
+        remote_account_ids:
+          description: An array of remote account ids to retrieve balances for.
+          items:
+            type: string
+          title: remote_account_ids
+          type: array
+      title: GetFinancialConnectionsBalanceRequest_options
+      type: object
     MigrateFinancialConnectionsTokenRequest_entity:
+      example:
+        id: id
       properties:
         id:
           description: The unique identifier of the entity (user or business) associated
@@ -3939,6 +3819,8 @@ components:
     MigrateFinancialConnectionsAggregatorConnectionData_plaid:
       description: Details of the Plaid connection to migrate into the unified Fuse
         API.
+      example:
+        access_token: access_token
       properties:
         access_token:
           description: The Plaid access token associated with the user's financial
@@ -3951,6 +3833,9 @@ components:
       type: object
     MigrateFinancialConnectionsAggregatorConnectionData_mx:
       description: Details of the MX connection to migrate into the unified Fuse API.
+      example:
+        member_guid: member_guid
+        user_guid: user_guid
       properties:
         user_guid:
           description: The unique identifier (GUID) of the user within the MX platform.
@@ -4088,8 +3973,6 @@ components:
       title: CreateLinkTokenRequest_plaid
       type: object
     SyncTransactionsResponse_removed_inner:
-      example:
-        transaction_id: transaction_id
       properties:
         transaction_id:
           title: transaction_id
