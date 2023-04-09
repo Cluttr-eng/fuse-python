@@ -19,8 +19,6 @@ from fastapi import (  # noqa: F401
 from fuse_client.models.extra_models import TokenModel  # noqa: F401
 from fuse_client.models.create_asset_report_request import CreateAssetReportRequest
 from fuse_client.models.create_asset_report_response import CreateAssetReportResponse
-from fuse_client.models.create_entity_request import CreateEntityRequest
-from fuse_client.models.create_entity_response import CreateEntityResponse
 from fuse_client.models.create_link_token_request import CreateLinkTokenRequest
 from fuse_client.models.create_link_token_response import CreateLinkTokenResponse
 from fuse_client.models.create_session_request import CreateSessionRequest
@@ -49,12 +47,10 @@ from fuse_client.models.get_investment_transactions_request import GetInvestment
 from fuse_client.models.get_investment_transactions_response import GetInvestmentTransactionsResponse
 from fuse_client.models.get_liabilities_request import GetLiabilitiesRequest
 from fuse_client.models.get_liabilities_response import GetLiabilitiesResponse
+from fuse_client.models.migrate_financial_connections_token_request import MigrateFinancialConnectionsTokenRequest
+from fuse_client.models.migrate_financial_connections_token_response import MigrateFinancialConnectionsTokenResponse
 from fuse_client.models.refresh_asset_report_request import RefreshAssetReportRequest
 from fuse_client.models.sync_financial_connections_data_response import SyncFinancialConnectionsDataResponse
-from fuse_client.models.sync_transactions_request import SyncTransactionsRequest
-from fuse_client.models.sync_transactions_response import SyncTransactionsResponse
-from fuse_client.models.update_entity_request import UpdateEntityRequest
-from fuse_client.models.update_entity_response import UpdateEntityResponse
 from fuse_client.security_api import get_token_fuseApiKey, get_token_fuseClientId
 
 router = APIRouter()
@@ -78,27 +74,6 @@ async def create_asset_report(
     ),
 ) -> CreateAssetReportResponse:
     """Use this endpoint to generate an Asset Report for a user."""
-    ...
-
-
-@router.post(
-    "/v1/entities",
-    responses={
-        200: {"model": CreateEntityResponse, "description": "Success"},
-    },
-    tags=["Fuse"],
-    summary="Create entity",
-    response_model_by_alias=True,
-)
-async def create_entity(
-    create_entity_request: CreateEntityRequest = Body(None, description=""),
-    token_fuseApiKey: TokenModel = Security(
-        get_token_fuseApiKey
-    ),
-    token_fuseClientId: TokenModel = Security(
-        get_token_fuseClientId
-    ),
-) -> CreateEntityResponse:
     ...
 
 
@@ -225,6 +200,7 @@ async def get_entity(
         get_token_fuseClientId
     ),
 ) -> GetEntityResponse:
+    """An entity is automatically created after a successful connection. The id of the entity is what is set when calling the &#39;create session&#39; endpoint"""
     ...
 
 
@@ -419,6 +395,28 @@ async def get_investment_transactions(
 
 
 @router.post(
+    "/v1/financial_connections/migrate",
+    responses={
+        200: {"model": MigrateFinancialConnectionsTokenResponse, "description": "Success"},
+    },
+    tags=["Fuse"],
+    summary="Migrate financial connection",
+    response_model_by_alias=True,
+)
+async def migrate_financial_connection(
+    migrate_financial_connections_token_request: MigrateFinancialConnectionsTokenRequest = Body(None, description=""),
+    token_fuseApiKey: TokenModel = Security(
+        get_token_fuseApiKey
+    ),
+    token_fuseClientId: TokenModel = Security(
+        get_token_fuseClientId
+    ),
+) -> MigrateFinancialConnectionsTokenResponse:
+    """This endpoint migrates financial connections from Plaid or MX into the unified Fuse API. It accepts a POST request with connection data, aggregator, entity, and Fuse products, and responds with a JSON payload containing the migrated connection&#39;s data, access token, ID, and request ID."""
+    ...
+
+
+@router.post(
     "/v1/asset_report/refresh",
     responses={
         200: {"model": CreateAssetReportResponse, "description": "Response"},
@@ -457,50 +455,7 @@ async def sync_financial_connections_data(
         get_token_fuseClientId
     ),
 ) -> SyncFinancialConnectionsDataResponse:
-    """Call this endpoint upon receiving a SYNC_REQUIRED webhook. This will keep the financial connections data up to date."""
-    ...
-
-
-@router.post(
-    "/v1/financial_connections/transactions/sync",
-    responses={
-        200: {"model": SyncTransactionsResponse, "description": "Successfully synchronized transactions"},
-    },
-    tags=["Fuse"],
-    summary="Sync transactions",
-    response_model_by_alias=True,
-)
-async def sync_financial_connections_transactions(
-    sync_transactions_request: SyncTransactionsRequest = Body(None, description=""),
-    token_fuseApiKey: TokenModel = Security(
-        get_token_fuseApiKey
-    ),
-    token_fuseClientId: TokenModel = Security(
-        get_token_fuseClientId
-    ),
-) -> SyncTransactionsResponse:
-    ...
-
-
-@router.put(
-    "/v1/entities/{entity_id_to_update}",
-    responses={
-        200: {"model": UpdateEntityResponse, "description": "Success"},
-    },
-    tags=["Fuse"],
-    summary="Update entity",
-    response_model_by_alias=True,
-)
-async def update_entity(
-    entity_id_to_update: str = Path(None, description=""),
-    update_entity_request: UpdateEntityRequest = Body(None, description=""),
-    token_fuseApiKey: TokenModel = Security(
-        get_token_fuseApiKey
-    ),
-    token_fuseClientId: TokenModel = Security(
-        get_token_fuseClientId
-    ),
-) -> UpdateEntityResponse:
+    """Call this endpoint upon receiving a financial_connection.sync_data webhook. This will keep the financial connections data up to date."""
     ...
 
 

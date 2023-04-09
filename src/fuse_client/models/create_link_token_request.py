@@ -21,7 +21,6 @@ class CreateLinkTokenRequest(BaseModel):
 
         institution_id: The institution_id of this CreateLinkTokenRequest.
         entity: The entity of this CreateLinkTokenRequest.
-        reconnection_url: The reconnection_url of this CreateLinkTokenRequest [Optional].
         client_name: The client_name of this CreateLinkTokenRequest.
         session_client_secret: The session_client_secret of this CreateLinkTokenRequest.
         mx: The mx of this CreateLinkTokenRequest [Optional].
@@ -30,7 +29,6 @@ class CreateLinkTokenRequest(BaseModel):
 
     institution_id: str = Field(alias="institution_id")
     entity: Entity = Field(alias="entity")
-    reconnection_url: Optional[str] = Field(alias="reconnection_url", default=None)
     client_name: str = Field(alias="client_name")
     session_client_secret: str = Field(alias="session_client_secret")
     mx: Optional[CreateLinkTokenRequestMx] = Field(alias="mx", default=None)

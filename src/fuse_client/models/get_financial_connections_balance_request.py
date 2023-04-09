@@ -7,6 +7,7 @@ import re  # noqa: F401
 from typing import Any, Dict, List, Optional  # noqa: F401
 
 from pydantic import AnyUrl, BaseModel, EmailStr, Field, validator  # noqa: F401
+from fuse_client.models.get_financial_connections_balance_request_options import GetFinancialConnectionsBalanceRequestOptions
 
 
 class GetFinancialConnectionsBalanceRequest(BaseModel):
@@ -17,8 +18,10 @@ class GetFinancialConnectionsBalanceRequest(BaseModel):
     GetFinancialConnectionsBalanceRequest - a model defined in OpenAPI
 
         access_token: The access_token of this GetFinancialConnectionsBalanceRequest.
+        options: The options of this GetFinancialConnectionsBalanceRequest [Optional].
     """
 
     access_token: str = Field(alias="access_token")
+    options: Optional[GetFinancialConnectionsBalanceRequestOptions] = Field(alias="options", default=None)
 
 GetFinancialConnectionsBalanceRequest.update_forward_refs()
