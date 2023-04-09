@@ -5,8 +5,6 @@ from fastapi.testclient import TestClient
 
 from fuse_client.models.create_asset_report_request import CreateAssetReportRequest  # noqa: F401
 from fuse_client.models.create_asset_report_response import CreateAssetReportResponse  # noqa: F401
-from fuse_client.models.create_entity_request import CreateEntityRequest  # noqa: F401
-from fuse_client.models.create_entity_response import CreateEntityResponse  # noqa: F401
 from fuse_client.models.create_link_token_request import CreateLinkTokenRequest  # noqa: F401
 from fuse_client.models.create_link_token_response import CreateLinkTokenResponse  # noqa: F401
 from fuse_client.models.create_session_request import CreateSessionRequest  # noqa: F401
@@ -35,12 +33,10 @@ from fuse_client.models.get_investment_transactions_request import GetInvestment
 from fuse_client.models.get_investment_transactions_response import GetInvestmentTransactionsResponse  # noqa: F401
 from fuse_client.models.get_liabilities_request import GetLiabilitiesRequest  # noqa: F401
 from fuse_client.models.get_liabilities_response import GetLiabilitiesResponse  # noqa: F401
+from fuse_client.models.migrate_financial_connections_token_request import MigrateFinancialConnectionsTokenRequest  # noqa: F401
+from fuse_client.models.migrate_financial_connections_token_response import MigrateFinancialConnectionsTokenResponse  # noqa: F401
 from fuse_client.models.refresh_asset_report_request import RefreshAssetReportRequest  # noqa: F401
 from fuse_client.models.sync_financial_connections_data_response import SyncFinancialConnectionsDataResponse  # noqa: F401
-from fuse_client.models.sync_transactions_request import SyncTransactionsRequest  # noqa: F401
-from fuse_client.models.sync_transactions_response import SyncTransactionsResponse  # noqa: F401
-from fuse_client.models.update_entity_request import UpdateEntityRequest  # noqa: F401
-from fuse_client.models.update_entity_response import UpdateEntityResponse  # noqa: F401
 
 
 def test_create_asset_report(client: TestClient):
@@ -65,34 +61,12 @@ def test_create_asset_report(client: TestClient):
     #assert response.status_code == 200
 
 
-def test_create_entity(client: TestClient):
-    """Test case for create_entity
-
-    Create entity
-    """
-    create_entity_request = {"aggregators":[null,null],"id":"id","institution_ids":["institution_ids","institution_ids"],"email":"email"}
-
-    headers = {
-        "fuseApiKey": "special-key",
-        "fuseClientId": "special-key",
-    }
-    response = client.request(
-        "POST",
-        "/v1/entities",
-        headers=headers,
-        json=create_entity_request,
-    )
-
-    # uncomment below to assert the status code of the HTTP response
-    #assert response.status_code == 200
-
-
 def test_create_link_token(client: TestClient):
     """Test case for create_link_token
 
     
     """
-    create_link_token_request = {"reconnection_url":"reconnection_url","session_client_secret":"session_client_secret","mx":{"config":"{}"},"plaid":{"config":"{}"},"client_name":"client_name","entity":{"name":"name","id":"id","email":"email"},"institution_id":"institution_id"}
+    create_link_token_request = {"session_client_secret":"session_client_secret","mx":{"config":"{}"},"plaid":{"config":"{}"},"client_name":"client_name","entity":{"name":"name","id":"id","email":"email"},"institution_id":"institution_id"}
 
     headers = {
         "fuseApiKey": "special-key",
@@ -284,7 +258,7 @@ def test_get_financial_connections_balances(client: TestClient):
 
     Get balances
     """
-    get_financial_connections_balance_request = {"access_token":"access_token"}
+    get_financial_connections_balance_request = {"access_token":"access_token","options":{"remote_account_ids":["remote_account_ids","remote_account_ids"]}}
 
     headers = {
         "fuseApiKey": "special-key",
@@ -409,6 +383,28 @@ def test_get_investment_transactions(client: TestClient):
     #assert response.status_code == 200
 
 
+def test_migrate_financial_connection(client: TestClient):
+    """Test case for migrate_financial_connection
+
+    Migrate financial connection
+    """
+    migrate_financial_connections_token_request = {"aggregator":"plaid","connection_data":{"mx":{"member_guid":"member_guid","user_guid":"user_guid"},"plaid":{"access_token":"access_token"}},"entity":{"id":"id"},"fuse_products":[null,null]}
+
+    headers = {
+        "fuseApiKey": "special-key",
+        "fuseClientId": "special-key",
+    }
+    response = client.request(
+        "POST",
+        "/v1/financial_connections/migrate",
+        headers=headers,
+        json=migrate_financial_connections_token_request,
+    )
+
+    # uncomment below to assert the status code of the HTTP response
+    #assert response.status_code == 200
+
+
 def test_refresh_asset_report(client: TestClient):
     """Test case for refresh_asset_report
 
@@ -447,50 +443,6 @@ def test_sync_financial_connections_data(client: TestClient):
         "/v1/financial_connections/sync",
         headers=headers,
         json=body,
-    )
-
-    # uncomment below to assert the status code of the HTTP response
-    #assert response.status_code == 200
-
-
-def test_sync_financial_connections_transactions(client: TestClient):
-    """Test case for sync_financial_connections_transactions
-
-    Sync transactions
-    """
-    sync_transactions_request = {"access_token":"access_token","cursor":"cursor","count":0}
-
-    headers = {
-        "fuseApiKey": "special-key",
-        "fuseClientId": "special-key",
-    }
-    response = client.request(
-        "POST",
-        "/v1/financial_connections/transactions/sync",
-        headers=headers,
-        json=sync_transactions_request,
-    )
-
-    # uncomment below to assert the status code of the HTTP response
-    #assert response.status_code == 200
-
-
-def test_update_entity(client: TestClient):
-    """Test case for update_entity
-
-    Update entity
-    """
-    update_entity_request = {"aggregators":[null,null],"institution_ids":["institution_ids","institution_ids"],"email":"email"}
-
-    headers = {
-        "fuseApiKey": "special-key",
-        "fuseClientId": "special-key",
-    }
-    response = client.request(
-        "PUT",
-        "/v1/entities/{entity_id_to_update}".format(entity_id_to_update='entity_id_to_update_example'),
-        headers=headers,
-        json=update_entity_request,
     )
 
     # uncomment below to assert the status code of the HTTP response
