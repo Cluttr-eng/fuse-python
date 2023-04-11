@@ -11,8 +11,8 @@
 import sys
 import unittest
 
-import fuse-client
-from fuse-client.model.get_liabilities_request import GetLiabilitiesRequest
+import fuse_client
+from fuse_client.model.get_liabilities_request import GetLiabilitiesRequest
 
 
 class TestGetLiabilitiesRequest(unittest.TestCase):

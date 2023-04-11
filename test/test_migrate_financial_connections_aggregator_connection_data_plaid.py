@@ -11,8 +11,8 @@
 import sys
 import unittest
 
-import fuse-client
-from fuse-client.model.migrate_financial_connections_aggregator_connection_data_plaid import MigrateFinancialConnectionsAggregatorConnectionDataPlaid
+import fuse_client
+from fuse_client.model.migrate_financial_connections_aggregator_connection_data_plaid import MigrateFinancialConnectionsAggregatorConnectionDataPlaid
 
 
 class TestMigrateFinancialConnectionsAggregatorConnectionDataPlaid(unittest.TestCase):

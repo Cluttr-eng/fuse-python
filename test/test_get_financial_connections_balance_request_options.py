@@ -11,8 +11,8 @@
 import sys
 import unittest
 
-import fuse-client
-from fuse-client.model.get_financial_connections_balance_request_options import GetFinancialConnectionsBalanceRequestOptions
+import fuse_client
+from fuse_client.model.get_financial_connections_balance_request_options import GetFinancialConnectionsBalanceRequestOptions
 
 
 class TestGetFinancialConnectionsBalanceRequestOptions(unittest.TestCase):

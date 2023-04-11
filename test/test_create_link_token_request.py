@@ -11,14 +11,14 @@
 import sys
 import unittest
 
-import fuse-client
-from fuse-client.model.create_link_token_request_mx import CreateLinkTokenRequestMx
-from fuse-client.model.create_link_token_request_plaid import CreateLinkTokenRequestPlaid
-from fuse-client.model.entity import Entity
+import fuse_client
+from fuse_client.model.create_link_token_request_mx import CreateLinkTokenRequestMx
+from fuse_client.model.create_link_token_request_plaid import CreateLinkTokenRequestPlaid
+from fuse_client.model.entity import Entity
 globals()['CreateLinkTokenRequestMx'] = CreateLinkTokenRequestMx
 globals()['CreateLinkTokenRequestPlaid'] = CreateLinkTokenRequestPlaid
 globals()['Entity'] = Entity
-from fuse-client.model.create_link_token_request import CreateLinkTokenRequest
+from fuse_client.model.create_link_token_request import CreateLinkTokenRequest
 
 
 class TestCreateLinkTokenRequest(unittest.TestCase):

@@ -11,8 +11,8 @@
 import sys
 import unittest
 
-import fuse-client
-from fuse-client.model.financial_connections_account_liability_all_of_aprs import FinancialConnectionsAccountLiabilityAllOfAprs
+import fuse_client
+from fuse_client.model.financial_connections_account_liability_all_of_aprs import FinancialConnectionsAccountLiabilityAllOfAprs
 
 
 class TestFinancialConnectionsAccountLiabilityAllOfAprs(unittest.TestCase):

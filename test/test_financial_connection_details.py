@@ -11,16 +11,16 @@
 import sys
 import unittest
 
-import fuse-client
-from fuse-client.model.aggregator import Aggregator
-from fuse-client.model.financial_connection_details_mx import FinancialConnectionDetailsMx
-from fuse-client.model.financial_connection_details_plaid import FinancialConnectionDetailsPlaid
-from fuse-client.model.financial_connection_details_teller import FinancialConnectionDetailsTeller
+import fuse_client
+from fuse_client.model.aggregator import Aggregator
+from fuse_client.model.financial_connection_details_mx import FinancialConnectionDetailsMx
+from fuse_client.model.financial_connection_details_plaid import FinancialConnectionDetailsPlaid
+from fuse_client.model.financial_connection_details_teller import FinancialConnectionDetailsTeller
 globals()['Aggregator'] = Aggregator
 globals()['FinancialConnectionDetailsMx'] = FinancialConnectionDetailsMx
 globals()['FinancialConnectionDetailsPlaid'] = FinancialConnectionDetailsPlaid
 globals()['FinancialConnectionDetailsTeller'] = FinancialConnectionDetailsTeller
-from fuse-client.model.financial_connection_details import FinancialConnectionDetails
+from fuse_client.model.financial_connection_details import FinancialConnectionDetails
 
 
 class TestFinancialConnectionDetails(unittest.TestCase):

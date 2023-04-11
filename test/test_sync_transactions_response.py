@@ -11,12 +11,12 @@
 import sys
 import unittest
 
-import fuse-client
-from fuse-client.model.sync_transactions_response_removed import SyncTransactionsResponseRemoved
-from fuse-client.model.transaction import Transaction
+import fuse_client
+from fuse_client.model.sync_transactions_response_removed import SyncTransactionsResponseRemoved
+from fuse_client.model.transaction import Transaction
 globals()['SyncTransactionsResponseRemoved'] = SyncTransactionsResponseRemoved
 globals()['Transaction'] = Transaction
-from fuse-client.model.sync_transactions_response import SyncTransactionsResponse
+from fuse_client.model.sync_transactions_response import SyncTransactionsResponse
 
 
 class TestSyncTransactionsResponse(unittest.TestCase):

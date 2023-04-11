@@ -11,8 +11,8 @@
 import sys
 import unittest
 
-import fuse-client
-from fuse-client.model.get_financial_connections_transactions_request import GetFinancialConnectionsTransactionsRequest
+import fuse_client
+from fuse_client.model.get_financial_connections_transactions_request import GetFinancialConnectionsTransactionsRequest
 
 
 class TestGetFinancialConnectionsTransactionsRequest(unittest.TestCase):

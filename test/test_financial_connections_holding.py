@@ -11,10 +11,10 @@
 import sys
 import unittest
 
-import fuse-client
-from fuse-client.model.financial_connections_investment_security import FinancialConnectionsInvestmentSecurity
+import fuse_client
+from fuse_client.model.financial_connections_investment_security import FinancialConnectionsInvestmentSecurity
 globals()['FinancialConnectionsInvestmentSecurity'] = FinancialConnectionsInvestmentSecurity
-from fuse-client.model.financial_connections_holding import FinancialConnectionsHolding
+from fuse_client.model.financial_connections_holding import FinancialConnectionsHolding
 
 
 class TestFinancialConnectionsHolding(unittest.TestCase):

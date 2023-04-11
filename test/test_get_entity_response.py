@@ -11,12 +11,12 @@
 import sys
 import unittest
 
-import fuse-client
-from fuse-client.model.aggregator import Aggregator
-from fuse-client.model.financial_connection_details import FinancialConnectionDetails
+import fuse_client
+from fuse_client.model.aggregator import Aggregator
+from fuse_client.model.financial_connection_details import FinancialConnectionDetails
 globals()['Aggregator'] = Aggregator
 globals()['FinancialConnectionDetails'] = FinancialConnectionDetails
-from fuse-client.model.get_entity_response import GetEntityResponse
+from fuse_client.model.get_entity_response import GetEntityResponse
 
 
 class TestGetEntityResponse(unittest.TestCase):

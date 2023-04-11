@@ -11,8 +11,8 @@
 import sys
 import unittest
 
-import fuse-client
-from fuse-client.model.get_investment_holdings_request_options import GetInvestmentHoldingsRequestOptions
+import fuse_client
+from fuse_client.model.get_investment_holdings_request_options import GetInvestmentHoldingsRequestOptions
 
 
 class TestGetInvestmentHoldingsRequestOptions(unittest.TestCase):

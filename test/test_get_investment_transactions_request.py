@@ -11,10 +11,10 @@
 import sys
 import unittest
 
-import fuse-client
-from fuse-client.model.get_investment_transactions_request_options import GetInvestmentTransactionsRequestOptions
+import fuse_client
+from fuse_client.model.get_investment_transactions_request_options import GetInvestmentTransactionsRequestOptions
 globals()['GetInvestmentTransactionsRequestOptions'] = GetInvestmentTransactionsRequestOptions
-from fuse-client.model.get_investment_transactions_request import GetInvestmentTransactionsRequest
+from fuse_client.model.get_investment_transactions_request import GetInvestmentTransactionsRequest
 
 
 class TestGetInvestmentTransactionsRequest(unittest.TestCase):

@@ -11,8 +11,8 @@
 import sys
 import unittest
 
-import fuse-client
-from fuse-client.model.webhook_source import WebhookSource
+import fuse_client
+from fuse_client.model.webhook_source import WebhookSource
 
 
 class TestWebhookSource(unittest.TestCase):
