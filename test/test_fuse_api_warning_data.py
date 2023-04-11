@@ -11,12 +11,12 @@
 import sys
 import unittest
 
-import fuse-python
-from fuse-python.model.aggregator import Aggregator
-from fuse-python.model.fuse_api_warning_data_warnings import FuseApiWarningDataWarnings
+import fuse-client
+from fuse-client.model.aggregator import Aggregator
+from fuse-client.model.fuse_api_warning_data_warnings import FuseApiWarningDataWarnings
 globals()['Aggregator'] = Aggregator
 globals()['FuseApiWarningDataWarnings'] = FuseApiWarningDataWarnings
-from fuse-python.model.fuse_api_warning_data import FuseApiWarningData
+from fuse-client.model.fuse_api_warning_data import FuseApiWarningData
 
 
 class TestFuseApiWarningData(unittest.TestCase):

@@ -11,8 +11,8 @@
 import sys
 import unittest
 
-import fuse-python
-from fuse-python.model.fuse_api_warning_data_warnings import FuseApiWarningDataWarnings
+import fuse-client
+from fuse-client.model.fuse_api_warning_data_warnings import FuseApiWarningDataWarnings
 
 
 class TestFuseApiWarningDataWarnings(unittest.TestCase):

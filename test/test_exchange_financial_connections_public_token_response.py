@@ -11,8 +11,8 @@
 import sys
 import unittest
 
-import fuse-python
-from fuse-python.model.exchange_financial_connections_public_token_response import ExchangeFinancialConnectionsPublicTokenResponse
+import fuse-client
+from fuse-client.model.exchange_financial_connections_public_token_response import ExchangeFinancialConnectionsPublicTokenResponse
 
 
 class TestExchangeFinancialConnectionsPublicTokenResponse(unittest.TestCase):

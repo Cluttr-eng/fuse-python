@@ -11,10 +11,10 @@
 import sys
 import unittest
 
-import fuse-python
-from fuse-python.model.aggregator import Aggregator
+import fuse-client
+from fuse-client.model.aggregator import Aggregator
 globals()['Aggregator'] = Aggregator
-from fuse-python.model.create_entity_response import CreateEntityResponse
+from fuse-client.model.create_entity_response import CreateEntityResponse
 
 
 class TestCreateEntityResponse(unittest.TestCase):

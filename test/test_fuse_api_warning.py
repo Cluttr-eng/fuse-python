@@ -11,10 +11,10 @@
 import sys
 import unittest
 
-import fuse-python
-from fuse-python.model.fuse_api_warning_data import FuseApiWarningData
+import fuse-client
+from fuse-client.model.fuse_api_warning_data import FuseApiWarningData
 globals()['FuseApiWarningData'] = FuseApiWarningData
-from fuse-python.model.fuse_api_warning import FuseApiWarning
+from fuse-client.model.fuse_api_warning import FuseApiWarning
 
 
 class TestFuseApiWarning(unittest.TestCase):

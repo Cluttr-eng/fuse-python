@@ -11,8 +11,8 @@
 import sys
 import unittest
 
-import fuse-python
-from fuse-python.model.create_asset_report_request import CreateAssetReportRequest
+import fuse-client
+from fuse-client.model.create_asset_report_request import CreateAssetReportRequest
 
 
 class TestCreateAssetReportRequest(unittest.TestCase):

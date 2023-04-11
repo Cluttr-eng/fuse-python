@@ -11,8 +11,8 @@
 import sys
 import unittest
 
-import fuse-python
-from fuse-python.model.get_asset_report_response_report_historical_balances import GetAssetReportResponseReportHistoricalBalances
+import fuse-client
+from fuse-client.model.get_asset_report_response_report_historical_balances import GetAssetReportResponseReportHistoricalBalances
 
 
 class TestGetAssetReportResponseReportHistoricalBalances(unittest.TestCase):

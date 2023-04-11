@@ -11,8 +11,8 @@
 import sys
 import unittest
 
-import fuse-python
-from fuse-python.model.financial_institution_logo import FinancialInstitutionLogo
+import fuse-client
+from fuse-client.model.financial_institution_logo import FinancialInstitutionLogo
 
 
 class TestFinancialInstitutionLogo(unittest.TestCase):

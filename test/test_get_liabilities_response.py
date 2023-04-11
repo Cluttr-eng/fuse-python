@@ -11,10 +11,10 @@
 import sys
 import unittest
 
-import fuse-python
-from fuse-python.model.financial_connections_account_liability import FinancialConnectionsAccountLiability
+import fuse-client
+from fuse-client.model.financial_connections_account_liability import FinancialConnectionsAccountLiability
 globals()['FinancialConnectionsAccountLiability'] = FinancialConnectionsAccountLiability
-from fuse-python.model.get_liabilities_response import GetLiabilitiesResponse
+from fuse-client.model.get_liabilities_response import GetLiabilitiesResponse
 
 
 class TestGetLiabilitiesResponse(unittest.TestCase):

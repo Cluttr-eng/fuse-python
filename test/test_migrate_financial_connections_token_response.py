@@ -11,10 +11,10 @@
 import sys
 import unittest
 
-import fuse-python
-from fuse-python.model.migrate_financial_connections_aggregator_connection_data import MigrateFinancialConnectionsAggregatorConnectionData
+import fuse-client
+from fuse-client.model.migrate_financial_connections_aggregator_connection_data import MigrateFinancialConnectionsAggregatorConnectionData
 globals()['MigrateFinancialConnectionsAggregatorConnectionData'] = MigrateFinancialConnectionsAggregatorConnectionData
-from fuse-python.model.migrate_financial_connections_token_response import MigrateFinancialConnectionsTokenResponse
+from fuse-client.model.migrate_financial_connections_token_response import MigrateFinancialConnectionsTokenResponse
 
 
 class TestMigrateFinancialConnectionsTokenResponse(unittest.TestCase):

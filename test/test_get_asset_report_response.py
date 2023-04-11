@@ -11,10 +11,10 @@
 import sys
 import unittest
 
-import fuse-python
-from fuse-python.model.get_asset_report_response_report import GetAssetReportResponseReport
+import fuse-client
+from fuse-client.model.get_asset_report_response_report import GetAssetReportResponseReport
 globals()['GetAssetReportResponseReport'] = GetAssetReportResponseReport
-from fuse-python.model.get_asset_report_response import GetAssetReportResponse
+from fuse-client.model.get_asset_report_response import GetAssetReportResponse
 
 
 class TestGetAssetReportResponse(unittest.TestCase):

@@ -11,8 +11,8 @@
 import sys
 import unittest
 
-import fuse-python
-from fuse-python.model.webhook_type import WebhookType
+import fuse-client
+from fuse-client.model.webhook_type import WebhookType
 
 
 class TestWebhookType(unittest.TestCase):
