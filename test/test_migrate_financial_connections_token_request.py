@@ -11,14 +11,14 @@
 import sys
 import unittest
 
-import fuse-python
-from fuse-python.model.migrate_financial_connections_aggregator_connection_data import MigrateFinancialConnectionsAggregatorConnectionData
-from fuse-python.model.migrate_financial_connections_token_request_entity import MigrateFinancialConnectionsTokenRequestEntity
-from fuse-python.model.product import Product
+import fuse-client
+from fuse-client.model.migrate_financial_connections_aggregator_connection_data import MigrateFinancialConnectionsAggregatorConnectionData
+from fuse-client.model.migrate_financial_connections_token_request_entity import MigrateFinancialConnectionsTokenRequestEntity
+from fuse-client.model.product import Product
 globals()['MigrateFinancialConnectionsAggregatorConnectionData'] = MigrateFinancialConnectionsAggregatorConnectionData
 globals()['MigrateFinancialConnectionsTokenRequestEntity'] = MigrateFinancialConnectionsTokenRequestEntity
 globals()['Product'] = Product
-from fuse-python.model.migrate_financial_connections_token_request import MigrateFinancialConnectionsTokenRequest
+from fuse-client.model.migrate_financial_connections_token_request import MigrateFinancialConnectionsTokenRequest
 
 
 class TestMigrateFinancialConnectionsTokenRequest(unittest.TestCase):

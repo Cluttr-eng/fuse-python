@@ -11,8 +11,8 @@
 import sys
 import unittest
 
-import fuse-python
-from fuse-python.model.sync_financial_connections_data_response import SyncFinancialConnectionsDataResponse
+import fuse-client
+from fuse-client.model.sync_financial_connections_data_response import SyncFinancialConnectionsDataResponse
 
 
 class TestSyncFinancialConnectionsDataResponse(unittest.TestCase):

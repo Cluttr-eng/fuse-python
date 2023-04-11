@@ -11,12 +11,12 @@
 import sys
 import unittest
 
-import fuse-python
-from fuse-python.model.webhook_source import WebhookSource
-from fuse-python.model.webhook_type import WebhookType
+import fuse-client
+from fuse-client.model.webhook_source import WebhookSource
+from fuse-client.model.webhook_type import WebhookType
 globals()['WebhookSource'] = WebhookSource
 globals()['WebhookType'] = WebhookType
-from fuse-python.model.webhook_event import WebhookEvent
+from fuse-client.model.webhook_event import WebhookEvent
 
 
 class TestWebhookEvent(unittest.TestCase):

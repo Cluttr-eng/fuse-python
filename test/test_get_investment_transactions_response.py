@@ -11,12 +11,12 @@
 import sys
 import unittest
 
-import fuse-python
-from fuse-python.model.financial_connections_account import FinancialConnectionsAccount
-from fuse-python.model.financial_connections_investment_transaction import FinancialConnectionsInvestmentTransaction
+import fuse-client
+from fuse-client.model.financial_connections_account import FinancialConnectionsAccount
+from fuse-client.model.financial_connections_investment_transaction import FinancialConnectionsInvestmentTransaction
 globals()['FinancialConnectionsAccount'] = FinancialConnectionsAccount
 globals()['FinancialConnectionsInvestmentTransaction'] = FinancialConnectionsInvestmentTransaction
-from fuse-python.model.get_investment_transactions_response import GetInvestmentTransactionsResponse
+from fuse-client.model.get_investment_transactions_response import GetInvestmentTransactionsResponse
 
 
 class TestGetInvestmentTransactionsResponse(unittest.TestCase):

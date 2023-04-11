@@ -11,10 +11,10 @@
 import sys
 import unittest
 
-import fuse-python
-from fuse-python.model.get_investment_holdings_request_options import GetInvestmentHoldingsRequestOptions
+import fuse-client
+from fuse-client.model.get_investment_holdings_request_options import GetInvestmentHoldingsRequestOptions
 globals()['GetInvestmentHoldingsRequestOptions'] = GetInvestmentHoldingsRequestOptions
-from fuse-python.model.get_investment_holdings_request import GetInvestmentHoldingsRequest
+from fuse-client.model.get_investment_holdings_request import GetInvestmentHoldingsRequest
 
 
 class TestGetInvestmentHoldingsRequest(unittest.TestCase):

@@ -11,16 +11,16 @@
 import sys
 import unittest
 
-import fuse-python
-from fuse-python.model.aggregator import Aggregator
-from fuse-python.model.country_code import CountryCode
-from fuse-python.model.entity import Entity
-from fuse-python.model.product import Product
+import fuse-client
+from fuse-client.model.aggregator import Aggregator
+from fuse-client.model.country_code import CountryCode
+from fuse-client.model.entity import Entity
+from fuse-client.model.product import Product
 globals()['Aggregator'] = Aggregator
 globals()['CountryCode'] = CountryCode
 globals()['Entity'] = Entity
 globals()['Product'] = Product
-from fuse-python.model.create_session_request import CreateSessionRequest
+from fuse-client.model.create_session_request import CreateSessionRequest
 
 
 class TestCreateSessionRequest(unittest.TestCase):

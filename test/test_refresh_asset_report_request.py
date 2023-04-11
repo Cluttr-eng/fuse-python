@@ -11,8 +11,8 @@
 import sys
 import unittest
 
-import fuse-python
-from fuse-python.model.refresh_asset_report_request import RefreshAssetReportRequest
+import fuse-client
+from fuse-client.model.refresh_asset_report_request import RefreshAssetReportRequest
 
 
 class TestRefreshAssetReportRequest(unittest.TestCase):

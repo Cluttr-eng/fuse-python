@@ -11,10 +11,10 @@
 import sys
 import unittest
 
-import fuse-python
-from fuse-python.model.financial_institution import FinancialInstitution
+import fuse-client
+from fuse-client.model.financial_institution import FinancialInstitution
 globals()['FinancialInstitution'] = FinancialInstitution
-from fuse-python.model.get_financial_institution_response import GetFinancialInstitutionResponse
+from fuse-client.model.get_financial_institution_response import GetFinancialInstitutionResponse
 
 
 class TestGetFinancialInstitutionResponse(unittest.TestCase):

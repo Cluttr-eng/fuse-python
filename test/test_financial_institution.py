@@ -11,12 +11,12 @@
 import sys
 import unittest
 
-import fuse-python
-from fuse-python.model.country_code import CountryCode
-from fuse-python.model.financial_institution_logo import FinancialInstitutionLogo
+import fuse-client
+from fuse-client.model.country_code import CountryCode
+from fuse-client.model.financial_institution_logo import FinancialInstitutionLogo
 globals()['CountryCode'] = CountryCode
 globals()['FinancialInstitutionLogo'] = FinancialInstitutionLogo
-from fuse-python.model.financial_institution import FinancialInstitution
+from fuse-client.model.financial_institution import FinancialInstitution
 
 
 class TestFinancialInstitution(unittest.TestCase):

@@ -11,16 +11,16 @@
 import sys
 import unittest
 
-import fuse-python
-from fuse-python.model.account_subtype import AccountSubtype
-from fuse-python.model.account_type import AccountType
-from fuse-python.model.financial_connections_account_cached_balance import FinancialConnectionsAccountCachedBalance
-from fuse-python.model.financial_connections_account_institution import FinancialConnectionsAccountInstitution
+import fuse-client
+from fuse-client.model.account_subtype import AccountSubtype
+from fuse-client.model.account_type import AccountType
+from fuse-client.model.financial_connections_account_cached_balance import FinancialConnectionsAccountCachedBalance
+from fuse-client.model.financial_connections_account_institution import FinancialConnectionsAccountInstitution
 globals()['AccountSubtype'] = AccountSubtype
 globals()['AccountType'] = AccountType
 globals()['FinancialConnectionsAccountCachedBalance'] = FinancialConnectionsAccountCachedBalance
 globals()['FinancialConnectionsAccountInstitution'] = FinancialConnectionsAccountInstitution
-from fuse-python.model.financial_connections_account import FinancialConnectionsAccount
+from fuse-client.model.financial_connections_account import FinancialConnectionsAccount
 
 
 class TestFinancialConnectionsAccount(unittest.TestCase):

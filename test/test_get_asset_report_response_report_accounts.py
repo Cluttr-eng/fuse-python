@@ -11,14 +11,14 @@
 import sys
 import unittest
 
-import fuse-python
-from fuse-python.model.financial_connections_owner import FinancialConnectionsOwner
-from fuse-python.model.get_asset_report_response_report_balances import GetAssetReportResponseReportBalances
-from fuse-python.model.get_asset_report_response_report_historical_balances import GetAssetReportResponseReportHistoricalBalances
+import fuse-client
+from fuse-client.model.financial_connections_owner import FinancialConnectionsOwner
+from fuse-client.model.get_asset_report_response_report_balances import GetAssetReportResponseReportBalances
+from fuse-client.model.get_asset_report_response_report_historical_balances import GetAssetReportResponseReportHistoricalBalances
 globals()['FinancialConnectionsOwner'] = FinancialConnectionsOwner
 globals()['GetAssetReportResponseReportBalances'] = GetAssetReportResponseReportBalances
 globals()['GetAssetReportResponseReportHistoricalBalances'] = GetAssetReportResponseReportHistoricalBalances
-from fuse-python.model.get_asset_report_response_report_accounts import GetAssetReportResponseReportAccounts
+from fuse-client.model.get_asset_report_response_report_accounts import GetAssetReportResponseReportAccounts
 
 
 class TestGetAssetReportResponseReportAccounts(unittest.TestCase):

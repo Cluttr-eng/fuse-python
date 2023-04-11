@@ -11,12 +11,12 @@
 import sys
 import unittest
 
-import fuse-python
-from fuse-python.model.currency import Currency
-from fuse-python.model.financial_connections_investment_security_exchange import FinancialConnectionsInvestmentSecurityExchange
+import fuse-client
+from fuse-client.model.currency import Currency
+from fuse-client.model.financial_connections_investment_security_exchange import FinancialConnectionsInvestmentSecurityExchange
 globals()['Currency'] = Currency
 globals()['FinancialConnectionsInvestmentSecurityExchange'] = FinancialConnectionsInvestmentSecurityExchange
-from fuse-python.model.financial_connections_investment_security import FinancialConnectionsInvestmentSecurity
+from fuse-client.model.financial_connections_investment_security import FinancialConnectionsInvestmentSecurity
 
 
 class TestFinancialConnectionsInvestmentSecurity(unittest.TestCase):
