@@ -11,10 +11,10 @@
 import sys
 import unittest
 
-import fuse-client
-from fuse-client.model.financial_connection_details import FinancialConnectionDetails
+import fuse_client
+from fuse_client.model.financial_connection_details import FinancialConnectionDetails
 globals()['FinancialConnectionDetails'] = FinancialConnectionDetails
-from fuse-client.model.get_financial_connection_response import GetFinancialConnectionResponse
+from fuse_client.model.get_financial_connection_response import GetFinancialConnectionResponse
 
 
 class TestGetFinancialConnectionResponse(unittest.TestCase):

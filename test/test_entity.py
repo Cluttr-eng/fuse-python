@@ -11,8 +11,8 @@
 import sys
 import unittest
 
-import fuse-client
-from fuse-client.model.entity import Entity
+import fuse_client
+from fuse_client.model.entity import Entity
 
 
 class TestEntity(unittest.TestCase):

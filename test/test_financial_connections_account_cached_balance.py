@@ -11,8 +11,8 @@
 import sys
 import unittest
 
-import fuse-client
-from fuse-client.model.financial_connections_account_cached_balance import FinancialConnectionsAccountCachedBalance
+import fuse_client
+from fuse_client.model.financial_connections_account_cached_balance import FinancialConnectionsAccountCachedBalance
 
 
 class TestFinancialConnectionsAccountCachedBalance(unittest.TestCase):

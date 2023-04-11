@@ -11,10 +11,10 @@
 import sys
 import unittest
 
-import fuse-client
-from fuse-client.model.get_financial_connections_owners_response_accounts import GetFinancialConnectionsOwnersResponseAccounts
+import fuse_client
+from fuse_client.model.get_financial_connections_owners_response_accounts import GetFinancialConnectionsOwnersResponseAccounts
 globals()['GetFinancialConnectionsOwnersResponseAccounts'] = GetFinancialConnectionsOwnersResponseAccounts
-from fuse-client.model.get_financial_connections_owners_response import GetFinancialConnectionsOwnersResponse
+from fuse_client.model.get_financial_connections_owners_response import GetFinancialConnectionsOwnersResponse
 
 
 class TestGetFinancialConnectionsOwnersResponse(unittest.TestCase):

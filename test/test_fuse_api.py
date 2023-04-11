@@ -10,8 +10,8 @@
 
 import unittest
 
-import fuse-client
-from fuse-client.api.fuse_api import FuseApi  # noqa: E501
+import fuse_client
+from fuse_client.api.fuse_api import FuseApi  # noqa: E501
 
 
 class TestFuseApi(unittest.TestCase):

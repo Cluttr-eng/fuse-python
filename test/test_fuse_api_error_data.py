@@ -11,12 +11,12 @@
 import sys
 import unittest
 
-import fuse-client
-from fuse-client.model.aggregator import Aggregator
-from fuse-client.model.fuse_api_error import FuseApiError
+import fuse_client
+from fuse_client.model.aggregator import Aggregator
+from fuse_client.model.fuse_api_error import FuseApiError
 globals()['Aggregator'] = Aggregator
 globals()['FuseApiError'] = FuseApiError
-from fuse-client.model.fuse_api_error_data import FuseApiErrorData
+from fuse_client.model.fuse_api_error_data import FuseApiErrorData
 
 
 class TestFuseApiErrorData(unittest.TestCase):

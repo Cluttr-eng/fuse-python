@@ -11,8 +11,8 @@
 import sys
 import unittest
 
-import fuse-client
-from fuse-client.model.financial_connections_owner_names import FinancialConnectionsOwnerNames
+import fuse_client
+from fuse_client.model.financial_connections_owner_names import FinancialConnectionsOwnerNames
 
 
 class TestFinancialConnectionsOwnerNames(unittest.TestCase):

@@ -11,14 +11,14 @@
 import sys
 import unittest
 
-import fuse-client
-from fuse-client.model.account_subtype import AccountSubtype
-from fuse-client.model.account_type import AccountType
-from fuse-client.model.financial_connections_account import FinancialConnectionsAccount
-from fuse-client.model.financial_connections_account_cached_balance import FinancialConnectionsAccountCachedBalance
-from fuse-client.model.financial_connections_account_institution import FinancialConnectionsAccountInstitution
-from fuse-client.model.financial_connections_account_liability_all_of import FinancialConnectionsAccountLiabilityAllOf
-from fuse-client.model.financial_connections_account_liability_all_of_aprs import FinancialConnectionsAccountLiabilityAllOfAprs
+import fuse_client
+from fuse_client.model.account_subtype import AccountSubtype
+from fuse_client.model.account_type import AccountType
+from fuse_client.model.financial_connections_account import FinancialConnectionsAccount
+from fuse_client.model.financial_connections_account_cached_balance import FinancialConnectionsAccountCachedBalance
+from fuse_client.model.financial_connections_account_institution import FinancialConnectionsAccountInstitution
+from fuse_client.model.financial_connections_account_liability_all_of import FinancialConnectionsAccountLiabilityAllOf
+from fuse_client.model.financial_connections_account_liability_all_of_aprs import FinancialConnectionsAccountLiabilityAllOfAprs
 globals()['AccountSubtype'] = AccountSubtype
 globals()['AccountType'] = AccountType
 globals()['FinancialConnectionsAccount'] = FinancialConnectionsAccount
@@ -26,7 +26,7 @@ globals()['FinancialConnectionsAccountCachedBalance'] = FinancialConnectionsAcco
 globals()['FinancialConnectionsAccountInstitution'] = FinancialConnectionsAccountInstitution
 globals()['FinancialConnectionsAccountLiabilityAllOf'] = FinancialConnectionsAccountLiabilityAllOf
 globals()['FinancialConnectionsAccountLiabilityAllOfAprs'] = FinancialConnectionsAccountLiabilityAllOfAprs
-from fuse-client.model.financial_connections_account_liability import FinancialConnectionsAccountLiability
+from fuse_client.model.financial_connections_account_liability import FinancialConnectionsAccountLiability
 
 
 class TestFinancialConnectionsAccountLiability(unittest.TestCase):

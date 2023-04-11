@@ -11,8 +11,8 @@
 import sys
 import unittest
 
-import fuse-client
-from fuse-client.model.currency import Currency
+import fuse_client
+from fuse_client.model.currency import Currency
 
 
 class TestCurrency(unittest.TestCase):

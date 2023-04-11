@@ -11,12 +11,12 @@
 import sys
 import unittest
 
-import fuse-client
-from fuse-client.model.fuse_api_warning import FuseApiWarning
-from fuse-client.model.get_asset_report_response_report_accounts import GetAssetReportResponseReportAccounts
+import fuse_client
+from fuse_client.model.fuse_api_warning import FuseApiWarning
+from fuse_client.model.get_asset_report_response_report_accounts import GetAssetReportResponseReportAccounts
 globals()['FuseApiWarning'] = FuseApiWarning
 globals()['GetAssetReportResponseReportAccounts'] = GetAssetReportResponseReportAccounts
-from fuse-client.model.get_asset_report_response_report import GetAssetReportResponseReport
+from fuse_client.model.get_asset_report_response_report import GetAssetReportResponseReport
 
 
 class TestGetAssetReportResponseReport(unittest.TestCase):

@@ -11,16 +11,16 @@
 import sys
 import unittest
 
-import fuse-client
-from fuse-client.model.financial_connections_owner_addresses import FinancialConnectionsOwnerAddresses
-from fuse-client.model.financial_connections_owner_emails import FinancialConnectionsOwnerEmails
-from fuse-client.model.financial_connections_owner_names import FinancialConnectionsOwnerNames
-from fuse-client.model.financial_connections_owner_phone_numbers import FinancialConnectionsOwnerPhoneNumbers
+import fuse_client
+from fuse_client.model.financial_connections_owner_addresses import FinancialConnectionsOwnerAddresses
+from fuse_client.model.financial_connections_owner_emails import FinancialConnectionsOwnerEmails
+from fuse_client.model.financial_connections_owner_names import FinancialConnectionsOwnerNames
+from fuse_client.model.financial_connections_owner_phone_numbers import FinancialConnectionsOwnerPhoneNumbers
 globals()['FinancialConnectionsOwnerAddresses'] = FinancialConnectionsOwnerAddresses
 globals()['FinancialConnectionsOwnerEmails'] = FinancialConnectionsOwnerEmails
 globals()['FinancialConnectionsOwnerNames'] = FinancialConnectionsOwnerNames
 globals()['FinancialConnectionsOwnerPhoneNumbers'] = FinancialConnectionsOwnerPhoneNumbers
-from fuse-client.model.financial_connections_owner import FinancialConnectionsOwner
+from fuse_client.model.financial_connections_owner import FinancialConnectionsOwner
 
 
 class TestFinancialConnectionsOwner(unittest.TestCase):

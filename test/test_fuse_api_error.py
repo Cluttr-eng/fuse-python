@@ -11,10 +11,10 @@
 import sys
 import unittest
 
-import fuse-client
-from fuse-client.model.fuse_api_error_data import FuseApiErrorData
+import fuse_client
+from fuse_client.model.fuse_api_error_data import FuseApiErrorData
 globals()['FuseApiErrorData'] = FuseApiErrorData
-from fuse-client.model.fuse_api_error import FuseApiError
+from fuse_client.model.fuse_api_error import FuseApiError
 
 
 class TestFuseApiError(unittest.TestCase):

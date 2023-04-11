@@ -11,8 +11,8 @@
 import sys
 import unittest
 
-import fuse-client
-from fuse-client.model.create_link_token_response import CreateLinkTokenResponse
+import fuse_client
+from fuse_client.model.create_link_token_response import CreateLinkTokenResponse
 
 
 class TestCreateLinkTokenResponse(unittest.TestCase):

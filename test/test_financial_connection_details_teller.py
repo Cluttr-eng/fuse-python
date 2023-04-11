@@ -11,8 +11,8 @@
 import sys
 import unittest
 
-import fuse-client
-from fuse-client.model.financial_connection_details_teller import FinancialConnectionDetailsTeller
+import fuse_client
+from fuse_client.model.financial_connection_details_teller import FinancialConnectionDetailsTeller
 
 
 class TestFinancialConnectionDetailsTeller(unittest.TestCase):

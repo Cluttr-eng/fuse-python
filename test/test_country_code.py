@@ -11,8 +11,8 @@
 import sys
 import unittest
 
-import fuse-client
-from fuse-client.model.country_code import CountryCode
+import fuse_client
+from fuse_client.model.country_code import CountryCode
 
 
 class TestCountryCode(unittest.TestCase):
