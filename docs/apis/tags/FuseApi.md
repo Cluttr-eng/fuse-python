@@ -1947,7 +1947,7 @@ Type | Description  | Notes
 
 # **sync_financial_connections_data**
 <a name="sync_financial_connections_data"></a>
-> SyncFinancialConnectionsDataResponse sync_financial_connections_data(body)
+> SyncFinancialConnectionsDataResponse sync_financial_connections_data(fuse_verificationbody)
 
 Sync financial connections data
 
@@ -1990,10 +1990,14 @@ with fuse_client.ApiClient(configuration) as api_client:
     api_instance = fuse_api.FuseApi(api_client)
 
     # example passing only required values which don't have defaults set
+    header_params = {
+        'Fuse-Verification': "Fuse-Verification_example",
+    }
     body = dict()
     try:
         # Sync financial connections data
         api_response = api_instance.sync_financial_connections_data(
+            header_params=header_params,
             body=body,
         )
         pprint(api_response)
@@ -2005,6 +2009,7 @@ with fuse_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+header_params | RequestHeaderParams | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
@@ -2021,6 +2026,20 @@ Unified webhook data
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  | Unified webhook data | 
+
+### header_params
+#### RequestHeaderParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+Fuse-Verification | FuseVerificationSchema | | 
+
+# FuseVerificationSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
 
 ### Return Types, Responses
 
