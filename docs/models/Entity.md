@@ -1,4 +1,4 @@
-# fuse_client.model.entity.Entity
+# fuse_py.model.entity.Entity
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

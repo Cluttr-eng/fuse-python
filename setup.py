@@ -11,8 +11,8 @@
 
 from setuptools import setup, find_packages  # noqa: H301
 
-NAME = "fuse-client"
-VERSION = "1.0.10"
+NAME = "fuse-py"
+VERSION = "1.0.11"
 # To install the library, run the following
 #
 # python setup.py install

@@ -1,4 +1,4 @@
-# fuse_client.model.get_entity_response.GetEntityResponse
+# fuse_py.model.get_entity_response.GetEntityResponse
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

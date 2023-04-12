@@ -11,9 +11,9 @@ from unittest.mock import patch
 
 import urllib3
 
-import fuse_client
-from fuse_client.paths.v1_financial_connections_financial_connection_id_to_delete import delete  # noqa: E501
-from fuse_client import configuration, schemas, api_client
+import fuse_py
+from fuse_py.paths.v1_financial_connections_financial_connection_id_to_delete import delete  # noqa: E501
+from fuse_py import configuration, schemas, api_client
 
 from .. import ApiTestMixin
 

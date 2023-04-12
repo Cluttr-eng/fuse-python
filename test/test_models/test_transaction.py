@@ -11,9 +11,9 @@
 
 import unittest
 
-import fuse_client
-from fuse_client.model.transaction import Transaction
-from fuse_client import configuration
+import fuse_py
+from fuse_py.model.transaction import Transaction
+from fuse_py import configuration
 
 
 class TestTransaction(unittest.TestCase):

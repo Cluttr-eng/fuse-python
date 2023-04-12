@@ -1,4 +1,4 @@
-# fuse_client.model.account_type.AccountType
+# fuse_py.model.account_type.AccountType
 
 The account's type
 

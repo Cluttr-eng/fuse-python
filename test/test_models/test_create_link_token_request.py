@@ -11,9 +11,9 @@
 
 import unittest
 
-import fuse_client
-from fuse_client.model.create_link_token_request import CreateLinkTokenRequest
-from fuse_client import configuration
+import fuse_py
+from fuse_py.model.create_link_token_request import CreateLinkTokenRequest
+from fuse_py import configuration
 
 
 class TestCreateLinkTokenRequest(unittest.TestCase):

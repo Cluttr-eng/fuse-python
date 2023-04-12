@@ -11,9 +11,9 @@
 
 import unittest
 
-import fuse_client
-from fuse_client.model.product import Product
-from fuse_client import configuration
+import fuse_py
+from fuse_py.model.product import Product
+from fuse_py import configuration
 
 
 class TestProduct(unittest.TestCase):

@@ -1,4 +1,4 @@
-# fuse_client.model.delete_financial_connection_response.DeleteFinancialConnectionResponse
+# fuse_py.model.delete_financial_connection_response.DeleteFinancialConnectionResponse
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

@@ -1,4 +1,4 @@
-# fuse_client.model.financial_connection_details.FinancialConnectionDetails
+# fuse_py.model.financial_connection_details.FinancialConnectionDetails
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

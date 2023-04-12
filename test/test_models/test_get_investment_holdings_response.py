@@ -11,9 +11,9 @@
 
 import unittest
 
-import fuse_client
-from fuse_client.model.get_investment_holdings_response import GetInvestmentHoldingsResponse
-from fuse_client import configuration
+import fuse_py
+from fuse_py.model.get_investment_holdings_response import GetInvestmentHoldingsResponse
+from fuse_py import configuration
 
 
 class TestGetInvestmentHoldingsResponse(unittest.TestCase):
