@@ -11,9 +11,9 @@
 
 import unittest
 
-import fuse_client
-from fuse_client.model.financial_connections_account_balance import FinancialConnectionsAccountBalance
-from fuse_client import configuration
+import fuse_py
+from fuse_py.model.financial_connections_account_balance import FinancialConnectionsAccountBalance
+from fuse_py import configuration
 
 
 class TestFinancialConnectionsAccountBalance(unittest.TestCase):

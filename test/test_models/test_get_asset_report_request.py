@@ -11,9 +11,9 @@
 
 import unittest
 
-import fuse_client
-from fuse_client.model.get_asset_report_request import GetAssetReportRequest
-from fuse_client import configuration
+import fuse_py
+from fuse_py.model.get_asset_report_request import GetAssetReportRequest
+from fuse_py import configuration
 
 
 class TestGetAssetReportRequest(unittest.TestCase):

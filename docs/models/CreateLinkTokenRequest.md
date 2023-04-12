@@ -1,4 +1,4 @@
-# fuse_client.model.create_link_token_request.CreateLinkTokenRequest
+# fuse_py.model.create_link_token_request.CreateLinkTokenRequest
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

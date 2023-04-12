@@ -1,4 +1,4 @@
-# fuse_client.model.fuse_api_error.FuseApiError
+# fuse_py.model.fuse_api_error.FuseApiError
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

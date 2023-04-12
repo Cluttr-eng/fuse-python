@@ -11,9 +11,9 @@
 
 import unittest
 
-import fuse_client
-from fuse_client.model.delete_financial_connection_response import DeleteFinancialConnectionResponse
-from fuse_client import configuration
+import fuse_py
+from fuse_py.model.delete_financial_connection_response import DeleteFinancialConnectionResponse
+from fuse_py import configuration
 
 
 class TestDeleteFinancialConnectionResponse(unittest.TestCase):

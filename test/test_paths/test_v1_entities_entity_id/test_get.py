@@ -11,9 +11,9 @@ from unittest.mock import patch
 
 import urllib3
 
-import fuse_client
-from fuse_client.paths.v1_entities_entity_id import get  # noqa: E501
-from fuse_client import configuration, schemas, api_client
+import fuse_py
+from fuse_py.paths.v1_entities_entity_id import get  # noqa: E501
+from fuse_py import configuration, schemas, api_client
 
 from .. import ApiTestMixin
 

@@ -1,4 +1,4 @@
-# fuse_client.model.financial_connections_owner.FinancialConnectionsOwner
+# fuse_py.model.financial_connections_owner.FinancialConnectionsOwner
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

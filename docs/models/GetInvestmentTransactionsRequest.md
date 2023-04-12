@@ -1,4 +1,4 @@
-# fuse_client.model.get_investment_transactions_request.GetInvestmentTransactionsRequest
+# fuse_py.model.get_investment_transactions_request.GetInvestmentTransactionsRequest
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

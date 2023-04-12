@@ -11,9 +11,9 @@
 
 import unittest
 
-import fuse_client
-from fuse_client.model.financial_institution import FinancialInstitution
-from fuse_client import configuration
+import fuse_py
+from fuse_py.model.financial_institution import FinancialInstitution
+from fuse_py import configuration
 
 
 class TestFinancialInstitution(unittest.TestCase):

@@ -1,4 +1,4 @@
-# fuse_client.model.financial_institution.FinancialInstitution
+# fuse_py.model.financial_institution.FinancialInstitution
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

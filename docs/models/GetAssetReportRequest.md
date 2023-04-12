@@ -1,4 +1,4 @@
-# fuse_client.model.get_asset_report_request.GetAssetReportRequest
+# fuse_py.model.get_asset_report_request.GetAssetReportRequest
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

@@ -11,9 +11,9 @@
 
 import unittest
 
-import fuse_client
-from fuse_client.model.sync_transactions_request import SyncTransactionsRequest
-from fuse_client import configuration
+import fuse_py
+from fuse_py.model.sync_transactions_request import SyncTransactionsRequest
+from fuse_py import configuration
 
 
 class TestSyncTransactionsRequest(unittest.TestCase):

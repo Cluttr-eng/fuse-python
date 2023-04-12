@@ -1,4 +1,4 @@
-# fuse_client.model.create_session_request.CreateSessionRequest
+# fuse_py.model.create_session_request.CreateSessionRequest
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -13,7 +13,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **[country_codes](#country_codes)** | list, tuple,  | tuple,  | List of country codes that you would like the institutions to support | [optional] 
 **entity** | [**Entity**](Entity.md) | [**Entity**](Entity.md) |  | [optional] 
 **access_token** | str,  | str,  | The fuse access token for an existing account integration. This will perform the process to reconnect an existing disconnected account. | [optional] 
-**is_web_view** | bool,  | BoolClass,  | True if the fuse sdk is using a web view. Defaults to true. | [optional] 
+**is_web_view** | bool,  | BoolClass,  | Set to false for web SDKs (e.g., React), and true for mobile SDKs (e.g., React Native, Flutter, iOS, Android). | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 # supported_financial_institution_aggregators
