@@ -1,4 +1,4 @@
-# fuse_py.model.webhook_event.WebhookEvent
+# fuse_client.model.webhook_event.WebhookEvent
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

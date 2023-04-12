@@ -1,4 +1,4 @@
-# fuse_py.model.financial_connections_account_cached_balance.FinancialConnectionsAccountCachedBalance
+# fuse_client.model.financial_connections_account_cached_balance.FinancialConnectionsAccountCachedBalance
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

@@ -1,4 +1,4 @@
-# fuse_py.model.migrate_financial_connections_aggregator_connection_data.MigrateFinancialConnectionsAggregatorConnectionData
+# fuse_client.model.migrate_financial_connections_aggregator_connection_data.MigrateFinancialConnectionsAggregatorConnectionData
 
 The input data for the financial connections to be migrated into the unified Fuse API.
 

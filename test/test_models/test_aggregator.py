@@ -11,9 +11,9 @@
 
 import unittest
 
-import fuse_py
-from fuse_py.model.aggregator import Aggregator
-from fuse_py import configuration
+import fuse_client
+from fuse_client.model.aggregator import Aggregator
+from fuse_client import configuration
 
 
 class TestAggregator(unittest.TestCase):

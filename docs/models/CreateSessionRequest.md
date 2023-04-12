@@ -1,4 +1,4 @@
-# fuse_py.model.create_session_request.CreateSessionRequest
+# fuse_client.model.create_session_request.CreateSessionRequest
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

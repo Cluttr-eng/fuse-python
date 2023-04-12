@@ -1,4 +1,4 @@
-# fuse_py.model.get_liabilities_request.GetLiabilitiesRequest
+# fuse_client.model.get_liabilities_request.GetLiabilitiesRequest
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

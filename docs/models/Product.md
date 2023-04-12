@@ -1,4 +1,4 @@
-# fuse_py.model.product.Product
+# fuse_client.model.product.Product
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

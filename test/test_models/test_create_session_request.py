@@ -11,9 +11,9 @@
 
 import unittest
 
-import fuse_py
-from fuse_py.model.create_session_request import CreateSessionRequest
-from fuse_py import configuration
+import fuse_client
+from fuse_client.model.create_session_request import CreateSessionRequest
+from fuse_client import configuration
 
 
 class TestCreateSessionRequest(unittest.TestCase):

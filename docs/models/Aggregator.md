@@ -1,4 +1,4 @@
-# fuse_py.model.aggregator.Aggregator
+# fuse_client.model.aggregator.Aggregator
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

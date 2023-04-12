@@ -11,9 +11,9 @@
 
 import unittest
 
-import fuse_py
-from fuse_py.model.account_type import AccountType
-from fuse_py import configuration
+import fuse_client
+from fuse_client.model.account_type import AccountType
+from fuse_client import configuration
 
 
 class TestAccountType(unittest.TestCase):
