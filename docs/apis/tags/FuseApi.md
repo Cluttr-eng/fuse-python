@@ -1,5 +1,5 @@
 <a name="__pageTop"></a>
-# fuse_py.apis.tags.fuse_api.FuseApi
+# fuse_client.apis.tags.fuse_api.FuseApi
 
 All URIs are relative to *https://sandbox-api.letsfuse.com*
 
@@ -39,14 +39,14 @@ Use this endpoint to generate an Asset Report for a user.
 * Api Key Authentication (fuseApiKey):
 * Api Key Authentication (fuseClientId):
 ```python
-import fuse_py
-from fuse_py.apis.tags import fuse_api
-from fuse_py.model.create_asset_report_response import CreateAssetReportResponse
-from fuse_py.model.create_asset_report_request import CreateAssetReportRequest
+import fuse_client
+from fuse_client.apis.tags import fuse_api
+from fuse_client.model.create_asset_report_request import CreateAssetReportRequest
+from fuse_client.model.create_asset_report_response import CreateAssetReportResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://sandbox-api.letsfuse.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fuse_py.Configuration(
+configuration = fuse_client.Configuration(
     host = "https://sandbox-api.letsfuse.com"
 )
 
@@ -67,7 +67,7 @@ configuration.api_key['fuseClientId'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['fuseClientId'] = 'Bearer'
 # Enter a context with an instance of the API client
-with fuse_py.ApiClient(configuration) as api_client:
+with fuse_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fuse_api.FuseApi(api_client)
 
@@ -82,7 +82,7 @@ with fuse_py.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except fuse_py.ApiException as e:
+    except fuse_client.ApiException as e:
         print("Exception when calling FuseApi->create_asset_report: %s\n" % e)
 ```
 ### Parameters
@@ -143,14 +143,14 @@ Create a link token to start the process of a user connecting to a specific fina
 * Api Key Authentication (fuseApiKey):
 * Api Key Authentication (fuseClientId):
 ```python
-import fuse_py
-from fuse_py.apis.tags import fuse_api
-from fuse_py.model.create_link_token_request import CreateLinkTokenRequest
-from fuse_py.model.create_link_token_response import CreateLinkTokenResponse
+import fuse_client
+from fuse_client.apis.tags import fuse_api
+from fuse_client.model.create_link_token_response import CreateLinkTokenResponse
+from fuse_client.model.create_link_token_request import CreateLinkTokenRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://sandbox-api.letsfuse.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fuse_py.Configuration(
+configuration = fuse_client.Configuration(
     host = "https://sandbox-api.letsfuse.com"
 )
 
@@ -171,7 +171,7 @@ configuration.api_key['fuseClientId'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['fuseClientId'] = 'Bearer'
 # Enter a context with an instance of the API client
-with fuse_py.ApiClient(configuration) as api_client:
+with fuse_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fuse_api.FuseApi(api_client)
 
@@ -197,7 +197,7 @@ with fuse_py.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except fuse_py.ApiException as e:
+    except fuse_client.ApiException as e:
         print("Exception when calling FuseApi->create_link_token: %s\n" % e)
 ```
 ### Parameters
@@ -258,14 +258,14 @@ Creates a session that returns a client_secret which is required as a parameter 
 * Api Key Authentication (fuseApiKey):
 * Api Key Authentication (fuseClientId):
 ```python
-import fuse_py
-from fuse_py.apis.tags import fuse_api
-from fuse_py.model.create_session_response import CreateSessionResponse
-from fuse_py.model.create_session_request import CreateSessionRequest
+import fuse_client
+from fuse_client.apis.tags import fuse_api
+from fuse_client.model.create_session_response import CreateSessionResponse
+from fuse_client.model.create_session_request import CreateSessionRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://sandbox-api.letsfuse.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fuse_py.Configuration(
+configuration = fuse_client.Configuration(
     host = "https://sandbox-api.letsfuse.com"
 )
 
@@ -286,7 +286,7 @@ configuration.api_key['fuseClientId'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['fuseClientId'] = 'Bearer'
 # Enter a context with an instance of the API client
-with fuse_py.ApiClient(configuration) as api_client:
+with fuse_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fuse_api.FuseApi(api_client)
 
@@ -314,7 +314,7 @@ with fuse_py.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except fuse_py.ApiException as e:
+    except fuse_client.ApiException as e:
         print("Exception when calling FuseApi->create_session: %s\n" % e)
 ```
 ### Parameters
@@ -373,13 +373,13 @@ Delete a financial connection
 * Api Key Authentication (fuseApiKey):
 * Api Key Authentication (fuseClientId):
 ```python
-import fuse_py
-from fuse_py.apis.tags import fuse_api
-from fuse_py.model.delete_financial_connection_response import DeleteFinancialConnectionResponse
+import fuse_client
+from fuse_client.apis.tags import fuse_api
+from fuse_client.model.delete_financial_connection_response import DeleteFinancialConnectionResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://sandbox-api.letsfuse.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fuse_py.Configuration(
+configuration = fuse_client.Configuration(
     host = "https://sandbox-api.letsfuse.com"
 )
 
@@ -400,7 +400,7 @@ configuration.api_key['fuseClientId'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['fuseClientId'] = 'Bearer'
 # Enter a context with an instance of the API client
-with fuse_py.ApiClient(configuration) as api_client:
+with fuse_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fuse_api.FuseApi(api_client)
 
@@ -414,7 +414,7 @@ with fuse_py.ApiClient(configuration) as api_client:
             path_params=path_params,
         )
         pprint(api_response)
-    except fuse_py.ApiException as e:
+    except fuse_client.ApiException as e:
         print("Exception when calling FuseApi->delete_financial_connection: %s\n" % e)
 ```
 ### Parameters
@@ -480,14 +480,14 @@ API to exchange a public token for an access token and financial connection id
 * Api Key Authentication (fuseApiKey):
 * Api Key Authentication (fuseClientId):
 ```python
-import fuse_py
-from fuse_py.apis.tags import fuse_api
-from fuse_py.model.exchange_financial_connections_public_token_request import ExchangeFinancialConnectionsPublicTokenRequest
-from fuse_py.model.exchange_financial_connections_public_token_response import ExchangeFinancialConnectionsPublicTokenResponse
+import fuse_client
+from fuse_client.apis.tags import fuse_api
+from fuse_client.model.exchange_financial_connections_public_token_response import ExchangeFinancialConnectionsPublicTokenResponse
+from fuse_client.model.exchange_financial_connections_public_token_request import ExchangeFinancialConnectionsPublicTokenRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://sandbox-api.letsfuse.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fuse_py.Configuration(
+configuration = fuse_client.Configuration(
     host = "https://sandbox-api.letsfuse.com"
 )
 
@@ -508,7 +508,7 @@ configuration.api_key['fuseClientId'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['fuseClientId'] = 'Bearer'
 # Enter a context with an instance of the API client
-with fuse_py.ApiClient(configuration) as api_client:
+with fuse_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fuse_api.FuseApi(api_client)
 
@@ -521,7 +521,7 @@ with fuse_py.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except fuse_py.ApiException as e:
+    except fuse_client.ApiException as e:
         print("Exception when calling FuseApi->exchange_financial_connections_public_token: %s\n" % e)
 ```
 ### Parameters
@@ -582,14 +582,14 @@ Retrieves the Asset Report in JSON format.
 * Api Key Authentication (fuseApiKey):
 * Api Key Authentication (fuseClientId):
 ```python
-import fuse_py
-from fuse_py.apis.tags import fuse_api
-from fuse_py.model.get_asset_report_request import GetAssetReportRequest
-from fuse_py.model.get_asset_report_response import GetAssetReportResponse
+import fuse_client
+from fuse_client.apis.tags import fuse_api
+from fuse_client.model.get_asset_report_response import GetAssetReportResponse
+from fuse_client.model.get_asset_report_request import GetAssetReportRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://sandbox-api.letsfuse.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fuse_py.Configuration(
+configuration = fuse_client.Configuration(
     host = "https://sandbox-api.letsfuse.com"
 )
 
@@ -610,7 +610,7 @@ configuration.api_key['fuseClientId'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['fuseClientId'] = 'Bearer'
 # Enter a context with an instance of the API client
-with fuse_py.ApiClient(configuration) as api_client:
+with fuse_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fuse_api.FuseApi(api_client)
 
@@ -623,7 +623,7 @@ with fuse_py.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except fuse_py.ApiException as e:
+    except fuse_client.ApiException as e:
         print("Exception when calling FuseApi->get_asset_report: %s\n" % e)
 ```
 ### Parameters
@@ -684,13 +684,13 @@ An entity is automatically created after a successful connection. The id of the 
 * Api Key Authentication (fuseApiKey):
 * Api Key Authentication (fuseClientId):
 ```python
-import fuse_py
-from fuse_py.apis.tags import fuse_api
-from fuse_py.model.get_entity_response import GetEntityResponse
+import fuse_client
+from fuse_client.apis.tags import fuse_api
+from fuse_client.model.get_entity_response import GetEntityResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://sandbox-api.letsfuse.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fuse_py.Configuration(
+configuration = fuse_client.Configuration(
     host = "https://sandbox-api.letsfuse.com"
 )
 
@@ -711,7 +711,7 @@ configuration.api_key['fuseClientId'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['fuseClientId'] = 'Bearer'
 # Enter a context with an instance of the API client
-with fuse_py.ApiClient(configuration) as api_client:
+with fuse_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fuse_api.FuseApi(api_client)
 
@@ -725,7 +725,7 @@ with fuse_py.ApiClient(configuration) as api_client:
             path_params=path_params,
         )
         pprint(api_response)
-    except fuse_py.ApiException as e:
+    except fuse_client.ApiException as e:
         print("Exception when calling FuseApi->get_entity: %s\n" % e)
 ```
 ### Parameters
@@ -789,13 +789,13 @@ Get financial connection details
 * Api Key Authentication (fuseApiKey):
 * Api Key Authentication (fuseClientId):
 ```python
-import fuse_py
-from fuse_py.apis.tags import fuse_api
-from fuse_py.model.get_financial_connection_response import GetFinancialConnectionResponse
+import fuse_client
+from fuse_client.apis.tags import fuse_api
+from fuse_client.model.get_financial_connection_response import GetFinancialConnectionResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://sandbox-api.letsfuse.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fuse_py.Configuration(
+configuration = fuse_client.Configuration(
     host = "https://sandbox-api.letsfuse.com"
 )
 
@@ -816,7 +816,7 @@ configuration.api_key['fuseClientId'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['fuseClientId'] = 'Bearer'
 # Enter a context with an instance of the API client
-with fuse_py.ApiClient(configuration) as api_client:
+with fuse_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fuse_api.FuseApi(api_client)
 
@@ -830,7 +830,7 @@ with fuse_py.ApiClient(configuration) as api_client:
             path_params=path_params,
         )
         pprint(api_response)
-    except fuse_py.ApiException as e:
+    except fuse_client.ApiException as e:
         print("Exception when calling FuseApi->get_financial_connection: %s\n" % e)
 ```
 ### Parameters
@@ -894,14 +894,14 @@ Get account details
 * Api Key Authentication (fuseApiKey):
 * Api Key Authentication (fuseClientId):
 ```python
-import fuse_py
-from fuse_py.apis.tags import fuse_api
-from fuse_py.model.get_financial_connections_account_details_response import GetFinancialConnectionsAccountDetailsResponse
-from fuse_py.model.get_financial_connections_account_details_request import GetFinancialConnectionsAccountDetailsRequest
+import fuse_client
+from fuse_client.apis.tags import fuse_api
+from fuse_client.model.get_financial_connections_account_details_request import GetFinancialConnectionsAccountDetailsRequest
+from fuse_client.model.get_financial_connections_account_details_response import GetFinancialConnectionsAccountDetailsResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://sandbox-api.letsfuse.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fuse_py.Configuration(
+configuration = fuse_client.Configuration(
     host = "https://sandbox-api.letsfuse.com"
 )
 
@@ -922,7 +922,7 @@ configuration.api_key['fuseClientId'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['fuseClientId'] = 'Bearer'
 # Enter a context with an instance of the API client
-with fuse_py.ApiClient(configuration) as api_client:
+with fuse_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fuse_api.FuseApi(api_client)
 
@@ -936,7 +936,7 @@ with fuse_py.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except fuse_py.ApiException as e:
+    except fuse_client.ApiException as e:
         print("Exception when calling FuseApi->get_financial_connections_account_details: %s\n" % e)
 ```
 ### Parameters
@@ -995,14 +995,14 @@ Get accounts
 * Api Key Authentication (fuseApiKey):
 * Api Key Authentication (fuseClientId):
 ```python
-import fuse_py
-from fuse_py.apis.tags import fuse_api
-from fuse_py.model.get_financial_connections_accounts_response import GetFinancialConnectionsAccountsResponse
-from fuse_py.model.get_financial_connections_accounts_request import GetFinancialConnectionsAccountsRequest
+import fuse_client
+from fuse_client.apis.tags import fuse_api
+from fuse_client.model.get_financial_connections_accounts_response import GetFinancialConnectionsAccountsResponse
+from fuse_client.model.get_financial_connections_accounts_request import GetFinancialConnectionsAccountsRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://sandbox-api.letsfuse.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fuse_py.Configuration(
+configuration = fuse_client.Configuration(
     host = "https://sandbox-api.letsfuse.com"
 )
 
@@ -1023,7 +1023,7 @@ configuration.api_key['fuseClientId'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['fuseClientId'] = 'Bearer'
 # Enter a context with an instance of the API client
-with fuse_py.ApiClient(configuration) as api_client:
+with fuse_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fuse_api.FuseApi(api_client)
 
@@ -1037,7 +1037,7 @@ with fuse_py.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except fuse_py.ApiException as e:
+    except fuse_client.ApiException as e:
         print("Exception when calling FuseApi->get_financial_connections_accounts: %s\n" % e)
 ```
 ### Parameters
@@ -1096,14 +1096,14 @@ Get balances
 * Api Key Authentication (fuseApiKey):
 * Api Key Authentication (fuseClientId):
 ```python
-import fuse_py
-from fuse_py.apis.tags import fuse_api
-from fuse_py.model.get_financial_connections_balance_request import GetFinancialConnectionsBalanceRequest
-from fuse_py.model.get_financial_connections_balance_response import GetFinancialConnectionsBalanceResponse
+import fuse_client
+from fuse_client.apis.tags import fuse_api
+from fuse_client.model.get_financial_connections_balance_request import GetFinancialConnectionsBalanceRequest
+from fuse_client.model.get_financial_connections_balance_response import GetFinancialConnectionsBalanceResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://sandbox-api.letsfuse.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fuse_py.Configuration(
+configuration = fuse_client.Configuration(
     host = "https://sandbox-api.letsfuse.com"
 )
 
@@ -1124,7 +1124,7 @@ configuration.api_key['fuseClientId'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['fuseClientId'] = 'Bearer'
 # Enter a context with an instance of the API client
-with fuse_py.ApiClient(configuration) as api_client:
+with fuse_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fuse_api.FuseApi(api_client)
 
@@ -1143,7 +1143,7 @@ with fuse_py.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except fuse_py.ApiException as e:
+    except fuse_client.ApiException as e:
         print("Exception when calling FuseApi->get_financial_connections_balances: %s\n" % e)
 ```
 ### Parameters
@@ -1202,14 +1202,14 @@ Get account owners
 * Api Key Authentication (fuseApiKey):
 * Api Key Authentication (fuseClientId):
 ```python
-import fuse_py
-from fuse_py.apis.tags import fuse_api
-from fuse_py.model.get_financial_connections_owners_request import GetFinancialConnectionsOwnersRequest
-from fuse_py.model.get_financial_connections_owners_response import GetFinancialConnectionsOwnersResponse
+import fuse_client
+from fuse_client.apis.tags import fuse_api
+from fuse_client.model.get_financial_connections_owners_request import GetFinancialConnectionsOwnersRequest
+from fuse_client.model.get_financial_connections_owners_response import GetFinancialConnectionsOwnersResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://sandbox-api.letsfuse.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fuse_py.Configuration(
+configuration = fuse_client.Configuration(
     host = "https://sandbox-api.letsfuse.com"
 )
 
@@ -1230,7 +1230,7 @@ configuration.api_key['fuseClientId'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['fuseClientId'] = 'Bearer'
 # Enter a context with an instance of the API client
-with fuse_py.ApiClient(configuration) as api_client:
+with fuse_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fuse_api.FuseApi(api_client)
 
@@ -1244,7 +1244,7 @@ with fuse_py.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except fuse_py.ApiException as e:
+    except fuse_client.ApiException as e:
         print("Exception when calling FuseApi->get_financial_connections_owners: %s\n" % e)
 ```
 ### Parameters
@@ -1303,14 +1303,14 @@ Get transactions
 * Api Key Authentication (fuseApiKey):
 * Api Key Authentication (fuseClientId):
 ```python
-import fuse_py
-from fuse_py.apis.tags import fuse_api
-from fuse_py.model.get_financial_connections_transactions_request import GetFinancialConnectionsTransactionsRequest
-from fuse_py.model.get_financial_connections_transactions_response import GetFinancialConnectionsTransactionsResponse
+import fuse_client
+from fuse_client.apis.tags import fuse_api
+from fuse_client.model.get_financial_connections_transactions_request import GetFinancialConnectionsTransactionsRequest
+from fuse_client.model.get_financial_connections_transactions_response import GetFinancialConnectionsTransactionsResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://sandbox-api.letsfuse.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fuse_py.Configuration(
+configuration = fuse_client.Configuration(
     host = "https://sandbox-api.letsfuse.com"
 )
 
@@ -1331,7 +1331,7 @@ configuration.api_key['fuseClientId'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['fuseClientId'] = 'Bearer'
 # Enter a context with an instance of the API client
-with fuse_py.ApiClient(configuration) as api_client:
+with fuse_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fuse_api.FuseApi(api_client)
 
@@ -1349,7 +1349,7 @@ with fuse_py.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except fuse_py.ApiException as e:
+    except fuse_client.ApiException as e:
         print("Exception when calling FuseApi->get_financial_connections_transactions: %s\n" % e)
 ```
 ### Parameters
@@ -1410,13 +1410,13 @@ Receive metadata for a financial institution
 * Api Key Authentication (fuseApiKey):
 * Api Key Authentication (fuseClientId):
 ```python
-import fuse_py
-from fuse_py.apis.tags import fuse_api
-from fuse_py.model.get_financial_institution_response import GetFinancialInstitutionResponse
+import fuse_client
+from fuse_client.apis.tags import fuse_api
+from fuse_client.model.get_financial_institution_response import GetFinancialInstitutionResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://sandbox-api.letsfuse.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fuse_py.Configuration(
+configuration = fuse_client.Configuration(
     host = "https://sandbox-api.letsfuse.com"
 )
 
@@ -1437,7 +1437,7 @@ configuration.api_key['fuseClientId'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['fuseClientId'] = 'Bearer'
 # Enter a context with an instance of the API client
-with fuse_py.ApiClient(configuration) as api_client:
+with fuse_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fuse_api.FuseApi(api_client)
 
@@ -1451,7 +1451,7 @@ with fuse_py.ApiClient(configuration) as api_client:
             path_params=path_params,
         )
         pprint(api_response)
-    except fuse_py.ApiException as e:
+    except fuse_client.ApiException as e:
         print("Exception when calling FuseApi->get_financial_institution: %s\n" % e)
 ```
 ### Parameters
@@ -1515,14 +1515,14 @@ Get investment holdings
 * Api Key Authentication (fuseApiKey):
 * Api Key Authentication (fuseClientId):
 ```python
-import fuse_py
-from fuse_py.apis.tags import fuse_api
-from fuse_py.model.get_investment_holdings_request import GetInvestmentHoldingsRequest
-from fuse_py.model.get_investment_holdings_response import GetInvestmentHoldingsResponse
+import fuse_client
+from fuse_client.apis.tags import fuse_api
+from fuse_client.model.get_investment_holdings_request import GetInvestmentHoldingsRequest
+from fuse_client.model.get_investment_holdings_response import GetInvestmentHoldingsResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://sandbox-api.letsfuse.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fuse_py.Configuration(
+configuration = fuse_client.Configuration(
     host = "https://sandbox-api.letsfuse.com"
 )
 
@@ -1543,7 +1543,7 @@ configuration.api_key['fuseClientId'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['fuseClientId'] = 'Bearer'
 # Enter a context with an instance of the API client
-with fuse_py.ApiClient(configuration) as api_client:
+with fuse_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fuse_api.FuseApi(api_client)
 
@@ -1562,7 +1562,7 @@ with fuse_py.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except fuse_py.ApiException as e:
+    except fuse_client.ApiException as e:
         print("Exception when calling FuseApi->get_investment_holdings: %s\n" % e)
 ```
 ### Parameters
@@ -1621,14 +1621,14 @@ Get investment transactions
 * Api Key Authentication (fuseApiKey):
 * Api Key Authentication (fuseClientId):
 ```python
-import fuse_py
-from fuse_py.apis.tags import fuse_api
-from fuse_py.model.get_investment_transactions_response import GetInvestmentTransactionsResponse
-from fuse_py.model.get_investment_transactions_request import GetInvestmentTransactionsRequest
+import fuse_client
+from fuse_client.apis.tags import fuse_api
+from fuse_client.model.get_investment_transactions_response import GetInvestmentTransactionsResponse
+from fuse_client.model.get_investment_transactions_request import GetInvestmentTransactionsRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://sandbox-api.letsfuse.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fuse_py.Configuration(
+configuration = fuse_client.Configuration(
     host = "https://sandbox-api.letsfuse.com"
 )
 
@@ -1649,7 +1649,7 @@ configuration.api_key['fuseClientId'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['fuseClientId'] = 'Bearer'
 # Enter a context with an instance of the API client
-with fuse_py.ApiClient(configuration) as api_client:
+with fuse_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fuse_api.FuseApi(api_client)
 
@@ -1672,7 +1672,7 @@ with fuse_py.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except fuse_py.ApiException as e:
+    except fuse_client.ApiException as e:
         print("Exception when calling FuseApi->get_investment_transactions: %s\n" % e)
 ```
 ### Parameters
@@ -1733,14 +1733,14 @@ This endpoint migrates financial connections from Plaid or MX into the unified F
 * Api Key Authentication (fuseApiKey):
 * Api Key Authentication (fuseClientId):
 ```python
-import fuse_py
-from fuse_py.apis.tags import fuse_api
-from fuse_py.model.migrate_financial_connections_token_response import MigrateFinancialConnectionsTokenResponse
-from fuse_py.model.migrate_financial_connections_token_request import MigrateFinancialConnectionsTokenRequest
+import fuse_client
+from fuse_client.apis.tags import fuse_api
+from fuse_client.model.migrate_financial_connections_token_request import MigrateFinancialConnectionsTokenRequest
+from fuse_client.model.migrate_financial_connections_token_response import MigrateFinancialConnectionsTokenResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://sandbox-api.letsfuse.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fuse_py.Configuration(
+configuration = fuse_client.Configuration(
     host = "https://sandbox-api.letsfuse.com"
 )
 
@@ -1761,7 +1761,7 @@ configuration.api_key['fuseClientId'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['fuseClientId'] = 'Bearer'
 # Enter a context with an instance of the API client
-with fuse_py.ApiClient(configuration) as api_client:
+with fuse_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fuse_api.FuseApi(api_client)
 
@@ -1793,7 +1793,7 @@ with fuse_py.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except fuse_py.ApiException as e:
+    except fuse_client.ApiException as e:
         print("Exception when calling FuseApi->migrate_financial_connection: %s\n" % e)
 ```
 ### Parameters
@@ -1854,14 +1854,14 @@ Refreshes the Asset Report in JSON format.
 * Api Key Authentication (fuseApiKey):
 * Api Key Authentication (fuseClientId):
 ```python
-import fuse_py
-from fuse_py.apis.tags import fuse_api
-from fuse_py.model.create_asset_report_response import CreateAssetReportResponse
-from fuse_py.model.refresh_asset_report_request import RefreshAssetReportRequest
+import fuse_client
+from fuse_client.apis.tags import fuse_api
+from fuse_client.model.create_asset_report_response import CreateAssetReportResponse
+from fuse_client.model.refresh_asset_report_request import RefreshAssetReportRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://sandbox-api.letsfuse.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fuse_py.Configuration(
+configuration = fuse_client.Configuration(
     host = "https://sandbox-api.letsfuse.com"
 )
 
@@ -1882,7 +1882,7 @@ configuration.api_key['fuseClientId'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['fuseClientId'] = 'Bearer'
 # Enter a context with an instance of the API client
-with fuse_py.ApiClient(configuration) as api_client:
+with fuse_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fuse_api.FuseApi(api_client)
 
@@ -1897,7 +1897,7 @@ with fuse_py.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except fuse_py.ApiException as e:
+    except fuse_client.ApiException as e:
         print("Exception when calling FuseApi->refresh_asset_report: %s\n" % e)
 ```
 ### Parameters
@@ -1958,13 +1958,13 @@ Call this endpoint upon receiving a financial_connection.sync_data webhook. This
 * Api Key Authentication (fuseApiKey):
 * Api Key Authentication (fuseClientId):
 ```python
-import fuse_py
-from fuse_py.apis.tags import fuse_api
-from fuse_py.model.sync_financial_connections_data_response import SyncFinancialConnectionsDataResponse
+import fuse_client
+from fuse_client.apis.tags import fuse_api
+from fuse_client.model.sync_financial_connections_data_response import SyncFinancialConnectionsDataResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://sandbox-api.letsfuse.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fuse_py.Configuration(
+configuration = fuse_client.Configuration(
     host = "https://sandbox-api.letsfuse.com"
 )
 
@@ -1985,7 +1985,7 @@ configuration.api_key['fuseClientId'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['fuseClientId'] = 'Bearer'
 # Enter a context with an instance of the API client
-with fuse_py.ApiClient(configuration) as api_client:
+with fuse_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fuse_api.FuseApi(api_client)
 
@@ -1997,7 +1997,7 @@ with fuse_py.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except fuse_py.ApiException as e:
+    except fuse_client.ApiException as e:
         print("Exception when calling FuseApi->sync_financial_connections_data: %s\n" % e)
 ```
 ### Parameters
@@ -2059,14 +2059,14 @@ Get liabilities
 * Api Key Authentication (fuseApiKey):
 * Api Key Authentication (fuseClientId):
 ```python
-import fuse_py
-from fuse_py.apis.tags import fuse_api
-from fuse_py.model.get_liabilities_request import GetLiabilitiesRequest
-from fuse_py.model.get_liabilities_response import GetLiabilitiesResponse
+import fuse_client
+from fuse_client.apis.tags import fuse_api
+from fuse_client.model.get_liabilities_response import GetLiabilitiesResponse
+from fuse_client.model.get_liabilities_request import GetLiabilitiesRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://sandbox-api.letsfuse.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = fuse_py.Configuration(
+configuration = fuse_client.Configuration(
     host = "https://sandbox-api.letsfuse.com"
 )
 
@@ -2087,7 +2087,7 @@ configuration.api_key['fuseClientId'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['fuseClientId'] = 'Bearer'
 # Enter a context with an instance of the API client
-with fuse_py.ApiClient(configuration) as api_client:
+with fuse_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fuse_api.FuseApi(api_client)
 
@@ -2101,7 +2101,7 @@ with fuse_py.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except fuse_py.ApiException as e:
+    except fuse_client.ApiException as e:
         print("Exception when calling FuseApi->v1_financial_connections_liabilities_post: %s\n" % e)
 ```
 ### Parameters

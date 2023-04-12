@@ -1,4 +1,4 @@
-# fuse_py.model.sync_financial_connections_data_response.SyncFinancialConnectionsDataResponse
+# fuse_client.model.sync_financial_connections_data_response.SyncFinancialConnectionsDataResponse
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

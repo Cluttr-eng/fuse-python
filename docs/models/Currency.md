@@ -1,4 +1,4 @@
-# fuse_py.model.currency.Currency
+# fuse_client.model.currency.Currency
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

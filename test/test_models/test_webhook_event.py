@@ -11,9 +11,9 @@
 
 import unittest
 
-import fuse_py
-from fuse_py.model.webhook_event import WebhookEvent
-from fuse_py import configuration
+import fuse_client
+from fuse_client.model.webhook_event import WebhookEvent
+from fuse_client import configuration
 
 
 class TestWebhookEvent(unittest.TestCase):

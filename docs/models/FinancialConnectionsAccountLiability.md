@@ -1,4 +1,4 @@
-# fuse_py.model.financial_connections_account_liability.FinancialConnectionsAccountLiability
+# fuse_client.model.financial_connections_account_liability.FinancialConnectionsAccountLiability
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

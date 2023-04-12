@@ -1,4 +1,4 @@
-# fuse_py.model.account_subtype.AccountSubtype
+# fuse_client.model.account_subtype.AccountSubtype
 
 The account's subtype
 

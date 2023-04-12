@@ -1,4 +1,4 @@
-# fuse_py.model.country_code.CountryCode
+# fuse_client.model.country_code.CountryCode
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

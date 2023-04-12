@@ -1,4 +1,4 @@
-# fuse_py.model.transaction.Transaction
+# fuse_client.model.transaction.Transaction
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

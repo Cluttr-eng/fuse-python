@@ -11,9 +11,9 @@
 
 import unittest
 
-import fuse_py
-from fuse_py.model.migrate_financial_connections_token_response import MigrateFinancialConnectionsTokenResponse
-from fuse_py import configuration
+import fuse_client
+from fuse_client.model.migrate_financial_connections_token_response import MigrateFinancialConnectionsTokenResponse
+from fuse_client import configuration
 
 
 class TestMigrateFinancialConnectionsTokenResponse(unittest.TestCase):

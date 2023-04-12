@@ -1,4 +1,4 @@
-# fuse_py.model.update_entity_request.UpdateEntityRequest
+# fuse_client.model.update_entity_request.UpdateEntityRequest
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

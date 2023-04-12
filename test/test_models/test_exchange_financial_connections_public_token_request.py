@@ -11,9 +11,9 @@
 
 import unittest
 
-import fuse_py
-from fuse_py.model.exchange_financial_connections_public_token_request import ExchangeFinancialConnectionsPublicTokenRequest
-from fuse_py import configuration
+import fuse_client
+from fuse_client.model.exchange_financial_connections_public_token_request import ExchangeFinancialConnectionsPublicTokenRequest
+from fuse_client import configuration
 
 
 class TestExchangeFinancialConnectionsPublicTokenRequest(unittest.TestCase):

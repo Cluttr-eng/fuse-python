@@ -1,4 +1,4 @@
-# fuse_py.model.get_investment_holdings_request.GetInvestmentHoldingsRequest
+# fuse_client.model.get_investment_holdings_request.GetInvestmentHoldingsRequest
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

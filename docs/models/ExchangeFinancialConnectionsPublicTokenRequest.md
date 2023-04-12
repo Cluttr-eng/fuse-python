@@ -1,4 +1,4 @@
-# fuse_py.model.exchange_financial_connections_public_token_request.ExchangeFinancialConnectionsPublicTokenRequest
+# fuse_client.model.exchange_financial_connections_public_token_request.ExchangeFinancialConnectionsPublicTokenRequest
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

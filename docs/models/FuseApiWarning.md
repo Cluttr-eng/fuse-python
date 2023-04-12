@@ -1,4 +1,4 @@
-# fuse_py.model.fuse_api_warning.FuseApiWarning
+# fuse_client.model.fuse_api_warning.FuseApiWarning
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

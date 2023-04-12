@@ -11,9 +11,9 @@
 
 import unittest
 
-import fuse_py
-from fuse_py.model.financial_connections_owner import FinancialConnectionsOwner
-from fuse_py import configuration
+import fuse_client
+from fuse_client.model.financial_connections_owner import FinancialConnectionsOwner
+from fuse_client import configuration
 
 
 class TestFinancialConnectionsOwner(unittest.TestCase):

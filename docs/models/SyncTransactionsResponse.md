@@ -1,4 +1,4 @@
-# fuse_py.model.sync_transactions_response.SyncTransactionsResponse
+# fuse_client.model.sync_transactions_response.SyncTransactionsResponse
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

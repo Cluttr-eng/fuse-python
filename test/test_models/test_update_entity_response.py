@@ -11,9 +11,9 @@
 
 import unittest
 
-import fuse_py
-from fuse_py.model.update_entity_response import UpdateEntityResponse
-from fuse_py import configuration
+import fuse_client
+from fuse_client.model.update_entity_response import UpdateEntityResponse
+from fuse_client import configuration
 
 
 class TestUpdateEntityResponse(unittest.TestCase):

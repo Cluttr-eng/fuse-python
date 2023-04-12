@@ -1,4 +1,4 @@
-# fuse_py.model.migrate_financial_connections_token_response.MigrateFinancialConnectionsTokenResponse
+# fuse_client.model.migrate_financial_connections_token_response.MigrateFinancialConnectionsTokenResponse
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
