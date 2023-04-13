@@ -34,6 +34,11 @@ class CreateSessionRequest(
 
 
     class MetaOapg:
+        required = {
+            "supported_financial_institution_aggregators",
+            "entity",
+            "products",
+        }
         
         class properties:
             
@@ -90,6 +95,10 @@ class CreateSessionRequest(
             
                 def __getitem__(self, i: int) -> 'Product':
                     return super().__getitem__(i)
+        
+            @staticmethod
+            def entity() -> typing.Type['Entity']:
+                return Entity
             
             
             class country_codes(
@@ -116,20 +125,20 @@ class CreateSessionRequest(
             
                 def __getitem__(self, i: int) -> 'CountryCode':
                     return super().__getitem__(i)
-        
-            @staticmethod
-            def entity() -> typing.Type['Entity']:
-                return Entity
             access_token = schemas.StrSchema
             is_web_view = schemas.BoolSchema
             __annotations__ = {
                 "supported_financial_institution_aggregators": supported_financial_institution_aggregators,
                 "products": products,
-                "country_codes": country_codes,
                 "entity": entity,
+                "country_codes": country_codes,
                 "access_token": access_token,
                 "is_web_view": is_web_view,
             }
+    
+    supported_financial_institution_aggregators: MetaOapg.properties.supported_financial_institution_aggregators
+    entity: 'Entity'
+    products: MetaOapg.properties.products
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["supported_financial_institution_aggregators"]) -> MetaOapg.properties.supported_financial_institution_aggregators: ...
@@ -138,10 +147,10 @@ class CreateSessionRequest(
     def __getitem__(self, name: typing_extensions.Literal["products"]) -> MetaOapg.properties.products: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["country_codes"]) -> MetaOapg.properties.country_codes: ...
+    def __getitem__(self, name: typing_extensions.Literal["entity"]) -> 'Entity': ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["entity"]) -> 'Entity': ...
+    def __getitem__(self, name: typing_extensions.Literal["country_codes"]) -> MetaOapg.properties.country_codes: ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["access_token"]) -> MetaOapg.properties.access_token: ...
@@ -152,22 +161,22 @@ class CreateSessionRequest(
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["supported_financial_institution_aggregators", "products", "country_codes", "entity", "access_token", "is_web_view", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["supported_financial_institution_aggregators", "products", "entity", "country_codes", "access_token", "is_web_view", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["supported_financial_institution_aggregators"]) -> typing.Union[MetaOapg.properties.supported_financial_institution_aggregators, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["supported_financial_institution_aggregators"]) -> MetaOapg.properties.supported_financial_institution_aggregators: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["products"]) -> typing.Union[MetaOapg.properties.products, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["products"]) -> MetaOapg.properties.products: ...
+    
+    @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["entity"]) -> 'Entity': ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["country_codes"]) -> typing.Union[MetaOapg.properties.country_codes, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["entity"]) -> typing.Union['Entity', schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["access_token"]) -> typing.Union[MetaOapg.properties.access_token, schemas.Unset]: ...
@@ -178,17 +187,17 @@ class CreateSessionRequest(
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["supported_financial_institution_aggregators", "products", "country_codes", "entity", "access_token", "is_web_view", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["supported_financial_institution_aggregators", "products", "entity", "country_codes", "access_token", "is_web_view", ], str]):
         return super().get_item_oapg(name)
     
 
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        supported_financial_institution_aggregators: typing.Union[MetaOapg.properties.supported_financial_institution_aggregators, list, tuple, schemas.Unset] = schemas.unset,
-        products: typing.Union[MetaOapg.properties.products, list, tuple, schemas.Unset] = schemas.unset,
+        supported_financial_institution_aggregators: typing.Union[MetaOapg.properties.supported_financial_institution_aggregators, list, tuple, ],
+        entity: 'Entity',
+        products: typing.Union[MetaOapg.properties.products, list, tuple, ],
         country_codes: typing.Union[MetaOapg.properties.country_codes, list, tuple, schemas.Unset] = schemas.unset,
-        entity: typing.Union['Entity', schemas.Unset] = schemas.unset,
         access_token: typing.Union[MetaOapg.properties.access_token, str, schemas.Unset] = schemas.unset,
         is_web_view: typing.Union[MetaOapg.properties.is_web_view, bool, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
@@ -198,9 +207,9 @@ class CreateSessionRequest(
             cls,
             *_args,
             supported_financial_institution_aggregators=supported_financial_institution_aggregators,
+            entity=entity,
             products=products,
             country_codes=country_codes,
-            entity=entity,
             access_token=access_token,
             is_web_view=is_web_view,
             _configuration=_configuration,

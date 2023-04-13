@@ -35,11 +35,14 @@ class RefreshAssetReportRequest(
 
     class MetaOapg:
         required = {
-            "assert_report_token",
+            "access_token",
+            "asset_report_token",
             "days_requested",
         }
         
         class properties:
+            access_token = schemas.StrSchema
+            asset_report_token = schemas.StrSchema
             
             
             class days_requested(
@@ -50,67 +53,64 @@ class RefreshAssetReportRequest(
                 class MetaOapg:
                     inclusive_maximum = 365
                     inclusive_minimum = 1
-            access_token = schemas.StrSchema
-            include_identity = schemas.BoolSchema
             __annotations__ = {
-                "days_requested": days_requested,
                 "access_token": access_token,
-                "include_identity": include_identity,
+                "asset_report_token": asset_report_token,
+                "days_requested": days_requested,
             }
     
-    assert_report_token: schemas.AnyTypeSchema
+    access_token: MetaOapg.properties.access_token
+    asset_report_token: MetaOapg.properties.asset_report_token
     days_requested: MetaOapg.properties.days_requested
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["days_requested"]) -> MetaOapg.properties.days_requested: ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["access_token"]) -> MetaOapg.properties.access_token: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["include_identity"]) -> MetaOapg.properties.include_identity: ...
+    def __getitem__(self, name: typing_extensions.Literal["asset_report_token"]) -> MetaOapg.properties.asset_report_token: ...
+    
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["days_requested"]) -> MetaOapg.properties.days_requested: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["days_requested", "access_token", "include_identity", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["access_token", "asset_report_token", "days_requested", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
     
     @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["access_token"]) -> MetaOapg.properties.access_token: ...
+    
+    @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["asset_report_token"]) -> MetaOapg.properties.asset_report_token: ...
+    
+    @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["days_requested"]) -> MetaOapg.properties.days_requested: ...
-    
-    @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["access_token"]) -> typing.Union[MetaOapg.properties.access_token, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["include_identity"]) -> typing.Union[MetaOapg.properties.include_identity, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["days_requested", "access_token", "include_identity", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["access_token", "asset_report_token", "days_requested", ], str]):
         return super().get_item_oapg(name)
     
 
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        assert_report_token: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+        access_token: typing.Union[MetaOapg.properties.access_token, str, ],
+        asset_report_token: typing.Union[MetaOapg.properties.asset_report_token, str, ],
         days_requested: typing.Union[MetaOapg.properties.days_requested, decimal.Decimal, int, float, ],
-        access_token: typing.Union[MetaOapg.properties.access_token, str, schemas.Unset] = schemas.unset,
-        include_identity: typing.Union[MetaOapg.properties.include_identity, bool, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'RefreshAssetReportRequest':
         return super().__new__(
             cls,
             *_args,
-            assert_report_token=assert_report_token,
-            days_requested=days_requested,
             access_token=access_token,
-            include_identity=include_identity,
+            asset_report_token=asset_report_token,
+            days_requested=days_requested,
             _configuration=_configuration,
             **kwargs,
         )

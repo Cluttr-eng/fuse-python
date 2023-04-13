@@ -47,11 +47,9 @@ class CreateAssetReportRequest(
                 schemas.NumberSchema
             ):
                 pass
-            include_identity = schemas.BoolSchema
             __annotations__ = {
                 "access_token": access_token,
                 "days_requested": days_requested,
-                "include_identity": include_identity,
             }
     
     access_token: MetaOapg.properties.access_token
@@ -64,12 +62,9 @@ class CreateAssetReportRequest(
     def __getitem__(self, name: typing_extensions.Literal["days_requested"]) -> MetaOapg.properties.days_requested: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["include_identity"]) -> MetaOapg.properties.include_identity: ...
-    
-    @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["access_token", "days_requested", "include_identity", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["access_token", "days_requested", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -81,12 +76,9 @@ class CreateAssetReportRequest(
     def get_item_oapg(self, name: typing_extensions.Literal["days_requested"]) -> MetaOapg.properties.days_requested: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["include_identity"]) -> typing.Union[MetaOapg.properties.include_identity, schemas.Unset]: ...
-    
-    @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["access_token", "days_requested", "include_identity", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["access_token", "days_requested", ], str]):
         return super().get_item_oapg(name)
     
 
@@ -95,7 +87,6 @@ class CreateAssetReportRequest(
         *_args: typing.Union[dict, frozendict.frozendict, ],
         access_token: typing.Union[MetaOapg.properties.access_token, str, ],
         days_requested: typing.Union[MetaOapg.properties.days_requested, decimal.Decimal, int, float, ],
-        include_identity: typing.Union[MetaOapg.properties.include_identity, bool, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'CreateAssetReportRequest':
@@ -104,7 +95,6 @@ class CreateAssetReportRequest(
             *_args,
             access_token=access_token,
             days_requested=days_requested,
-            include_identity=include_identity,
             _configuration=_configuration,
             **kwargs,
         )

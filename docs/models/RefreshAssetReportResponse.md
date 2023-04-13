@@ -1,4 +1,4 @@
-# fuse_client.model.get_asset_report_response.GetAssetReportResponse
+# fuse_client.model.refresh_asset_report_response.RefreshAssetReportResponse
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

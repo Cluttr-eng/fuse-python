@@ -8,10 +8,10 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**[supported_financial_institution_aggregators](#supported_financial_institution_aggregators)** | list, tuple,  | tuple,  |  | [optional] 
-**[products](#products)** | list, tuple,  | tuple,  | List of products that you would like the institutions to support | [optional] 
+**[supported_financial_institution_aggregators](#supported_financial_institution_aggregators)** | list, tuple,  | tuple,  |  | 
+**entity** | [**Entity**](Entity.md) | [**Entity**](Entity.md) |  | 
+**[products](#products)** | list, tuple,  | tuple,  | List of products that you would like the institutions to support | 
 **[country_codes](#country_codes)** | list, tuple,  | tuple,  | List of country codes that you would like the institutions to support | [optional] 
-**entity** | [**Entity**](Entity.md) | [**Entity**](Entity.md) |  | [optional] 
 **access_token** | str,  | str,  | The fuse access token for an existing account integration. This will perform the process to reconnect an existing disconnected account. | [optional] 
 **is_web_view** | bool,  | BoolClass,  | Set to false for web SDKs (e.g., React), and true for mobile SDKs (e.g., React Native, Flutter, iOS, Android). | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
