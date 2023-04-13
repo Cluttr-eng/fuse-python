@@ -8,7 +8,7 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**aggregator** | str,  | str,  | The aggregator being migrated (either &#x27;plaid&#x27; or &#x27;mx&#x27;). | must be one of ["plaid", "mx", ] 
+**aggregator** | str,  | str,  | The aggregator being migrated (either &#x27;plaid&#x27;, &#x27;mx&#x27; or &#x27;teller). | must be one of ["plaid", "mx", "teller", ] 
 **connection_data** | [**MigrateFinancialConnectionsAggregatorConnectionData**](MigrateFinancialConnectionsAggregatorConnectionData.md) | [**MigrateFinancialConnectionsAggregatorConnectionData**](MigrateFinancialConnectionsAggregatorConnectionData.md) |  | 
 **[entity](#entity)** | dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
 **[fuse_products](#fuse_products)** | list, tuple,  | tuple,  | A list of Fuse products that the migrated connection will have access to. | 

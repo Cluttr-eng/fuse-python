@@ -28,7 +28,7 @@ Method | HTTP request | Description
 
 # **create_asset_report**
 <a name="create_asset_report"></a>
-> CreateAssetReportResponse create_asset_report()
+> AssetReportResponse create_asset_report()
 
 
 
@@ -42,7 +42,7 @@ Use this endpoint to generate an Asset Report for a user.
 import fuse_client
 from fuse_client.apis.tags import fuse_api
 from fuse_client.model.create_asset_report_request import CreateAssetReportRequest
-from fuse_client.model.create_asset_report_response import CreateAssetReportResponse
+from fuse_client.model.asset_report_response import AssetReportResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://sandbox-api.letsfuse.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -75,7 +75,6 @@ with fuse_client.ApiClient(configuration) as api_client:
     body = CreateAssetReportRequest(
         access_token="access_token_example",
         days_requested=1,
-        include_identity=True,
     )
     try:
         api_response = api_instance.create_asset_report(
@@ -121,7 +120,7 @@ headers | Unset | headers were not defined |
 # SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**CreateAssetReportResponse**](../../models/CreateAssetReportResponse.md) |  | 
+[**AssetReportResponse**](../../models/AssetReportResponse.md) |  | 
 
 
 ### Authorization
@@ -571,7 +570,7 @@ Type | Description  | Notes
 
 # **get_asset_report**
 <a name="get_asset_report"></a>
-> GetAssetReportResponse get_asset_report()
+> AssetReportResponse get_asset_report()
 
 
 
@@ -584,7 +583,7 @@ Retrieves the Asset Report in JSON format.
 ```python
 import fuse_client
 from fuse_client.apis.tags import fuse_api
-from fuse_client.model.get_asset_report_response import GetAssetReportResponse
+from fuse_client.model.asset_report_response import AssetReportResponse
 from fuse_client.model.get_asset_report_request import GetAssetReportRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://sandbox-api.letsfuse.com
@@ -616,6 +615,7 @@ with fuse_client.ApiClient(configuration) as api_client:
 
     # example passing only optional values
     body = GetAssetReportRequest(
+        access_token="access_token_example",
         asset_report_token="asset_report_token_example",
     )
     try:
@@ -662,7 +662,7 @@ headers | Unset | headers were not defined |
 # SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**GetAssetReportResponse**](../../models/GetAssetReportResponse.md) |  | 
+[**AssetReportResponse**](../../models/AssetReportResponse.md) |  | 
 
 
 ### Authorization
@@ -1843,7 +1843,7 @@ Type | Description  | Notes
 
 # **refresh_asset_report**
 <a name="refresh_asset_report"></a>
-> CreateAssetReportResponse refresh_asset_report()
+> AssetReportResponse refresh_asset_report()
 
 
 
@@ -1856,7 +1856,7 @@ Refreshes the Asset Report in JSON format.
 ```python
 import fuse_client
 from fuse_client.apis.tags import fuse_api
-from fuse_client.model.create_asset_report_response import CreateAssetReportResponse
+from fuse_client.model.asset_report_response import AssetReportResponse
 from fuse_client.model.refresh_asset_report_request import RefreshAssetReportRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://sandbox-api.letsfuse.com
@@ -1889,8 +1889,8 @@ with fuse_client.ApiClient(configuration) as api_client:
     # example passing only optional values
     body = RefreshAssetReportRequest(
         access_token="access_token_example",
+        asset_report_token="asset_report_token_example",
         days_requested=1,
-        include_identity=True,
     )
     try:
         api_response = api_instance.refresh_asset_report(
@@ -1936,7 +1936,7 @@ headers | Unset | headers were not defined |
 # SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**CreateAssetReportResponse**](../../models/CreateAssetReportResponse.md) |  | 
+[**AssetReportResponse**](../../models/AssetReportResponse.md) |  | 
 
 
 ### Authorization

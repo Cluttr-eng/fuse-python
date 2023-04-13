@@ -60,6 +60,10 @@ class MigrateFinancialConnectionsTokenRequest(
                 @schemas.classproperty
                 def MX(cls):
                     return cls("mx")
+                
+                @schemas.classproperty
+                def TELLER(cls):
+                    return cls("teller")
             
             
             class entity(

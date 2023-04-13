@@ -21,4 +21,4 @@ import uuid  # noqa: F401
 import frozendict  # noqa: F401
 
 from fuse_client import schemas  # noqa: F401
-GetAssetReportResponse = schemas.Schema
+RefreshAssetReportResponse = schemas.Schema

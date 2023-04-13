@@ -14,6 +14,7 @@
 from fuse_client.model.account_subtype import AccountSubtype
 from fuse_client.model.account_type import AccountType
 from fuse_client.model.aggregator import Aggregator
+from fuse_client.model.asset_report_response import AssetReportResponse
 from fuse_client.model.country_code import CountryCode
 from fuse_client.model.create_asset_report_request import CreateAssetReportRequest
 from fuse_client.model.create_asset_report_response import CreateAssetReportResponse
@@ -68,6 +69,7 @@ from fuse_client.model.migrate_financial_connections_token_request import Migrat
 from fuse_client.model.migrate_financial_connections_token_response import MigrateFinancialConnectionsTokenResponse
 from fuse_client.model.product import Product
 from fuse_client.model.refresh_asset_report_request import RefreshAssetReportRequest
+from fuse_client.model.refresh_asset_report_response import RefreshAssetReportResponse
 from fuse_client.model.sync_financial_connections_data_response import SyncFinancialConnectionsDataResponse
 from fuse_client.model.sync_transactions_request import SyncTransactionsRequest
 from fuse_client.model.sync_transactions_response import SyncTransactionsResponse

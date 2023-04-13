@@ -58,6 +58,7 @@ class MigrateFinancialConnectionsTokenRequest(
                     enum_value_to_name = {
                         "plaid": "PLAID",
                         "mx": "MX",
+                        "teller": "TELLER",
                     }
                 
                 @schemas.classproperty
@@ -67,6 +68,10 @@ class MigrateFinancialConnectionsTokenRequest(
                 @schemas.classproperty
                 def MX(cls):
                     return cls("mx")
+                
+                @schemas.classproperty
+                def TELLER(cls):
+                    return cls("teller")
             
             
             class entity(
