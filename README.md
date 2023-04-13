@@ -380,3 +380,10 @@ from fuse-python.apis import *
 from fuse-python.models import *
 ```
 
+
+
+Building and deploying the sdk
+```
+python3 setup.py sdist bdist_wheel
+twine upload dist/*
+```
