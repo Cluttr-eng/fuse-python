@@ -34,6 +34,14 @@ class FuseApiError(
 
 
     class MetaOapg:
+        required = {
+            "code",
+            "details",
+            "source",
+            "title",
+            "type",
+            "request_id",
+        }
         
         class properties:
             request_id = schemas.StrSchema
@@ -85,12 +93,12 @@ class FuseApiError(
                             class MetaOapg:
                                 
                                 @staticmethod
-                                def items() -> typing.Type['FuseApiError']:
-                                    return FuseApiError
+                                def items() -> typing.Type['FuseApiAggregatorError']:
+                                    return FuseApiAggregatorError
                         
                             def __new__(
                                 cls,
-                                _arg: typing.Union[typing.Tuple['FuseApiError'], typing.List['FuseApiError']],
+                                _arg: typing.Union[typing.Tuple['FuseApiAggregatorError'], typing.List['FuseApiAggregatorError']],
                                 _configuration: typing.Optional[schemas.Configuration] = None,
                             ) -> 'errors':
                                 return super().__new__(
@@ -99,7 +107,7 @@ class FuseApiError(
                                     _configuration=_configuration,
                                 )
                         
-                            def __getitem__(self, i: int) -> 'FuseApiError':
+                            def __getitem__(self, i: int) -> 'FuseApiAggregatorError':
                                 return super().__getitem__(i)
                         __annotations__ = {
                             "aggregator": aggregator,
@@ -159,6 +167,13 @@ class FuseApiError(
                 "data": data,
             }
     
+    code: 'FuseApiErrorCode'
+    details: MetaOapg.properties.details
+    source: MetaOapg.properties.source
+    title: MetaOapg.properties.title
+    type: 'FuseApiErrorType'
+    request_id: MetaOapg.properties.request_id
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["request_id"]) -> MetaOapg.properties.request_id: ...
     
@@ -189,22 +204,22 @@ class FuseApiError(
     
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["request_id"]) -> typing.Union[MetaOapg.properties.request_id, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["request_id"]) -> MetaOapg.properties.request_id: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["title"]) -> typing.Union[MetaOapg.properties.title, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["title"]) -> MetaOapg.properties.title: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["details"]) -> typing.Union[MetaOapg.properties.details, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["details"]) -> MetaOapg.properties.details: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["code"]) -> typing.Union['FuseApiErrorCode', schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["code"]) -> 'FuseApiErrorCode': ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["type"]) -> typing.Union['FuseApiErrorType', schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["type"]) -> 'FuseApiErrorType': ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["source"]) -> typing.Union[MetaOapg.properties.source, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["source"]) -> MetaOapg.properties.source: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["data"]) -> typing.Union[MetaOapg.properties.data, schemas.Unset]: ...
@@ -219,12 +234,12 @@ class FuseApiError(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        request_id: typing.Union[MetaOapg.properties.request_id, str, schemas.Unset] = schemas.unset,
-        title: typing.Union[MetaOapg.properties.title, str, schemas.Unset] = schemas.unset,
-        details: typing.Union[MetaOapg.properties.details, str, schemas.Unset] = schemas.unset,
-        code: typing.Union['FuseApiErrorCode', schemas.Unset] = schemas.unset,
-        type: typing.Union['FuseApiErrorType', schemas.Unset] = schemas.unset,
-        source: typing.Union[MetaOapg.properties.source, str, schemas.Unset] = schemas.unset,
+        code: 'FuseApiErrorCode',
+        details: typing.Union[MetaOapg.properties.details, str, ],
+        source: typing.Union[MetaOapg.properties.source, str, ],
+        title: typing.Union[MetaOapg.properties.title, str, ],
+        type: 'FuseApiErrorType',
+        request_id: typing.Union[MetaOapg.properties.request_id, str, ],
         data: typing.Union[MetaOapg.properties.data, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
@@ -232,18 +247,18 @@ class FuseApiError(
         return super().__new__(
             cls,
             *_args,
-            request_id=request_id,
-            title=title,
-            details=details,
             code=code,
-            type=type,
+            details=details,
             source=source,
+            title=title,
+            type=type,
+            request_id=request_id,
             data=data,
             _configuration=_configuration,
             **kwargs,
         )
 
 from fuse_client.model.aggregator import Aggregator
-from fuse_client.model.fuse_api_error import FuseApiError
+from fuse_client.model.fuse_api_aggregator_error import FuseApiAggregatorError
 from fuse_client.model.fuse_api_error_code import FuseApiErrorCode
 from fuse_client.model.fuse_api_error_type import FuseApiErrorType
