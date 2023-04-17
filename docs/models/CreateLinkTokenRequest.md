@@ -12,6 +12,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **client_name** | str,  | str,  | The name of your application. | 
 **entity** | [**Entity**](Entity.md) | [**Entity**](Entity.md) |  | 
 **institution_id** | str,  | str,  | An id that is unique for an institution. | 
+**webhook_url** | str,  | str,  | This field allows you to set a unique webhook URL for each individual entity. By specifying an entity-specific webhook URL, you can receive and process data events for each entity separately. If this field is left empty, the organization-wide webhook URL set in the sandbox/production environment will be used as the default for all entities. | [optional] 
 **[mx](#mx)** | dict, frozendict.frozendict,  | frozendict.frozendict,  | An object specifying information about the MX configuration to use for deciding which MX supported financial institutions to display. | [optional] 
 **[plaid](#plaid)** | dict, frozendict.frozendict,  | frozendict.frozendict,  | An object specifying information about the Plaid configuration to use when creating a link token.  | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]

@@ -28,6 +28,7 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  | Details of the Plaid c
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **access_token** | str,  | str,  | The Plaid access token associated with the user&#x27;s financial accounts. | 
+**use_item_webhook** | bool,  | BoolClass,  | If true, any webhooks received for this new financial connection will be sent to the webhook url used when the item was created. If false, the webhook url set at the organization sandbox/production environment level will be used instead. | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 # mx
