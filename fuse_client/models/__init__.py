@@ -42,6 +42,8 @@ from fuse_client.model.financial_connections_investment_transaction import Finan
 from fuse_client.model.financial_connections_owner import FinancialConnectionsOwner
 from fuse_client.model.financial_institution import FinancialInstitution
 from fuse_client.model.fuse_api_error import FuseApiError
+from fuse_client.model.fuse_api_error_code import FuseApiErrorCode
+from fuse_client.model.fuse_api_error_type import FuseApiErrorType
 from fuse_client.model.fuse_api_warning import FuseApiWarning
 from fuse_client.model.get_asset_report_request import GetAssetReportRequest
 from fuse_client.model.get_asset_report_response import GetAssetReportResponse

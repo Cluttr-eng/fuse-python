@@ -26,7 +26,7 @@ import frozendict  # noqa: F401
 from fuse_client import schemas  # noqa: F401
 
 from fuse_client.model.create_asset_report_request import CreateAssetReportRequest
-from fuse_client.model.asset_report_response import AssetReportResponse
+from fuse_client.model.create_asset_report_response import CreateAssetReportResponse
 
 # body param
 SchemaForRequestBodyApplicationJson = CreateAssetReportRequest
@@ -38,7 +38,7 @@ request_body_create_asset_report_request = api_client.RequestBody(
             schema=SchemaForRequestBodyApplicationJson),
     },
 )
-SchemaFor200ResponseBodyApplicationJson = AssetReportResponse
+SchemaFor200ResponseBodyApplicationJson = CreateAssetReportResponse
 
 
 @dataclass

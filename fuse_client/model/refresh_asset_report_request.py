@@ -37,7 +37,6 @@ class RefreshAssetReportRequest(
         required = {
             "access_token",
             "asset_report_token",
-            "days_requested",
         }
         
         class properties:
@@ -61,7 +60,6 @@ class RefreshAssetReportRequest(
     
     access_token: MetaOapg.properties.access_token
     asset_report_token: MetaOapg.properties.asset_report_token
-    days_requested: MetaOapg.properties.days_requested
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["access_token"]) -> MetaOapg.properties.access_token: ...
@@ -87,7 +85,7 @@ class RefreshAssetReportRequest(
     def get_item_oapg(self, name: typing_extensions.Literal["asset_report_token"]) -> MetaOapg.properties.asset_report_token: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["days_requested"]) -> MetaOapg.properties.days_requested: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["days_requested"]) -> typing.Union[MetaOapg.properties.days_requested, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -101,7 +99,7 @@ class RefreshAssetReportRequest(
         *_args: typing.Union[dict, frozendict.frozendict, ],
         access_token: typing.Union[MetaOapg.properties.access_token, str, ],
         asset_report_token: typing.Union[MetaOapg.properties.asset_report_token, str, ],
-        days_requested: typing.Union[MetaOapg.properties.days_requested, decimal.Decimal, int, float, ],
+        days_requested: typing.Union[MetaOapg.properties.days_requested, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'RefreshAssetReportRequest':

@@ -8,10 +8,11 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
+**request_id** | str,  | str,  |  | [optional] 
 **title** | str,  | str,  |  | [optional] 
 **details** | str,  | str,  |  | [optional] 
-**code** | str,  | str,  |  | [optional] must be one of ["client_error", "invalid_headers", "invalid_request_body", "internal_server_error", "organization_not_found", "entity_not_found", "session_not_found", "financial_institution_not_found", "missing_access_token", "missing_plaid_client_id_header", "missing_plaid_secret_header", "missing_mx_client_id_header", "missing_mx_api_key_header", "missing_teller_private_key_header", "missing_teller_certificate_header", "missing_teller_application_id_header", "aggregator_error", "aggregator_disconnected_error", "aggregator_connection_finished_error", "request_body_missing", ] 
-**type** | str,  | str,  |  | [optional] must be one of ["auth_error", "not_found", "bad_request", "server_error", ] 
+**code** | [**FuseApiErrorCode**](FuseApiErrorCode.md) | [**FuseApiErrorCode**](FuseApiErrorCode.md) |  | [optional] 
+**type** | [**FuseApiErrorType**](FuseApiErrorType.md) | [**FuseApiErrorType**](FuseApiErrorType.md) |  | [optional] 
 **source** | str,  | str,  |  | [optional] must be one of ["internal", "aggregator", ] 
 **[data](#data)** | dict, frozendict.frozendict,  | frozendict.frozendict,  |  | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
