@@ -49,7 +49,7 @@ class CreateAssetReportRequest(
             
             
                 class MetaOapg:
-                    inclusive_maximum = 365
+                    inclusive_maximum = 731
                     inclusive_minimum = 1
             __annotations__ = {
                 "access_token": access_token,
