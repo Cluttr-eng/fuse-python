@@ -14,7 +14,9 @@
 from fuse_client.model.account_subtype import AccountSubtype
 from fuse_client.model.account_type import AccountType
 from fuse_client.model.aggregator import Aggregator
+from fuse_client.model.asset_report import AssetReport
 from fuse_client.model.asset_report_response import AssetReportResponse
+from fuse_client.model.asset_report_transaction import AssetReportTransaction
 from fuse_client.model.country_code import CountryCode
 from fuse_client.model.create_asset_report_request import CreateAssetReportRequest
 from fuse_client.model.create_asset_report_response import CreateAssetReportResponse
@@ -41,6 +43,7 @@ from fuse_client.model.financial_connections_investment_security import Financia
 from fuse_client.model.financial_connections_investment_transaction import FinancialConnectionsInvestmentTransaction
 from fuse_client.model.financial_connections_owner import FinancialConnectionsOwner
 from fuse_client.model.financial_institution import FinancialInstitution
+from fuse_client.model.fuse_api_aggregator_error import FuseApiAggregatorError
 from fuse_client.model.fuse_api_error import FuseApiError
 from fuse_client.model.fuse_api_error_code import FuseApiErrorCode
 from fuse_client.model.fuse_api_error_type import FuseApiErrorType

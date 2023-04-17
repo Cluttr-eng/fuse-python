@@ -49,6 +49,7 @@ class CreateLinkTokenRequest(
                 return Entity
             client_name = schemas.StrSchema
             session_client_secret = schemas.StrSchema
+            webhook_url = schemas.StrSchema
             
             
             class mx(
@@ -154,6 +155,7 @@ class CreateLinkTokenRequest(
                 "entity": entity,
                 "client_name": client_name,
                 "session_client_secret": session_client_secret,
+                "webhook_url": webhook_url,
                 "mx": mx,
                 "plaid": plaid,
             }
@@ -176,6 +178,9 @@ class CreateLinkTokenRequest(
     def __getitem__(self, name: typing_extensions.Literal["session_client_secret"]) -> MetaOapg.properties.session_client_secret: ...
     
     @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["webhook_url"]) -> MetaOapg.properties.webhook_url: ...
+    
+    @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["mx"]) -> MetaOapg.properties.mx: ...
     
     @typing.overload
@@ -184,7 +189,7 @@ class CreateLinkTokenRequest(
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["institution_id", "entity", "client_name", "session_client_secret", "mx", "plaid", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["institution_id", "entity", "client_name", "session_client_secret", "webhook_url", "mx", "plaid", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -202,6 +207,9 @@ class CreateLinkTokenRequest(
     def get_item_oapg(self, name: typing_extensions.Literal["session_client_secret"]) -> MetaOapg.properties.session_client_secret: ...
     
     @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["webhook_url"]) -> typing.Union[MetaOapg.properties.webhook_url, schemas.Unset]: ...
+    
+    @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["mx"]) -> typing.Union[MetaOapg.properties.mx, schemas.Unset]: ...
     
     @typing.overload
@@ -210,7 +218,7 @@ class CreateLinkTokenRequest(
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["institution_id", "entity", "client_name", "session_client_secret", "mx", "plaid", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["institution_id", "entity", "client_name", "session_client_secret", "webhook_url", "mx", "plaid", ], str]):
         return super().get_item_oapg(name)
     
 
@@ -221,6 +229,7 @@ class CreateLinkTokenRequest(
         client_name: typing.Union[MetaOapg.properties.client_name, str, ],
         entity: 'Entity',
         institution_id: typing.Union[MetaOapg.properties.institution_id, str, ],
+        webhook_url: typing.Union[MetaOapg.properties.webhook_url, str, schemas.Unset] = schemas.unset,
         mx: typing.Union[MetaOapg.properties.mx, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         plaid: typing.Union[MetaOapg.properties.plaid, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
@@ -233,6 +242,7 @@ class CreateLinkTokenRequest(
             client_name=client_name,
             entity=entity,
             institution_id=institution_id,
+            webhook_url=webhook_url,
             mx=mx,
             plaid=plaid,
             _configuration=_configuration,

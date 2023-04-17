@@ -184,6 +184,7 @@ with fuse_client.ApiClient(configuration) as api_client:
         ),
         client_name="client_name_example",
         session_client_secret="session_client_secret_example",
+        webhook_url="webhook_url_example",
         mx=dict(
             config=dict(),
         ),
@@ -1770,6 +1771,7 @@ with fuse_client.ApiClient(configuration) as api_client:
         connection_data=MigrateFinancialConnectionsAggregatorConnectionData(
             plaid=dict(
                 access_token="access_token_example",
+                use_item_webhook=True,
             ),
             mx=dict(
                 user_guid="user_guid_example",
