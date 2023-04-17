@@ -28,11 +28,11 @@ Method | HTTP request | Description
 
 # **create_asset_report**
 <a name="create_asset_report"></a>
-> AssetReportResponse create_asset_report()
+> CreateAssetReportResponse create_asset_report()
 
 
 
-Use this endpoint to generate an Asset Report for a user.
+Use this endpoint to generate an Asset Report for a user. For Plaid, you will need to have the assets product enabled on your plaid account.
 
 ### Example
 
@@ -42,7 +42,7 @@ Use this endpoint to generate an Asset Report for a user.
 import fuse_client
 from fuse_client.apis.tags import fuse_api
 from fuse_client.model.create_asset_report_request import CreateAssetReportRequest
-from fuse_client.model.asset_report_response import AssetReportResponse
+from fuse_client.model.create_asset_report_response import CreateAssetReportResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://sandbox-api.letsfuse.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -120,7 +120,7 @@ headers | Unset | headers were not defined |
 # SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AssetReportResponse**](../../models/AssetReportResponse.md) |  | 
+[**CreateAssetReportResponse**](../../models/CreateAssetReportResponse.md) |  | 
 
 
 ### Authorization
@@ -570,11 +570,11 @@ Type | Description  | Notes
 
 # **get_asset_report**
 <a name="get_asset_report"></a>
-> AssetReportResponse get_asset_report()
+> RefreshAssetReportResponse get_asset_report()
 
 
 
-Retrieves the Asset Report in JSON format.
+Retrieves the Asset Report in JSON format. For Plaid, you will need to have the assets product enabled on your plaid account.
 
 ### Example
 
@@ -583,7 +583,7 @@ Retrieves the Asset Report in JSON format.
 ```python
 import fuse_client
 from fuse_client.apis.tags import fuse_api
-from fuse_client.model.asset_report_response import AssetReportResponse
+from fuse_client.model.refresh_asset_report_response import RefreshAssetReportResponse
 from fuse_client.model.get_asset_report_request import GetAssetReportRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://sandbox-api.letsfuse.com
@@ -662,7 +662,7 @@ headers | Unset | headers were not defined |
 # SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AssetReportResponse**](../../models/AssetReportResponse.md) |  | 
+[**RefreshAssetReportResponse**](../../models/RefreshAssetReportResponse.md) |  | 
 
 
 ### Authorization
@@ -1847,7 +1847,7 @@ Type | Description  | Notes
 
 
 
-Refreshes the Asset Report in JSON format.
+Refreshes the Asset Report in JSON format. For Plaid, you will need to have the assets product enabled on your plaid account.
 
 ### Example
 

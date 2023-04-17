@@ -41,7 +41,7 @@ class Product(
             "ownership": "OWNERSHIP",
             "transactions": "TRANSACTIONS",
             "investments": "INVESTMENTS",
-            "asset_report": "ASSET_REPORT",
+            "assets": "ASSETS",
         }
     
     @schemas.classproperty
@@ -65,5 +65,5 @@ class Product(
         return cls("investments")
     
     @schemas.classproperty
-    def ASSET_REPORT(cls):
-        return cls("asset_report")
+    def ASSETS(cls):
+        return cls("assets")

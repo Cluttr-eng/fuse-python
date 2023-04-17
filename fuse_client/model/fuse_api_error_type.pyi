@@ -23,7 +23,7 @@ import frozendict  # noqa: F401
 from fuse_client import schemas  # noqa: F401
 
 
-class WebhookType(
+class FuseApiErrorType(
     schemas.EnumBase,
     schemas.StrSchema
 ):
@@ -34,21 +34,17 @@ class WebhookType(
     """
     
     @schemas.classproperty
-    def FINANCIAL_CONNECTION_SYNC_DATA(cls):
-        return cls("financial_connection.sync_data")
+    def AUTH_ERROR(cls):
+        return cls("auth_error")
     
     @schemas.classproperty
-    def FINANCIAL_CONNECTION_DISCONNECTED(cls):
-        return cls("financial_connection.disconnected")
+    def NOT_FOUND(cls):
+        return cls("not_found")
     
     @schemas.classproperty
-    def FINANCIAL_CONNECTION_FINISHED(cls):
-        return cls("financial_connection.finished")
+    def BAD_REQUEST(cls):
+        return cls("bad_request")
     
     @schemas.classproperty
-    def TRANSACTIONS_UPDATES(cls):
-        return cls("transactions.updates")
-    
-    @schemas.classproperty
-    def ASSETS_REPORT_READY(cls):
-        return cls("assets.report_ready")
+    def SERVER_ERROR(cls):
+        return cls("server_error")

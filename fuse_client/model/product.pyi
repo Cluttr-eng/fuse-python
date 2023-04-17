@@ -54,5 +54,5 @@ class Product(
         return cls("investments")
     
     @schemas.classproperty
-    def ASSET_REPORT(cls):
-        return cls("asset_report")
+    def ASSETS(cls):
+        return cls("assets")
