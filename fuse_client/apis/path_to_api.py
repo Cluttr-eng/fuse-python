@@ -4,9 +4,9 @@ from fuse_client.paths import PathValues
 from fuse_client.apis.paths.v1_financial_connections_accounts_details import V1FinancialConnectionsAccountsDetails
 from fuse_client.apis.paths.v1_financial_connections_owners import V1FinancialConnectionsOwners
 from fuse_client.apis.paths.v1_financial_connections_accounts import V1FinancialConnectionsAccounts
-from fuse_client.apis.paths.v1_asset_report_create import V1AssetReportCreate
-from fuse_client.apis.paths.v1_asset_report_refresh import V1AssetReportRefresh
-from fuse_client.apis.paths.v1_asset_report import V1AssetReport
+from fuse_client.apis.paths.v1_financial_connections_asset_report_create import V1FinancialConnectionsAssetReportCreate
+from fuse_client.apis.paths.v1_financial_connections_asset_report_refresh import V1FinancialConnectionsAssetReportRefresh
+from fuse_client.apis.paths.v1_financial_connections_asset_report import V1FinancialConnectionsAssetReport
 from fuse_client.apis.paths.v1_financial_connections_balances import V1FinancialConnectionsBalances
 from fuse_client.apis.paths.v1_entities_entity_id import V1EntitiesEntityId
 from fuse_client.apis.paths.v1_financial_connections_public_token_exchange import V1FinancialConnectionsPublicTokenExchange
@@ -28,9 +28,9 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.V1_FINANCIAL_CONNECTIONS_ACCOUNTS_DETAILS: V1FinancialConnectionsAccountsDetails,
         PathValues.V1_FINANCIAL_CONNECTIONS_OWNERS: V1FinancialConnectionsOwners,
         PathValues.V1_FINANCIAL_CONNECTIONS_ACCOUNTS: V1FinancialConnectionsAccounts,
-        PathValues.V1_ASSET_REPORT_CREATE: V1AssetReportCreate,
-        PathValues.V1_ASSET_REPORT_REFRESH: V1AssetReportRefresh,
-        PathValues.V1_ASSET_REPORT: V1AssetReport,
+        PathValues.V1_FINANCIAL_CONNECTIONS_ASSET_REPORT_CREATE: V1FinancialConnectionsAssetReportCreate,
+        PathValues.V1_FINANCIAL_CONNECTIONS_ASSET_REPORT_REFRESH: V1FinancialConnectionsAssetReportRefresh,
+        PathValues.V1_FINANCIAL_CONNECTIONS_ASSET_REPORT: V1FinancialConnectionsAssetReport,
         PathValues.V1_FINANCIAL_CONNECTIONS_BALANCES: V1FinancialConnectionsBalances,
         PathValues.V1_ENTITIES_ENTITY_ID: V1EntitiesEntityId,
         PathValues.V1_FINANCIAL_CONNECTIONS_PUBLIC_TOKEN_EXCHANGE: V1FinancialConnectionsPublicTokenExchange,
@@ -53,9 +53,9 @@ path_to_api = PathToApi(
         PathValues.V1_FINANCIAL_CONNECTIONS_ACCOUNTS_DETAILS: V1FinancialConnectionsAccountsDetails,
         PathValues.V1_FINANCIAL_CONNECTIONS_OWNERS: V1FinancialConnectionsOwners,
         PathValues.V1_FINANCIAL_CONNECTIONS_ACCOUNTS: V1FinancialConnectionsAccounts,
-        PathValues.V1_ASSET_REPORT_CREATE: V1AssetReportCreate,
-        PathValues.V1_ASSET_REPORT_REFRESH: V1AssetReportRefresh,
-        PathValues.V1_ASSET_REPORT: V1AssetReport,
+        PathValues.V1_FINANCIAL_CONNECTIONS_ASSET_REPORT_CREATE: V1FinancialConnectionsAssetReportCreate,
+        PathValues.V1_FINANCIAL_CONNECTIONS_ASSET_REPORT_REFRESH: V1FinancialConnectionsAssetReportRefresh,
+        PathValues.V1_FINANCIAL_CONNECTIONS_ASSET_REPORT: V1FinancialConnectionsAssetReport,
         PathValues.V1_FINANCIAL_CONNECTIONS_BALANCES: V1FinancialConnectionsBalances,
         PathValues.V1_ENTITIES_ENTITY_ID: V1EntitiesEntityId,
         PathValues.V1_FINANCIAL_CONNECTIONS_PUBLIC_TOKEN_EXCHANGE: V1FinancialConnectionsPublicTokenExchange,
