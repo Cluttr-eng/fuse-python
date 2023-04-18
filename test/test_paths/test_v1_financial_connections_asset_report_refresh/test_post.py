@@ -12,15 +12,15 @@ from unittest.mock import patch
 import urllib3
 
 import fuse_client
-from fuse_client.paths.v1_asset_report_refresh import post  # noqa: E501
+from fuse_client.paths.v1_financial_connections_asset_report_refresh import post  # noqa: E501
 from fuse_client import configuration, schemas, api_client
 
 from .. import ApiTestMixin
 
 
-class TestV1AssetReportRefresh(ApiTestMixin, unittest.TestCase):
+class TestV1FinancialConnectionsAssetReportRefresh(ApiTestMixin, unittest.TestCase):
     """
-    V1AssetReportRefresh unit test stubs
+    V1FinancialConnectionsAssetReportRefresh unit test stubs
     """
     _configuration = configuration.Configuration()
 

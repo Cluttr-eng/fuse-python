@@ -5,12 +5,12 @@ All URIs are relative to *https://sandbox-api.letsfuse.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_asset_report**](#create_asset_report) | **post** /v1/asset_report/create | 
+[**create_asset_report**](#create_asset_report) | **post** /v1/financial_connections/asset_report/create | 
 [**create_link_token**](#create_link_token) | **post** /v1/link/token | 
 [**create_session**](#create_session) | **post** /v1/session | 
 [**delete_financial_connection**](#delete_financial_connection) | **delete** /v1/financial_connections/{financial_connection_id_to_delete} | Delete a financial connection
 [**exchange_financial_connections_public_token**](#exchange_financial_connections_public_token) | **post** /v1/financial_connections/public_token/exchange | 
-[**get_asset_report**](#get_asset_report) | **post** /v1/asset_report | 
+[**get_asset_report**](#get_asset_report) | **post** /v1/financial_connections/asset_report | 
 [**get_entity**](#get_entity) | **get** /v1/entities/{entity_id} | Get entity
 [**get_financial_connection**](#get_financial_connection) | **get** /v1/financial_connections/{financial_connection_id} | Get financial connection details
 [**get_financial_connections_account_details**](#get_financial_connections_account_details) | **post** /v1/financial_connections/accounts/details | Get account details
@@ -22,7 +22,7 @@ Method | HTTP request | Description
 [**get_investment_holdings**](#get_investment_holdings) | **post** /v1/financial_connections/investments/holdings | Get investment holdings
 [**get_investment_transactions**](#get_investment_transactions) | **post** /v1/financial_connections/investments/transactions | Get investment transactions
 [**migrate_financial_connection**](#migrate_financial_connection) | **post** /v1/financial_connections/migrate | Migrate financial connection
-[**refresh_asset_report**](#refresh_asset_report) | **post** /v1/asset_report/refresh | 
+[**refresh_asset_report**](#refresh_asset_report) | **post** /v1/financial_connections/asset_report/refresh | 
 [**sync_financial_connections_data**](#sync_financial_connections_data) | **post** /v1/financial_connections/sync | Sync financial connections data
 [**v1_financial_connections_liabilities_post**](#v1_financial_connections_liabilities_post) | **post** /v1/financial_connections/liabilities | Get liabilities
 
