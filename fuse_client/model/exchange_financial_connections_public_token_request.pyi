@@ -34,12 +34,17 @@ class ExchangeFinancialConnectionsPublicTokenRequest(
 
 
     class MetaOapg:
+        required = {
+            "public_token",
+        }
         
         class properties:
             public_token = schemas.StrSchema
             __annotations__ = {
                 "public_token": public_token,
             }
+    
+    public_token: MetaOapg.properties.public_token
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["public_token"]) -> MetaOapg.properties.public_token: ...
@@ -53,7 +58,7 @@ class ExchangeFinancialConnectionsPublicTokenRequest(
     
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["public_token"]) -> typing.Union[MetaOapg.properties.public_token, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["public_token"]) -> MetaOapg.properties.public_token: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -65,7 +70,7 @@ class ExchangeFinancialConnectionsPublicTokenRequest(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        public_token: typing.Union[MetaOapg.properties.public_token, str, schemas.Unset] = schemas.unset,
+        public_token: typing.Union[MetaOapg.properties.public_token, str, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'ExchangeFinancialConnectionsPublicTokenRequest':

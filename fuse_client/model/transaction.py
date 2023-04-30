@@ -3189,6 +3189,7 @@ class Transaction(
                         "transfer": "TRANSFER",
                         "wire": "WIRE",
                         "withdrawal": "WITHDRAWAL",
+                        "-": "HYPHEN_MINUS",
                     }
                 
                 @schemas.classproperty
@@ -3298,6 +3299,10 @@ class Transaction(
                 @schemas.classproperty
                 def WITHDRAWAL(cls):
                     return cls("withdrawal")
+                
+                @schemas.classproperty
+                def HYPHEN_MINUS(cls):
+                    return cls("-")
             remote_data = schemas.AnyTypeSchema
             iso_currency_code = schemas.StrSchema
             __annotations__ = {

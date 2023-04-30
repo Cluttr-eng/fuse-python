@@ -40,6 +40,7 @@ class Aggregator(
             "teller": "TELLER",
             "mx": "MX",
             "snaptrade": "SNAPTRADE",
+            "flinks": "FLINKS",
         }
     
     @schemas.classproperty
@@ -57,3 +58,7 @@ class Aggregator(
     @schemas.classproperty
     def SNAPTRADE(cls):
         return cls("snaptrade")
+    
+    @schemas.classproperty
+    def FLINKS(cls):
+        return cls("flinks")

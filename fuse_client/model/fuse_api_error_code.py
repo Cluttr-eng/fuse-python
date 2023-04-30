@@ -57,6 +57,9 @@ class FuseApiErrorCode(
             "missing_teller_signing_secret_header": "MISSING_TELLER_SIGNING_SECRET_HEADER",
             "missing_snaptrade_client_id_header": "MISSING_SNAPTRADE_CLIENT_ID_HEADER",
             "missing_snaptrade_consumer_key_header": "MISSING_SNAPTRADE_CONSUMER_KEY_HEADER",
+            "missing_flinks_customer_id_header": "MISSING_FLINKS_CUSTOMER_ID_HEADER",
+            "missing_flinks_ca_instance_id_header": "MISSING_FLINKS_CA_INSTANCE_ID_HEADER",
+            "missing_flinks_us_instance_id_header": "MISSING_FLINKS_US_INSTANCE_ID_HEADER",
             "missing_fuse_verification_header": "MISSING_FUSE_VERIFICATION_HEADER",
             "aggregator_error": "AGGREGATOR_ERROR",
             "aggregator_disconnected_error": "AGGREGATOR_DISCONNECTED_ERROR",
@@ -67,6 +70,8 @@ class FuseApiErrorCode(
             "request_body_invalid_json": "REQUEST_BODY_INVALID_JSON",
             "webhook_error": "WEBHOOK_ERROR",
             "timeout": "TIMEOUT",
+            "invalid_certificate": "INVALID_CERTIFICATE",
+            "invalid_private_key": "INVALID_PRIVATE_KEY",
             "other": "OTHER",
         }
     
@@ -155,6 +160,18 @@ class FuseApiErrorCode(
         return cls("missing_snaptrade_consumer_key_header")
     
     @schemas.classproperty
+    def MISSING_FLINKS_CUSTOMER_ID_HEADER(cls):
+        return cls("missing_flinks_customer_id_header")
+    
+    @schemas.classproperty
+    def MISSING_FLINKS_CA_INSTANCE_ID_HEADER(cls):
+        return cls("missing_flinks_ca_instance_id_header")
+    
+    @schemas.classproperty
+    def MISSING_FLINKS_US_INSTANCE_ID_HEADER(cls):
+        return cls("missing_flinks_us_instance_id_header")
+    
+    @schemas.classproperty
     def MISSING_FUSE_VERIFICATION_HEADER(cls):
         return cls("missing_fuse_verification_header")
     
@@ -193,6 +210,14 @@ class FuseApiErrorCode(
     @schemas.classproperty
     def TIMEOUT(cls):
         return cls("timeout")
+    
+    @schemas.classproperty
+    def INVALID_CERTIFICATE(cls):
+        return cls("invalid_certificate")
+    
+    @schemas.classproperty
+    def INVALID_PRIVATE_KEY(cls):
+        return cls("invalid_private_key")
     
     @schemas.classproperty
     def OTHER(cls):

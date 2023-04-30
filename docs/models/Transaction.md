@@ -14,7 +14,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **description** | str,  | str,  | Description of the transaction | 
 **[merchant](#merchant)** | dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
 **[category](#category)** | list, tuple,  | tuple,  | Categories of the transaction, ie Computers and Electronics | 
-**type** | str,  | str,  | Type of the transaction, ie adjustment | must be one of ["ach", "adjustment", "atm", "bank_charge", "bill_payment", "card_payment", "cash", "cashback", "charge", "cheque", "credit", "debit", "deposit", "digital_payment", "direct_debit", "fee", "in_store", "interest", "online", "other", "payment", "purchase", "standing_order", "transaction", "transfer", "wire", "withdrawal", ] 
+**type** | str,  | str,  | Type of the transaction, ie adjustment. &#x27;-&#x27; means we were not able to map the upstream type. | must be one of ["ach", "adjustment", "atm", "bank_charge", "bill_payment", "card_payment", "cash", "cashback", "charge", "cheque", "credit", "debit", "deposit", "digital_payment", "direct_debit", "fee", "in_store", "interest", "online", "other", "payment", "purchase", "standing_order", "transaction", "transfer", "wire", "withdrawal", "-", ] 
 **remote_account_id** | str,  | str,  | Remote Account Id of the transaction, ie Plaid Account Id | 
 **remote_data** | dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
 **status** | str,  | str,  | The status of the transaction. This will be either posted or pending. | must be one of ["pending", "posted", ] 

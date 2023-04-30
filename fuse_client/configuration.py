@@ -497,13 +497,31 @@ conf = fuse_client.Configuration(
                     'snaptradeConsumerKey',
                 ),
             }
-        if 'proxyUrlKey' in self.api_key:
-            auth['proxyUrlKey'] = {
+        if 'flinksCustomerIdKey' in self.api_key:
+            auth['flinksCustomerIdKey'] = {
                 'type': 'api_key',
                 'in': 'header',
-                'key': 'Proxy-Url',
+                'key': 'Flinks-Customer-Id',
                 'value': self.get_api_key_with_prefix(
-                    'proxyUrlKey',
+                    'flinksCustomerIdKey',
+                ),
+            }
+        if 'flinksUsInstanceKey' in self.api_key:
+            auth['flinksUsInstanceKey'] = {
+                'type': 'api_key',
+                'in': 'header',
+                'key': 'Flinks-Us-Instance-Id',
+                'value': self.get_api_key_with_prefix(
+                    'flinksUsInstanceKey',
+                ),
+            }
+        if 'flinksCaInstanceKey' in self.api_key:
+            auth['flinksCaInstanceKey'] = {
+                'type': 'api_key',
+                'in': 'header',
+                'key': 'Flinks-Ca-Instance-Id',
+                'value': self.get_api_key_with_prefix(
+                    'flinksCaInstanceKey',
                 ),
             }
         return auth
@@ -517,7 +535,7 @@ conf = fuse_client.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: 1.0.0\n"\
-               "SDK Package Version: 1.0.18".\
+               "SDK Package Version: 1.0.19".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self):

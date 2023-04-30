@@ -669,6 +669,7 @@ class AssetReportTransaction(
                                 "yoga_and_pilates": "YOGA_AND_PILATES",
                                 "youth_organizations": "YOUTH_ORGANIZATIONS",
                                 "zoo": "ZOO",
+                                "-": "HYPHEN_MINUS",
                             }
                         
                         @schemas.classproperty
@@ -3066,6 +3067,10 @@ class AssetReportTransaction(
                         @schemas.classproperty
                         def ZOO(cls):
                             return cls("zoo")
+                        
+                        @schemas.classproperty
+                        def HYPHEN_MINUS(cls):
+                            return cls("-")
             
                 def __new__(
                     cls,

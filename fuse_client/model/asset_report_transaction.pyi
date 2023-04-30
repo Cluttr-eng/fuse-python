@@ -2462,6 +2462,10 @@ class AssetReportTransaction(
                         @schemas.classproperty
                         def ZOO(cls):
                             return cls("zoo")
+                        
+                        @schemas.classproperty
+                        def HYPHEN_MINUS(cls):
+                            return cls("-")
             
                 def __new__(
                     cls,

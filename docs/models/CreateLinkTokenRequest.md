@@ -9,7 +9,7 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **session_client_secret** | str,  | str,  | The session client secret created from the &#x27;Create session client secret&#x27; endpoint | 
-**client_name** | str,  | str,  | The name of your application. | 
+**client_name** | str,  | str,  | The name of your application. This is what will be displayed to users. | 
 **entity** | [**Entity**](Entity.md) | [**Entity**](Entity.md) |  | 
 **institution_id** | str,  | str,  | An id that is unique for an institution. | 
 **webhook_url** | str,  | str,  | This field allows you to set a unique webhook URL for each individual entity. By specifying an entity-specific webhook URL, you can receive and process data events for each entity separately. If this field is left empty, the organization-wide webhook URL set in the sandbox/production environment will be used as the default for all entities. | [optional] 

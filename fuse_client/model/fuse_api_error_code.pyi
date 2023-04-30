@@ -118,6 +118,18 @@ class FuseApiErrorCode(
         return cls("missing_snaptrade_consumer_key_header")
     
     @schemas.classproperty
+    def MISSING_FLINKS_CUSTOMER_ID_HEADER(cls):
+        return cls("missing_flinks_customer_id_header")
+    
+    @schemas.classproperty
+    def MISSING_FLINKS_CA_INSTANCE_ID_HEADER(cls):
+        return cls("missing_flinks_ca_instance_id_header")
+    
+    @schemas.classproperty
+    def MISSING_FLINKS_US_INSTANCE_ID_HEADER(cls):
+        return cls("missing_flinks_us_instance_id_header")
+    
+    @schemas.classproperty
     def MISSING_FUSE_VERIFICATION_HEADER(cls):
         return cls("missing_fuse_verification_header")
     
@@ -156,6 +168,14 @@ class FuseApiErrorCode(
     @schemas.classproperty
     def TIMEOUT(cls):
         return cls("timeout")
+    
+    @schemas.classproperty
+    def INVALID_CERTIFICATE(cls):
+        return cls("invalid_certificate")
+    
+    @schemas.classproperty
+    def INVALID_PRIVATE_KEY(cls):
+        return cls("invalid_private_key")
     
     @schemas.classproperty
     def OTHER(cls):
