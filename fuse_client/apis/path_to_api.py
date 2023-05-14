@@ -3,6 +3,7 @@ import typing_extensions
 from fuse_client.paths import PathValues
 from fuse_client.apis.paths.v1_financial_connections_accounts_details import V1FinancialConnectionsAccountsDetails
 from fuse_client.apis.paths.v1_financial_connections_owners import V1FinancialConnectionsOwners
+from fuse_client.apis.paths.v1_financial_connections_accounts_statement import V1FinancialConnectionsAccountsStatement
 from fuse_client.apis.paths.v1_financial_connections_accounts import V1FinancialConnectionsAccounts
 from fuse_client.apis.paths.v1_financial_connections_asset_report_create import V1FinancialConnectionsAssetReportCreate
 from fuse_client.apis.paths.v1_financial_connections_asset_report_refresh import V1FinancialConnectionsAssetReportRefresh
@@ -20,6 +21,11 @@ from fuse_client.apis.paths.v1_financial_connections_investments_transactions im
 from fuse_client.apis.paths.v1_financial_connections_liabilities import V1FinancialConnectionsLiabilities
 from fuse_client.apis.paths.v1_link_token import V1LinkToken
 from fuse_client.apis.paths.v1_session import V1Session
+from fuse_client.apis.paths.v1_financial_connections_spend_power import V1FinancialConnectionsSpendPower
+from fuse_client.apis.paths.v1_financial_connections_spend_power_customization import V1FinancialConnectionsSpendPowerCustomization
+from fuse_client.apis.paths.v1_financial_connections_spend_power_customization_update import V1FinancialConnectionsSpendPowerCustomizationUpdate
+from fuse_client.apis.paths.v1_financial_connections_spend_power_spend_power_id import V1FinancialConnectionsSpendPowerSpendPowerId
+from fuse_client.apis.paths.v1_financial_connections_spend_power_spend_power_id_transaction import V1FinancialConnectionsSpendPowerSpendPowerIdTransaction
 from fuse_client.apis.paths.v1_financial_connections_transactions import V1FinancialConnectionsTransactions
 
 PathToApi = typing_extensions.TypedDict(
@@ -27,6 +33,7 @@ PathToApi = typing_extensions.TypedDict(
     {
         PathValues.V1_FINANCIAL_CONNECTIONS_ACCOUNTS_DETAILS: V1FinancialConnectionsAccountsDetails,
         PathValues.V1_FINANCIAL_CONNECTIONS_OWNERS: V1FinancialConnectionsOwners,
+        PathValues.V1_FINANCIAL_CONNECTIONS_ACCOUNTS_STATEMENT: V1FinancialConnectionsAccountsStatement,
         PathValues.V1_FINANCIAL_CONNECTIONS_ACCOUNTS: V1FinancialConnectionsAccounts,
         PathValues.V1_FINANCIAL_CONNECTIONS_ASSET_REPORT_CREATE: V1FinancialConnectionsAssetReportCreate,
         PathValues.V1_FINANCIAL_CONNECTIONS_ASSET_REPORT_REFRESH: V1FinancialConnectionsAssetReportRefresh,
@@ -44,6 +51,11 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.V1_FINANCIAL_CONNECTIONS_LIABILITIES: V1FinancialConnectionsLiabilities,
         PathValues.V1_LINK_TOKEN: V1LinkToken,
         PathValues.V1_SESSION: V1Session,
+        PathValues.V1_FINANCIAL_CONNECTIONS_SPENDPOWER: V1FinancialConnectionsSpendPower,
+        PathValues.V1_FINANCIAL_CONNECTIONS_SPENDPOWER_CUSTOMIZATION: V1FinancialConnectionsSpendPowerCustomization,
+        PathValues.V1_FINANCIAL_CONNECTIONS_SPENDPOWER_CUSTOMIZATION_UPDATE: V1FinancialConnectionsSpendPowerCustomizationUpdate,
+        PathValues.V1_FINANCIAL_CONNECTIONS_SPENDPOWER_SPEND_POWER_ID: V1FinancialConnectionsSpendPowerSpendPowerId,
+        PathValues.V1_FINANCIAL_CONNECTIONS_SPENDPOWER_SPEND_POWER_ID_TRANSACTION: V1FinancialConnectionsSpendPowerSpendPowerIdTransaction,
         PathValues.V1_FINANCIAL_CONNECTIONS_TRANSACTIONS: V1FinancialConnectionsTransactions,
     }
 )
@@ -52,6 +64,7 @@ path_to_api = PathToApi(
     {
         PathValues.V1_FINANCIAL_CONNECTIONS_ACCOUNTS_DETAILS: V1FinancialConnectionsAccountsDetails,
         PathValues.V1_FINANCIAL_CONNECTIONS_OWNERS: V1FinancialConnectionsOwners,
+        PathValues.V1_FINANCIAL_CONNECTIONS_ACCOUNTS_STATEMENT: V1FinancialConnectionsAccountsStatement,
         PathValues.V1_FINANCIAL_CONNECTIONS_ACCOUNTS: V1FinancialConnectionsAccounts,
         PathValues.V1_FINANCIAL_CONNECTIONS_ASSET_REPORT_CREATE: V1FinancialConnectionsAssetReportCreate,
         PathValues.V1_FINANCIAL_CONNECTIONS_ASSET_REPORT_REFRESH: V1FinancialConnectionsAssetReportRefresh,
@@ -69,6 +82,11 @@ path_to_api = PathToApi(
         PathValues.V1_FINANCIAL_CONNECTIONS_LIABILITIES: V1FinancialConnectionsLiabilities,
         PathValues.V1_LINK_TOKEN: V1LinkToken,
         PathValues.V1_SESSION: V1Session,
+        PathValues.V1_FINANCIAL_CONNECTIONS_SPENDPOWER: V1FinancialConnectionsSpendPower,
+        PathValues.V1_FINANCIAL_CONNECTIONS_SPENDPOWER_CUSTOMIZATION: V1FinancialConnectionsSpendPowerCustomization,
+        PathValues.V1_FINANCIAL_CONNECTIONS_SPENDPOWER_CUSTOMIZATION_UPDATE: V1FinancialConnectionsSpendPowerCustomizationUpdate,
+        PathValues.V1_FINANCIAL_CONNECTIONS_SPENDPOWER_SPEND_POWER_ID: V1FinancialConnectionsSpendPowerSpendPowerId,
+        PathValues.V1_FINANCIAL_CONNECTIONS_SPENDPOWER_SPEND_POWER_ID_TRANSACTION: V1FinancialConnectionsSpendPowerSpendPowerIdTransaction,
         PathValues.V1_FINANCIAL_CONNECTIONS_TRANSACTIONS: V1FinancialConnectionsTransactions,
     }
 )

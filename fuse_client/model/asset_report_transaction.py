@@ -275,6 +275,7 @@ class AssetReportTransaction(
                                 "ethiopian": "ETHIOPIAN",
                                 "events_and_event_planning": "EVENTS_AND_EVENT_PLANNING",
                                 "excess_activity": "EXCESS_ACTIVITY",
+                                "expense": "EXPENSE",
                                 "facilities_and_nursing_homes": "FACILITIES_AND_NURSING_HOMES",
                                 "fairgrounds_and_rodeos": "FAIRGROUNDS_AND_RODEOS",
                                 "falafel": "FALAFEL",
@@ -322,6 +323,7 @@ class AssetReportTransaction(
                                 "glasses_and_optometrist": "GLASSES_AND_OPTOMETRIST",
                                 "go_carts": "GO_CARTS",
                                 "golf": "GOLF",
+                                "goods_and_merchandise": "GOODS_AND_MERCHANDISE",
                                 "government_departments_and_agencies": "GOVERNMENT_DEPARTMENTS_AND_AGENCIES",
                                 "government_lobbyists": "GOVERNMENT_LOBBYISTS",
                                 "greek": "GREEK",
@@ -631,11 +633,13 @@ class AssetReportTransaction(
                                 "towing": "TOWING",
                                 "toys": "TOYS",
                                 "transfer": "TRANSFER",
+                                "transfers_and_adjustments": "TRANSFERS_AND_ADJUSTMENTS",
                                 "transport": "TRANSPORT",
                                 "transportation": "TRANSPORTATION",
                                 "transportation_centers": "TRANSPORTATION_CENTERS",
                                 "transportation_equipment": "TRANSPORTATION_EQUIPMENT",
                                 "travel": "TRAVEL",
+                                "travel_and_transportation": "TRAVEL_AND_TRANSPORTATION",
                                 "travel_agents_and_tour_operators": "TRAVEL_AGENTS_AND_TOUR_OPERATORS",
                                 "tree_service": "TREE_SERVICE",
                                 "turkish": "TURKISH",
@@ -669,6 +673,7 @@ class AssetReportTransaction(
                                 "yoga_and_pilates": "YOGA_AND_PILATES",
                                 "youth_organizations": "YOUTH_ORGANIZATIONS",
                                 "zoo": "ZOO",
+                                "-": "HYPHEN_MINUS",
                             }
                         
                         @schemas.classproperty
@@ -1492,6 +1497,10 @@ class AssetReportTransaction(
                             return cls("excess_activity")
                         
                         @schemas.classproperty
+                        def EXPENSE(cls):
+                            return cls("expense")
+                        
+                        @schemas.classproperty
                         def FACILITIES_AND_NURSING_HOMES(cls):
                             return cls("facilities_and_nursing_homes")
                         
@@ -1678,6 +1687,10 @@ class AssetReportTransaction(
                         @schemas.classproperty
                         def GOLF(cls):
                             return cls("golf")
+                        
+                        @schemas.classproperty
+                        def GOODS_AND_MERCHANDISE(cls):
+                            return cls("goods_and_merchandise")
                         
                         @schemas.classproperty
                         def GOVERNMENT_DEPARTMENTS_AND_AGENCIES(cls):
@@ -2916,6 +2929,10 @@ class AssetReportTransaction(
                             return cls("transfer")
                         
                         @schemas.classproperty
+                        def TRANSFERS_AND_ADJUSTMENTS(cls):
+                            return cls("transfers_and_adjustments")
+                        
+                        @schemas.classproperty
                         def TRANSPORT(cls):
                             return cls("transport")
                         
@@ -2934,6 +2951,10 @@ class AssetReportTransaction(
                         @schemas.classproperty
                         def TRAVEL(cls):
                             return cls("travel")
+                        
+                        @schemas.classproperty
+                        def TRAVEL_AND_TRANSPORTATION(cls):
+                            return cls("travel_and_transportation")
                         
                         @schemas.classproperty
                         def TRAVEL_AGENTS_AND_TOUR_OPERATORS(cls):
@@ -3066,6 +3087,10 @@ class AssetReportTransaction(
                         @schemas.classproperty
                         def ZOO(cls):
                             return cls("zoo")
+                        
+                        @schemas.classproperty
+                        def HYPHEN_MINUS(cls):
+                            return cls("-")
             
                 def __new__(
                     cls,

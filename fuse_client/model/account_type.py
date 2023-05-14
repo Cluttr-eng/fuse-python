@@ -32,7 +32,7 @@ class AccountType(
 
     Do not edit the class manually.
 
-    The account's type
+    The account's type. '-' means we were not able to map the upstream type.
     """
 
 
@@ -45,6 +45,7 @@ class AccountType(
             "insurance": "INSURANCE",
             "property": "PROPERTY",
             "other": "OTHER",
+            "-": "HYPHEN_MINUS",
         }
     
     @schemas.classproperty
@@ -74,3 +75,7 @@ class AccountType(
     @schemas.classproperty
     def OTHER(cls):
         return cls("other")
+    
+    @schemas.classproperty
+    def HYPHEN_MINUS(cls):
+        return cls("-")

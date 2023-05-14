@@ -69,6 +69,30 @@ class WebhookEvent(
             remote_data = schemas.AnyTypeSchema
             verification_token = schemas.StrSchema
             asset_report_id = schemas.StrSchema
+            historical_transactions_available = schemas.BoolSchema
+            
+            
+            class removed_transaction_ids(
+                schemas.ListSchema
+            ):
+            
+            
+                class MetaOapg:
+                    items = schemas.StrSchema
+            
+                def __new__(
+                    cls,
+                    _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, str, ]], typing.List[typing.Union[MetaOapg.items, str, ]]],
+                    _configuration: typing.Optional[schemas.Configuration] = None,
+                ) -> 'removed_transaction_ids':
+                    return super().__new__(
+                        cls,
+                        _arg,
+                        _configuration=_configuration,
+                    )
+            
+                def __getitem__(self, i: int) -> MetaOapg.items:
+                    return super().__getitem__(i)
             __annotations__ = {
                 "type": type,
                 "financial_connection_id": financial_connection_id,
@@ -77,6 +101,8 @@ class WebhookEvent(
                 "remote_data": remote_data,
                 "verification_token": verification_token,
                 "asset_report_id": asset_report_id,
+                "historical_transactions_available": historical_transactions_available,
+                "removed_transaction_ids": removed_transaction_ids,
             }
     
     environment: MetaOapg.properties.environment
@@ -107,9 +133,15 @@ class WebhookEvent(
     def __getitem__(self, name: typing_extensions.Literal["asset_report_id"]) -> MetaOapg.properties.asset_report_id: ...
     
     @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["historical_transactions_available"]) -> MetaOapg.properties.historical_transactions_available: ...
+    
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["removed_transaction_ids"]) -> MetaOapg.properties.removed_transaction_ids: ...
+    
+    @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["type", "financial_connection_id", "environment", "source", "remote_data", "verification_token", "asset_report_id", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["type", "financial_connection_id", "environment", "source", "remote_data", "verification_token", "asset_report_id", "historical_transactions_available", "removed_transaction_ids", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -136,9 +168,15 @@ class WebhookEvent(
     def get_item_oapg(self, name: typing_extensions.Literal["asset_report_id"]) -> typing.Union[MetaOapg.properties.asset_report_id, schemas.Unset]: ...
     
     @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["historical_transactions_available"]) -> typing.Union[MetaOapg.properties.historical_transactions_available, schemas.Unset]: ...
+    
+    @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["removed_transaction_ids"]) -> typing.Union[MetaOapg.properties.removed_transaction_ids, schemas.Unset]: ...
+    
+    @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["type", "financial_connection_id", "environment", "source", "remote_data", "verification_token", "asset_report_id", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["type", "financial_connection_id", "environment", "source", "remote_data", "verification_token", "asset_report_id", "historical_transactions_available", "removed_transaction_ids", ], str]):
         return super().get_item_oapg(name)
     
 
@@ -152,6 +190,8 @@ class WebhookEvent(
         remote_data: typing.Union[MetaOapg.properties.remote_data, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         verification_token: typing.Union[MetaOapg.properties.verification_token, str, schemas.Unset] = schemas.unset,
         asset_report_id: typing.Union[MetaOapg.properties.asset_report_id, str, schemas.Unset] = schemas.unset,
+        historical_transactions_available: typing.Union[MetaOapg.properties.historical_transactions_available, bool, schemas.Unset] = schemas.unset,
+        removed_transaction_ids: typing.Union[MetaOapg.properties.removed_transaction_ids, list, tuple, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'WebhookEvent':
@@ -165,6 +205,8 @@ class WebhookEvent(
             remote_data=remote_data,
             verification_token=verification_token,
             asset_report_id=asset_report_id,
+            historical_transactions_available=historical_transactions_available,
+            removed_transaction_ids=removed_transaction_ids,
             _configuration=_configuration,
             **kwargs,
         )
