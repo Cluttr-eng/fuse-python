@@ -16,7 +16,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **cusip** | str,  | str,  | The Committee on Uniform Securities Identification Procedures (CUSIP) number uniquely identifies the security, primarily used in the United States and Canada. | [optional] 
 **close_price** | decimal.Decimal, int, float,  | decimal.Decimal,  | The closing price of the security at the end of the most recent trading day. | [optional] 
 **name** | str,  | str,  | A descriptive name for the security, suitable for display. | [optional] 
-**type** | str,  | str,  | The type of security (e.g., equity, mutual fund) | [optional] 
+**type** | [**FinancialConnectionsInvestmentSecurityType**](FinancialConnectionsInvestmentSecurityType.md) | [**FinancialConnectionsInvestmentSecurityType**](FinancialConnectionsInvestmentSecurityType.md) |  | [optional] 
 **[exchange](#exchange)** | dict, frozendict.frozendict,  | frozendict.frozendict,  |  | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 

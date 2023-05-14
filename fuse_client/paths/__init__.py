@@ -8,6 +8,7 @@ import enum
 class PathValues(str, enum.Enum):
     V1_FINANCIAL_CONNECTIONS_ACCOUNTS_DETAILS = "/v1/financial_connections/accounts/details"
     V1_FINANCIAL_CONNECTIONS_OWNERS = "/v1/financial_connections/owners"
+    V1_FINANCIAL_CONNECTIONS_ACCOUNTS_STATEMENT = "/v1/financial_connections/accounts/statement"
     V1_FINANCIAL_CONNECTIONS_ACCOUNTS = "/v1/financial_connections/accounts"
     V1_FINANCIAL_CONNECTIONS_ASSET_REPORT_CREATE = "/v1/financial_connections/asset_report/create"
     V1_FINANCIAL_CONNECTIONS_ASSET_REPORT_REFRESH = "/v1/financial_connections/asset_report/refresh"
@@ -25,4 +26,9 @@ class PathValues(str, enum.Enum):
     V1_FINANCIAL_CONNECTIONS_LIABILITIES = "/v1/financial_connections/liabilities"
     V1_LINK_TOKEN = "/v1/link/token"
     V1_SESSION = "/v1/session"
+    V1_FINANCIAL_CONNECTIONS_SPENDPOWER = "/v1/financial_connections/spend-power"
+    V1_FINANCIAL_CONNECTIONS_SPENDPOWER_CUSTOMIZATION = "/v1/financial_connections/spend-power/customization"
+    V1_FINANCIAL_CONNECTIONS_SPENDPOWER_CUSTOMIZATION_UPDATE = "/v1/financial_connections/spend-power/customization/update"
+    V1_FINANCIAL_CONNECTIONS_SPENDPOWER_SPEND_POWER_ID = "/v1/financial_connections/spend-power/{spend_power_id}"
+    V1_FINANCIAL_CONNECTIONS_SPENDPOWER_SPEND_POWER_ID_TRANSACTION = "/v1/financial_connections/spend-power/{spend_power_id}/transaction"
     V1_FINANCIAL_CONNECTIONS_TRANSACTIONS = "/v1/financial_connections/transactions"

@@ -52,7 +52,10 @@ class FinancialConnectionsInvestmentSecurity(
             cusip = schemas.StrSchema
             close_price = schemas.NumberSchema
             name = schemas.StrSchema
-            type = schemas.StrSchema
+        
+            @staticmethod
+            def type() -> typing.Type['FinancialConnectionsInvestmentSecurityType']:
+                return FinancialConnectionsInvestmentSecurityType
             
             
             class exchange(
@@ -145,7 +148,7 @@ class FinancialConnectionsInvestmentSecurity(
     def __getitem__(self, name: typing_extensions.Literal["name"]) -> MetaOapg.properties.name: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["type"]) -> MetaOapg.properties.type: ...
+    def __getitem__(self, name: typing_extensions.Literal["type"]) -> 'FinancialConnectionsInvestmentSecurityType': ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["exchange"]) -> MetaOapg.properties.exchange: ...
@@ -183,7 +186,7 @@ class FinancialConnectionsInvestmentSecurity(
     def get_item_oapg(self, name: typing_extensions.Literal["name"]) -> typing.Union[MetaOapg.properties.name, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["type"]) -> typing.Union[MetaOapg.properties.type, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["type"]) -> typing.Union['FinancialConnectionsInvestmentSecurityType', schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["exchange"]) -> typing.Union[MetaOapg.properties.exchange, schemas.Unset]: ...
@@ -206,7 +209,7 @@ class FinancialConnectionsInvestmentSecurity(
         cusip: typing.Union[MetaOapg.properties.cusip, str, schemas.Unset] = schemas.unset,
         close_price: typing.Union[MetaOapg.properties.close_price, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
         name: typing.Union[MetaOapg.properties.name, str, schemas.Unset] = schemas.unset,
-        type: typing.Union[MetaOapg.properties.type, str, schemas.Unset] = schemas.unset,
+        type: typing.Union['FinancialConnectionsInvestmentSecurityType', schemas.Unset] = schemas.unset,
         exchange: typing.Union[MetaOapg.properties.exchange, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
@@ -229,3 +232,4 @@ class FinancialConnectionsInvestmentSecurity(
         )
 
 from fuse_client.model.currency import Currency
+from fuse_client.model.financial_connections_investment_security_type import FinancialConnectionsInvestmentSecurityType

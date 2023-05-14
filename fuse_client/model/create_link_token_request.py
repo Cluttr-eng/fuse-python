@@ -150,6 +150,130 @@ class CreateLinkTokenRequest(
                         _configuration=_configuration,
                         **kwargs,
                     )
+            
+            
+            class teller(
+                schemas.DictSchema
+            ):
+            
+            
+                class MetaOapg:
+                    
+                    class properties:
+                        
+                        
+                        class config(
+                            schemas.DictSchema
+                        ):
+                        
+                        
+                            class MetaOapg:
+                                
+                                class properties:
+                                    
+                                    
+                                    class selectAccount(
+                                        schemas.EnumBase,
+                                        schemas.StrSchema
+                                    ):
+                                    
+                                    
+                                        class MetaOapg:
+                                            enum_value_to_name = {
+                                                "disabled": "DISABLED",
+                                                "single": "SINGLE",
+                                                "multiple": "MULTIPLE",
+                                            }
+                                        
+                                        @schemas.classproperty
+                                        def DISABLED(cls):
+                                            return cls("disabled")
+                                        
+                                        @schemas.classproperty
+                                        def SINGLE(cls):
+                                            return cls("single")
+                                        
+                                        @schemas.classproperty
+                                        def MULTIPLE(cls):
+                                            return cls("multiple")
+                                    __annotations__ = {
+                                        "selectAccount": selectAccount,
+                                    }
+                            
+                            @typing.overload
+                            def __getitem__(self, name: typing_extensions.Literal["selectAccount"]) -> MetaOapg.properties.selectAccount: ...
+                            
+                            @typing.overload
+                            def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
+                            
+                            def __getitem__(self, name: typing.Union[typing_extensions.Literal["selectAccount", ], str]):
+                                # dict_instance[name] accessor
+                                return super().__getitem__(name)
+                            
+                            
+                            @typing.overload
+                            def get_item_oapg(self, name: typing_extensions.Literal["selectAccount"]) -> typing.Union[MetaOapg.properties.selectAccount, schemas.Unset]: ...
+                            
+                            @typing.overload
+                            def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+                            
+                            def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["selectAccount", ], str]):
+                                return super().get_item_oapg(name)
+                            
+                        
+                            def __new__(
+                                cls,
+                                *_args: typing.Union[dict, frozendict.frozendict, ],
+                                selectAccount: typing.Union[MetaOapg.properties.selectAccount, str, schemas.Unset] = schemas.unset,
+                                _configuration: typing.Optional[schemas.Configuration] = None,
+                                **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
+                            ) -> 'config':
+                                return super().__new__(
+                                    cls,
+                                    *_args,
+                                    selectAccount=selectAccount,
+                                    _configuration=_configuration,
+                                    **kwargs,
+                                )
+                        __annotations__ = {
+                            "config": config,
+                        }
+                
+                @typing.overload
+                def __getitem__(self, name: typing_extensions.Literal["config"]) -> MetaOapg.properties.config: ...
+                
+                @typing.overload
+                def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
+                
+                def __getitem__(self, name: typing.Union[typing_extensions.Literal["config", ], str]):
+                    # dict_instance[name] accessor
+                    return super().__getitem__(name)
+                
+                
+                @typing.overload
+                def get_item_oapg(self, name: typing_extensions.Literal["config"]) -> typing.Union[MetaOapg.properties.config, schemas.Unset]: ...
+                
+                @typing.overload
+                def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+                
+                def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["config", ], str]):
+                    return super().get_item_oapg(name)
+                
+            
+                def __new__(
+                    cls,
+                    *_args: typing.Union[dict, frozendict.frozendict, ],
+                    config: typing.Union[MetaOapg.properties.config, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+                    _configuration: typing.Optional[schemas.Configuration] = None,
+                    **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
+                ) -> 'teller':
+                    return super().__new__(
+                        cls,
+                        *_args,
+                        config=config,
+                        _configuration=_configuration,
+                        **kwargs,
+                    )
             __annotations__ = {
                 "institution_id": institution_id,
                 "entity": entity,
@@ -158,6 +282,7 @@ class CreateLinkTokenRequest(
                 "webhook_url": webhook_url,
                 "mx": mx,
                 "plaid": plaid,
+                "teller": teller,
             }
     
     session_client_secret: MetaOapg.properties.session_client_secret
@@ -187,9 +312,12 @@ class CreateLinkTokenRequest(
     def __getitem__(self, name: typing_extensions.Literal["plaid"]) -> MetaOapg.properties.plaid: ...
     
     @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["teller"]) -> MetaOapg.properties.teller: ...
+    
+    @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["institution_id", "entity", "client_name", "session_client_secret", "webhook_url", "mx", "plaid", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["institution_id", "entity", "client_name", "session_client_secret", "webhook_url", "mx", "plaid", "teller", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -216,9 +344,12 @@ class CreateLinkTokenRequest(
     def get_item_oapg(self, name: typing_extensions.Literal["plaid"]) -> typing.Union[MetaOapg.properties.plaid, schemas.Unset]: ...
     
     @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["teller"]) -> typing.Union[MetaOapg.properties.teller, schemas.Unset]: ...
+    
+    @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["institution_id", "entity", "client_name", "session_client_secret", "webhook_url", "mx", "plaid", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["institution_id", "entity", "client_name", "session_client_secret", "webhook_url", "mx", "plaid", "teller", ], str]):
         return super().get_item_oapg(name)
     
 
@@ -232,6 +363,7 @@ class CreateLinkTokenRequest(
         webhook_url: typing.Union[MetaOapg.properties.webhook_url, str, schemas.Unset] = schemas.unset,
         mx: typing.Union[MetaOapg.properties.mx, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         plaid: typing.Union[MetaOapg.properties.plaid, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        teller: typing.Union[MetaOapg.properties.teller, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'CreateLinkTokenRequest':
@@ -245,6 +377,7 @@ class CreateLinkTokenRequest(
             webhook_url=webhook_url,
             mx=mx,
             plaid=plaid,
+            teller=teller,
             _configuration=_configuration,
             **kwargs,
         )

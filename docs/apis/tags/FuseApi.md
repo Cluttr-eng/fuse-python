@@ -5,15 +5,19 @@ All URIs are relative to *https://sandbox-api.letsfuse.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**add_spend_power_transaction**](#add_spend_power_transaction) | **post** /v1/financial_connections/spend-power/{spend_power_id}/transaction | 
 [**create_asset_report**](#create_asset_report) | **post** /v1/financial_connections/asset_report/create | 
 [**create_link_token**](#create_link_token) | **post** /v1/link/token | 
 [**create_session**](#create_session) | **post** /v1/session | 
+[**create_spend_power**](#create_spend_power) | **post** /v1/financial_connections/spend-power | 
+[**create_spend_power_customization**](#create_spend_power_customization) | **post** /v1/financial_connections/spend-power/customization | 
 [**delete_financial_connection**](#delete_financial_connection) | **delete** /v1/financial_connections/{financial_connection_id_to_delete} | Delete a financial connection
 [**exchange_financial_connections_public_token**](#exchange_financial_connections_public_token) | **post** /v1/financial_connections/public_token/exchange | 
 [**get_asset_report**](#get_asset_report) | **post** /v1/financial_connections/asset_report | 
 [**get_entity**](#get_entity) | **get** /v1/entities/{entity_id} | Get entity
 [**get_financial_connection**](#get_financial_connection) | **get** /v1/financial_connections/{financial_connection_id} | Get financial connection details
 [**get_financial_connections_account_details**](#get_financial_connections_account_details) | **post** /v1/financial_connections/accounts/details | Get account details
+[**get_financial_connections_account_statement**](#get_financial_connections_account_statement) | **post** /v1/financial_connections/accounts/statement | 
 [**get_financial_connections_accounts**](#get_financial_connections_accounts) | **post** /v1/financial_connections/accounts | Get accounts
 [**get_financial_connections_balances**](#get_financial_connections_balances) | **post** /v1/financial_connections/balances | Get balances
 [**get_financial_connections_owners**](#get_financial_connections_owners) | **post** /v1/financial_connections/owners | Get account owners
@@ -21,10 +25,145 @@ Method | HTTP request | Description
 [**get_financial_institution**](#get_financial_institution) | **get** /v1/financial_connections/institutions/{institution_id} | Get a financial institution
 [**get_investment_holdings**](#get_investment_holdings) | **post** /v1/financial_connections/investments/holdings | Get investment holdings
 [**get_investment_transactions**](#get_investment_transactions) | **post** /v1/financial_connections/investments/transactions | Get investment transactions
+[**get_spend_power**](#get_spend_power) | **get** /v1/financial_connections/spend-power/{spend_power_id} | 
 [**migrate_financial_connection**](#migrate_financial_connection) | **post** /v1/financial_connections/migrate | Migrate financial connection
 [**refresh_asset_report**](#refresh_asset_report) | **post** /v1/financial_connections/asset_report/refresh | 
 [**sync_financial_connections_data**](#sync_financial_connections_data) | **post** /v1/financial_connections/sync | Sync financial connections data
+[**update_spend_power_customization**](#update_spend_power_customization) | **post** /v1/financial_connections/spend-power/customization/update | 
 [**v1_financial_connections_liabilities_post**](#v1_financial_connections_liabilities_post) | **post** /v1/financial_connections/liabilities | Get liabilities
+
+# **add_spend_power_transaction**
+<a name="add_spend_power_transaction"></a>
+> AddSpendPowerTransactionResponse add_spend_power_transaction(spend_power_id)
+
+
+
+### Example
+
+* Api Key Authentication (fuseApiKey):
+* Api Key Authentication (fuseClientId):
+```python
+import fuse_client
+from fuse_client.apis.tags import fuse_api
+from fuse_client.model.add_spend_power_transaction_request import AddSpendPowerTransactionRequest
+from fuse_client.model.add_spend_power_transaction_response import AddSpendPowerTransactionResponse
+from pprint import pprint
+# Defining the host is optional and defaults to https://sandbox-api.letsfuse.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = fuse_client.Configuration(
+    host = "https://sandbox-api.letsfuse.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: fuseApiKey
+configuration.api_key['fuseApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['fuseApiKey'] = 'Bearer'
+
+# Configure API key authorization: fuseClientId
+configuration.api_key['fuseClientId'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['fuseClientId'] = 'Bearer'
+# Enter a context with an instance of the API client
+with fuse_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = fuse_api.FuseApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    path_params = {
+        'spend_power_id': "spend_power_id_example",
+    }
+    try:
+        api_response = api_instance.add_spend_power_transaction(
+            path_params=path_params,
+        )
+        pprint(api_response)
+    except fuse_client.ApiException as e:
+        print("Exception when calling FuseApi->add_spend_power_transaction: %s\n" % e)
+
+    # example passing only optional values
+    path_params = {
+        'spend_power_id': "spend_power_id_example",
+    }
+    body = AddSpendPowerTransactionRequest(
+        id="id_example",
+        status="pending",
+        amount="amount_example",
+    )
+    try:
+        api_response = api_instance.add_spend_power_transaction(
+            path_params=path_params,
+            body=body,
+        )
+        pprint(api_response)
+    except fuse_client.ApiException as e:
+        print("Exception when calling FuseApi->add_spend_power_transaction: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+body | typing.Union[SchemaForRequestBodyApplicationJson, Unset] | optional, default is unset |
+path_params | RequestPathParams | |
+content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### body
+
+# SchemaForRequestBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**AddSpendPowerTransactionRequest**](../../models/AddSpendPowerTransactionRequest.md) |  | 
+
+
+### path_params
+#### RequestPathParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+spend_power_id | SpendPowerIdSchema | | 
+
+# SpendPowerIdSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#add_spend_power_transaction.ApiResponseFor200) | Successful response
+
+#### add_spend_power_transaction.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**AddSpendPowerTransactionResponse**](../../models/AddSpendPowerTransactionResponse.md) |  | 
+
+
+### Authorization
+
+[fuseApiKey](../../../README.md#fuseApiKey), [fuseClientId](../../../README.md#fuseClientId)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **create_asset_report**
 <a name="create_asset_report"></a>
@@ -191,6 +330,11 @@ with fuse_client.ApiClient(configuration) as api_client:
         plaid=dict(
             config=dict(),
         ),
+        teller=dict(
+            config=dict(
+                select_account="disabled",
+            ),
+        ),
     )
     try:
         api_response = api_instance.create_link_token(
@@ -354,6 +498,212 @@ headers | Unset | headers were not defined |
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**CreateSessionResponse**](../../models/CreateSessionResponse.md) |  | 
+
+
+### Authorization
+
+[fuseApiKey](../../../README.md#fuseApiKey), [fuseClientId](../../../README.md#fuseClientId)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **create_spend_power**
+<a name="create_spend_power"></a>
+> CreateSpendPowerResponse create_spend_power()
+
+
+
+Starts the background process that will determine the spend power depending on the customization passed in.
+
+### Example
+
+* Api Key Authentication (fuseApiKey):
+* Api Key Authentication (fuseClientId):
+```python
+import fuse_client
+from fuse_client.apis.tags import fuse_api
+from fuse_client.model.create_spend_power_response import CreateSpendPowerResponse
+from fuse_client.model.create_spend_power_request import CreateSpendPowerRequest
+from pprint import pprint
+# Defining the host is optional and defaults to https://sandbox-api.letsfuse.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = fuse_client.Configuration(
+    host = "https://sandbox-api.letsfuse.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: fuseApiKey
+configuration.api_key['fuseApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['fuseApiKey'] = 'Bearer'
+
+# Configure API key authorization: fuseClientId
+configuration.api_key['fuseClientId'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['fuseClientId'] = 'Bearer'
+# Enter a context with an instance of the API client
+with fuse_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = fuse_api.FuseApi(api_client)
+
+    # example passing only optional values
+    body = CreateSpendPowerRequest(
+        access_token="access_token_example",
+        remote_account_id="remote_account_id_example",
+        customization_id="customization_id_example",
+    )
+    try:
+        api_response = api_instance.create_spend_power(
+            body=body,
+        )
+        pprint(api_response)
+    except fuse_client.ApiException as e:
+        print("Exception when calling FuseApi->create_spend_power: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+body | typing.Union[SchemaForRequestBodyApplicationJson, Unset] | optional, default is unset |
+content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### body
+
+# SchemaForRequestBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**CreateSpendPowerRequest**](../../models/CreateSpendPowerRequest.md) |  | 
+
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#create_spend_power.ApiResponseFor200) | Successful response
+
+#### create_spend_power.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**CreateSpendPowerResponse**](../../models/CreateSpendPowerResponse.md) |  | 
+
+
+### Authorization
+
+[fuseApiKey](../../../README.md#fuseApiKey), [fuseClientId](../../../README.md#fuseClientId)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **create_spend_power_customization**
+<a name="create_spend_power_customization"></a>
+> CreateSpendPowerCustomizationResponse create_spend_power_customization()
+
+
+
+### Example
+
+* Api Key Authentication (fuseApiKey):
+* Api Key Authentication (fuseClientId):
+```python
+import fuse_client
+from fuse_client.apis.tags import fuse_api
+from fuse_client.model.spend_power_customization import SpendPowerCustomization
+from fuse_client.model.create_spend_power_customization_response import CreateSpendPowerCustomizationResponse
+from pprint import pprint
+# Defining the host is optional and defaults to https://sandbox-api.letsfuse.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = fuse_client.Configuration(
+    host = "https://sandbox-api.letsfuse.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: fuseApiKey
+configuration.api_key['fuseApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['fuseApiKey'] = 'Bearer'
+
+# Configure API key authorization: fuseClientId
+configuration.api_key['fuseClientId'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['fuseClientId'] = 'Bearer'
+# Enter a context with an instance of the API client
+with fuse_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = fuse_api.FuseApi(api_client)
+
+    # example passing only optional values
+    body = SpendPowerCustomization(
+        timeframe="daily",
+        min_limit="min_limit_example",
+        max_limit="max_limit_example",
+    )
+    try:
+        api_response = api_instance.create_spend_power_customization(
+            body=body,
+        )
+        pprint(api_response)
+    except fuse_client.ApiException as e:
+        print("Exception when calling FuseApi->create_spend_power_customization: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+body | typing.Union[SchemaForRequestBodyApplicationJson, Unset] | optional, default is unset |
+content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### body
+
+# SchemaForRequestBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**SpendPowerCustomization**](../../models/SpendPowerCustomization.md) |  | 
+
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#create_spend_power_customization.ApiResponseFor200) | Successful response
+
+#### create_spend_power_customization.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**CreateSpendPowerCustomizationResponse**](../../models/CreateSpendPowerCustomizationResponse.md) |  | 
 
 
 ### Authorization
@@ -977,6 +1327,110 @@ headers | Unset | headers were not defined |
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**GetFinancialConnectionsAccountDetailsResponse**](../../models/GetFinancialConnectionsAccountDetailsResponse.md) |  | 
+
+
+### Authorization
+
+[fuseApiKey](../../../README.md#fuseApiKey), [fuseClientId](../../../README.md#fuseClientId)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **get_financial_connections_account_statement**
+<a name="get_financial_connections_account_statement"></a>
+> GetFinancialConnectionsAccountStatementResponse get_financial_connections_account_statement()
+
+
+
+Retrieves an account statement for the given financial connection, account and date. This endpoint may time out so we recommend using a retry mechanism with exponential backoff.
+
+### Example
+
+* Api Key Authentication (fuseApiKey):
+* Api Key Authentication (fuseClientId):
+```python
+import fuse_client
+from fuse_client.apis.tags import fuse_api
+from fuse_client.model.get_financial_connections_account_statement_response import GetFinancialConnectionsAccountStatementResponse
+from fuse_client.model.get_financial_connections_account_statement_request import GetFinancialConnectionsAccountStatementRequest
+from pprint import pprint
+# Defining the host is optional and defaults to https://sandbox-api.letsfuse.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = fuse_client.Configuration(
+    host = "https://sandbox-api.letsfuse.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: fuseApiKey
+configuration.api_key['fuseApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['fuseApiKey'] = 'Bearer'
+
+# Configure API key authorization: fuseClientId
+configuration.api_key['fuseClientId'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['fuseClientId'] = 'Bearer'
+# Enter a context with an instance of the API client
+with fuse_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = fuse_api.FuseApi(api_client)
+
+    # example passing only optional values
+    body = GetFinancialConnectionsAccountStatementRequest(
+        access_token="access_token_example",
+        remote_account_id="remote_account_id_example",
+        date="date_example",
+    )
+    try:
+        api_response = api_instance.get_financial_connections_account_statement(
+            body=body,
+        )
+        pprint(api_response)
+    except fuse_client.ApiException as e:
+        print("Exception when calling FuseApi->get_financial_connections_account_statement: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+body | typing.Union[SchemaForRequestBodyApplicationJson, Unset] | optional, default is unset |
+content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### body
+
+# SchemaForRequestBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**GetFinancialConnectionsAccountStatementRequest**](../../models/GetFinancialConnectionsAccountStatementRequest.md) |  | 
+
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#get_financial_connections_account_statement.ApiResponseFor200) | Successful response
+
+#### get_financial_connections_account_statement.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**GetFinancialConnectionsAccountStatementResponse**](../../models/GetFinancialConnectionsAccountStatementResponse.md) |  | 
 
 
 ### Authorization
@@ -1721,6 +2175,110 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
+# **get_spend_power**
+<a name="get_spend_power"></a>
+> GetSpendPowerResponse get_spend_power(spend_power_id)
+
+
+
+### Example
+
+* Api Key Authentication (fuseApiKey):
+* Api Key Authentication (fuseClientId):
+```python
+import fuse_client
+from fuse_client.apis.tags import fuse_api
+from fuse_client.model.get_spend_power_response import GetSpendPowerResponse
+from pprint import pprint
+# Defining the host is optional and defaults to https://sandbox-api.letsfuse.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = fuse_client.Configuration(
+    host = "https://sandbox-api.letsfuse.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: fuseApiKey
+configuration.api_key['fuseApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['fuseApiKey'] = 'Bearer'
+
+# Configure API key authorization: fuseClientId
+configuration.api_key['fuseClientId'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['fuseClientId'] = 'Bearer'
+# Enter a context with an instance of the API client
+with fuse_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = fuse_api.FuseApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    path_params = {
+        'spend_power_id': "spend_power_id_example",
+    }
+    try:
+        api_response = api_instance.get_spend_power(
+            path_params=path_params,
+        )
+        pprint(api_response)
+    except fuse_client.ApiException as e:
+        print("Exception when calling FuseApi->get_spend_power: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+path_params | RequestPathParams | |
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### path_params
+#### RequestPathParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+spend_power_id | SpendPowerIdSchema | | 
+
+# SpendPowerIdSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#get_spend_power.ApiResponseFor200) | Successful response
+
+#### get_spend_power.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**GetSpendPowerResponse**](../../models/GetSpendPowerResponse.md) |  | 
+
+
+### Authorization
+
+[fuseApiKey](../../../README.md#fuseApiKey), [fuseClientId](../../../README.md#fuseClientId)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
 # **migrate_financial_connection**
 <a name="migrate_financial_connection"></a>
 > MigrateFinancialConnectionsTokenResponse migrate_financial_connection()
@@ -1949,7 +2507,7 @@ Type | Description  | Notes
 
 # **sync_financial_connections_data**
 <a name="sync_financial_connections_data"></a>
-> SyncFinancialConnectionsDataResponse sync_financial_connections_data(fuse_verificationbody)
+> SyncFinancialConnectionsDataResponse sync_financial_connections_data(body)
 
 Sync financial connections data
 
@@ -1992,14 +2550,10 @@ with fuse_client.ApiClient(configuration) as api_client:
     api_instance = fuse_api.FuseApi(api_client)
 
     # example passing only required values which don't have defaults set
-    header_params = {
-        'Fuse-Verification': "Fuse-Verification_example",
-    }
     body = dict()
     try:
         # Sync financial connections data
         api_response = api_instance.sync_financial_connections_data(
-            header_params=header_params,
             body=body,
         )
         pprint(api_response)
@@ -2011,7 +2565,6 @@ with fuse_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
-header_params | RequestHeaderParams | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
@@ -2028,20 +2581,6 @@ Unified webhook data
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  | Unified webhook data | 
-
-### header_params
-#### RequestHeaderParams
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-Fuse-Verification | FuseVerificationSchema | | 
-
-# FuseVerificationSchema
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  | 
 
 ### Return Types, Responses
 
@@ -2061,6 +2600,108 @@ headers | Unset | headers were not defined |
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**SyncFinancialConnectionsDataResponse**](../../models/SyncFinancialConnectionsDataResponse.md) |  | 
+
+
+### Authorization
+
+[fuseApiKey](../../../README.md#fuseApiKey), [fuseClientId](../../../README.md#fuseClientId)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **update_spend_power_customization**
+<a name="update_spend_power_customization"></a>
+> UpdateSpendPowerCustomizationResponse update_spend_power_customization()
+
+
+
+### Example
+
+* Api Key Authentication (fuseApiKey):
+* Api Key Authentication (fuseClientId):
+```python
+import fuse_client
+from fuse_client.apis.tags import fuse_api
+from fuse_client.model.spend_power_customization import SpendPowerCustomization
+from fuse_client.model.update_spend_power_customization_response import UpdateSpendPowerCustomizationResponse
+from pprint import pprint
+# Defining the host is optional and defaults to https://sandbox-api.letsfuse.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = fuse_client.Configuration(
+    host = "https://sandbox-api.letsfuse.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: fuseApiKey
+configuration.api_key['fuseApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['fuseApiKey'] = 'Bearer'
+
+# Configure API key authorization: fuseClientId
+configuration.api_key['fuseClientId'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['fuseClientId'] = 'Bearer'
+# Enter a context with an instance of the API client
+with fuse_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = fuse_api.FuseApi(api_client)
+
+    # example passing only optional values
+    body = SpendPowerCustomization(
+        timeframe="daily",
+        min_limit="min_limit_example",
+        max_limit="max_limit_example",
+    )
+    try:
+        api_response = api_instance.update_spend_power_customization(
+            body=body,
+        )
+        pprint(api_response)
+    except fuse_client.ApiException as e:
+        print("Exception when calling FuseApi->update_spend_power_customization: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+body | typing.Union[SchemaForRequestBodyApplicationJson, Unset] | optional, default is unset |
+content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### body
+
+# SchemaForRequestBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**SpendPowerCustomization**](../../models/SpendPowerCustomization.md) |  | 
+
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#update_spend_power_customization.ApiResponseFor200) | Successful response
+
+#### update_spend_power_customization.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**UpdateSpendPowerCustomizationResponse**](../../models/UpdateSpendPowerCustomizationResponse.md) |  | 
 
 
 ### Authorization

@@ -497,13 +497,67 @@ conf = fuse_client.Configuration(
                     'snaptradeConsumerKey',
                 ),
             }
-        if 'proxyUrlKey' in self.api_key:
-            auth['proxyUrlKey'] = {
+        if 'flinksCaCustomerIdKey' in self.api_key:
+            auth['flinksCaCustomerIdKey'] = {
                 'type': 'api_key',
                 'in': 'header',
-                'key': 'Proxy-Url',
+                'key': 'Flinks-Ca-Customer-Id',
                 'value': self.get_api_key_with_prefix(
-                    'proxyUrlKey',
+                    'flinksCaCustomerIdKey',
+                ),
+            }
+        if 'flinksUsCustomerIdKey' in self.api_key:
+            auth['flinksUsCustomerIdKey'] = {
+                'type': 'api_key',
+                'in': 'header',
+                'key': 'Flinks-Us-Customer-Id',
+                'value': self.get_api_key_with_prefix(
+                    'flinksUsCustomerIdKey',
+                ),
+            }
+        if 'flinksUsInstanceKey' in self.api_key:
+            auth['flinksUsInstanceKey'] = {
+                'type': 'api_key',
+                'in': 'header',
+                'key': 'Flinks-Us-Instance-Id',
+                'value': self.get_api_key_with_prefix(
+                    'flinksUsInstanceKey',
+                ),
+            }
+        if 'flinksCaInstanceKey' in self.api_key:
+            auth['flinksCaInstanceKey'] = {
+                'type': 'api_key',
+                'in': 'header',
+                'key': 'Flinks-Ca-Instance-Id',
+                'value': self.get_api_key_with_prefix(
+                    'flinksCaInstanceKey',
+                ),
+            }
+        if 'finicityPartnerId' in self.api_key:
+            auth['finicityPartnerId'] = {
+                'type': 'api_key',
+                'in': 'header',
+                'key': 'Finicity-Partner-Id',
+                'value': self.get_api_key_with_prefix(
+                    'finicityPartnerId',
+                ),
+            }
+        if 'finicityPartnerSecret' in self.api_key:
+            auth['finicityPartnerSecret'] = {
+                'type': 'api_key',
+                'in': 'header',
+                'key': 'Finicity-Partner-Secret',
+                'value': self.get_api_key_with_prefix(
+                    'finicityPartnerSecret',
+                ),
+            }
+        if 'finicityAppKey' in self.api_key:
+            auth['finicityAppKey'] = {
+                'type': 'api_key',
+                'in': 'header',
+                'key': 'Finicity-App-Key',
+                'value': self.get_api_key_with_prefix(
+                    'finicityAppKey',
                 ),
             }
         return auth
@@ -517,7 +571,7 @@ conf = fuse_client.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: 1.0.0\n"\
-               "SDK Package Version: 1.0.18".\
+               "SDK Package Version: 1.0.19".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self):
