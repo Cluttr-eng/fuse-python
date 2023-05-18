@@ -20,6 +20,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **type** | str,  | str,  | The type of the investment transaction (e.g., &#x27;buy&#x27;, &#x27;sell&#x27;, &#x27;dividend&#x27;) | must be one of ["cash", "buy", "sell", "transfer", "fee", "cancel", "-", ] 
 **remote_account_id** | str,  | str,  | Remote Account Id of the transaction, ie Plaid Account Id | 
 **account_name** | str,  | str,  | The name of the account associated with the investment transaction | [optional] 
+**subtype** | [**FinancialConnectionsInvestmentTransactionSubtype**](FinancialConnectionsInvestmentTransactionSubtype.md) | [**FinancialConnectionsInvestmentTransactionSubtype**](FinancialConnectionsInvestmentTransactionSubtype.md) |  | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

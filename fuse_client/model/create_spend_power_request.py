@@ -35,30 +35,30 @@ class CreateSpendPowerRequest(
 
     class MetaOapg:
         required = {
-            "access_token",
             "customization_id",
-            "remote_account_id",
+            "account_id",
+            "iso_currency_code",
         }
         
         class properties:
-            access_token = schemas.StrSchema
-            remote_account_id = schemas.StrSchema
+            account_id = schemas.StrSchema
+            iso_currency_code = schemas.StrSchema
             customization_id = schemas.StrSchema
             __annotations__ = {
-                "access_token": access_token,
-                "remote_account_id": remote_account_id,
+                "account_id": account_id,
+                "iso_currency_code": iso_currency_code,
                 "customization_id": customization_id,
             }
     
-    access_token: MetaOapg.properties.access_token
     customization_id: MetaOapg.properties.customization_id
-    remote_account_id: MetaOapg.properties.remote_account_id
+    account_id: MetaOapg.properties.account_id
+    iso_currency_code: MetaOapg.properties.iso_currency_code
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["access_token"]) -> MetaOapg.properties.access_token: ...
+    def __getitem__(self, name: typing_extensions.Literal["account_id"]) -> MetaOapg.properties.account_id: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["remote_account_id"]) -> MetaOapg.properties.remote_account_id: ...
+    def __getitem__(self, name: typing_extensions.Literal["iso_currency_code"]) -> MetaOapg.properties.iso_currency_code: ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["customization_id"]) -> MetaOapg.properties.customization_id: ...
@@ -66,16 +66,16 @@ class CreateSpendPowerRequest(
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["access_token", "remote_account_id", "customization_id", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["account_id", "iso_currency_code", "customization_id", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["access_token"]) -> MetaOapg.properties.access_token: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["account_id"]) -> MetaOapg.properties.account_id: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["remote_account_id"]) -> MetaOapg.properties.remote_account_id: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["iso_currency_code"]) -> MetaOapg.properties.iso_currency_code: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["customization_id"]) -> MetaOapg.properties.customization_id: ...
@@ -83,25 +83,25 @@ class CreateSpendPowerRequest(
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["access_token", "remote_account_id", "customization_id", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["account_id", "iso_currency_code", "customization_id", ], str]):
         return super().get_item_oapg(name)
     
 
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        access_token: typing.Union[MetaOapg.properties.access_token, str, ],
         customization_id: typing.Union[MetaOapg.properties.customization_id, str, ],
-        remote_account_id: typing.Union[MetaOapg.properties.remote_account_id, str, ],
+        account_id: typing.Union[MetaOapg.properties.account_id, str, ],
+        iso_currency_code: typing.Union[MetaOapg.properties.iso_currency_code, str, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'CreateSpendPowerRequest':
         return super().__new__(
             cls,
             *_args,
-            access_token=access_token,
             customization_id=customization_id,
-            remote_account_id=remote_account_id,
+            account_id=account_id,
+            iso_currency_code=iso_currency_code,
             _configuration=_configuration,
             **kwargs,
         )
