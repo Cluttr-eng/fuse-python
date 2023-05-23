@@ -38,8 +38,8 @@ class SpendPower(
             "customization_id",
             "last_updated",
             "spend_limit",
+            "iso_currency_code",
             "current_spend",
-            "currency",
             "pending_payments_amount",
             "id",
         }
@@ -47,10 +47,10 @@ class SpendPower(
         class properties:
             id = schemas.StrSchema
             customization_id = schemas.StrSchema
-            spend_limit = schemas.StrSchema
-            current_spend = schemas.StrSchema
-            pending_payments_amount = schemas.StrSchema
-            currency = schemas.StrSchema
+            spend_limit = schemas.NumberSchema
+            current_spend = schemas.NumberSchema
+            pending_payments_amount = schemas.NumberSchema
+            iso_currency_code = schemas.StrSchema
             last_updated = schemas.StrSchema
             __annotations__ = {
                 "id": id,
@@ -58,15 +58,15 @@ class SpendPower(
                 "spend_limit": spend_limit,
                 "current_spend": current_spend,
                 "pending_payments_amount": pending_payments_amount,
-                "currency": currency,
+                "iso_currency_code": iso_currency_code,
                 "last_updated": last_updated,
             }
     
     customization_id: MetaOapg.properties.customization_id
     last_updated: MetaOapg.properties.last_updated
     spend_limit: MetaOapg.properties.spend_limit
+    iso_currency_code: MetaOapg.properties.iso_currency_code
     current_spend: MetaOapg.properties.current_spend
-    currency: MetaOapg.properties.currency
     pending_payments_amount: MetaOapg.properties.pending_payments_amount
     id: MetaOapg.properties.id
     
@@ -86,7 +86,7 @@ class SpendPower(
     def __getitem__(self, name: typing_extensions.Literal["pending_payments_amount"]) -> MetaOapg.properties.pending_payments_amount: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["currency"]) -> MetaOapg.properties.currency: ...
+    def __getitem__(self, name: typing_extensions.Literal["iso_currency_code"]) -> MetaOapg.properties.iso_currency_code: ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["last_updated"]) -> MetaOapg.properties.last_updated: ...
@@ -94,7 +94,7 @@ class SpendPower(
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["id", "customization_id", "spend_limit", "current_spend", "pending_payments_amount", "currency", "last_updated", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["id", "customization_id", "spend_limit", "current_spend", "pending_payments_amount", "iso_currency_code", "last_updated", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -115,7 +115,7 @@ class SpendPower(
     def get_item_oapg(self, name: typing_extensions.Literal["pending_payments_amount"]) -> MetaOapg.properties.pending_payments_amount: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["currency"]) -> MetaOapg.properties.currency: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["iso_currency_code"]) -> MetaOapg.properties.iso_currency_code: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["last_updated"]) -> MetaOapg.properties.last_updated: ...
@@ -123,7 +123,7 @@ class SpendPower(
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["id", "customization_id", "spend_limit", "current_spend", "pending_payments_amount", "currency", "last_updated", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["id", "customization_id", "spend_limit", "current_spend", "pending_payments_amount", "iso_currency_code", "last_updated", ], str]):
         return super().get_item_oapg(name)
     
 
@@ -132,10 +132,10 @@ class SpendPower(
         *_args: typing.Union[dict, frozendict.frozendict, ],
         customization_id: typing.Union[MetaOapg.properties.customization_id, str, ],
         last_updated: typing.Union[MetaOapg.properties.last_updated, str, ],
-        spend_limit: typing.Union[MetaOapg.properties.spend_limit, str, ],
-        current_spend: typing.Union[MetaOapg.properties.current_spend, str, ],
-        currency: typing.Union[MetaOapg.properties.currency, str, ],
-        pending_payments_amount: typing.Union[MetaOapg.properties.pending_payments_amount, str, ],
+        spend_limit: typing.Union[MetaOapg.properties.spend_limit, decimal.Decimal, int, float, ],
+        iso_currency_code: typing.Union[MetaOapg.properties.iso_currency_code, str, ],
+        current_spend: typing.Union[MetaOapg.properties.current_spend, decimal.Decimal, int, float, ],
+        pending_payments_amount: typing.Union[MetaOapg.properties.pending_payments_amount, decimal.Decimal, int, float, ],
         id: typing.Union[MetaOapg.properties.id, str, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
@@ -146,8 +146,8 @@ class SpendPower(
             customization_id=customization_id,
             last_updated=last_updated,
             spend_limit=spend_limit,
+            iso_currency_code=iso_currency_code,
             current_spend=current_spend,
-            currency=currency,
             pending_payments_amount=pending_payments_amount,
             id=id,
             _configuration=_configuration,

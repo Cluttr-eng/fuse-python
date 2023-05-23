@@ -46,6 +46,8 @@ class FuseApiErrorCode(
             "entity_not_found": "ENTITY_NOT_FOUND",
             "session_not_found": "SESSION_NOT_FOUND",
             "financial_institution_not_found": "FINANCIAL_INSTITUTION_NOT_FOUND",
+            "spend_power_not_found": "SPEND_POWER_NOT_FOUND",
+            "spend_power_customization_not_found": "SPEND_POWER_CUSTOMIZATION_NOT_FOUND",
             "missing_access_token": "MISSING_ACCESS_TOKEN",
             "missing_plaid_client_id_header": "MISSING_PLAID_CLIENT_ID_HEADER",
             "missing_plaid_secret_header": "MISSING_PLAID_SECRET_HEADER",
@@ -115,6 +117,14 @@ class FuseApiErrorCode(
     @schemas.classproperty
     def FINANCIAL_INSTITUTION_NOT_FOUND(cls):
         return cls("financial_institution_not_found")
+    
+    @schemas.classproperty
+    def SPEND_POWER_NOT_FOUND(cls):
+        return cls("spend_power_not_found")
+    
+    @schemas.classproperty
+    def SPEND_POWER_CUSTOMIZATION_NOT_FOUND(cls):
+        return cls("spend_power_customization_not_found")
     
     @schemas.classproperty
     def MISSING_ACCESS_TOKEN(cls):
