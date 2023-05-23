@@ -36,6 +36,10 @@ class GetInvestmentTransactionsRequest(
     class MetaOapg:
         required = {
             "access_token",
+            "end_date",
+            "records_per_page",
+            "page",
+            "start_date",
         }
         
         class properties:
@@ -136,6 +140,10 @@ class GetInvestmentTransactionsRequest(
             }
     
     access_token: MetaOapg.properties.access_token
+    end_date: MetaOapg.properties.end_date
+    records_per_page: MetaOapg.properties.records_per_page
+    page: MetaOapg.properties.page
+    start_date: MetaOapg.properties.start_date
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["access_token"]) -> MetaOapg.properties.access_token: ...
@@ -167,16 +175,16 @@ class GetInvestmentTransactionsRequest(
     def get_item_oapg(self, name: typing_extensions.Literal["access_token"]) -> MetaOapg.properties.access_token: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["start_date"]) -> typing.Union[MetaOapg.properties.start_date, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["start_date"]) -> MetaOapg.properties.start_date: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["end_date"]) -> typing.Union[MetaOapg.properties.end_date, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["end_date"]) -> MetaOapg.properties.end_date: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["page"]) -> typing.Union[MetaOapg.properties.page, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["page"]) -> MetaOapg.properties.page: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["records_per_page"]) -> typing.Union[MetaOapg.properties.records_per_page, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["records_per_page"]) -> MetaOapg.properties.records_per_page: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["options"]) -> typing.Union[MetaOapg.properties.options, schemas.Unset]: ...
@@ -192,10 +200,10 @@ class GetInvestmentTransactionsRequest(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
         access_token: typing.Union[MetaOapg.properties.access_token, str, ],
-        start_date: typing.Union[MetaOapg.properties.start_date, str, schemas.Unset] = schemas.unset,
-        end_date: typing.Union[MetaOapg.properties.end_date, str, schemas.Unset] = schemas.unset,
-        page: typing.Union[MetaOapg.properties.page, decimal.Decimal, int, schemas.Unset] = schemas.unset,
-        records_per_page: typing.Union[MetaOapg.properties.records_per_page, decimal.Decimal, int, schemas.Unset] = schemas.unset,
+        end_date: typing.Union[MetaOapg.properties.end_date, str, ],
+        records_per_page: typing.Union[MetaOapg.properties.records_per_page, decimal.Decimal, int, ],
+        page: typing.Union[MetaOapg.properties.page, decimal.Decimal, int, ],
+        start_date: typing.Union[MetaOapg.properties.start_date, str, ],
         options: typing.Union[MetaOapg.properties.options, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
@@ -204,10 +212,10 @@ class GetInvestmentTransactionsRequest(
             cls,
             *_args,
             access_token=access_token,
-            start_date=start_date,
             end_date=end_date,
-            page=page,
             records_per_page=records_per_page,
+            page=page,
+            start_date=start_date,
             options=options,
             _configuration=_configuration,
             **kwargs,

@@ -38,49 +38,50 @@ class SpendPowerCustomization(
             "max_limit",
             "timeframe",
             "min_limit",
+            "id",
         }
         
         class properties:
+            id = schemas.StrSchema
+        
+            @staticmethod
+            def timeframe() -> typing.Type['SpendPowerTimeFrame']:
+                return SpendPowerTimeFrame
             
             
-            class timeframe(
-                schemas.EnumBase,
-                schemas.StrSchema
+            class min_limit(
+                schemas.NumberSchema
             ):
             
             
                 class MetaOapg:
-                    enum_value_to_name = {
-                        "daily": "DAILY",
-                        "weekly": "WEEKLY",
-                        "monthly": "MONTHLY",
-                    }
-                
-                @schemas.classproperty
-                def DAILY(cls):
-                    return cls("daily")
-                
-                @schemas.classproperty
-                def WEEKLY(cls):
-                    return cls("weekly")
-                
-                @schemas.classproperty
-                def MONTHLY(cls):
-                    return cls("monthly")
-            min_limit = schemas.StrSchema
-            max_limit = schemas.StrSchema
+                    inclusive_minimum = 0
+            
+            
+            class max_limit(
+                schemas.NumberSchema
+            ):
+            
+            
+                class MetaOapg:
+                    inclusive_minimum = 1
             __annotations__ = {
+                "id": id,
                 "timeframe": timeframe,
                 "min_limit": min_limit,
                 "max_limit": max_limit,
             }
     
     max_limit: MetaOapg.properties.max_limit
-    timeframe: MetaOapg.properties.timeframe
+    timeframe: 'SpendPowerTimeFrame'
     min_limit: MetaOapg.properties.min_limit
+    id: MetaOapg.properties.id
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["timeframe"]) -> MetaOapg.properties.timeframe: ...
+    def __getitem__(self, name: typing_extensions.Literal["id"]) -> MetaOapg.properties.id: ...
+    
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["timeframe"]) -> 'SpendPowerTimeFrame': ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["min_limit"]) -> MetaOapg.properties.min_limit: ...
@@ -91,13 +92,16 @@ class SpendPowerCustomization(
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["timeframe", "min_limit", "max_limit", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["id", "timeframe", "min_limit", "max_limit", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["timeframe"]) -> MetaOapg.properties.timeframe: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["id"]) -> MetaOapg.properties.id: ...
+    
+    @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["timeframe"]) -> 'SpendPowerTimeFrame': ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["min_limit"]) -> MetaOapg.properties.min_limit: ...
@@ -108,16 +112,17 @@ class SpendPowerCustomization(
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["timeframe", "min_limit", "max_limit", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["id", "timeframe", "min_limit", "max_limit", ], str]):
         return super().get_item_oapg(name)
     
 
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        max_limit: typing.Union[MetaOapg.properties.max_limit, str, ],
-        timeframe: typing.Union[MetaOapg.properties.timeframe, str, ],
-        min_limit: typing.Union[MetaOapg.properties.min_limit, str, ],
+        max_limit: typing.Union[MetaOapg.properties.max_limit, decimal.Decimal, int, float, ],
+        timeframe: 'SpendPowerTimeFrame',
+        min_limit: typing.Union[MetaOapg.properties.min_limit, decimal.Decimal, int, float, ],
+        id: typing.Union[MetaOapg.properties.id, str, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'SpendPowerCustomization':
@@ -127,6 +132,9 @@ class SpendPowerCustomization(
             max_limit=max_limit,
             timeframe=timeframe,
             min_limit=min_limit,
+            id=id,
             _configuration=_configuration,
             **kwargs,
         )
+
+from fuse_client.model.spend_power_time_frame import SpendPowerTimeFrame

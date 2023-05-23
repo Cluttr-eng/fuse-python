@@ -9,7 +9,10 @@ from fuse_client.apis.paths.v1_financial_connections_asset_report_create import 
 from fuse_client.apis.paths.v1_financial_connections_asset_report_refresh import V1FinancialConnectionsAssetReportRefresh
 from fuse_client.apis.paths.v1_financial_connections_asset_report import V1FinancialConnectionsAssetReport
 from fuse_client.apis.paths.v1_financial_connections_balances import V1FinancialConnectionsBalances
+from fuse_client.apis.paths.v1_transactions_enrich import V1TransactionsEnrich
 from fuse_client.apis.paths.v1_entities_entity_id import V1EntitiesEntityId
+from fuse_client.apis.paths.v1_accounts_account_id_events import V1AccountsAccountIdEvents
+from fuse_client.apis.paths.v1_accounts_account_id_finance_score import V1AccountsAccountIdFinanceScore
 from fuse_client.apis.paths.v1_financial_connections_public_token_exchange import V1FinancialConnectionsPublicTokenExchange
 from fuse_client.apis.paths.v1_financial_connections_sync import V1FinancialConnectionsSync
 from fuse_client.apis.paths.v1_financial_connections_institutions_institution_id import V1FinancialConnectionsInstitutionsInstitutionId
@@ -21,11 +24,10 @@ from fuse_client.apis.paths.v1_financial_connections_investments_transactions im
 from fuse_client.apis.paths.v1_financial_connections_liabilities import V1FinancialConnectionsLiabilities
 from fuse_client.apis.paths.v1_link_token import V1LinkToken
 from fuse_client.apis.paths.v1_session import V1Session
-from fuse_client.apis.paths.v1_financial_connections_spend_power import V1FinancialConnectionsSpendPower
-from fuse_client.apis.paths.v1_financial_connections_spend_power_customization import V1FinancialConnectionsSpendPowerCustomization
-from fuse_client.apis.paths.v1_financial_connections_spend_power_customization_update import V1FinancialConnectionsSpendPowerCustomizationUpdate
-from fuse_client.apis.paths.v1_financial_connections_spend_power_spend_power_id import V1FinancialConnectionsSpendPowerSpendPowerId
-from fuse_client.apis.paths.v1_financial_connections_spend_power_spend_power_id_transaction import V1FinancialConnectionsSpendPowerSpendPowerIdTransaction
+from fuse_client.apis.paths.v1_spend_power import V1SpendPower
+from fuse_client.apis.paths.v1_spend_power_customization import V1SpendPowerCustomization
+from fuse_client.apis.paths.v1_spend_power_customization_spend_power_customization_id import V1SpendPowerCustomizationSpendPowerCustomizationId
+from fuse_client.apis.paths.v1_spend_power_spend_power_id import V1SpendPowerSpendPowerId
 from fuse_client.apis.paths.v1_financial_connections_transactions import V1FinancialConnectionsTransactions
 
 PathToApi = typing_extensions.TypedDict(
@@ -39,7 +41,10 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.V1_FINANCIAL_CONNECTIONS_ASSET_REPORT_REFRESH: V1FinancialConnectionsAssetReportRefresh,
         PathValues.V1_FINANCIAL_CONNECTIONS_ASSET_REPORT: V1FinancialConnectionsAssetReport,
         PathValues.V1_FINANCIAL_CONNECTIONS_BALANCES: V1FinancialConnectionsBalances,
+        PathValues.V1_TRANSACTIONS_ENRICH: V1TransactionsEnrich,
         PathValues.V1_ENTITIES_ENTITY_ID: V1EntitiesEntityId,
+        PathValues.V1_ACCOUNTS_ACCOUNT_ID_EVENTS: V1AccountsAccountIdEvents,
+        PathValues.V1_ACCOUNTS_ACCOUNT_ID_FINANCE_SCORE: V1AccountsAccountIdFinanceScore,
         PathValues.V1_FINANCIAL_CONNECTIONS_PUBLIC_TOKEN_EXCHANGE: V1FinancialConnectionsPublicTokenExchange,
         PathValues.V1_FINANCIAL_CONNECTIONS_SYNC: V1FinancialConnectionsSync,
         PathValues.V1_FINANCIAL_CONNECTIONS_INSTITUTIONS_INSTITUTION_ID: V1FinancialConnectionsInstitutionsInstitutionId,
@@ -51,11 +56,10 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.V1_FINANCIAL_CONNECTIONS_LIABILITIES: V1FinancialConnectionsLiabilities,
         PathValues.V1_LINK_TOKEN: V1LinkToken,
         PathValues.V1_SESSION: V1Session,
-        PathValues.V1_FINANCIAL_CONNECTIONS_SPENDPOWER: V1FinancialConnectionsSpendPower,
-        PathValues.V1_FINANCIAL_CONNECTIONS_SPENDPOWER_CUSTOMIZATION: V1FinancialConnectionsSpendPowerCustomization,
-        PathValues.V1_FINANCIAL_CONNECTIONS_SPENDPOWER_CUSTOMIZATION_UPDATE: V1FinancialConnectionsSpendPowerCustomizationUpdate,
-        PathValues.V1_FINANCIAL_CONNECTIONS_SPENDPOWER_SPEND_POWER_ID: V1FinancialConnectionsSpendPowerSpendPowerId,
-        PathValues.V1_FINANCIAL_CONNECTIONS_SPENDPOWER_SPEND_POWER_ID_TRANSACTION: V1FinancialConnectionsSpendPowerSpendPowerIdTransaction,
+        PathValues.V1_SPEND_POWER: V1SpendPower,
+        PathValues.V1_SPEND_POWER_CUSTOMIZATION: V1SpendPowerCustomization,
+        PathValues.V1_SPEND_POWER_CUSTOMIZATION_SPEND_POWER_CUSTOMIZATION_ID: V1SpendPowerCustomizationSpendPowerCustomizationId,
+        PathValues.V1_SPEND_POWER_SPEND_POWER_ID: V1SpendPowerSpendPowerId,
         PathValues.V1_FINANCIAL_CONNECTIONS_TRANSACTIONS: V1FinancialConnectionsTransactions,
     }
 )
@@ -70,7 +74,10 @@ path_to_api = PathToApi(
         PathValues.V1_FINANCIAL_CONNECTIONS_ASSET_REPORT_REFRESH: V1FinancialConnectionsAssetReportRefresh,
         PathValues.V1_FINANCIAL_CONNECTIONS_ASSET_REPORT: V1FinancialConnectionsAssetReport,
         PathValues.V1_FINANCIAL_CONNECTIONS_BALANCES: V1FinancialConnectionsBalances,
+        PathValues.V1_TRANSACTIONS_ENRICH: V1TransactionsEnrich,
         PathValues.V1_ENTITIES_ENTITY_ID: V1EntitiesEntityId,
+        PathValues.V1_ACCOUNTS_ACCOUNT_ID_EVENTS: V1AccountsAccountIdEvents,
+        PathValues.V1_ACCOUNTS_ACCOUNT_ID_FINANCE_SCORE: V1AccountsAccountIdFinanceScore,
         PathValues.V1_FINANCIAL_CONNECTIONS_PUBLIC_TOKEN_EXCHANGE: V1FinancialConnectionsPublicTokenExchange,
         PathValues.V1_FINANCIAL_CONNECTIONS_SYNC: V1FinancialConnectionsSync,
         PathValues.V1_FINANCIAL_CONNECTIONS_INSTITUTIONS_INSTITUTION_ID: V1FinancialConnectionsInstitutionsInstitutionId,
@@ -82,11 +89,10 @@ path_to_api = PathToApi(
         PathValues.V1_FINANCIAL_CONNECTIONS_LIABILITIES: V1FinancialConnectionsLiabilities,
         PathValues.V1_LINK_TOKEN: V1LinkToken,
         PathValues.V1_SESSION: V1Session,
-        PathValues.V1_FINANCIAL_CONNECTIONS_SPENDPOWER: V1FinancialConnectionsSpendPower,
-        PathValues.V1_FINANCIAL_CONNECTIONS_SPENDPOWER_CUSTOMIZATION: V1FinancialConnectionsSpendPowerCustomization,
-        PathValues.V1_FINANCIAL_CONNECTIONS_SPENDPOWER_CUSTOMIZATION_UPDATE: V1FinancialConnectionsSpendPowerCustomizationUpdate,
-        PathValues.V1_FINANCIAL_CONNECTIONS_SPENDPOWER_SPEND_POWER_ID: V1FinancialConnectionsSpendPowerSpendPowerId,
-        PathValues.V1_FINANCIAL_CONNECTIONS_SPENDPOWER_SPEND_POWER_ID_TRANSACTION: V1FinancialConnectionsSpendPowerSpendPowerIdTransaction,
+        PathValues.V1_SPEND_POWER: V1SpendPower,
+        PathValues.V1_SPEND_POWER_CUSTOMIZATION: V1SpendPowerCustomization,
+        PathValues.V1_SPEND_POWER_CUSTOMIZATION_SPEND_POWER_CUSTOMIZATION_ID: V1SpendPowerCustomizationSpendPowerCustomizationId,
+        PathValues.V1_SPEND_POWER_SPEND_POWER_ID: V1SpendPowerSpendPowerId,
         PathValues.V1_FINANCIAL_CONNECTIONS_TRANSACTIONS: V1FinancialConnectionsTransactions,
     }
 )

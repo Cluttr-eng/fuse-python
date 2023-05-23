@@ -9,11 +9,11 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **customization_id** | str,  | str,  | The customization id of the spend power. | 
-**last_updated** | str,  | str,  | The datetime of when the spend power was most recently updated. | 
-**spend_limit** | str,  | str,  | The amount, in cents, of the users spend limit. | 
-**current_spend** | str,  | str,  | The amount, in cents, that the user has already spent. | 
-**currency** | str,  | str,  | The currency. | 
-**pending_payments_amount** | str,  | str,  | The accumulative amount, in cents, of all the combined pending payments. | 
+**last_updated** | str,  | str,  | The datetime of when the spend power was most recently updated, in ISO-8601 format. | 
+**spend_limit** | decimal.Decimal, int, float,  | decimal.Decimal,  | The total limit for the current timeframe, in cents. | 
+**iso_currency_code** | str,  | str,  | The ISO-4217 currency code of the transaction | 
+**current_spend** | decimal.Decimal, int, float,  | decimal.Decimal,  | The total current spend in the current timeframe, in cents, without factoring in pending payments. | 
+**pending_payments_amount** | decimal.Decimal, int, float,  | decimal.Decimal,  | The total unpaid amount, in cents, from all timeframes. | 
 **id** | str,  | str,  | The id of the spend power | 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 

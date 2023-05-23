@@ -9,7 +9,7 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **date** | str,  | str,  | Date of the transaction (YYYY-MM-DD) | 
-**amount** | decimal.Decimal, int, float,  | decimal.Decimal,  | Amount in cents associated with the transaction. Positive values when money moves out of the account; negative values when money moves in. For example, debit card purchases are positive; credit card payments, direct deposits, and refunds are negative. | 
+**amount** | decimal.Decimal, int, float,  | decimal.Decimal,  | Amount in cents associated with the transaction. The format of this value is a double.  Positive values when money moves out of the account; negative values when money moves in. For example, debit card purchases are positive; credit card payments, direct deposits, and refunds are negative. | 
 **remote_id** | str,  | str,  | Remote Id of the transaction, ie Plaid or Teller Id | 
 **description** | str,  | str,  | Description of the transaction | 
 **[merchant](#merchant)** | dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 

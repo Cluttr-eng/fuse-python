@@ -35,26 +35,23 @@ class DeleteSpendPowerResponse(
 
     class MetaOapg:
         required = {
-            "spend_power",
+            "id",
             "request_id",
         }
         
         class properties:
-        
-            @staticmethod
-            def spend_power() -> typing.Type['SpendPower']:
-                return SpendPower
+            id = schemas.StrSchema
             request_id = schemas.StrSchema
             __annotations__ = {
-                "spend_power": spend_power,
+                "id": id,
                 "request_id": request_id,
             }
     
-    spend_power: 'SpendPower'
+    id: MetaOapg.properties.id
     request_id: MetaOapg.properties.request_id
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["spend_power"]) -> 'SpendPower': ...
+    def __getitem__(self, name: typing_extensions.Literal["id"]) -> MetaOapg.properties.id: ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["request_id"]) -> MetaOapg.properties.request_id: ...
@@ -62,13 +59,13 @@ class DeleteSpendPowerResponse(
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["spend_power", "request_id", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["id", "request_id", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["spend_power"]) -> 'SpendPower': ...
+    def get_item_oapg(self, name: typing_extensions.Literal["id"]) -> MetaOapg.properties.id: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["request_id"]) -> MetaOapg.properties.request_id: ...
@@ -76,14 +73,14 @@ class DeleteSpendPowerResponse(
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["spend_power", "request_id", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["id", "request_id", ], str]):
         return super().get_item_oapg(name)
     
 
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        spend_power: 'SpendPower',
+        id: typing.Union[MetaOapg.properties.id, str, ],
         request_id: typing.Union[MetaOapg.properties.request_id, str, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
@@ -91,10 +88,8 @@ class DeleteSpendPowerResponse(
         return super().__new__(
             cls,
             *_args,
-            spend_power=spend_power,
+            id=id,
             request_id=request_id,
             _configuration=_configuration,
             **kwargs,
         )
-
-from fuse_client.model.spend_power import SpendPower

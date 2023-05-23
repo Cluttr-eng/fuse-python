@@ -112,6 +112,10 @@ class FinancialConnectionsInvestmentTransaction(
             def security() -> typing.Type['FinancialConnectionsInvestmentSecurity']:
                 return FinancialConnectionsInvestmentSecurity
             account_name = schemas.StrSchema
+        
+            @staticmethod
+            def subtype() -> typing.Type['FinancialConnectionsInvestmentTransactionSubtype']:
+                return FinancialConnectionsInvestmentTransactionSubtype
             __annotations__ = {
                 "remote_id": remote_id,
                 "remote_account_id": remote_account_id,
@@ -125,6 +129,7 @@ class FinancialConnectionsInvestmentTransaction(
                 "price": price,
                 "security": security,
                 "account_name": account_name,
+                "subtype": subtype,
             }
     
     date: MetaOapg.properties.date
@@ -176,9 +181,12 @@ class FinancialConnectionsInvestmentTransaction(
     def __getitem__(self, name: typing_extensions.Literal["account_name"]) -> MetaOapg.properties.account_name: ...
     
     @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["subtype"]) -> 'FinancialConnectionsInvestmentTransactionSubtype': ...
+    
+    @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["remote_id", "remote_account_id", "amount", "description", "fees", "currency", "date", "type", "quantity", "price", "security", "account_name", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["remote_id", "remote_account_id", "amount", "description", "fees", "currency", "date", "type", "quantity", "price", "security", "account_name", "subtype", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -220,9 +228,12 @@ class FinancialConnectionsInvestmentTransaction(
     def get_item_oapg(self, name: typing_extensions.Literal["account_name"]) -> typing.Union[MetaOapg.properties.account_name, schemas.Unset]: ...
     
     @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["subtype"]) -> typing.Union['FinancialConnectionsInvestmentTransactionSubtype', schemas.Unset]: ...
+    
+    @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["remote_id", "remote_account_id", "amount", "description", "fees", "currency", "date", "type", "quantity", "price", "security", "account_name", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["remote_id", "remote_account_id", "amount", "description", "fees", "currency", "date", "type", "quantity", "price", "security", "account_name", "subtype", ], str]):
         return super().get_item_oapg(name)
     
 
@@ -241,6 +252,7 @@ class FinancialConnectionsInvestmentTransaction(
         type: typing.Union[MetaOapg.properties.type, str, ],
         remote_account_id: typing.Union[MetaOapg.properties.remote_account_id, str, ],
         account_name: typing.Union[MetaOapg.properties.account_name, str, schemas.Unset] = schemas.unset,
+        subtype: typing.Union['FinancialConnectionsInvestmentTransactionSubtype', schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'FinancialConnectionsInvestmentTransaction':
@@ -259,9 +271,11 @@ class FinancialConnectionsInvestmentTransaction(
             type=type,
             remote_account_id=remote_account_id,
             account_name=account_name,
+            subtype=subtype,
             _configuration=_configuration,
             **kwargs,
         )
 
 from fuse_client.model.currency import Currency
 from fuse_client.model.financial_connections_investment_security import FinancialConnectionsInvestmentSecurity
+from fuse_client.model.financial_connections_investment_transaction_subtype import FinancialConnectionsInvestmentTransactionSubtype

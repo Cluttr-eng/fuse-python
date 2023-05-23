@@ -74,6 +74,14 @@ class FuseApiErrorCode(
         return cls("financial_institution_not_found")
     
     @schemas.classproperty
+    def SPEND_POWER_NOT_FOUND(cls):
+        return cls("spend_power_not_found")
+    
+    @schemas.classproperty
+    def SPEND_POWER_CUSTOMIZATION_NOT_FOUND(cls):
+        return cls("spend_power_customization_not_found")
+    
+    @schemas.classproperty
     def MISSING_ACCESS_TOKEN(cls):
         return cls("missing_access_token")
     

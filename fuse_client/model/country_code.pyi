@@ -40,3 +40,7 @@ class CountryCode(
     @schemas.classproperty
     def CA(cls):
         return cls("CA")
+    
+    @schemas.classproperty
+    def IN(cls):
+        return cls("IN")

@@ -38,6 +38,7 @@ class CountryCode(
         enum_value_to_name = {
             "US": "US",
             "CA": "CA",
+            "IN": "IN",
         }
     
     @schemas.classproperty
@@ -47,3 +48,7 @@ class CountryCode(
     @schemas.classproperty
     def CA(cls):
         return cls("CA")
+    
+    @schemas.classproperty
+    def IN(cls):
+        return cls("IN")
