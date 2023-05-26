@@ -39,55 +39,75 @@ class EvalSpendPowerResponse(
         }
         
         class properties:
-            mean_absolute_overestimation_error = schemas.NumberSchema
-            mean_absolute_underestimation_error = schemas.NumberSchema
+            mean_granted_above_failed_payments = schemas.NumberSchema
+            mean_granted_below_failed_payments = schemas.NumberSchema
+            mean_predicted_limits = schemas.NumberSchema
+            mean_successful_payments = schemas.NumberSchema
             __annotations__ = {
-                "mean_absolute_overestimation_error": mean_absolute_overestimation_error,
-                "mean_absolute_underestimation_error": mean_absolute_underestimation_error,
+                "mean_granted_above_failed_payments": mean_granted_above_failed_payments,
+                "mean_granted_below_failed_payments": mean_granted_below_failed_payments,
+                "mean_predicted_limits": mean_predicted_limits,
+                "mean_successful_payments": mean_successful_payments,
             }
     
     events: schemas.AnyTypeSchema
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["mean_absolute_overestimation_error"]) -> MetaOapg.properties.mean_absolute_overestimation_error: ...
+    def __getitem__(self, name: typing_extensions.Literal["mean_granted_above_failed_payments"]) -> MetaOapg.properties.mean_granted_above_failed_payments: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["mean_absolute_underestimation_error"]) -> MetaOapg.properties.mean_absolute_underestimation_error: ...
+    def __getitem__(self, name: typing_extensions.Literal["mean_granted_below_failed_payments"]) -> MetaOapg.properties.mean_granted_below_failed_payments: ...
+    
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["mean_predicted_limits"]) -> MetaOapg.properties.mean_predicted_limits: ...
+    
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["mean_successful_payments"]) -> MetaOapg.properties.mean_successful_payments: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["mean_absolute_overestimation_error", "mean_absolute_underestimation_error", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["mean_granted_above_failed_payments", "mean_granted_below_failed_payments", "mean_predicted_limits", "mean_successful_payments", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["mean_absolute_overestimation_error"]) -> typing.Union[MetaOapg.properties.mean_absolute_overestimation_error, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["mean_granted_above_failed_payments"]) -> typing.Union[MetaOapg.properties.mean_granted_above_failed_payments, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["mean_absolute_underestimation_error"]) -> typing.Union[MetaOapg.properties.mean_absolute_underestimation_error, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["mean_granted_below_failed_payments"]) -> typing.Union[MetaOapg.properties.mean_granted_below_failed_payments, schemas.Unset]: ...
+    
+    @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["mean_predicted_limits"]) -> typing.Union[MetaOapg.properties.mean_predicted_limits, schemas.Unset]: ...
+    
+    @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["mean_successful_payments"]) -> typing.Union[MetaOapg.properties.mean_successful_payments, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["mean_absolute_overestimation_error", "mean_absolute_underestimation_error", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["mean_granted_above_failed_payments", "mean_granted_below_failed_payments", "mean_predicted_limits", "mean_successful_payments", ], str]):
         return super().get_item_oapg(name)
     
 
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        mean_absolute_overestimation_error: typing.Union[MetaOapg.properties.mean_absolute_overestimation_error, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
-        mean_absolute_underestimation_error: typing.Union[MetaOapg.properties.mean_absolute_underestimation_error, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
+        mean_granted_above_failed_payments: typing.Union[MetaOapg.properties.mean_granted_above_failed_payments, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
+        mean_granted_below_failed_payments: typing.Union[MetaOapg.properties.mean_granted_below_failed_payments, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
+        mean_predicted_limits: typing.Union[MetaOapg.properties.mean_predicted_limits, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
+        mean_successful_payments: typing.Union[MetaOapg.properties.mean_successful_payments, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'EvalSpendPowerResponse':
         return super().__new__(
             cls,
             *_args,
-            mean_absolute_overestimation_error=mean_absolute_overestimation_error,
-            mean_absolute_underestimation_error=mean_absolute_underestimation_error,
+            mean_granted_above_failed_payments=mean_granted_above_failed_payments,
+            mean_granted_below_failed_payments=mean_granted_below_failed_payments,
+            mean_predicted_limits=mean_predicted_limits,
+            mean_successful_payments=mean_successful_payments,
             _configuration=_configuration,
             **kwargs,
         )

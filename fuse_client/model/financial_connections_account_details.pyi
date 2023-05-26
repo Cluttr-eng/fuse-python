@@ -37,6 +37,7 @@ class FinancialConnectionsAccountDetails(
         required = {
             "ach",
             "remote_id",
+            "remote_data",
         }
         
         class properties:
@@ -121,13 +122,16 @@ class FinancialConnectionsAccountDetails(
                         _configuration=_configuration,
                         **kwargs,
                     )
+            remote_data = schemas.AnyTypeSchema
             __annotations__ = {
                 "remote_id": remote_id,
                 "ach": ach,
+                "remote_data": remote_data,
             }
     
     ach: MetaOapg.properties.ach
     remote_id: MetaOapg.properties.remote_id
+    remote_data: MetaOapg.properties.remote_data
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["remote_id"]) -> MetaOapg.properties.remote_id: ...
@@ -136,9 +140,12 @@ class FinancialConnectionsAccountDetails(
     def __getitem__(self, name: typing_extensions.Literal["ach"]) -> MetaOapg.properties.ach: ...
     
     @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["remote_data"]) -> MetaOapg.properties.remote_data: ...
+    
+    @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["remote_id", "ach", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["remote_id", "ach", "remote_data", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -150,9 +157,12 @@ class FinancialConnectionsAccountDetails(
     def get_item_oapg(self, name: typing_extensions.Literal["ach"]) -> MetaOapg.properties.ach: ...
     
     @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["remote_data"]) -> MetaOapg.properties.remote_data: ...
+    
+    @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["remote_id", "ach", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["remote_id", "ach", "remote_data", ], str]):
         return super().get_item_oapg(name)
     
 
@@ -161,6 +171,7 @@ class FinancialConnectionsAccountDetails(
         *_args: typing.Union[dict, frozendict.frozendict, ],
         ach: typing.Union[MetaOapg.properties.ach, dict, frozendict.frozendict, ],
         remote_id: typing.Union[MetaOapg.properties.remote_id, str, ],
+        remote_data: typing.Union[MetaOapg.properties.remote_data, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'FinancialConnectionsAccountDetails':
@@ -169,6 +180,7 @@ class FinancialConnectionsAccountDetails(
             *_args,
             ach=ach,
             remote_id=remote_id,
+            remote_data=remote_data,
             _configuration=_configuration,
             **kwargs,
         )

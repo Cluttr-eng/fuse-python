@@ -12,6 +12,7 @@ from fuse_client.apis.paths.v1_financial_connections_balances import V1Financial
 from fuse_client.apis.paths.v1_transactions_enrich import V1TransactionsEnrich
 from fuse_client.apis.paths.v1_entities_entity_id import V1EntitiesEntityId
 from fuse_client.apis.paths.v1_accounts_account_id_events import V1AccountsAccountIdEvents
+from fuse_client.apis.paths.v1_finql_prompt import V1FinqlPrompt
 from fuse_client.apis.paths.v1_accounts_account_id_finance_score import V1AccountsAccountIdFinanceScore
 from fuse_client.apis.paths.v1_financial_connections_public_token_exchange import V1FinancialConnectionsPublicTokenExchange
 from fuse_client.apis.paths.v1_financial_connections_sync import V1FinancialConnectionsSync
@@ -44,6 +45,7 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.V1_TRANSACTIONS_ENRICH: V1TransactionsEnrich,
         PathValues.V1_ENTITIES_ENTITY_ID: V1EntitiesEntityId,
         PathValues.V1_ACCOUNTS_ACCOUNT_ID_EVENTS: V1AccountsAccountIdEvents,
+        PathValues.V1_FINQL_PROMPT: V1FinqlPrompt,
         PathValues.V1_ACCOUNTS_ACCOUNT_ID_FINANCE_SCORE: V1AccountsAccountIdFinanceScore,
         PathValues.V1_FINANCIAL_CONNECTIONS_PUBLIC_TOKEN_EXCHANGE: V1FinancialConnectionsPublicTokenExchange,
         PathValues.V1_FINANCIAL_CONNECTIONS_SYNC: V1FinancialConnectionsSync,
@@ -77,6 +79,7 @@ path_to_api = PathToApi(
         PathValues.V1_TRANSACTIONS_ENRICH: V1TransactionsEnrich,
         PathValues.V1_ENTITIES_ENTITY_ID: V1EntitiesEntityId,
         PathValues.V1_ACCOUNTS_ACCOUNT_ID_EVENTS: V1AccountsAccountIdEvents,
+        PathValues.V1_FINQL_PROMPT: V1FinqlPrompt,
         PathValues.V1_ACCOUNTS_ACCOUNT_ID_FINANCE_SCORE: V1AccountsAccountIdFinanceScore,
         PathValues.V1_FINANCIAL_CONNECTIONS_PUBLIC_TOKEN_EXCHANGE: V1FinancialConnectionsPublicTokenExchange,
         PathValues.V1_FINANCIAL_CONNECTIONS_SYNC: V1FinancialConnectionsSync,
