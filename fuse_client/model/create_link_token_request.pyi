@@ -188,17 +188,339 @@ class CreateLinkTokenRequest(
                                         @schemas.classproperty
                                         def MULTIPLE(cls):
                                             return cls("multiple")
+                                    
+                                    
+                                    class accountFilter(
+                                        schemas.DictSchema
+                                    ):
+                                    
+                                    
+                                        class MetaOapg:
+                                            
+                                            class properties:
+                                                
+                                                
+                                                class depository(
+                                                    schemas.ComposedSchema,
+                                                ):
+                                                
+                                                
+                                                    class MetaOapg:
+                                                        
+                                                        
+                                                        class one_of_0(
+                                                            schemas.EnumBase,
+                                                            schemas.StrSchema
+                                                        ):
+                                                            
+                                                            @schemas.classproperty
+                                                            def ALL(cls):
+                                                                return cls("all")
+                                                        
+                                                        
+                                                        class one_of_1(
+                                                            schemas.DictSchema
+                                                        ):
+                                                        
+                                                        
+                                                            class MetaOapg:
+                                                                
+                                                                class properties:
+                                                                    
+                                                                    
+                                                                    class subtypes(
+                                                                        schemas.ListSchema
+                                                                    ):
+                                                                    
+                                                                    
+                                                                        class MetaOapg:
+                                                                            
+                                                                            
+                                                                            class items(
+                                                                                schemas.EnumBase,
+                                                                                schemas.StrSchema
+                                                                            ):
+                                                                                
+                                                                                @schemas.classproperty
+                                                                                def CHECKING(cls):
+                                                                                    return cls("checking")
+                                                                                
+                                                                                @schemas.classproperty
+                                                                                def SAVINGS(cls):
+                                                                                    return cls("savings")
+                                                                    
+                                                                        def __new__(
+                                                                            cls,
+                                                                            _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, str, ]], typing.List[typing.Union[MetaOapg.items, str, ]]],
+                                                                            _configuration: typing.Optional[schemas.Configuration] = None,
+                                                                        ) -> 'subtypes':
+                                                                            return super().__new__(
+                                                                                cls,
+                                                                                _arg,
+                                                                                _configuration=_configuration,
+                                                                            )
+                                                                    
+                                                                        def __getitem__(self, i: int) -> MetaOapg.items:
+                                                                            return super().__getitem__(i)
+                                                                    __annotations__ = {
+                                                                        "subtypes": subtypes,
+                                                                    }
+                                                            
+                                                            @typing.overload
+                                                            def __getitem__(self, name: typing_extensions.Literal["subtypes"]) -> MetaOapg.properties.subtypes: ...
+                                                            
+                                                            @typing.overload
+                                                            def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
+                                                            
+                                                            def __getitem__(self, name: typing.Union[typing_extensions.Literal["subtypes", ], str]):
+                                                                # dict_instance[name] accessor
+                                                                return super().__getitem__(name)
+                                                            
+                                                            
+                                                            @typing.overload
+                                                            def get_item_oapg(self, name: typing_extensions.Literal["subtypes"]) -> typing.Union[MetaOapg.properties.subtypes, schemas.Unset]: ...
+                                                            
+                                                            @typing.overload
+                                                            def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+                                                            
+                                                            def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["subtypes", ], str]):
+                                                                return super().get_item_oapg(name)
+                                                            
+                                                        
+                                                            def __new__(
+                                                                cls,
+                                                                *_args: typing.Union[dict, frozendict.frozendict, ],
+                                                                subtypes: typing.Union[MetaOapg.properties.subtypes, list, tuple, schemas.Unset] = schemas.unset,
+                                                                _configuration: typing.Optional[schemas.Configuration] = None,
+                                                                **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
+                                                            ) -> 'one_of_1':
+                                                                return super().__new__(
+                                                                    cls,
+                                                                    *_args,
+                                                                    subtypes=subtypes,
+                                                                    _configuration=_configuration,
+                                                                    **kwargs,
+                                                                )
+                                                        
+                                                        @classmethod
+                                                        @functools.lru_cache()
+                                                        def one_of(cls):
+                                                            # we need this here to make our import statements work
+                                                            # we must store _composed_schemas in here so the code is only run
+                                                            # when we invoke this method. If we kept this at the class
+                                                            # level we would get an error because the class level
+                                                            # code would be run when this module is imported, and these composed
+                                                            # classes don't exist yet because their module has not finished
+                                                            # loading
+                                                            return [
+                                                                cls.one_of_0,
+                                                                cls.one_of_1,
+                                                            ]
+                                                
+                                                
+                                                    def __new__(
+                                                        cls,
+                                                        *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+                                                        _configuration: typing.Optional[schemas.Configuration] = None,
+                                                        **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
+                                                    ) -> 'depository':
+                                                        return super().__new__(
+                                                            cls,
+                                                            *_args,
+                                                            _configuration=_configuration,
+                                                            **kwargs,
+                                                        )
+                                                
+                                                
+                                                class credit(
+                                                    schemas.ComposedSchema,
+                                                ):
+                                                
+                                                
+                                                    class MetaOapg:
+                                                        
+                                                        
+                                                        class one_of_0(
+                                                            schemas.EnumBase,
+                                                            schemas.StrSchema
+                                                        ):
+                                                            
+                                                            @schemas.classproperty
+                                                            def ALL(cls):
+                                                                return cls("all")
+                                                        
+                                                        
+                                                        class one_of_1(
+                                                            schemas.DictSchema
+                                                        ):
+                                                        
+                                                        
+                                                            class MetaOapg:
+                                                                
+                                                                class properties:
+                                                                    
+                                                                    
+                                                                    class subtypes(
+                                                                        schemas.ListSchema
+                                                                    ):
+                                                                    
+                                                                    
+                                                                        class MetaOapg:
+                                                                            
+                                                                            
+                                                                            class items(
+                                                                                schemas.EnumBase,
+                                                                                schemas.StrSchema
+                                                                            ):
+                                                                                
+                                                                                @schemas.classproperty
+                                                                                def CREDIT_CARD(cls):
+                                                                                    return cls("credit_card")
+                                                                    
+                                                                        def __new__(
+                                                                            cls,
+                                                                            _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, str, ]], typing.List[typing.Union[MetaOapg.items, str, ]]],
+                                                                            _configuration: typing.Optional[schemas.Configuration] = None,
+                                                                        ) -> 'subtypes':
+                                                                            return super().__new__(
+                                                                                cls,
+                                                                                _arg,
+                                                                                _configuration=_configuration,
+                                                                            )
+                                                                    
+                                                                        def __getitem__(self, i: int) -> MetaOapg.items:
+                                                                            return super().__getitem__(i)
+                                                                    __annotations__ = {
+                                                                        "subtypes": subtypes,
+                                                                    }
+                                                            
+                                                            @typing.overload
+                                                            def __getitem__(self, name: typing_extensions.Literal["subtypes"]) -> MetaOapg.properties.subtypes: ...
+                                                            
+                                                            @typing.overload
+                                                            def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
+                                                            
+                                                            def __getitem__(self, name: typing.Union[typing_extensions.Literal["subtypes", ], str]):
+                                                                # dict_instance[name] accessor
+                                                                return super().__getitem__(name)
+                                                            
+                                                            
+                                                            @typing.overload
+                                                            def get_item_oapg(self, name: typing_extensions.Literal["subtypes"]) -> typing.Union[MetaOapg.properties.subtypes, schemas.Unset]: ...
+                                                            
+                                                            @typing.overload
+                                                            def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+                                                            
+                                                            def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["subtypes", ], str]):
+                                                                return super().get_item_oapg(name)
+                                                            
+                                                        
+                                                            def __new__(
+                                                                cls,
+                                                                *_args: typing.Union[dict, frozendict.frozendict, ],
+                                                                subtypes: typing.Union[MetaOapg.properties.subtypes, list, tuple, schemas.Unset] = schemas.unset,
+                                                                _configuration: typing.Optional[schemas.Configuration] = None,
+                                                                **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
+                                                            ) -> 'one_of_1':
+                                                                return super().__new__(
+                                                                    cls,
+                                                                    *_args,
+                                                                    subtypes=subtypes,
+                                                                    _configuration=_configuration,
+                                                                    **kwargs,
+                                                                )
+                                                        
+                                                        @classmethod
+                                                        @functools.lru_cache()
+                                                        def one_of(cls):
+                                                            # we need this here to make our import statements work
+                                                            # we must store _composed_schemas in here so the code is only run
+                                                            # when we invoke this method. If we kept this at the class
+                                                            # level we would get an error because the class level
+                                                            # code would be run when this module is imported, and these composed
+                                                            # classes don't exist yet because their module has not finished
+                                                            # loading
+                                                            return [
+                                                                cls.one_of_0,
+                                                                cls.one_of_1,
+                                                            ]
+                                                
+                                                
+                                                    def __new__(
+                                                        cls,
+                                                        *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+                                                        _configuration: typing.Optional[schemas.Configuration] = None,
+                                                        **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
+                                                    ) -> 'credit':
+                                                        return super().__new__(
+                                                            cls,
+                                                            *_args,
+                                                            _configuration=_configuration,
+                                                            **kwargs,
+                                                        )
+                                                __annotations__ = {
+                                                    "depository": depository,
+                                                    "credit": credit,
+                                                }
+                                        
+                                        @typing.overload
+                                        def __getitem__(self, name: typing_extensions.Literal["depository"]) -> MetaOapg.properties.depository: ...
+                                        
+                                        @typing.overload
+                                        def __getitem__(self, name: typing_extensions.Literal["credit"]) -> MetaOapg.properties.credit: ...
+                                        
+                                        @typing.overload
+                                        def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
+                                        
+                                        def __getitem__(self, name: typing.Union[typing_extensions.Literal["depository", "credit", ], str]):
+                                            # dict_instance[name] accessor
+                                            return super().__getitem__(name)
+                                        
+                                        
+                                        @typing.overload
+                                        def get_item_oapg(self, name: typing_extensions.Literal["depository"]) -> typing.Union[MetaOapg.properties.depository, schemas.Unset]: ...
+                                        
+                                        @typing.overload
+                                        def get_item_oapg(self, name: typing_extensions.Literal["credit"]) -> typing.Union[MetaOapg.properties.credit, schemas.Unset]: ...
+                                        
+                                        @typing.overload
+                                        def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+                                        
+                                        def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["depository", "credit", ], str]):
+                                            return super().get_item_oapg(name)
+                                        
+                                    
+                                        def __new__(
+                                            cls,
+                                            *_args: typing.Union[dict, frozendict.frozendict, ],
+                                            depository: typing.Union[MetaOapg.properties.depository, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
+                                            credit: typing.Union[MetaOapg.properties.credit, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
+                                            _configuration: typing.Optional[schemas.Configuration] = None,
+                                            **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
+                                        ) -> 'accountFilter':
+                                            return super().__new__(
+                                                cls,
+                                                *_args,
+                                                depository=depository,
+                                                credit=credit,
+                                                _configuration=_configuration,
+                                                **kwargs,
+                                            )
                                     __annotations__ = {
                                         "selectAccount": selectAccount,
+                                        "accountFilter": accountFilter,
                                     }
                             
                             @typing.overload
                             def __getitem__(self, name: typing_extensions.Literal["selectAccount"]) -> MetaOapg.properties.selectAccount: ...
                             
                             @typing.overload
+                            def __getitem__(self, name: typing_extensions.Literal["accountFilter"]) -> MetaOapg.properties.accountFilter: ...
+                            
+                            @typing.overload
                             def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
                             
-                            def __getitem__(self, name: typing.Union[typing_extensions.Literal["selectAccount", ], str]):
+                            def __getitem__(self, name: typing.Union[typing_extensions.Literal["selectAccount", "accountFilter", ], str]):
                                 # dict_instance[name] accessor
                                 return super().__getitem__(name)
                             
@@ -207,9 +529,12 @@ class CreateLinkTokenRequest(
                             def get_item_oapg(self, name: typing_extensions.Literal["selectAccount"]) -> typing.Union[MetaOapg.properties.selectAccount, schemas.Unset]: ...
                             
                             @typing.overload
+                            def get_item_oapg(self, name: typing_extensions.Literal["accountFilter"]) -> typing.Union[MetaOapg.properties.accountFilter, schemas.Unset]: ...
+                            
+                            @typing.overload
                             def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
                             
-                            def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["selectAccount", ], str]):
+                            def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["selectAccount", "accountFilter", ], str]):
                                 return super().get_item_oapg(name)
                             
                         
@@ -217,6 +542,7 @@ class CreateLinkTokenRequest(
                                 cls,
                                 *_args: typing.Union[dict, frozendict.frozendict, ],
                                 selectAccount: typing.Union[MetaOapg.properties.selectAccount, str, schemas.Unset] = schemas.unset,
+                                accountFilter: typing.Union[MetaOapg.properties.accountFilter, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
                                 _configuration: typing.Optional[schemas.Configuration] = None,
                                 **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
                             ) -> 'config':
@@ -224,6 +550,7 @@ class CreateLinkTokenRequest(
                                     cls,
                                     *_args,
                                     selectAccount=selectAccount,
+                                    accountFilter=accountFilter,
                                     _configuration=_configuration,
                                     **kwargs,
                                 )

@@ -40,18 +40,21 @@ class GetFinanceScoreResponse(
         }
         
         class properties:
-            finance_score = schemas.NumberSchema
+        
+            @staticmethod
+            def finance_score() -> typing.Type['FinanceScore']:
+                return FinanceScore
             request_id = schemas.StrSchema
             __annotations__ = {
                 "finance_score": finance_score,
                 "request_id": request_id,
             }
     
-    finance_score: MetaOapg.properties.finance_score
+    finance_score: 'FinanceScore'
     request_id: MetaOapg.properties.request_id
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["finance_score"]) -> MetaOapg.properties.finance_score: ...
+    def __getitem__(self, name: typing_extensions.Literal["finance_score"]) -> 'FinanceScore': ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["request_id"]) -> MetaOapg.properties.request_id: ...
@@ -65,7 +68,7 @@ class GetFinanceScoreResponse(
     
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["finance_score"]) -> MetaOapg.properties.finance_score: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["finance_score"]) -> 'FinanceScore': ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["request_id"]) -> MetaOapg.properties.request_id: ...
@@ -80,7 +83,7 @@ class GetFinanceScoreResponse(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        finance_score: typing.Union[MetaOapg.properties.finance_score, decimal.Decimal, int, float, ],
+        finance_score: 'FinanceScore',
         request_id: typing.Union[MetaOapg.properties.request_id, str, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
@@ -93,3 +96,5 @@ class GetFinanceScoreResponse(
             _configuration=_configuration,
             **kwargs,
         )
+
+from fuse_client.model.finance_score import FinanceScore

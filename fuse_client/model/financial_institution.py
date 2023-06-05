@@ -69,133 +69,10 @@ class FinancialInstitution(
             
                 def __getitem__(self, i: int) -> 'CountryCode':
                     return super().__getitem__(i)
-            
-            
-            class logo(
-                schemas.DictSchema
-            ):
-            
-            
-                class MetaOapg:
-                    required = {
-                        "image",
-                        "type",
-                    }
-                    
-                    class properties:
-                        image = schemas.StrSchema
-                        
-                        
-                        class type(
-                            schemas.EnumBase,
-                            schemas.StrSchema
-                        ):
-                        
-                        
-                            class MetaOapg:
-                                enum_value_to_name = {
-                                    "base64": "BASE64",
-                                    "url": "URL",
-                                }
-                            
-                            @schemas.classproperty
-                            def BASE64(cls):
-                                return cls("base64")
-                            
-                            @schemas.classproperty
-                            def URL(cls):
-                                return cls("url")
-                        
-                        
-                        class format(
-                            schemas.EnumBase,
-                            schemas.StrSchema
-                        ):
-                        
-                        
-                            class MetaOapg:
-                                enum_value_to_name = {
-                                    "png": "PNG",
-                                    "jpeg": "JPEG",
-                                    "gif": "GIF",
-                                    "svg+xml": "SVGXML",
-                                }
-                            
-                            @schemas.classproperty
-                            def PNG(cls):
-                                return cls("png")
-                            
-                            @schemas.classproperty
-                            def JPEG(cls):
-                                return cls("jpeg")
-                            
-                            @schemas.classproperty
-                            def GIF(cls):
-                                return cls("gif")
-                            
-                            @schemas.classproperty
-                            def SVGXML(cls):
-                                return cls("svg+xml")
-                        __annotations__ = {
-                            "image": image,
-                            "type": type,
-                            "format": format,
-                        }
-                
-                image: MetaOapg.properties.image
-                type: MetaOapg.properties.type
-                
-                @typing.overload
-                def __getitem__(self, name: typing_extensions.Literal["image"]) -> MetaOapg.properties.image: ...
-                
-                @typing.overload
-                def __getitem__(self, name: typing_extensions.Literal["type"]) -> MetaOapg.properties.type: ...
-                
-                @typing.overload
-                def __getitem__(self, name: typing_extensions.Literal["format"]) -> MetaOapg.properties.format: ...
-                
-                @typing.overload
-                def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
-                
-                def __getitem__(self, name: typing.Union[typing_extensions.Literal["image", "type", "format", ], str]):
-                    # dict_instance[name] accessor
-                    return super().__getitem__(name)
-                
-                
-                @typing.overload
-                def get_item_oapg(self, name: typing_extensions.Literal["image"]) -> MetaOapg.properties.image: ...
-                
-                @typing.overload
-                def get_item_oapg(self, name: typing_extensions.Literal["type"]) -> MetaOapg.properties.type: ...
-                
-                @typing.overload
-                def get_item_oapg(self, name: typing_extensions.Literal["format"]) -> typing.Union[MetaOapg.properties.format, schemas.Unset]: ...
-                
-                @typing.overload
-                def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-                
-                def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["image", "type", "format", ], str]):
-                    return super().get_item_oapg(name)
-                
-            
-                def __new__(
-                    cls,
-                    *_args: typing.Union[dict, frozendict.frozendict, ],
-                    image: typing.Union[MetaOapg.properties.image, str, ],
-                    type: typing.Union[MetaOapg.properties.type, str, ],
-                    format: typing.Union[MetaOapg.properties.format, str, schemas.Unset] = schemas.unset,
-                    _configuration: typing.Optional[schemas.Configuration] = None,
-                    **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> 'logo':
-                    return super().__new__(
-                        cls,
-                        *_args,
-                        image=image,
-                        type=type,
-                        format=format,
-                        _configuration=_configuration,
-                        **kwargs,
-                    )
+        
+            @staticmethod
+            def logo() -> typing.Type['FinancialInstitutionLogo']:
+                return FinancialInstitutionLogo
             website = schemas.StrSchema
             __annotations__ = {
                 "id": id,
@@ -219,7 +96,7 @@ class FinancialInstitution(
     def __getitem__(self, name: typing_extensions.Literal["country_codes"]) -> MetaOapg.properties.country_codes: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["logo"]) -> MetaOapg.properties.logo: ...
+    def __getitem__(self, name: typing_extensions.Literal["logo"]) -> 'FinancialInstitutionLogo': ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["website"]) -> MetaOapg.properties.website: ...
@@ -242,7 +119,7 @@ class FinancialInstitution(
     def get_item_oapg(self, name: typing_extensions.Literal["country_codes"]) -> MetaOapg.properties.country_codes: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["logo"]) -> typing.Union[MetaOapg.properties.logo, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["logo"]) -> typing.Union['FinancialInstitutionLogo', schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["website"]) -> typing.Union[MetaOapg.properties.website, schemas.Unset]: ...
@@ -260,7 +137,7 @@ class FinancialInstitution(
         name: typing.Union[MetaOapg.properties.name, str, ],
         country_codes: typing.Union[MetaOapg.properties.country_codes, list, tuple, ],
         id: typing.Union[MetaOapg.properties.id, str, ],
-        logo: typing.Union[MetaOapg.properties.logo, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        logo: typing.Union['FinancialInstitutionLogo', schemas.Unset] = schemas.unset,
         website: typing.Union[MetaOapg.properties.website, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
@@ -278,3 +155,4 @@ class FinancialInstitution(
         )
 
 from fuse_client.model.country_code import CountryCode
+from fuse_client.model.financial_institution_logo import FinancialInstitutionLogo

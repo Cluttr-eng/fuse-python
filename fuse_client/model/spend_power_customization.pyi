@@ -50,13 +50,19 @@ class SpendPowerCustomization(
             
             
             class min_limit(
-                schemas.NumberSchema
+                schemas.IntSchema
             ):
                 pass
             
             
             class max_limit(
-                schemas.NumberSchema
+                schemas.IntSchema
+            ):
+                pass
+            
+            
+            class risk_tolerance(
+                schemas.IntSchema
             ):
                 pass
             __annotations__ = {
@@ -64,6 +70,7 @@ class SpendPowerCustomization(
                 "timeframe": timeframe,
                 "min_limit": min_limit,
                 "max_limit": max_limit,
+                "risk_tolerance": risk_tolerance,
             }
     
     max_limit: MetaOapg.properties.max_limit
@@ -84,9 +91,12 @@ class SpendPowerCustomization(
     def __getitem__(self, name: typing_extensions.Literal["max_limit"]) -> MetaOapg.properties.max_limit: ...
     
     @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["risk_tolerance"]) -> MetaOapg.properties.risk_tolerance: ...
+    
+    @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["id", "timeframe", "min_limit", "max_limit", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["id", "timeframe", "min_limit", "max_limit", "risk_tolerance", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -104,19 +114,23 @@ class SpendPowerCustomization(
     def get_item_oapg(self, name: typing_extensions.Literal["max_limit"]) -> MetaOapg.properties.max_limit: ...
     
     @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["risk_tolerance"]) -> typing.Union[MetaOapg.properties.risk_tolerance, schemas.Unset]: ...
+    
+    @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["id", "timeframe", "min_limit", "max_limit", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["id", "timeframe", "min_limit", "max_limit", "risk_tolerance", ], str]):
         return super().get_item_oapg(name)
     
 
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        max_limit: typing.Union[MetaOapg.properties.max_limit, decimal.Decimal, int, float, ],
+        max_limit: typing.Union[MetaOapg.properties.max_limit, decimal.Decimal, int, ],
         timeframe: 'SpendPowerTimeFrame',
-        min_limit: typing.Union[MetaOapg.properties.min_limit, decimal.Decimal, int, float, ],
+        min_limit: typing.Union[MetaOapg.properties.min_limit, decimal.Decimal, int, ],
         id: typing.Union[MetaOapg.properties.id, str, ],
+        risk_tolerance: typing.Union[MetaOapg.properties.risk_tolerance, decimal.Decimal, int, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'SpendPowerCustomization':
@@ -127,6 +141,7 @@ class SpendPowerCustomization(
             timeframe=timeframe,
             min_limit=min_limit,
             id=id,
+            risk_tolerance=risk_tolerance,
             _configuration=_configuration,
             **kwargs,
         )

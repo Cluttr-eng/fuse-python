@@ -52,3 +52,7 @@ class WebhookSource(
     @schemas.classproperty
     def SNAPTRADE(cls):
         return cls("snaptrade")
+    
+    @schemas.classproperty
+    def MONO(cls):
+        return cls("mono")

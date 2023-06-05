@@ -41,7 +41,7 @@ class Aggregator(
             "mx": "MX",
             "snaptrade": "SNAPTRADE",
             "flinks": "FLINKS",
-            "finicity": "FINICITY",
+            "mono": "MONO",
         }
     
     @schemas.classproperty
@@ -65,5 +65,5 @@ class Aggregator(
         return cls("flinks")
     
     @schemas.classproperty
-    def FINICITY(cls):
-        return cls("finicity")
+    def MONO(cls):
+        return cls("mono")

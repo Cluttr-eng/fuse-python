@@ -37,7 +37,7 @@ class InAppTransactionEvent(
         required = {
             "amount",
             "event_type",
-            "iso_currency",
+            "iso_currency_code",
             "merchant_name",
             "id",
             "transaction_type",
@@ -62,29 +62,29 @@ class InAppTransactionEvent(
             def status() -> typing.Type['InAppTransactionEventStatus']:
                 return InAppTransactionEventStatus
             amount = schemas.NumberSchema
-            merchant_name = schemas.StrSchema
+            iso_currency_code = schemas.StrSchema
         
             @staticmethod
             def transaction_type() -> typing.Type['TransactionEventType']:
                 return TransactionEventType
+            merchant_name = schemas.StrSchema
             timestamp = schemas.StrSchema
             balance = schemas.NumberSchema
-            iso_currency_code = schemas.StrSchema
             __annotations__ = {
                 "id": id,
                 "event_type": event_type,
                 "status": status,
                 "amount": amount,
-                "merchant_name": merchant_name,
+                "iso_currency_code": iso_currency_code,
                 "transaction_type": transaction_type,
+                "merchant_name": merchant_name,
                 "timestamp": timestamp,
                 "balance": balance,
-                "iso_currency_code": iso_currency_code,
             }
     
     amount: MetaOapg.properties.amount
     event_type: MetaOapg.properties.event_type
-    iso_currency: schemas.AnyTypeSchema
+    iso_currency_code: MetaOapg.properties.iso_currency_code
     merchant_name: MetaOapg.properties.merchant_name
     id: MetaOapg.properties.id
     transaction_type: 'TransactionEventType'
@@ -104,10 +104,13 @@ class InAppTransactionEvent(
     def __getitem__(self, name: typing_extensions.Literal["amount"]) -> MetaOapg.properties.amount: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["merchant_name"]) -> MetaOapg.properties.merchant_name: ...
+    def __getitem__(self, name: typing_extensions.Literal["iso_currency_code"]) -> MetaOapg.properties.iso_currency_code: ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["transaction_type"]) -> 'TransactionEventType': ...
+    
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["merchant_name"]) -> MetaOapg.properties.merchant_name: ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["timestamp"]) -> MetaOapg.properties.timestamp: ...
@@ -116,12 +119,9 @@ class InAppTransactionEvent(
     def __getitem__(self, name: typing_extensions.Literal["balance"]) -> MetaOapg.properties.balance: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["iso_currency_code"]) -> MetaOapg.properties.iso_currency_code: ...
-    
-    @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["id", "event_type", "status", "amount", "merchant_name", "transaction_type", "timestamp", "balance", "iso_currency_code", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["id", "event_type", "status", "amount", "iso_currency_code", "transaction_type", "merchant_name", "timestamp", "balance", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -139,10 +139,13 @@ class InAppTransactionEvent(
     def get_item_oapg(self, name: typing_extensions.Literal["amount"]) -> MetaOapg.properties.amount: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["merchant_name"]) -> MetaOapg.properties.merchant_name: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["iso_currency_code"]) -> MetaOapg.properties.iso_currency_code: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["transaction_type"]) -> 'TransactionEventType': ...
+    
+    @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["merchant_name"]) -> MetaOapg.properties.merchant_name: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["timestamp"]) -> MetaOapg.properties.timestamp: ...
@@ -151,12 +154,9 @@ class InAppTransactionEvent(
     def get_item_oapg(self, name: typing_extensions.Literal["balance"]) -> typing.Union[MetaOapg.properties.balance, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["iso_currency_code"]) -> typing.Union[MetaOapg.properties.iso_currency_code, schemas.Unset]: ...
-    
-    @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["id", "event_type", "status", "amount", "merchant_name", "transaction_type", "timestamp", "balance", "iso_currency_code", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["id", "event_type", "status", "amount", "iso_currency_code", "transaction_type", "merchant_name", "timestamp", "balance", ], str]):
         return super().get_item_oapg(name)
     
 
@@ -165,14 +165,13 @@ class InAppTransactionEvent(
         *_args: typing.Union[dict, frozendict.frozendict, ],
         amount: typing.Union[MetaOapg.properties.amount, decimal.Decimal, int, float, ],
         event_type: typing.Union[MetaOapg.properties.event_type, str, ],
-        iso_currency: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+        iso_currency_code: typing.Union[MetaOapg.properties.iso_currency_code, str, ],
         merchant_name: typing.Union[MetaOapg.properties.merchant_name, str, ],
         id: typing.Union[MetaOapg.properties.id, str, ],
         transaction_type: 'TransactionEventType',
         status: 'InAppTransactionEventStatus',
         timestamp: typing.Union[MetaOapg.properties.timestamp, str, ],
         balance: typing.Union[MetaOapg.properties.balance, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
-        iso_currency_code: typing.Union[MetaOapg.properties.iso_currency_code, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'InAppTransactionEvent':
@@ -181,14 +180,13 @@ class InAppTransactionEvent(
             *_args,
             amount=amount,
             event_type=event_type,
-            iso_currency=iso_currency,
+            iso_currency_code=iso_currency_code,
             merchant_name=merchant_name,
             id=id,
             transaction_type=transaction_type,
             status=status,
             timestamp=timestamp,
             balance=balance,
-            iso_currency_code=iso_currency_code,
             _configuration=_configuration,
             **kwargs,
         )

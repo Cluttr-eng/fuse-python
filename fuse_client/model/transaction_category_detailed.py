@@ -38,6 +38,26 @@ class TransactionCategoryDetailed(
 
     class MetaOapg:
         enum_value_to_name = {
+            "auto_and_transport": "AUTO_AND_TRANSPORT",
+            "bills_and_utilities": "BILLS_AND_UTILITIES",
+            "business_services": "BUSINESS_SERVICES",
+            "education": "EDUCATION",
+            "entertainment": "ENTERTAINMENT",
+            "fees_and_charges": "FEES_AND_CHARGES",
+            "financial": "FINANCIAL",
+            "food_and_dining": "FOOD_AND_DINING",
+            "gifts_and_donations": "GIFTS_AND_DONATIONS",
+            "health_and_fitness": "HEALTH_AND_FITNESS",
+            "home": "HOME",
+            "income": "INCOME",
+            "investments": "INVESTMENTS",
+            "kids": "KIDS",
+            "personal_care": "PERSONAL_CARE",
+            "pets": "PETS",
+            "shopping": "SHOPPING",
+            "taxes": "TAXES",
+            "transfer": "TRANSFER",
+            "travel": "TRAVEL",
             "auto_insurance": "AUTO_INSURANCE",
             "auto_payment": "AUTO_PAYMENT",
             "gas": "GAS",
@@ -135,7 +155,88 @@ class TransactionCategoryDetailed(
             "vacation": "VACATION",
             "cash": "CASH",
             "check": "CHECK",
+            "uncategorized": "UNCATEGORIZED",
         }
+    
+    @schemas.classproperty
+    def AUTO_AND_TRANSPORT(cls):
+        return cls("auto_and_transport")
+    
+    @schemas.classproperty
+    def BILLS_AND_UTILITIES(cls):
+        return cls("bills_and_utilities")
+    
+    @schemas.classproperty
+    def BUSINESS_SERVICES(cls):
+        return cls("business_services")
+    
+    @schemas.classproperty
+    def EDUCATION(cls):
+        return cls("education")
+    
+    @schemas.classproperty
+    def ENTERTAINMENT(cls):
+        return cls("entertainment")
+    
+    @schemas.classproperty
+    def FEES_AND_CHARGES(cls):
+        return cls("fees_and_charges")
+    
+    @schemas.classproperty
+    def FINANCIAL(cls):
+        return cls("financial")
+    
+    @schemas.classproperty
+    def FOOD_AND_DINING(cls):
+        return cls("food_and_dining")
+    
+    @schemas.classproperty
+    def GIFTS_AND_DONATIONS(cls):
+        return cls("gifts_and_donations")
+    
+    @schemas.classproperty
+    def HEALTH_AND_FITNESS(cls):
+        return cls("health_and_fitness")
+    
+    @schemas.classproperty
+    def HOME(cls):
+        return cls("home")
+    
+    @schemas.classproperty
+    def INCOME(cls):
+        return cls("income")
+    
+    @schemas.classproperty
+    def INVESTMENTS(cls):
+        return cls("investments")
+    
+    @schemas.classproperty
+    def KIDS(cls):
+        return cls("kids")
+    
+    @schemas.classproperty
+    def PERSONAL_CARE(cls):
+        return cls("personal_care")
+    
+    @schemas.classproperty
+    def PETS(cls):
+        return cls("pets")
+    
+    @schemas.classproperty
+    def SHOPPING(cls):
+        return cls("shopping")
+    
+    @schemas.classproperty
+    def TAXES(cls):
+        return cls("taxes")
+    
+    @schemas.classproperty
+    def TRANSFER(cls):
+        return cls("transfer")
+    
+    @schemas.classproperty
+    def TRAVEL(cls):
+        return cls("travel")
     
     @schemas.classproperty
     def AUTO_INSURANCE(cls):
@@ -524,3 +625,7 @@ class TransactionCategoryDetailed(
     @schemas.classproperty
     def CHECK(cls):
         return cls("check")
+    
+    @schemas.classproperty
+    def UNCATEGORIZED(cls):
+        return cls("uncategorized")

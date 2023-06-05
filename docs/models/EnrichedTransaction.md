@@ -9,6 +9,7 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **id** | str,  | str,  | A original ID for the transaction that to help you tie data back to your systems. | 
+**merchant_id** | str,  | str,  | A Fuse defined, unique ID for the merchant associated with this transaction. | [optional] 
 **name** | str,  | str,  | The original or enhanced name of the merchant. | [optional] 
 **[logo](#logo)** | dict, frozendict.frozendict,  | frozendict.frozendict,  |  | [optional] 
 **amount** | decimal.Decimal, int, float,  | decimal.Decimal,  | The amount of the transaction in cents, in the currency of the account. | [optional] 
