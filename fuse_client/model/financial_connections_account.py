@@ -40,6 +40,7 @@ class FinancialConnectionsAccount(
             "fingerprint",
             "name",
             "type",
+            "remote_data",
         }
         
         class properties:
@@ -54,6 +55,7 @@ class FinancialConnectionsAccount(
             @staticmethod
             def balance() -> typing.Type['FinancialConnectionsAccountCachedBalance']:
                 return FinancialConnectionsAccountCachedBalance
+            remote_data = schemas.AnyTypeSchema
             
             
             class institution(
@@ -115,6 +117,7 @@ class FinancialConnectionsAccount(
                 "name": name,
                 "type": type,
                 "balance": balance,
+                "remote_data": remote_data,
                 "institution": institution,
                 "mask": mask,
                 "subtype": subtype,
@@ -125,6 +128,7 @@ class FinancialConnectionsAccount(
     fingerprint: MetaOapg.properties.fingerprint
     name: MetaOapg.properties.name
     type: 'AccountType'
+    remote_data: MetaOapg.properties.remote_data
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["remote_id"]) -> MetaOapg.properties.remote_id: ...
@@ -142,6 +146,9 @@ class FinancialConnectionsAccount(
     def __getitem__(self, name: typing_extensions.Literal["balance"]) -> 'FinancialConnectionsAccountCachedBalance': ...
     
     @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["remote_data"]) -> MetaOapg.properties.remote_data: ...
+    
+    @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["institution"]) -> MetaOapg.properties.institution: ...
     
     @typing.overload
@@ -153,7 +160,7 @@ class FinancialConnectionsAccount(
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["remote_id", "fingerprint", "name", "type", "balance", "institution", "mask", "subtype", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["remote_id", "fingerprint", "name", "type", "balance", "remote_data", "institution", "mask", "subtype", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -174,6 +181,9 @@ class FinancialConnectionsAccount(
     def get_item_oapg(self, name: typing_extensions.Literal["balance"]) -> 'FinancialConnectionsAccountCachedBalance': ...
     
     @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["remote_data"]) -> MetaOapg.properties.remote_data: ...
+    
+    @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["institution"]) -> typing.Union[MetaOapg.properties.institution, schemas.Unset]: ...
     
     @typing.overload
@@ -185,7 +195,7 @@ class FinancialConnectionsAccount(
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["remote_id", "fingerprint", "name", "type", "balance", "institution", "mask", "subtype", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["remote_id", "fingerprint", "name", "type", "balance", "remote_data", "institution", "mask", "subtype", ], str]):
         return super().get_item_oapg(name)
     
 
@@ -197,6 +207,7 @@ class FinancialConnectionsAccount(
         fingerprint: typing.Union[MetaOapg.properties.fingerprint, str, ],
         name: typing.Union[MetaOapg.properties.name, str, ],
         type: 'AccountType',
+        remote_data: typing.Union[MetaOapg.properties.remote_data, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         institution: typing.Union[MetaOapg.properties.institution, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         mask: typing.Union[MetaOapg.properties.mask, str, schemas.Unset] = schemas.unset,
         subtype: typing.Union['AccountSubtype', schemas.Unset] = schemas.unset,
@@ -211,6 +222,7 @@ class FinancialConnectionsAccount(
             fingerprint=fingerprint,
             name=name,
             type=type,
+            remote_data=remote_data,
             institution=institution,
             mask=mask,
             subtype=subtype,

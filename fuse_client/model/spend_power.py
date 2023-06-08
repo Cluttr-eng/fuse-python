@@ -37,11 +37,13 @@ class SpendPower(
         required = {
             "customization_id",
             "last_updated",
+            "finance_score",
             "spend_limit",
             "iso_currency_code",
             "current_spend",
             "pending_payments_amount",
             "id",
+            "predicted_balance",
         }
         
         class properties:
@@ -52,6 +54,11 @@ class SpendPower(
             pending_payments_amount = schemas.NumberSchema
             iso_currency_code = schemas.StrSchema
             last_updated = schemas.StrSchema
+        
+            @staticmethod
+            def finance_score() -> typing.Type['FinanceScore']:
+                return FinanceScore
+            predicted_balance = schemas.NumberSchema
             __annotations__ = {
                 "id": id,
                 "customization_id": customization_id,
@@ -60,15 +67,19 @@ class SpendPower(
                 "pending_payments_amount": pending_payments_amount,
                 "iso_currency_code": iso_currency_code,
                 "last_updated": last_updated,
+                "finance_score": finance_score,
+                "predicted_balance": predicted_balance,
             }
     
     customization_id: MetaOapg.properties.customization_id
     last_updated: MetaOapg.properties.last_updated
+    finance_score: 'FinanceScore'
     spend_limit: MetaOapg.properties.spend_limit
     iso_currency_code: MetaOapg.properties.iso_currency_code
     current_spend: MetaOapg.properties.current_spend
     pending_payments_amount: MetaOapg.properties.pending_payments_amount
     id: MetaOapg.properties.id
+    predicted_balance: MetaOapg.properties.predicted_balance
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["id"]) -> MetaOapg.properties.id: ...
@@ -92,9 +103,15 @@ class SpendPower(
     def __getitem__(self, name: typing_extensions.Literal["last_updated"]) -> MetaOapg.properties.last_updated: ...
     
     @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["finance_score"]) -> 'FinanceScore': ...
+    
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["predicted_balance"]) -> MetaOapg.properties.predicted_balance: ...
+    
+    @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["id", "customization_id", "spend_limit", "current_spend", "pending_payments_amount", "iso_currency_code", "last_updated", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["id", "customization_id", "spend_limit", "current_spend", "pending_payments_amount", "iso_currency_code", "last_updated", "finance_score", "predicted_balance", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -121,9 +138,15 @@ class SpendPower(
     def get_item_oapg(self, name: typing_extensions.Literal["last_updated"]) -> MetaOapg.properties.last_updated: ...
     
     @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["finance_score"]) -> 'FinanceScore': ...
+    
+    @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["predicted_balance"]) -> MetaOapg.properties.predicted_balance: ...
+    
+    @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["id", "customization_id", "spend_limit", "current_spend", "pending_payments_amount", "iso_currency_code", "last_updated", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["id", "customization_id", "spend_limit", "current_spend", "pending_payments_amount", "iso_currency_code", "last_updated", "finance_score", "predicted_balance", ], str]):
         return super().get_item_oapg(name)
     
 
@@ -132,11 +155,13 @@ class SpendPower(
         *_args: typing.Union[dict, frozendict.frozendict, ],
         customization_id: typing.Union[MetaOapg.properties.customization_id, str, ],
         last_updated: typing.Union[MetaOapg.properties.last_updated, str, ],
+        finance_score: 'FinanceScore',
         spend_limit: typing.Union[MetaOapg.properties.spend_limit, decimal.Decimal, int, float, ],
         iso_currency_code: typing.Union[MetaOapg.properties.iso_currency_code, str, ],
         current_spend: typing.Union[MetaOapg.properties.current_spend, decimal.Decimal, int, float, ],
         pending_payments_amount: typing.Union[MetaOapg.properties.pending_payments_amount, decimal.Decimal, int, float, ],
         id: typing.Union[MetaOapg.properties.id, str, ],
+        predicted_balance: typing.Union[MetaOapg.properties.predicted_balance, decimal.Decimal, int, float, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'SpendPower':
@@ -145,11 +170,15 @@ class SpendPower(
             *_args,
             customization_id=customization_id,
             last_updated=last_updated,
+            finance_score=finance_score,
             spend_limit=spend_limit,
             iso_currency_code=iso_currency_code,
             current_spend=current_spend,
             pending_payments_amount=pending_payments_amount,
             id=id,
+            predicted_balance=predicted_balance,
             _configuration=_configuration,
             **kwargs,
         )
+
+from fuse_client.model.finance_score import FinanceScore

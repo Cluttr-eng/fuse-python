@@ -40,7 +40,6 @@ class ExternalTransactionEvent(
             "iso_currency_code",
             "merchant_name",
             "id",
-            "category",
             "transaction_type",
             "status",
             "timestamp",
@@ -69,16 +68,12 @@ class ExternalTransactionEvent(
             def status() -> typing.Type['ExternalTransactionEventStatus']:
                 return ExternalTransactionEventStatus
             amount = schemas.NumberSchema
-            merchant_name = schemas.StrSchema
+            iso_currency_code = schemas.StrSchema
         
             @staticmethod
             def transaction_type() -> typing.Type['TransactionEventType']:
                 return TransactionEventType
-        
-            @staticmethod
-            def category() -> typing.Type['TransactionCategory']:
-                return TransactionCategory
-            iso_currency_code = schemas.StrSchema
+            merchant_name = schemas.StrSchema
             timestamp = schemas.StrSchema
             balance = schemas.NumberSchema
             __annotations__ = {
@@ -86,10 +81,9 @@ class ExternalTransactionEvent(
                 "event_type": event_type,
                 "status": status,
                 "amount": amount,
-                "merchant_name": merchant_name,
-                "transaction_type": transaction_type,
-                "category": category,
                 "iso_currency_code": iso_currency_code,
+                "transaction_type": transaction_type,
+                "merchant_name": merchant_name,
                 "timestamp": timestamp,
                 "balance": balance,
             }
@@ -99,7 +93,6 @@ class ExternalTransactionEvent(
     iso_currency_code: MetaOapg.properties.iso_currency_code
     merchant_name: MetaOapg.properties.merchant_name
     id: MetaOapg.properties.id
-    category: 'TransactionCategory'
     transaction_type: 'TransactionEventType'
     status: 'ExternalTransactionEventStatus'
     timestamp: MetaOapg.properties.timestamp
@@ -117,16 +110,13 @@ class ExternalTransactionEvent(
     def __getitem__(self, name: typing_extensions.Literal["amount"]) -> MetaOapg.properties.amount: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["merchant_name"]) -> MetaOapg.properties.merchant_name: ...
+    def __getitem__(self, name: typing_extensions.Literal["iso_currency_code"]) -> MetaOapg.properties.iso_currency_code: ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["transaction_type"]) -> 'TransactionEventType': ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["category"]) -> 'TransactionCategory': ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["iso_currency_code"]) -> MetaOapg.properties.iso_currency_code: ...
+    def __getitem__(self, name: typing_extensions.Literal["merchant_name"]) -> MetaOapg.properties.merchant_name: ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["timestamp"]) -> MetaOapg.properties.timestamp: ...
@@ -137,7 +127,7 @@ class ExternalTransactionEvent(
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["id", "event_type", "status", "amount", "merchant_name", "transaction_type", "category", "iso_currency_code", "timestamp", "balance", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["id", "event_type", "status", "amount", "iso_currency_code", "transaction_type", "merchant_name", "timestamp", "balance", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -155,16 +145,13 @@ class ExternalTransactionEvent(
     def get_item_oapg(self, name: typing_extensions.Literal["amount"]) -> MetaOapg.properties.amount: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["merchant_name"]) -> MetaOapg.properties.merchant_name: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["iso_currency_code"]) -> MetaOapg.properties.iso_currency_code: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["transaction_type"]) -> 'TransactionEventType': ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["category"]) -> 'TransactionCategory': ...
-    
-    @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["iso_currency_code"]) -> MetaOapg.properties.iso_currency_code: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["merchant_name"]) -> MetaOapg.properties.merchant_name: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["timestamp"]) -> MetaOapg.properties.timestamp: ...
@@ -175,7 +162,7 @@ class ExternalTransactionEvent(
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["id", "event_type", "status", "amount", "merchant_name", "transaction_type", "category", "iso_currency_code", "timestamp", "balance", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["id", "event_type", "status", "amount", "iso_currency_code", "transaction_type", "merchant_name", "timestamp", "balance", ], str]):
         return super().get_item_oapg(name)
     
 
@@ -187,7 +174,6 @@ class ExternalTransactionEvent(
         iso_currency_code: typing.Union[MetaOapg.properties.iso_currency_code, str, ],
         merchant_name: typing.Union[MetaOapg.properties.merchant_name, str, ],
         id: typing.Union[MetaOapg.properties.id, str, ],
-        category: 'TransactionCategory',
         transaction_type: 'TransactionEventType',
         status: 'ExternalTransactionEventStatus',
         timestamp: typing.Union[MetaOapg.properties.timestamp, str, ],
@@ -203,7 +189,6 @@ class ExternalTransactionEvent(
             iso_currency_code=iso_currency_code,
             merchant_name=merchant_name,
             id=id,
-            category=category,
             transaction_type=transaction_type,
             status=status,
             timestamp=timestamp,
@@ -213,5 +198,4 @@ class ExternalTransactionEvent(
         )
 
 from fuse_client.model.external_transaction_event_status import ExternalTransactionEventStatus
-from fuse_client.model.transaction_category import TransactionCategory
 from fuse_client.model.transaction_event_type import TransactionEventType

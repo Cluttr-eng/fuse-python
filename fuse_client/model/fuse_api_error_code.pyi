@@ -142,6 +142,18 @@ class FuseApiErrorCode(
         return cls("missing_flinks_us_instance_id_header")
     
     @schemas.classproperty
+    def MISSING_MONO_PUBLIC_KEY_HEADER(cls):
+        return cls("missing_mono_public_key_header")
+    
+    @schemas.classproperty
+    def MISSING_MONO_SECRET_KEY_HEADER(cls):
+        return cls("missing_mono_secret_key_header")
+    
+    @schemas.classproperty
+    def MISSING_MONO_WEBHOOK_SECRET_HEADER(cls):
+        return cls("missing_mono_webhook_secret_header")
+    
+    @schemas.classproperty
     def MISSING_FUSE_VERIFICATION_HEADER(cls):
         return cls("missing_fuse_verification_header")
     

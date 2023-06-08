@@ -3,7 +3,7 @@
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  | must be one of ["plaid", "teller", "mx", "fuse", "snaptrade", ] 
+str,  | str,  |  | must be one of ["plaid", "teller", "mx", "fuse", "snaptrade", "mono", ] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

@@ -39,6 +39,10 @@ class CountryCode(
             "US": "US",
             "CA": "CA",
             "IN": "IN",
+            "NG": "NG",
+            "GH": "GH",
+            "KE": "KE",
+            "ZA": "ZA",
         }
     
     @schemas.classproperty
@@ -52,3 +56,19 @@ class CountryCode(
     @schemas.classproperty
     def IN(cls):
         return cls("IN")
+    
+    @schemas.classproperty
+    def NG(cls):
+        return cls("NG")
+    
+    @schemas.classproperty
+    def GH(cls):
+        return cls("GH")
+    
+    @schemas.classproperty
+    def KE(cls):
+        return cls("KE")
+    
+    @schemas.classproperty
+    def ZA(cls):
+        return cls("ZA")

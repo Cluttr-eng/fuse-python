@@ -533,31 +533,31 @@ conf = fuse_client.Configuration(
                     'flinksCaInstanceKey',
                 ),
             }
-        if 'finicityPartnerId' in self.api_key:
-            auth['finicityPartnerId'] = {
+        if 'monoPublicKey' in self.api_key:
+            auth['monoPublicKey'] = {
                 'type': 'api_key',
                 'in': 'header',
-                'key': 'Finicity-Partner-Id',
+                'key': 'Mono-Public-Key',
                 'value': self.get_api_key_with_prefix(
-                    'finicityPartnerId',
+                    'monoPublicKey',
                 ),
             }
-        if 'finicityPartnerSecret' in self.api_key:
-            auth['finicityPartnerSecret'] = {
+        if 'monoSecretKey' in self.api_key:
+            auth['monoSecretKey'] = {
                 'type': 'api_key',
                 'in': 'header',
-                'key': 'Finicity-Partner-Secret',
+                'key': 'Mono-Secret-Key',
                 'value': self.get_api_key_with_prefix(
-                    'finicityPartnerSecret',
+                    'monoSecretKey',
                 ),
             }
-        if 'finicityAppKey' in self.api_key:
-            auth['finicityAppKey'] = {
+        if 'monoWebhookSecret' in self.api_key:
+            auth['monoWebhookSecret'] = {
                 'type': 'api_key',
                 'in': 'header',
-                'key': 'Finicity-App-Key',
+                'key': 'Mono-Webhook-Secret',
                 'value': self.get_api_key_with_prefix(
-                    'finicityAppKey',
+                    'monoWebhookSecret',
                 ),
             }
         return auth
@@ -571,7 +571,7 @@ conf = fuse_client.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: 1.0.0\n"\
-               "SDK Package Version: 1.0.20".\
+               "SDK Package Version: 1.0.21".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self):
