@@ -3324,6 +3324,7 @@ class Transaction(
                 def HYPHEN_MINUS(cls):
                     return cls("-")
             remote_data = schemas.AnyTypeSchema
+            fingerprint = schemas.StrSchema
             iso_currency_code = schemas.StrSchema
             __annotations__ = {
                 "remote_id": remote_id,
@@ -3336,6 +3337,7 @@ class Transaction(
                 "status": status,
                 "type": type,
                 "remote_data": remote_data,
+                "fingerprint": fingerprint,
                 "iso_currency_code": iso_currency_code,
             }
     
@@ -3381,12 +3383,15 @@ class Transaction(
     def __getitem__(self, name: typing_extensions.Literal["remote_data"]) -> MetaOapg.properties.remote_data: ...
     
     @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["fingerprint"]) -> MetaOapg.properties.fingerprint: ...
+    
+    @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["iso_currency_code"]) -> MetaOapg.properties.iso_currency_code: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["remote_id", "remote_account_id", "amount", "date", "description", "category", "merchant", "status", "type", "remote_data", "iso_currency_code", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["remote_id", "remote_account_id", "amount", "date", "description", "category", "merchant", "status", "type", "remote_data", "fingerprint", "iso_currency_code", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -3422,12 +3427,15 @@ class Transaction(
     def get_item_oapg(self, name: typing_extensions.Literal["remote_data"]) -> MetaOapg.properties.remote_data: ...
     
     @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["fingerprint"]) -> typing.Union[MetaOapg.properties.fingerprint, schemas.Unset]: ...
+    
+    @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["iso_currency_code"]) -> typing.Union[MetaOapg.properties.iso_currency_code, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["remote_id", "remote_account_id", "amount", "date", "description", "category", "merchant", "status", "type", "remote_data", "iso_currency_code", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["remote_id", "remote_account_id", "amount", "date", "description", "category", "merchant", "status", "type", "remote_data", "fingerprint", "iso_currency_code", ], str]):
         return super().get_item_oapg(name)
     
 
@@ -3444,6 +3452,7 @@ class Transaction(
         remote_account_id: typing.Union[MetaOapg.properties.remote_account_id, str, ],
         remote_data: typing.Union[MetaOapg.properties.remote_data, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         status: typing.Union[MetaOapg.properties.status, str, ],
+        fingerprint: typing.Union[MetaOapg.properties.fingerprint, str, schemas.Unset] = schemas.unset,
         iso_currency_code: typing.Union[MetaOapg.properties.iso_currency_code, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
@@ -3461,6 +3470,7 @@ class Transaction(
             remote_account_id=remote_account_id,
             remote_data=remote_data,
             status=status,
+            fingerprint=fingerprint,
             iso_currency_code=iso_currency_code,
             _configuration=_configuration,
             **kwargs,

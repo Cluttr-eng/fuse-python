@@ -13,7 +13,6 @@ Key | Input Type | Accessed Type | Description | Notes
 **iso_currency_code** | str,  | str,  | The ISO-4217 currency code. | 
 **merchant_name** | str,  | str,  |  | 
 **id** | str,  | str,  | ID of the transaction | 
-**category** | [**TransactionCategory**](TransactionCategory.md) | [**TransactionCategory**](TransactionCategory.md) |  | 
 **transaction_type** | [**TransactionEventType**](TransactionEventType.md) | [**TransactionEventType**](TransactionEventType.md) |  | 
 **status** | [**ExternalTransactionEventStatus**](ExternalTransactionEventStatus.md) | [**ExternalTransactionEventStatus**](ExternalTransactionEventStatus.md) |  | 
 **timestamp** | str,  | str,  | Datetime of the transaction In ISO-8601 format | 

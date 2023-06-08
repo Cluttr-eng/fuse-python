@@ -40,6 +40,7 @@ class EnrichedTransaction(
         
         class properties:
             id = schemas.StrSchema
+            merchant_id = schemas.StrSchema
             name = schemas.StrSchema
             
             
@@ -128,6 +129,7 @@ class EnrichedTransaction(
                     return cls("credit")
             __annotations__ = {
                 "id": id,
+                "merchant_id": merchant_id,
                 "name": name,
                 "logo": logo,
                 "amount": amount,
@@ -148,6 +150,9 @@ class EnrichedTransaction(
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["id"]) -> MetaOapg.properties.id: ...
+    
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["merchant_id"]) -> MetaOapg.properties.merchant_id: ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["name"]) -> MetaOapg.properties.name: ...
@@ -194,13 +199,16 @@ class EnrichedTransaction(
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["id", "name", "logo", "amount", "category", "is_bill_pay", "is_direct_deposit", "is_expense", "is_fee", "is_income", "is_international", "is_overdraft_fee", "is_payroll_advance", "is_subscription", "type", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["id", "merchant_id", "name", "logo", "amount", "category", "is_bill_pay", "is_direct_deposit", "is_expense", "is_fee", "is_income", "is_international", "is_overdraft_fee", "is_payroll_advance", "is_subscription", "type", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["id"]) -> MetaOapg.properties.id: ...
+    
+    @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["merchant_id"]) -> typing.Union[MetaOapg.properties.merchant_id, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["name"]) -> typing.Union[MetaOapg.properties.name, schemas.Unset]: ...
@@ -247,7 +255,7 @@ class EnrichedTransaction(
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["id", "name", "logo", "amount", "category", "is_bill_pay", "is_direct_deposit", "is_expense", "is_fee", "is_income", "is_international", "is_overdraft_fee", "is_payroll_advance", "is_subscription", "type", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["id", "merchant_id", "name", "logo", "amount", "category", "is_bill_pay", "is_direct_deposit", "is_expense", "is_fee", "is_income", "is_international", "is_overdraft_fee", "is_payroll_advance", "is_subscription", "type", ], str]):
         return super().get_item_oapg(name)
     
 
@@ -255,6 +263,7 @@ class EnrichedTransaction(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
         id: typing.Union[MetaOapg.properties.id, str, ],
+        merchant_id: typing.Union[MetaOapg.properties.merchant_id, str, schemas.Unset] = schemas.unset,
         name: typing.Union[MetaOapg.properties.name, str, schemas.Unset] = schemas.unset,
         logo: typing.Union[MetaOapg.properties.logo, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         amount: typing.Union[MetaOapg.properties.amount, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
@@ -276,6 +285,7 @@ class EnrichedTransaction(
             cls,
             *_args,
             id=id,
+            merchant_id=merchant_id,
             name=name,
             logo=logo,
             amount=amount,

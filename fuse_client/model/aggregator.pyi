@@ -54,5 +54,5 @@ class Aggregator(
         return cls("flinks")
     
     @schemas.classproperty
-    def FINICITY(cls):
-        return cls("finicity")
+    def MONO(cls):
+        return cls("mono")

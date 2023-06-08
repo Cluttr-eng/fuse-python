@@ -41,6 +41,7 @@ class WebhookSource(
             "mx": "MX",
             "fuse": "FUSE",
             "snaptrade": "SNAPTRADE",
+            "mono": "MONO",
         }
     
     @schemas.classproperty
@@ -62,3 +63,7 @@ class WebhookSource(
     @schemas.classproperty
     def SNAPTRADE(cls):
         return cls("snaptrade")
+    
+    @schemas.classproperty
+    def MONO(cls):
+        return cls("mono")
