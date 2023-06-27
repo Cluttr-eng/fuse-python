@@ -7,15 +7,16 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_account_events**](#add_account_events) | **post** /v1/accounts/{account_id}/events | 
 [**create_asset_report**](#create_asset_report) | **post** /v1/financial_connections/asset_report/create | 
+[**create_consumer_risk_report**](#create_consumer_risk_report) | **post** /v1/risk_report/consumer | 
+[**create_consumer_risk_report_customization**](#create_consumer_risk_report_customization) | **post** /v1/risk_report/consumer/customization | 
 [**create_link_token**](#create_link_token) | **post** /v1/link/token | 
 [**create_session**](#create_session) | **post** /v1/session | 
-[**create_spend_power**](#create_spend_power) | **post** /v1/spend_power | 
-[**create_spend_power_customization**](#create_spend_power_customization) | **post** /v1/spend_power/customization | 
 [**delete_financial_connection**](#delete_financial_connection) | **delete** /v1/financial_connections/{financial_connection_id_to_delete} | Delete a financial connection
 [**enrich_transactions**](#enrich_transactions) | **post** /v1/transactions/enrich | 
 [**exchange_financial_connections_public_token**](#exchange_financial_connections_public_token) | **post** /v1/financial_connections/public_token/exchange | 
 [**fin_ql_prompt**](#fin_ql_prompt) | **post** /v1/finql/prompt | FinQL Prompt
 [**get_asset_report**](#get_asset_report) | **post** /v1/financial_connections/asset_report | 
+[**get_consumer_risk_report**](#get_consumer_risk_report) | **get** /v1/risk_report/consumer/{consumer_risk_report_id} | Get consumer risk report
 [**get_entity**](#get_entity) | **get** /v1/entities/{entity_id} | Get entity
 [**get_finance_score**](#get_finance_score) | **get** /v1/accounts/{account_id}/finance_score | Get finance score
 [**get_financial_connection**](#get_financial_connection) | **get** /v1/financial_connections/{financial_connection_id} | Get financial connection details
@@ -28,11 +29,10 @@ Method | HTTP request | Description
 [**get_financial_institution**](#get_financial_institution) | **get** /v1/financial_connections/institutions/{institution_id} | Get a financial institution
 [**get_investment_holdings**](#get_investment_holdings) | **post** /v1/financial_connections/investments/holdings | Get investment holdings
 [**get_investment_transactions**](#get_investment_transactions) | **post** /v1/financial_connections/investments/transactions | Get investment transactions
-[**get_spend_power**](#get_spend_power) | **get** /v1/spend_power/{spend_power_id} | Get spend power
 [**migrate_financial_connection**](#migrate_financial_connection) | **post** /v1/financial_connections/migrate | Migrate financial connection
 [**refresh_asset_report**](#refresh_asset_report) | **post** /v1/financial_connections/asset_report/refresh | 
 [**sync_financial_connections_data**](#sync_financial_connections_data) | **post** /v1/financial_connections/sync | Sync financial connections data
-[**update_spend_power_customization**](#update_spend_power_customization) | **post** /v1/spend_power/customization/{spend_power_customization_id} | Update spend power customization
+[**update_consumer_risk_report_customization**](#update_consumer_risk_report_customization) | **post** /v1/risk_report/consumer/customization/{consumer_risk_report_customization_id} | Update consumer risk report customization
 [**v1_financial_connections_liabilities_post**](#v1_financial_connections_liabilities_post) | **post** /v1/financial_connections/liabilities | Get liabilities
 
 # **add_account_events**
@@ -271,6 +271,213 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
+# **create_consumer_risk_report**
+<a name="create_consumer_risk_report"></a>
+> CreateConsumerRiskReportResponse create_consumer_risk_report()
+
+
+
+Starts the background process that will calculate the consumer risk report depending on the customization passed in.
+
+### Example
+
+* Api Key Authentication (fuseApiKey):
+* Api Key Authentication (fuseClientId):
+```python
+import fuse_client
+from fuse_client.apis.tags import fuse_api
+from fuse_client.model.create_consumer_risk_report_response import CreateConsumerRiskReportResponse
+from fuse_client.model.create_consumer_risk_report_request import CreateConsumerRiskReportRequest
+from pprint import pprint
+# Defining the host is optional and defaults to https://sandbox-api.letsfuse.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = fuse_client.Configuration(
+    host = "https://sandbox-api.letsfuse.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: fuseApiKey
+configuration.api_key['fuseApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['fuseApiKey'] = 'Bearer'
+
+# Configure API key authorization: fuseClientId
+configuration.api_key['fuseClientId'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['fuseClientId'] = 'Bearer'
+# Enter a context with an instance of the API client
+with fuse_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = fuse_api.FuseApi(api_client)
+
+    # example passing only optional values
+    body = CreateConsumerRiskReportRequest(
+        account_id="account_id_example",
+        iso_currency_code="iso_currency_code_example",
+        customization_id="customization_id_example",
+    )
+    try:
+        api_response = api_instance.create_consumer_risk_report(
+            body=body,
+        )
+        pprint(api_response)
+    except fuse_client.ApiException as e:
+        print("Exception when calling FuseApi->create_consumer_risk_report: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+body | typing.Union[SchemaForRequestBodyApplicationJson, Unset] | optional, default is unset |
+content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### body
+
+# SchemaForRequestBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**CreateConsumerRiskReportRequest**](../../models/CreateConsumerRiskReportRequest.md) |  | 
+
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#create_consumer_risk_report.ApiResponseFor200) | Successful response
+
+#### create_consumer_risk_report.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**CreateConsumerRiskReportResponse**](../../models/CreateConsumerRiskReportResponse.md) |  | 
+
+
+### Authorization
+
+[fuseApiKey](../../../README.md#fuseApiKey), [fuseClientId](../../../README.md#fuseClientId)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **create_consumer_risk_report_customization**
+<a name="create_consumer_risk_report_customization"></a>
+> CreateConsumerRiskReportCustomizationResponse create_consumer_risk_report_customization()
+
+
+
+### Example
+
+* Api Key Authentication (fuseApiKey):
+* Api Key Authentication (fuseClientId):
+```python
+import fuse_client
+from fuse_client.apis.tags import fuse_api
+from fuse_client.model.create_consumer_risk_report_customization_request import CreateConsumerRiskReportCustomizationRequest
+from fuse_client.model.create_consumer_risk_report_customization_response import CreateConsumerRiskReportCustomizationResponse
+from pprint import pprint
+# Defining the host is optional and defaults to https://sandbox-api.letsfuse.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = fuse_client.Configuration(
+    host = "https://sandbox-api.letsfuse.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: fuseApiKey
+configuration.api_key['fuseApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['fuseApiKey'] = 'Bearer'
+
+# Configure API key authorization: fuseClientId
+configuration.api_key['fuseClientId'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['fuseClientId'] = 'Bearer'
+# Enter a context with an instance of the API client
+with fuse_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = fuse_api.FuseApi(api_client)
+
+    # example passing only optional values
+    body = CreateConsumerRiskReportCustomizationRequest(
+        timeframe=ConsumerRiskReportTimeFrame("daily"),
+        min_limit=0,
+        max_limit=1,
+        risk_tolerance=1,
+    )
+    try:
+        api_response = api_instance.create_consumer_risk_report_customization(
+            body=body,
+        )
+        pprint(api_response)
+    except fuse_client.ApiException as e:
+        print("Exception when calling FuseApi->create_consumer_risk_report_customization: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+body | typing.Union[SchemaForRequestBodyApplicationJson, Unset] | optional, default is unset |
+content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### body
+
+# SchemaForRequestBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**CreateConsumerRiskReportCustomizationRequest**](../../models/CreateConsumerRiskReportCustomizationRequest.md) |  | 
+
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#create_consumer_risk_report_customization.ApiResponseFor200) | Successful response
+
+#### create_consumer_risk_report_customization.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**CreateConsumerRiskReportCustomizationResponse**](../../models/CreateConsumerRiskReportCustomizationResponse.md) |  | 
+
+
+### Authorization
+
+[fuseApiKey](../../../README.md#fuseApiKey), [fuseClientId](../../../README.md#fuseClientId)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
 # **create_link_token**
 <a name="create_link_token"></a>
 > CreateLinkTokenResponse create_link_token()
@@ -323,6 +530,7 @@ with fuse_client.ApiClient(configuration) as api_client:
             id="id_example",
             name="name_example",
             email="email_example",
+            phone="phone_example",
         ),
         client_name="client_name_example",
         session_client_secret="session_client_secret_example",
@@ -450,12 +658,13 @@ with fuse_client.ApiClient(configuration) as api_client:
             Product("account_details")
         ],
         country_codes=[
-            CountryCode("US")
+            CountryCode("AE")
         ],
         entity=Entity(
             id="id_example",
             name="name_example",
             email="email_example",
+            phone="phone_example",
         ),
         access_token="access_token_example",
         is_web_view=True,
@@ -505,213 +714,6 @@ headers | Unset | headers were not defined |
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**CreateSessionResponse**](../../models/CreateSessionResponse.md) |  | 
-
-
-### Authorization
-
-[fuseApiKey](../../../README.md#fuseApiKey), [fuseClientId](../../../README.md#fuseClientId)
-
-[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
-
-# **create_spend_power**
-<a name="create_spend_power"></a>
-> CreateSpendPowerResponse create_spend_power()
-
-
-
-Starts the background process that will determine the spend power depending on the customization passed in.
-
-### Example
-
-* Api Key Authentication (fuseApiKey):
-* Api Key Authentication (fuseClientId):
-```python
-import fuse_client
-from fuse_client.apis.tags import fuse_api
-from fuse_client.model.create_spend_power_response import CreateSpendPowerResponse
-from fuse_client.model.create_spend_power_request import CreateSpendPowerRequest
-from pprint import pprint
-# Defining the host is optional and defaults to https://sandbox-api.letsfuse.com
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fuse_client.Configuration(
-    host = "https://sandbox-api.letsfuse.com"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: fuseApiKey
-configuration.api_key['fuseApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['fuseApiKey'] = 'Bearer'
-
-# Configure API key authorization: fuseClientId
-configuration.api_key['fuseClientId'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['fuseClientId'] = 'Bearer'
-# Enter a context with an instance of the API client
-with fuse_client.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = fuse_api.FuseApi(api_client)
-
-    # example passing only optional values
-    body = CreateSpendPowerRequest(
-        account_id="account_id_example",
-        iso_currency_code="iso_currency_code_example",
-        customization_id="customization_id_example",
-    )
-    try:
-        api_response = api_instance.create_spend_power(
-            body=body,
-        )
-        pprint(api_response)
-    except fuse_client.ApiException as e:
-        print("Exception when calling FuseApi->create_spend_power: %s\n" % e)
-```
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson, Unset] | optional, default is unset |
-content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
-accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
-stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
-timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
-skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
-
-### body
-
-# SchemaForRequestBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**CreateSpendPowerRequest**](../../models/CreateSpendPowerRequest.md) |  | 
-
-
-### Return Types, Responses
-
-Code | Class | Description
-------------- | ------------- | -------------
-n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#create_spend_power.ApiResponseFor200) | Successful response
-
-#### create_spend_power.ApiResponseFor200
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor200ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**CreateSpendPowerResponse**](../../models/CreateSpendPowerResponse.md) |  | 
-
-
-### Authorization
-
-[fuseApiKey](../../../README.md#fuseApiKey), [fuseClientId](../../../README.md#fuseClientId)
-
-[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
-
-# **create_spend_power_customization**
-<a name="create_spend_power_customization"></a>
-> CreateSpendPowerCustomizationResponse create_spend_power_customization()
-
-
-
-### Example
-
-* Api Key Authentication (fuseApiKey):
-* Api Key Authentication (fuseClientId):
-```python
-import fuse_client
-from fuse_client.apis.tags import fuse_api
-from fuse_client.model.create_spend_power_customization_request import CreateSpendPowerCustomizationRequest
-from fuse_client.model.create_spend_power_customization_response import CreateSpendPowerCustomizationResponse
-from pprint import pprint
-# Defining the host is optional and defaults to https://sandbox-api.letsfuse.com
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fuse_client.Configuration(
-    host = "https://sandbox-api.letsfuse.com"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: fuseApiKey
-configuration.api_key['fuseApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['fuseApiKey'] = 'Bearer'
-
-# Configure API key authorization: fuseClientId
-configuration.api_key['fuseClientId'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['fuseClientId'] = 'Bearer'
-# Enter a context with an instance of the API client
-with fuse_client.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = fuse_api.FuseApi(api_client)
-
-    # example passing only optional values
-    body = CreateSpendPowerCustomizationRequest(
-        timeframe=SpendPowerTimeFrame("daily"),
-        min_limit=0,
-        max_limit=1,
-        risk_tolerance=1,
-    )
-    try:
-        api_response = api_instance.create_spend_power_customization(
-            body=body,
-        )
-        pprint(api_response)
-    except fuse_client.ApiException as e:
-        print("Exception when calling FuseApi->create_spend_power_customization: %s\n" % e)
-```
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson, Unset] | optional, default is unset |
-content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
-accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
-stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
-timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
-skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
-
-### body
-
-# SchemaForRequestBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**CreateSpendPowerCustomizationRequest**](../../models/CreateSpendPowerCustomizationRequest.md) |  | 
-
-
-### Return Types, Responses
-
-Code | Class | Description
-------------- | ------------- | -------------
-n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#create_spend_power_customization.ApiResponseFor200) | Successful response
-
-#### create_spend_power_customization.ApiResponseFor200
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor200ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**CreateSpendPowerCustomizationResponse**](../../models/CreateSpendPowerCustomizationResponse.md) |  | 
 
 
 ### Authorization
@@ -1276,6 +1278,147 @@ headers | Unset | headers were not defined |
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**RefreshAssetReportResponse**](../../models/RefreshAssetReportResponse.md) |  | 
+
+
+### Authorization
+
+[fuseApiKey](../../../README.md#fuseApiKey), [fuseClientId](../../../README.md#fuseClientId)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **get_consumer_risk_report**
+<a name="get_consumer_risk_report"></a>
+> GetConsumerRiskReportResponse get_consumer_risk_report(consumer_risk_report_id)
+
+Get consumer risk report
+
+### Example
+
+* Api Key Authentication (fuseApiKey):
+* Api Key Authentication (fuseClientId):
+```python
+import fuse_client
+from fuse_client.apis.tags import fuse_api
+from fuse_client.model.get_consumer_risk_report_response import GetConsumerRiskReportResponse
+from pprint import pprint
+# Defining the host is optional and defaults to https://sandbox-api.letsfuse.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = fuse_client.Configuration(
+    host = "https://sandbox-api.letsfuse.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: fuseApiKey
+configuration.api_key['fuseApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['fuseApiKey'] = 'Bearer'
+
+# Configure API key authorization: fuseClientId
+configuration.api_key['fuseClientId'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['fuseClientId'] = 'Bearer'
+# Enter a context with an instance of the API client
+with fuse_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = fuse_api.FuseApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    path_params = {
+        'consumer_risk_report_id': "consumer_risk_report_id_example",
+    }
+    query_params = {
+    }
+    try:
+        # Get consumer risk report
+        api_response = api_instance.get_consumer_risk_report(
+            path_params=path_params,
+            query_params=query_params,
+        )
+        pprint(api_response)
+    except fuse_client.ApiException as e:
+        print("Exception when calling FuseApi->get_consumer_risk_report: %s\n" % e)
+
+    # example passing only optional values
+    path_params = {
+        'consumer_risk_report_id': "consumer_risk_report_id_example",
+    }
+    query_params = {
+        'recalculate': True,
+    }
+    try:
+        # Get consumer risk report
+        api_response = api_instance.get_consumer_risk_report(
+            path_params=path_params,
+            query_params=query_params,
+        )
+        pprint(api_response)
+    except fuse_client.ApiException as e:
+        print("Exception when calling FuseApi->get_consumer_risk_report: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+query_params | RequestQueryParams | |
+path_params | RequestPathParams | |
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### query_params
+#### RequestQueryParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+recalculate | RecalculateSchema | | optional
+
+
+# RecalculateSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+bool,  | BoolClass,  |  | 
+
+### path_params
+#### RequestPathParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+consumer_risk_report_id | ConsumerRiskReportIdSchema | | 
+
+# ConsumerRiskReportIdSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#get_consumer_risk_report.ApiResponseFor200) | Successful response
+
+#### get_consumer_risk_report.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**GetConsumerRiskReportResponse**](../../models/GetConsumerRiskReportResponse.md) |  | 
 
 
 ### Authorization
@@ -2542,111 +2685,6 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **get_spend_power**
-<a name="get_spend_power"></a>
-> GetSpendPowerResponse get_spend_power(spend_power_id)
-
-Get spend power
-
-### Example
-
-* Api Key Authentication (fuseApiKey):
-* Api Key Authentication (fuseClientId):
-```python
-import fuse_client
-from fuse_client.apis.tags import fuse_api
-from fuse_client.model.get_spend_power_response import GetSpendPowerResponse
-from pprint import pprint
-# Defining the host is optional and defaults to https://sandbox-api.letsfuse.com
-# See configuration.py for a list of all supported configuration parameters.
-configuration = fuse_client.Configuration(
-    host = "https://sandbox-api.letsfuse.com"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: fuseApiKey
-configuration.api_key['fuseApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['fuseApiKey'] = 'Bearer'
-
-# Configure API key authorization: fuseClientId
-configuration.api_key['fuseClientId'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['fuseClientId'] = 'Bearer'
-# Enter a context with an instance of the API client
-with fuse_client.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = fuse_api.FuseApi(api_client)
-
-    # example passing only required values which don't have defaults set
-    path_params = {
-        'spend_power_id': "spend_power_id_example",
-    }
-    try:
-        # Get spend power
-        api_response = api_instance.get_spend_power(
-            path_params=path_params,
-        )
-        pprint(api_response)
-    except fuse_client.ApiException as e:
-        print("Exception when calling FuseApi->get_spend_power: %s\n" % e)
-```
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-path_params | RequestPathParams | |
-accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
-stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
-timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
-skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
-
-### path_params
-#### RequestPathParams
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-spend_power_id | SpendPowerIdSchema | | 
-
-# SpendPowerIdSchema
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  | 
-
-### Return Types, Responses
-
-Code | Class | Description
-------------- | ------------- | -------------
-n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#get_spend_power.ApiResponseFor200) | Successful response
-
-#### get_spend_power.ApiResponseFor200
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor200ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**GetSpendPowerResponse**](../../models/GetSpendPowerResponse.md) |  | 
-
-
-### Authorization
-
-[fuseApiKey](../../../README.md#fuseApiKey), [fuseClientId](../../../README.md#fuseClientId)
-
-[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
-
 # **migrate_financial_connection**
 <a name="migrate_financial_connection"></a>
 > MigrateFinancialConnectionsTokenResponse migrate_financial_connection()
@@ -2976,11 +3014,11 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **update_spend_power_customization**
-<a name="update_spend_power_customization"></a>
-> UpdateSpendPowerCustomizationResponse update_spend_power_customization(spend_power_customization_id)
+# **update_consumer_risk_report_customization**
+<a name="update_consumer_risk_report_customization"></a>
+> UpdateConsumerRiskReportCustomizationResponse update_consumer_risk_report_customization(consumer_risk_report_customization_id)
 
-Update spend power customization
+Update consumer risk report customization
 
 ### Example
 
@@ -2989,8 +3027,8 @@ Update spend power customization
 ```python
 import fuse_client
 from fuse_client.apis.tags import fuse_api
-from fuse_client.model.update_spend_power_customization_request import UpdateSpendPowerCustomizationRequest
-from fuse_client.model.update_spend_power_customization_response import UpdateSpendPowerCustomizationResponse
+from fuse_client.model.update_consumer_risk_report_customization_response import UpdateConsumerRiskReportCustomizationResponse
+from fuse_client.model.update_consumer_risk_report_customization_request import UpdateConsumerRiskReportCustomizationRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://sandbox-api.letsfuse.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -3021,36 +3059,36 @@ with fuse_client.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     path_params = {
-        'spend_power_customization_id': "spend_power_customization_id_example",
+        'consumer_risk_report_customization_id': "consumer_risk_report_customization_id_example",
     }
     try:
-        # Update spend power customization
-        api_response = api_instance.update_spend_power_customization(
+        # Update consumer risk report customization
+        api_response = api_instance.update_consumer_risk_report_customization(
             path_params=path_params,
         )
         pprint(api_response)
     except fuse_client.ApiException as e:
-        print("Exception when calling FuseApi->update_spend_power_customization: %s\n" % e)
+        print("Exception when calling FuseApi->update_consumer_risk_report_customization: %s\n" % e)
 
     # example passing only optional values
     path_params = {
-        'spend_power_customization_id': "spend_power_customization_id_example",
+        'consumer_risk_report_customization_id': "consumer_risk_report_customization_id_example",
     }
-    body = UpdateSpendPowerCustomizationRequest(
-        timeframe=SpendPowerTimeFrame("daily"),
+    body = UpdateConsumerRiskReportCustomizationRequest(
+        timeframe=ConsumerRiskReportTimeFrame("daily"),
         min_limit=0,
         max_limit=1,
         risk_tolerance=1,
     )
     try:
-        # Update spend power customization
-        api_response = api_instance.update_spend_power_customization(
+        # Update consumer risk report customization
+        api_response = api_instance.update_consumer_risk_report_customization(
             path_params=path_params,
             body=body,
         )
         pprint(api_response)
     except fuse_client.ApiException as e:
-        print("Exception when calling FuseApi->update_spend_power_customization: %s\n" % e)
+        print("Exception when calling FuseApi->update_consumer_risk_report_customization: %s\n" % e)
 ```
 ### Parameters
 
@@ -3069,7 +3107,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # SchemaForRequestBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UpdateSpendPowerCustomizationRequest**](../../models/UpdateSpendPowerCustomizationRequest.md) |  | 
+[**UpdateConsumerRiskReportCustomizationRequest**](../../models/UpdateConsumerRiskReportCustomizationRequest.md) |  | 
 
 
 ### path_params
@@ -3077,9 +3115,9 @@ Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-spend_power_customization_id | SpendPowerCustomizationIdSchema | | 
+consumer_risk_report_customization_id | ConsumerRiskReportCustomizationIdSchema | | 
 
-# SpendPowerCustomizationIdSchema
+# ConsumerRiskReportCustomizationIdSchema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -3091,9 +3129,9 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#update_spend_power_customization.ApiResponseFor200) | Successful response
+200 | [ApiResponseFor200](#update_consumer_risk_report_customization.ApiResponseFor200) | Successful response
 
-#### update_spend_power_customization.ApiResponseFor200
+#### update_consumer_risk_report_customization.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -3103,7 +3141,7 @@ headers | Unset | headers were not defined |
 # SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UpdateSpendPowerCustomizationResponse**](../../models/UpdateSpendPowerCustomizationResponse.md) |  | 
+[**UpdateConsumerRiskReportCustomizationResponse**](../../models/UpdateConsumerRiskReportCustomizationResponse.md) |  | 
 
 
 ### Authorization

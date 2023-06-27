@@ -36,6 +36,7 @@ class GetFinancialConnectionsOwnersResponse(
     class MetaOapg:
         required = {
             "accounts",
+            "request_id",
         }
         
         class properties:
@@ -89,15 +90,13 @@ class GetFinancialConnectionsOwnersResponse(
                                 
                                     def __getitem__(self, i: int) -> 'FinancialConnectionsOwner':
                                         return super().__getitem__(i)
-                                request_id = schemas.StrSchema
                                 __annotations__ = {
                                     "remote_account_id": remote_account_id,
                                     "owners": owners,
-                                    "request_id": request_id,
                                 }
                         
                         owners: MetaOapg.properties.owners
-                        request_id: MetaOapg.properties.request_id
+                        request_id: schemas.AnyTypeSchema
                         remote_account_id: MetaOapg.properties.remote_account_id
                         
                         @typing.overload
@@ -107,12 +106,9 @@ class GetFinancialConnectionsOwnersResponse(
                         def __getitem__(self, name: typing_extensions.Literal["owners"]) -> MetaOapg.properties.owners: ...
                         
                         @typing.overload
-                        def __getitem__(self, name: typing_extensions.Literal["request_id"]) -> MetaOapg.properties.request_id: ...
-                        
-                        @typing.overload
                         def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
                         
-                        def __getitem__(self, name: typing.Union[typing_extensions.Literal["remote_account_id", "owners", "request_id", ], str]):
+                        def __getitem__(self, name: typing.Union[typing_extensions.Literal["remote_account_id", "owners", ], str]):
                             # dict_instance[name] accessor
                             return super().__getitem__(name)
                         
@@ -124,12 +120,9 @@ class GetFinancialConnectionsOwnersResponse(
                         def get_item_oapg(self, name: typing_extensions.Literal["owners"]) -> MetaOapg.properties.owners: ...
                         
                         @typing.overload
-                        def get_item_oapg(self, name: typing_extensions.Literal["request_id"]) -> MetaOapg.properties.request_id: ...
-                        
-                        @typing.overload
                         def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
                         
-                        def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["remote_account_id", "owners", "request_id", ], str]):
+                        def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["remote_account_id", "owners", ], str]):
                             return super().get_item_oapg(name)
                         
                     
@@ -137,7 +130,7 @@ class GetFinancialConnectionsOwnersResponse(
                             cls,
                             *_args: typing.Union[dict, frozendict.frozendict, ],
                             owners: typing.Union[MetaOapg.properties.owners, list, tuple, ],
-                            request_id: typing.Union[MetaOapg.properties.request_id, str, ],
+                            request_id: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                             remote_account_id: typing.Union[MetaOapg.properties.remote_account_id, str, ],
                             _configuration: typing.Optional[schemas.Configuration] = None,
                             **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
@@ -165,19 +158,25 @@ class GetFinancialConnectionsOwnersResponse(
             
                 def __getitem__(self, i: int) -> MetaOapg.items:
                     return super().__getitem__(i)
+            request_id = schemas.StrSchema
             __annotations__ = {
                 "accounts": accounts,
+                "request_id": request_id,
             }
     
     accounts: MetaOapg.properties.accounts
+    request_id: MetaOapg.properties.request_id
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["accounts"]) -> MetaOapg.properties.accounts: ...
     
     @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["request_id"]) -> MetaOapg.properties.request_id: ...
+    
+    @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["accounts", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["accounts", "request_id", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -186,9 +185,12 @@ class GetFinancialConnectionsOwnersResponse(
     def get_item_oapg(self, name: typing_extensions.Literal["accounts"]) -> MetaOapg.properties.accounts: ...
     
     @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["request_id"]) -> MetaOapg.properties.request_id: ...
+    
+    @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["accounts", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["accounts", "request_id", ], str]):
         return super().get_item_oapg(name)
     
 
@@ -196,6 +198,7 @@ class GetFinancialConnectionsOwnersResponse(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
         accounts: typing.Union[MetaOapg.properties.accounts, list, tuple, ],
+        request_id: typing.Union[MetaOapg.properties.request_id, str, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'GetFinancialConnectionsOwnersResponse':
@@ -203,6 +206,7 @@ class GetFinancialConnectionsOwnersResponse(
             cls,
             *_args,
             accounts=accounts,
+            request_id=request_id,
             _configuration=_configuration,
             **kwargs,
         )

@@ -56,3 +56,11 @@ class WebhookSource(
     @schemas.classproperty
     def MONO(cls):
         return cls("mono")
+    
+    @schemas.classproperty
+    def TRUELAYER(cls):
+        return cls("truelayer")
+    
+    @schemas.classproperty
+    def FINVERSE(cls):
+        return cls("finverse")

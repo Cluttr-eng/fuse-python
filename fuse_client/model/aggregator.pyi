@@ -56,3 +56,19 @@ class Aggregator(
     @schemas.classproperty
     def MONO(cls):
         return cls("mono")
+    
+    @schemas.classproperty
+    def TRUELAYER(cls):
+        return cls("truelayer")
+    
+    @schemas.classproperty
+    def FINVERSE(cls):
+        return cls("finverse")
+    
+    @schemas.classproperty
+    def BASIQ(cls):
+        return cls("basiq")
+    
+    @schemas.classproperty
+    def BELVO(cls):
+        return cls("belvo")

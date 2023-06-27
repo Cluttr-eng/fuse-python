@@ -13,7 +13,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **remote_id** | str,  | str,  | Remote Id of the transaction, ie Plaid or Teller Id | 
 **description** | str,  | str,  | Description of the transaction | 
 **[merchant](#merchant)** | dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
-**[category](#category)** | list, tuple,  | tuple,  | Categories of the transaction, ie Computers and Electronics | 
+**[category](#category)** | list, tuple,  | tuple,  | Categories of the transaction, i.e., Computers and Electronics. You can download the categories from [here](https://fuse-public-bucket.s3.amazonaws.com/transaction-categories.csv) | 
 **type** | str,  | str,  | Type of the transaction, ie adjustment. &#x27;-&#x27; means we were not able to map the upstream type. | must be one of ["ach", "adjustment", "atm", "bank_charge", "bill_payment", "card_payment", "cash", "cashback", "charge", "cheque", "credit", "debit", "deposit", "digital_payment", "direct_debit", "fee", "in_store", "interest", "online", "other", "payment", "purchase", "standing_order", "transaction", "transfer", "wire", "withdrawal", "-", ] 
 **remote_account_id** | str,  | str,  | Remote Account Id of the transaction, ie Plaid Account Id | 
 **remote_data** | dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
@@ -24,12 +24,12 @@ Key | Input Type | Accessed Type | Description | Notes
 
 # category
 
-Categories of the transaction, ie Computers and Electronics
+Categories of the transaction, i.e., Computers and Electronics. You can download the categories from [here](https://fuse-public-bucket.s3.amazonaws.com/transaction-categories.csv)
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple,  | tuple,  | Categories of the transaction, ie Computers and Electronics | 
+list, tuple,  | tuple,  | Categories of the transaction, i.e., Computers and Electronics. You can download the categories from [here](https://fuse-public-bucket.s3.amazonaws.com/transaction-categories.csv) | 
 
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
