@@ -43,6 +43,7 @@ create_session_request = CreateSessionRequest(
 response = fuse_api_instance.create_session(body=create_session_request)
 
 logger.info(f"{response.body.client_secret}")
+logger.info(f"{response.response.data}") #raw json response
 ```
 <br/>
 
@@ -91,3 +92,9 @@ fuse_api_instance.sync_financial_connections_data(body=json_body, header_params=
 })
 ```
 <br/>
+
+
+### Building and deploying the sdk
+```
+python3 setup.py sdist bdist_wheel
+twine upload dist/*
