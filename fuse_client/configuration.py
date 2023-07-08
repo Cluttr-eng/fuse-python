@@ -560,6 +560,60 @@ conf = fuse_client.Configuration(
                     'monoWebhookSecret',
                 ),
             }
+        if 'trueLayerClientId' in self.api_key:
+            auth['trueLayerClientId'] = {
+                'type': 'api_key',
+                'in': 'header',
+                'key': 'TrueLayer-Client-Id',
+                'value': self.get_api_key_with_prefix(
+                    'trueLayerClientId',
+                ),
+            }
+        if 'trueLayerClientSecret' in self.api_key:
+            auth['trueLayerClientSecret'] = {
+                'type': 'api_key',
+                'in': 'header',
+                'key': 'TrueLayer-Client-Secret',
+                'value': self.get_api_key_with_prefix(
+                    'trueLayerClientSecret',
+                ),
+            }
+        if 'trueLayerClientRedirectUri' in self.api_key:
+            auth['trueLayerClientRedirectUri'] = {
+                'type': 'api_key',
+                'in': 'header',
+                'key': 'TrueLayer-Redirect-Uri',
+                'value': self.get_api_key_with_prefix(
+                    'trueLayerClientRedirectUri',
+                ),
+            }
+        if 'finverseClientId' in self.api_key:
+            auth['finverseClientId'] = {
+                'type': 'api_key',
+                'in': 'header',
+                'key': 'Finverse-Client-Id',
+                'value': self.get_api_key_with_prefix(
+                    'finverseClientId',
+                ),
+            }
+        if 'finverseClientSecret' in self.api_key:
+            auth['finverseClientSecret'] = {
+                'type': 'api_key',
+                'in': 'header',
+                'key': 'Finverse-Client-Secret',
+                'value': self.get_api_key_with_prefix(
+                    'finverseClientSecret',
+                ),
+            }
+        if 'finverseClientRedirectUri' in self.api_key:
+            auth['finverseClientRedirectUri'] = {
+                'type': 'api_key',
+                'in': 'header',
+                'key': 'Finverse-Redirect-Uri',
+                'value': self.get_api_key_with_prefix(
+                    'finverseClientRedirectUri',
+                ),
+            }
         return auth
 
     def to_debug_report(self):
@@ -571,7 +625,7 @@ conf = fuse_client.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: 1.0.0\n"\
-               "SDK Package Version: 1.0.21".\
+               "SDK Package Version: 1.0.22".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self):

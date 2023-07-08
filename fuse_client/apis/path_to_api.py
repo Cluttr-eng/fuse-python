@@ -24,11 +24,11 @@ from fuse_client.apis.paths.v1_financial_connections_investments_holdings import
 from fuse_client.apis.paths.v1_financial_connections_investments_transactions import V1FinancialConnectionsInvestmentsTransactions
 from fuse_client.apis.paths.v1_financial_connections_liabilities import V1FinancialConnectionsLiabilities
 from fuse_client.apis.paths.v1_link_token import V1LinkToken
+from fuse_client.apis.paths.v1_risk_report_consumer import V1RiskReportConsumer
+from fuse_client.apis.paths.v1_risk_report_consumer_customization import V1RiskReportConsumerCustomization
+from fuse_client.apis.paths.v1_risk_report_consumer_customization_consumer_risk_report_customization_id import V1RiskReportConsumerCustomizationConsumerRiskReportCustomizationId
+from fuse_client.apis.paths.v1_risk_report_consumer_consumer_risk_report_id import V1RiskReportConsumerConsumerRiskReportId
 from fuse_client.apis.paths.v1_session import V1Session
-from fuse_client.apis.paths.v1_spend_power import V1SpendPower
-from fuse_client.apis.paths.v1_spend_power_customization import V1SpendPowerCustomization
-from fuse_client.apis.paths.v1_spend_power_customization_spend_power_customization_id import V1SpendPowerCustomizationSpendPowerCustomizationId
-from fuse_client.apis.paths.v1_spend_power_spend_power_id import V1SpendPowerSpendPowerId
 from fuse_client.apis.paths.v1_financial_connections_transactions import V1FinancialConnectionsTransactions
 
 PathToApi = typing_extensions.TypedDict(
@@ -57,11 +57,11 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.V1_FINANCIAL_CONNECTIONS_INVESTMENTS_TRANSACTIONS: V1FinancialConnectionsInvestmentsTransactions,
         PathValues.V1_FINANCIAL_CONNECTIONS_LIABILITIES: V1FinancialConnectionsLiabilities,
         PathValues.V1_LINK_TOKEN: V1LinkToken,
+        PathValues.V1_RISK_REPORT_CONSUMER: V1RiskReportConsumer,
+        PathValues.V1_RISK_REPORT_CONSUMER_CUSTOMIZATION: V1RiskReportConsumerCustomization,
+        PathValues.V1_RISK_REPORT_CONSUMER_CUSTOMIZATION_CONSUMER_RISK_REPORT_CUSTOMIZATION_ID: V1RiskReportConsumerCustomizationConsumerRiskReportCustomizationId,
+        PathValues.V1_RISK_REPORT_CONSUMER_CONSUMER_RISK_REPORT_ID: V1RiskReportConsumerConsumerRiskReportId,
         PathValues.V1_SESSION: V1Session,
-        PathValues.V1_SPEND_POWER: V1SpendPower,
-        PathValues.V1_SPEND_POWER_CUSTOMIZATION: V1SpendPowerCustomization,
-        PathValues.V1_SPEND_POWER_CUSTOMIZATION_SPEND_POWER_CUSTOMIZATION_ID: V1SpendPowerCustomizationSpendPowerCustomizationId,
-        PathValues.V1_SPEND_POWER_SPEND_POWER_ID: V1SpendPowerSpendPowerId,
         PathValues.V1_FINANCIAL_CONNECTIONS_TRANSACTIONS: V1FinancialConnectionsTransactions,
     }
 )
@@ -91,11 +91,11 @@ path_to_api = PathToApi(
         PathValues.V1_FINANCIAL_CONNECTIONS_INVESTMENTS_TRANSACTIONS: V1FinancialConnectionsInvestmentsTransactions,
         PathValues.V1_FINANCIAL_CONNECTIONS_LIABILITIES: V1FinancialConnectionsLiabilities,
         PathValues.V1_LINK_TOKEN: V1LinkToken,
+        PathValues.V1_RISK_REPORT_CONSUMER: V1RiskReportConsumer,
+        PathValues.V1_RISK_REPORT_CONSUMER_CUSTOMIZATION: V1RiskReportConsumerCustomization,
+        PathValues.V1_RISK_REPORT_CONSUMER_CUSTOMIZATION_CONSUMER_RISK_REPORT_CUSTOMIZATION_ID: V1RiskReportConsumerCustomizationConsumerRiskReportCustomizationId,
+        PathValues.V1_RISK_REPORT_CONSUMER_CONSUMER_RISK_REPORT_ID: V1RiskReportConsumerConsumerRiskReportId,
         PathValues.V1_SESSION: V1Session,
-        PathValues.V1_SPEND_POWER: V1SpendPower,
-        PathValues.V1_SPEND_POWER_CUSTOMIZATION: V1SpendPowerCustomization,
-        PathValues.V1_SPEND_POWER_CUSTOMIZATION_SPEND_POWER_CUSTOMIZATION_ID: V1SpendPowerCustomizationSpendPowerCustomizationId,
-        PathValues.V1_SPEND_POWER_SPEND_POWER_ID: V1SpendPowerSpendPowerId,
         PathValues.V1_FINANCIAL_CONNECTIONS_TRANSACTIONS: V1FinancialConnectionsTransactions,
     }
 )

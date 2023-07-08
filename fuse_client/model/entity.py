@@ -42,10 +42,12 @@ class Entity(
             id = schemas.StrSchema
             name = schemas.StrSchema
             email = schemas.StrSchema
+            phone = schemas.StrSchema
             __annotations__ = {
                 "id": id,
                 "name": name,
                 "email": email,
+                "phone": phone,
             }
     
     id: MetaOapg.properties.id
@@ -60,9 +62,12 @@ class Entity(
     def __getitem__(self, name: typing_extensions.Literal["email"]) -> MetaOapg.properties.email: ...
     
     @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["phone"]) -> MetaOapg.properties.phone: ...
+    
+    @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["id", "name", "email", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["id", "name", "email", "phone", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -77,9 +82,12 @@ class Entity(
     def get_item_oapg(self, name: typing_extensions.Literal["email"]) -> typing.Union[MetaOapg.properties.email, schemas.Unset]: ...
     
     @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["phone"]) -> typing.Union[MetaOapg.properties.phone, schemas.Unset]: ...
+    
+    @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["id", "name", "email", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["id", "name", "email", "phone", ], str]):
         return super().get_item_oapg(name)
     
 
@@ -89,6 +97,7 @@ class Entity(
         id: typing.Union[MetaOapg.properties.id, str, ],
         name: typing.Union[MetaOapg.properties.name, str, schemas.Unset] = schemas.unset,
         email: typing.Union[MetaOapg.properties.email, str, schemas.Unset] = schemas.unset,
+        phone: typing.Union[MetaOapg.properties.phone, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'Entity':
@@ -98,6 +107,7 @@ class Entity(
             id=id,
             name=name,
             email=email,
+            phone=phone,
             _configuration=_configuration,
             **kwargs,
         )
