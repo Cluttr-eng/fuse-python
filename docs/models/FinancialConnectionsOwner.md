@@ -50,6 +50,7 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
+**full_address** | str,  | str,  | Full address of the owner | [optional] 
 **city** | str,  | str,  | City of the address | [optional] 
 **country** | str,  | str,  | Country of the address | [optional] 
 **postal_code** | str,  | str,  | Postal code of the address | [optional] 

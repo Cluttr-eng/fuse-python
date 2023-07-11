@@ -74,12 +74,12 @@ class FuseApiErrorCode(
         return cls("financial_institution_not_found")
     
     @schemas.classproperty
-    def SPEND_POWER_NOT_FOUND(cls):
-        return cls("spend_power_not_found")
+    def CONSUMER_RISK_REPORT_NOT_FOUND(cls):
+        return cls("consumer_risk_report_not_found")
     
     @schemas.classproperty
-    def SPEND_POWER_CUSTOMIZATION_NOT_FOUND(cls):
-        return cls("spend_power_customization_not_found")
+    def CONSUMER_RISK_REPORT_CUSTOMIZATION_NOT_FOUND(cls):
+        return cls("consumer_risk_report_customization_not_found")
     
     @schemas.classproperty
     def MISSING_ACCESS_TOKEN(cls):
@@ -152,6 +152,42 @@ class FuseApiErrorCode(
     @schemas.classproperty
     def MISSING_MONO_WEBHOOK_SECRET_HEADER(cls):
         return cls("missing_mono_webhook_secret_header")
+    
+    @schemas.classproperty
+    def MISSING_TRUELAYER_CLIENT_ID_HEADER(cls):
+        return cls("missing_truelayer_client_id_header")
+    
+    @schemas.classproperty
+    def MISSING_TRUELAYER_CLIENT_SECRET_HEADER(cls):
+        return cls("missing_truelayer_client_secret_header")
+    
+    @schemas.classproperty
+    def MISSING_TRUELAYER_REDIRECT_URI_HEADER(cls):
+        return cls("missing_truelayer_redirect_uri_header")
+    
+    @schemas.classproperty
+    def MISSING_FINVERSE_CLIENT_ID_HEADER(cls):
+        return cls("missing_finverse_client_id_header")
+    
+    @schemas.classproperty
+    def MISSING_FINVERSE_CLIENT_SECRET_HEADER(cls):
+        return cls("missing_finverse_client_secret_header")
+    
+    @schemas.classproperty
+    def MISSING_FINVERSE_REDIRECT_URI_HEADER(cls):
+        return cls("missing_finverse_redirect_uri_header")
+    
+    @schemas.classproperty
+    def MISSING_BASIQ_API_KEY_HEADER(cls):
+        return cls("missing_basiq_api_key_header")
+    
+    @schemas.classproperty
+    def MISSING_BELVO_SECRET_ID_HEADER(cls):
+        return cls("missing_belvo_secret_id_header")
+    
+    @schemas.classproperty
+    def MISSING_BELVO_SECRET_PASSWORD_HEADER(cls):
+        return cls("missing_belvo_secret_password_header")
     
     @schemas.classproperty
     def MISSING_FUSE_VERIFICATION_HEADER(cls):

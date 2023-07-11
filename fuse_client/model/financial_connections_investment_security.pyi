@@ -67,17 +67,22 @@ class FinancialConnectionsInvestmentSecurity(
                     
                     class properties:
                         mic_code = schemas.StrSchema
+                        suffix = schemas.StrSchema
                         __annotations__ = {
                             "mic_code": mic_code,
+                            "suffix": suffix,
                         }
                 
                 @typing.overload
                 def __getitem__(self, name: typing_extensions.Literal["mic_code"]) -> MetaOapg.properties.mic_code: ...
                 
                 @typing.overload
+                def __getitem__(self, name: typing_extensions.Literal["suffix"]) -> MetaOapg.properties.suffix: ...
+                
+                @typing.overload
                 def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
                 
-                def __getitem__(self, name: typing.Union[typing_extensions.Literal["mic_code", ], str]):
+                def __getitem__(self, name: typing.Union[typing_extensions.Literal["mic_code", "suffix", ], str]):
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
                 
@@ -86,9 +91,12 @@ class FinancialConnectionsInvestmentSecurity(
                 def get_item_oapg(self, name: typing_extensions.Literal["mic_code"]) -> typing.Union[MetaOapg.properties.mic_code, schemas.Unset]: ...
                 
                 @typing.overload
+                def get_item_oapg(self, name: typing_extensions.Literal["suffix"]) -> typing.Union[MetaOapg.properties.suffix, schemas.Unset]: ...
+                
+                @typing.overload
                 def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
                 
-                def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["mic_code", ], str]):
+                def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["mic_code", "suffix", ], str]):
                     return super().get_item_oapg(name)
                 
             
@@ -96,6 +104,7 @@ class FinancialConnectionsInvestmentSecurity(
                     cls,
                     *_args: typing.Union[dict, frozendict.frozendict, ],
                     mic_code: typing.Union[MetaOapg.properties.mic_code, str, schemas.Unset] = schemas.unset,
+                    suffix: typing.Union[MetaOapg.properties.suffix, str, schemas.Unset] = schemas.unset,
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
                 ) -> 'exchange':
@@ -103,6 +112,7 @@ class FinancialConnectionsInvestmentSecurity(
                         cls,
                         *_args,
                         mic_code=mic_code,
+                        suffix=suffix,
                         _configuration=_configuration,
                         **kwargs,
                     )

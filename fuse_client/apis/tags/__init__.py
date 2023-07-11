@@ -7,4 +7,4 @@ import enum
 
 class TagValues(str, enum.Enum):
     FUSE = "Fuse"
-    SPEND_POWER = "Spend Power"
+    RISK_REPORT = "Risk Report"

@@ -70,18 +70,23 @@ class FinancialConnectionsOwner(
                                     class MetaOapg:
                                         
                                         class properties:
+                                            full_address = schemas.StrSchema
                                             city = schemas.StrSchema
                                             country = schemas.StrSchema
                                             postal_code = schemas.StrSchema
                                             region = schemas.StrSchema
                                             street = schemas.StrSchema
                                             __annotations__ = {
+                                                "full_address": full_address,
                                                 "city": city,
                                                 "country": country,
                                                 "postal_code": postal_code,
                                                 "region": region,
                                                 "street": street,
                                             }
+                                    
+                                    @typing.overload
+                                    def __getitem__(self, name: typing_extensions.Literal["full_address"]) -> MetaOapg.properties.full_address: ...
                                     
                                     @typing.overload
                                     def __getitem__(self, name: typing_extensions.Literal["city"]) -> MetaOapg.properties.city: ...
@@ -101,10 +106,13 @@ class FinancialConnectionsOwner(
                                     @typing.overload
                                     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
                                     
-                                    def __getitem__(self, name: typing.Union[typing_extensions.Literal["city", "country", "postal_code", "region", "street", ], str]):
+                                    def __getitem__(self, name: typing.Union[typing_extensions.Literal["full_address", "city", "country", "postal_code", "region", "street", ], str]):
                                         # dict_instance[name] accessor
                                         return super().__getitem__(name)
                                     
+                                    
+                                    @typing.overload
+                                    def get_item_oapg(self, name: typing_extensions.Literal["full_address"]) -> typing.Union[MetaOapg.properties.full_address, schemas.Unset]: ...
                                     
                                     @typing.overload
                                     def get_item_oapg(self, name: typing_extensions.Literal["city"]) -> typing.Union[MetaOapg.properties.city, schemas.Unset]: ...
@@ -124,13 +132,14 @@ class FinancialConnectionsOwner(
                                     @typing.overload
                                     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
                                     
-                                    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["city", "country", "postal_code", "region", "street", ], str]):
+                                    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["full_address", "city", "country", "postal_code", "region", "street", ], str]):
                                         return super().get_item_oapg(name)
                                     
                                 
                                     def __new__(
                                         cls,
                                         *_args: typing.Union[dict, frozendict.frozendict, ],
+                                        full_address: typing.Union[MetaOapg.properties.full_address, str, schemas.Unset] = schemas.unset,
                                         city: typing.Union[MetaOapg.properties.city, str, schemas.Unset] = schemas.unset,
                                         country: typing.Union[MetaOapg.properties.country, str, schemas.Unset] = schemas.unset,
                                         postal_code: typing.Union[MetaOapg.properties.postal_code, str, schemas.Unset] = schemas.unset,
@@ -142,6 +151,7 @@ class FinancialConnectionsOwner(
                                         return super().__new__(
                                             cls,
                                             *_args,
+                                            full_address=full_address,
                                             city=city,
                                             country=country,
                                             postal_code=postal_code,

@@ -19,6 +19,10 @@ Key | Input Type | Accessed Type | Description | Notes
 **[snaptrade](#snaptrade)** | dict, frozendict.frozendict,  | frozendict.frozendict,  | Data needed to query data from SnapTrade | [optional] 
 **[flinks](#flinks)** | dict, frozendict.frozendict,  | frozendict.frozendict,  | Data needed to query data from Flinks | [optional] 
 **[mono](#mono)** | dict, frozendict.frozendict,  | frozendict.frozendict,  | Data needed to query data from Mono | [optional] 
+**[truelayer](#truelayer)** | dict, frozendict.frozendict,  | frozendict.frozendict,  | Data needed to query data from TrueLayer | [optional] 
+**[finverse](#finverse)** | dict, frozendict.frozendict,  | frozendict.frozendict,  | Data needed to query data from Finverse | [optional] 
+**[basiq](#basiq)** | dict, frozendict.frozendict,  | frozendict.frozendict,  | Data needed to query data from Basiq | [optional] 
+**[belvo](#belvo)** | dict, frozendict.frozendict,  | frozendict.frozendict,  | Data needed to query data from Belvo | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 # plaid
@@ -114,6 +118,69 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  | Data needed to query d
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **account_id** | str,  | str,  | Account Id for Mono | 
+**any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
+
+# truelayer
+
+Data needed to query data from TrueLayer
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+dict, frozendict.frozendict,  | frozendict.frozendict,  | Data needed to query data from TrueLayer | 
+
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**access_token** | str,  | str,  | Access token for TrueLayer | 
+**any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
+
+# finverse
+
+Data needed to query data from Finverse
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+dict, frozendict.frozendict,  | frozendict.frozendict,  | Data needed to query data from Finverse | 
+
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**access_token** | str,  | str,  | Access token for Finverse | 
+**login_identity_id** | str,  | str,  | Login Identity Id for Finverse | [optional] 
+**any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
+
+# basiq
+
+Data needed to query data from Basiq
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+dict, frozendict.frozendict,  | frozendict.frozendict,  | Data needed to query data from Basiq | 
+
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**connection_id** | str,  | str,  | The identifier of the connection for Basiq. | 
+**user_id** | str,  | str,  | The identifier of the user for Basiq. | 
+**any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
+
+# belvo
+
+Data needed to query data from Belvo
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+dict, frozendict.frozendict,  | frozendict.frozendict,  | Data needed to query data from Belvo | 
+
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**link_id** | str,  | str,  | The identifier of the link for Belvo. | 
+**institution** | str,  | str,  | The identifier of the institution for Belvo. | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

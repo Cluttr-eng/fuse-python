@@ -593,6 +593,118 @@ class CreateLinkTokenRequest(
                         _configuration=_configuration,
                         **kwargs,
                     )
+            
+            
+            class snaptrade(
+                schemas.DictSchema
+            ):
+            
+            
+                class MetaOapg:
+                    
+                    class properties:
+                        
+                        
+                        class config(
+                            schemas.DictSchema
+                        ):
+                        
+                        
+                            class MetaOapg:
+                                
+                                class properties:
+                                    
+                                    
+                                    class connectionType(
+                                        schemas.EnumBase,
+                                        schemas.StrSchema
+                                    ):
+                                        
+                                        @schemas.classproperty
+                                        def READ(cls):
+                                            return cls("read")
+                                        
+                                        @schemas.classproperty
+                                        def TRADE(cls):
+                                            return cls("trade")
+                                    __annotations__ = {
+                                        "connectionType": connectionType,
+                                    }
+                            
+                            @typing.overload
+                            def __getitem__(self, name: typing_extensions.Literal["connectionType"]) -> MetaOapg.properties.connectionType: ...
+                            
+                            @typing.overload
+                            def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
+                            
+                            def __getitem__(self, name: typing.Union[typing_extensions.Literal["connectionType", ], str]):
+                                # dict_instance[name] accessor
+                                return super().__getitem__(name)
+                            
+                            
+                            @typing.overload
+                            def get_item_oapg(self, name: typing_extensions.Literal["connectionType"]) -> typing.Union[MetaOapg.properties.connectionType, schemas.Unset]: ...
+                            
+                            @typing.overload
+                            def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+                            
+                            def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["connectionType", ], str]):
+                                return super().get_item_oapg(name)
+                            
+                        
+                            def __new__(
+                                cls,
+                                *_args: typing.Union[dict, frozendict.frozendict, ],
+                                connectionType: typing.Union[MetaOapg.properties.connectionType, str, schemas.Unset] = schemas.unset,
+                                _configuration: typing.Optional[schemas.Configuration] = None,
+                                **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
+                            ) -> 'config':
+                                return super().__new__(
+                                    cls,
+                                    *_args,
+                                    connectionType=connectionType,
+                                    _configuration=_configuration,
+                                    **kwargs,
+                                )
+                        __annotations__ = {
+                            "config": config,
+                        }
+                
+                @typing.overload
+                def __getitem__(self, name: typing_extensions.Literal["config"]) -> MetaOapg.properties.config: ...
+                
+                @typing.overload
+                def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
+                
+                def __getitem__(self, name: typing.Union[typing_extensions.Literal["config", ], str]):
+                    # dict_instance[name] accessor
+                    return super().__getitem__(name)
+                
+                
+                @typing.overload
+                def get_item_oapg(self, name: typing_extensions.Literal["config"]) -> typing.Union[MetaOapg.properties.config, schemas.Unset]: ...
+                
+                @typing.overload
+                def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+                
+                def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["config", ], str]):
+                    return super().get_item_oapg(name)
+                
+            
+                def __new__(
+                    cls,
+                    *_args: typing.Union[dict, frozendict.frozendict, ],
+                    config: typing.Union[MetaOapg.properties.config, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+                    _configuration: typing.Optional[schemas.Configuration] = None,
+                    **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
+                ) -> 'snaptrade':
+                    return super().__new__(
+                        cls,
+                        *_args,
+                        config=config,
+                        _configuration=_configuration,
+                        **kwargs,
+                    )
             __annotations__ = {
                 "institution_id": institution_id,
                 "entity": entity,
@@ -602,6 +714,7 @@ class CreateLinkTokenRequest(
                 "mx": mx,
                 "plaid": plaid,
                 "teller": teller,
+                "snaptrade": snaptrade,
             }
     
     session_client_secret: MetaOapg.properties.session_client_secret
@@ -634,9 +747,12 @@ class CreateLinkTokenRequest(
     def __getitem__(self, name: typing_extensions.Literal["teller"]) -> MetaOapg.properties.teller: ...
     
     @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["snaptrade"]) -> MetaOapg.properties.snaptrade: ...
+    
+    @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["institution_id", "entity", "client_name", "session_client_secret", "webhook_url", "mx", "plaid", "teller", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["institution_id", "entity", "client_name", "session_client_secret", "webhook_url", "mx", "plaid", "teller", "snaptrade", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -666,9 +782,12 @@ class CreateLinkTokenRequest(
     def get_item_oapg(self, name: typing_extensions.Literal["teller"]) -> typing.Union[MetaOapg.properties.teller, schemas.Unset]: ...
     
     @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["snaptrade"]) -> typing.Union[MetaOapg.properties.snaptrade, schemas.Unset]: ...
+    
+    @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["institution_id", "entity", "client_name", "session_client_secret", "webhook_url", "mx", "plaid", "teller", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["institution_id", "entity", "client_name", "session_client_secret", "webhook_url", "mx", "plaid", "teller", "snaptrade", ], str]):
         return super().get_item_oapg(name)
     
 
@@ -683,6 +802,7 @@ class CreateLinkTokenRequest(
         mx: typing.Union[MetaOapg.properties.mx, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         plaid: typing.Union[MetaOapg.properties.plaid, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         teller: typing.Union[MetaOapg.properties.teller, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        snaptrade: typing.Union[MetaOapg.properties.snaptrade, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'CreateLinkTokenRequest':
@@ -697,6 +817,7 @@ class CreateLinkTokenRequest(
             mx=mx,
             plaid=plaid,
             teller=teller,
+            snaptrade=snaptrade,
             _configuration=_configuration,
             **kwargs,
         )
