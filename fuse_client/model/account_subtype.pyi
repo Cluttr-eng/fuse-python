@@ -44,6 +44,18 @@ class AccountSubtype(
         return cls("savings")
     
     @schemas.classproperty
+    def CHECKING_OR_SAVINGS(cls):
+        return cls("checking_or_savings")
+    
+    @schemas.classproperty
+    def BUSINESS_CHECKING_OR_SAVINGS(cls):
+        return cls("business_checking_or_savings")
+    
+    @schemas.classproperty
+    def BUSINESS_SAVINGS(cls):
+        return cls("business_savings")
+    
+    @schemas.classproperty
     def MONEY_MARKET(cls):
         return cls("money_market")
     
@@ -58,6 +70,14 @@ class AccountSubtype(
     @schemas.classproperty
     def CREDIT_CARD(cls):
         return cls("credit_card")
+    
+    @schemas.classproperty
+    def DEBIT_CARD(cls):
+        return cls("debit_card")
+    
+    @schemas.classproperty
+    def BONDS(cls):
+        return cls("bonds")
     
     @schemas.classproperty
     def HSA(cls):
@@ -104,6 +124,10 @@ class AccountSubtype(
         return cls("home_equity")
     
     @schemas.classproperty
+    def FOREIGN(cls):
+        return cls("foreign")
+    
+    @schemas.classproperty
     def LOAN(cls):
         return cls("loan")
     
@@ -144,8 +168,20 @@ class AccountSubtype(
         return cls("457_b")
     
     @schemas.classproperty
+    def FUNDS(cls):
+        return cls("funds")
+    
+    @schemas.classproperty
     def BROKERAGE(cls):
         return cls("brokerage")
+    
+    @schemas.classproperty
+    def SECURITIES(cls):
+        return cls("securities")
+    
+    @schemas.classproperty
+    def STOCKS(cls):
+        return cls("stocks")
     
     @schemas.classproperty
     def CASH_ISA(cls):
@@ -592,5 +628,17 @@ class AccountSubtype(
         return cls("variable_universal_life")
     
     @schemas.classproperty
+    def REVOLVING(cls):
+        return cls("revolving")
+    
+    @schemas.classproperty
     def OTHER(cls):
         return cls("other")
+    
+    @schemas.classproperty
+    def TIME_DEPOSIT(cls):
+        return cls("time_deposit")
+    
+    @schemas.classproperty
+    def HYPHEN_MINUS(cls):
+        return cls("-")
