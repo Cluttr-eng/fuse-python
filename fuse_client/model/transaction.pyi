@@ -357,6 +357,10 @@ class Transaction(
                             return cls("boating")
                         
                         @schemas.classproperty
+                        def BOOKS_AND_SUPPLIES(cls):
+                            return cls("books_and_supplies")
+                        
+                        @schemas.classproperty
                         def BOOKSTORES(cls):
                             return cls("bookstores")
                         
