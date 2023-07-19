@@ -904,7 +904,7 @@ with fuse_client.ApiClient(configuration) as api_client:
                 direction="incoming",
                 country_code="US",
                 iso_currency_code="USD",
-                date="The date the transaction was posted.",
+                date="date_example",
                 owner_type="consumer",
             )
         ],
