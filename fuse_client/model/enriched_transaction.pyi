@@ -41,7 +41,7 @@ class EnrichedTransaction(
         class properties:
             id = schemas.StrSchema
             merchant_id = schemas.StrSchema
-            name = schemas.StrSchema
+            merchant_name = schemas.StrSchema
             
             
             class logo(
@@ -92,51 +92,35 @@ class EnrichedTransaction(
                         _configuration=_configuration,
                         **kwargs,
                     )
-            amount = schemas.NumberSchema
-        
-            @staticmethod
-            def category() -> typing.Type['TransactionCategory']:
-                return TransactionCategory
-            is_bill_pay = schemas.BoolSchema
-            is_direct_deposit = schemas.BoolSchema
-            is_expense = schemas.BoolSchema
-            is_fee = schemas.BoolSchema
-            is_income = schemas.BoolSchema
-            is_international = schemas.BoolSchema
-            is_overdraft_fee = schemas.BoolSchema
-            is_payroll_advance = schemas.BoolSchema
-            is_subscription = schemas.BoolSchema
             
             
-            class type(
-                schemas.EnumBase,
-                schemas.StrSchema
+            class categories(
+                schemas.ListSchema
             ):
-                
-                @schemas.classproperty
-                def DEBIT(cls):
-                    return cls("debit")
-                
-                @schemas.classproperty
-                def CREDIT(cls):
-                    return cls("credit")
+            
+            
+                class MetaOapg:
+                    items = schemas.StrSchema
+            
+                def __new__(
+                    cls,
+                    _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, str, ]], typing.List[typing.Union[MetaOapg.items, str, ]]],
+                    _configuration: typing.Optional[schemas.Configuration] = None,
+                ) -> 'categories':
+                    return super().__new__(
+                        cls,
+                        _arg,
+                        _configuration=_configuration,
+                    )
+            
+                def __getitem__(self, i: int) -> MetaOapg.items:
+                    return super().__getitem__(i)
             __annotations__ = {
                 "id": id,
                 "merchant_id": merchant_id,
-                "name": name,
+                "merchant_name": merchant_name,
                 "logo": logo,
-                "amount": amount,
-                "category": category,
-                "is_bill_pay": is_bill_pay,
-                "is_direct_deposit": is_direct_deposit,
-                "is_expense": is_expense,
-                "is_fee": is_fee,
-                "is_income": is_income,
-                "is_international": is_international,
-                "is_overdraft_fee": is_overdraft_fee,
-                "is_payroll_advance": is_payroll_advance,
-                "is_subscription": is_subscription,
-                "type": type,
+                "categories": categories,
             }
     
     id: MetaOapg.properties.id
@@ -148,51 +132,18 @@ class EnrichedTransaction(
     def __getitem__(self, name: typing_extensions.Literal["merchant_id"]) -> MetaOapg.properties.merchant_id: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["name"]) -> MetaOapg.properties.name: ...
+    def __getitem__(self, name: typing_extensions.Literal["merchant_name"]) -> MetaOapg.properties.merchant_name: ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["logo"]) -> MetaOapg.properties.logo: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["amount"]) -> MetaOapg.properties.amount: ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["category"]) -> 'TransactionCategory': ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["is_bill_pay"]) -> MetaOapg.properties.is_bill_pay: ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["is_direct_deposit"]) -> MetaOapg.properties.is_direct_deposit: ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["is_expense"]) -> MetaOapg.properties.is_expense: ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["is_fee"]) -> MetaOapg.properties.is_fee: ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["is_income"]) -> MetaOapg.properties.is_income: ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["is_international"]) -> MetaOapg.properties.is_international: ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["is_overdraft_fee"]) -> MetaOapg.properties.is_overdraft_fee: ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["is_payroll_advance"]) -> MetaOapg.properties.is_payroll_advance: ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["is_subscription"]) -> MetaOapg.properties.is_subscription: ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["type"]) -> MetaOapg.properties.type: ...
+    def __getitem__(self, name: typing_extensions.Literal["categories"]) -> MetaOapg.properties.categories: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["id", "merchant_id", "name", "logo", "amount", "category", "is_bill_pay", "is_direct_deposit", "is_expense", "is_fee", "is_income", "is_international", "is_overdraft_fee", "is_payroll_advance", "is_subscription", "type", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["id", "merchant_id", "merchant_name", "logo", "categories", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -204,51 +155,18 @@ class EnrichedTransaction(
     def get_item_oapg(self, name: typing_extensions.Literal["merchant_id"]) -> typing.Union[MetaOapg.properties.merchant_id, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["name"]) -> typing.Union[MetaOapg.properties.name, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["merchant_name"]) -> typing.Union[MetaOapg.properties.merchant_name, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["logo"]) -> typing.Union[MetaOapg.properties.logo, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["amount"]) -> typing.Union[MetaOapg.properties.amount, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["category"]) -> typing.Union['TransactionCategory', schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["is_bill_pay"]) -> typing.Union[MetaOapg.properties.is_bill_pay, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["is_direct_deposit"]) -> typing.Union[MetaOapg.properties.is_direct_deposit, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["is_expense"]) -> typing.Union[MetaOapg.properties.is_expense, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["is_fee"]) -> typing.Union[MetaOapg.properties.is_fee, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["is_income"]) -> typing.Union[MetaOapg.properties.is_income, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["is_international"]) -> typing.Union[MetaOapg.properties.is_international, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["is_overdraft_fee"]) -> typing.Union[MetaOapg.properties.is_overdraft_fee, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["is_payroll_advance"]) -> typing.Union[MetaOapg.properties.is_payroll_advance, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["is_subscription"]) -> typing.Union[MetaOapg.properties.is_subscription, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["type"]) -> typing.Union[MetaOapg.properties.type, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["categories"]) -> typing.Union[MetaOapg.properties.categories, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["id", "merchant_id", "name", "logo", "amount", "category", "is_bill_pay", "is_direct_deposit", "is_expense", "is_fee", "is_income", "is_international", "is_overdraft_fee", "is_payroll_advance", "is_subscription", "type", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["id", "merchant_id", "merchant_name", "logo", "categories", ], str]):
         return super().get_item_oapg(name)
     
 
@@ -257,20 +175,9 @@ class EnrichedTransaction(
         *_args: typing.Union[dict, frozendict.frozendict, ],
         id: typing.Union[MetaOapg.properties.id, str, ],
         merchant_id: typing.Union[MetaOapg.properties.merchant_id, str, schemas.Unset] = schemas.unset,
-        name: typing.Union[MetaOapg.properties.name, str, schemas.Unset] = schemas.unset,
+        merchant_name: typing.Union[MetaOapg.properties.merchant_name, str, schemas.Unset] = schemas.unset,
         logo: typing.Union[MetaOapg.properties.logo, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
-        amount: typing.Union[MetaOapg.properties.amount, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
-        category: typing.Union['TransactionCategory', schemas.Unset] = schemas.unset,
-        is_bill_pay: typing.Union[MetaOapg.properties.is_bill_pay, bool, schemas.Unset] = schemas.unset,
-        is_direct_deposit: typing.Union[MetaOapg.properties.is_direct_deposit, bool, schemas.Unset] = schemas.unset,
-        is_expense: typing.Union[MetaOapg.properties.is_expense, bool, schemas.Unset] = schemas.unset,
-        is_fee: typing.Union[MetaOapg.properties.is_fee, bool, schemas.Unset] = schemas.unset,
-        is_income: typing.Union[MetaOapg.properties.is_income, bool, schemas.Unset] = schemas.unset,
-        is_international: typing.Union[MetaOapg.properties.is_international, bool, schemas.Unset] = schemas.unset,
-        is_overdraft_fee: typing.Union[MetaOapg.properties.is_overdraft_fee, bool, schemas.Unset] = schemas.unset,
-        is_payroll_advance: typing.Union[MetaOapg.properties.is_payroll_advance, bool, schemas.Unset] = schemas.unset,
-        is_subscription: typing.Union[MetaOapg.properties.is_subscription, bool, schemas.Unset] = schemas.unset,
-        type: typing.Union[MetaOapg.properties.type, str, schemas.Unset] = schemas.unset,
+        categories: typing.Union[MetaOapg.properties.categories, list, tuple, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'EnrichedTransaction':
@@ -279,22 +186,9 @@ class EnrichedTransaction(
             *_args,
             id=id,
             merchant_id=merchant_id,
-            name=name,
+            merchant_name=merchant_name,
             logo=logo,
-            amount=amount,
-            category=category,
-            is_bill_pay=is_bill_pay,
-            is_direct_deposit=is_direct_deposit,
-            is_expense=is_expense,
-            is_fee=is_fee,
-            is_income=is_income,
-            is_international=is_international,
-            is_overdraft_fee=is_overdraft_fee,
-            is_payroll_advance=is_payroll_advance,
-            is_subscription=is_subscription,
-            type=type,
+            categories=categories,
             _configuration=_configuration,
             **kwargs,
         )
-
-from fuse_client.model.transaction_category import TransactionCategory

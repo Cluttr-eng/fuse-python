@@ -898,10 +898,14 @@ with fuse_client.ApiClient(configuration) as api_client:
         transactions=[
             TransactionToEnrich(
                 id="id_example",
-                merchant_name="merchant_name_example",
+                description="description_example",
                 mcc="mcc_example",
-                amount=3.14,
-                type="debit",
+                amount=0,
+                direction="incoming",
+                country_code="US",
+                iso_currency_code="USD",
+                date="The date the transaction was posted.",
+                owner_type="consumer",
             )
         ],
     )
