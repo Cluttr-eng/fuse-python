@@ -64,10 +64,26 @@ class ExternalTransactionEvent(
             iso_currency_code = schemas.StrSchema
             merchant_name = schemas.StrSchema
             timestamp = schemas.StrSchema
+            country_code = schemas.StrSchema
         
             @staticmethod
             def transaction_type() -> typing.Type['TransactionEventType']:
                 return TransactionEventType
+            transaction_description = schemas.StrSchema
+            
+            
+            class transaction_owner_type(
+                schemas.EnumBase,
+                schemas.StrSchema
+            ):
+                
+                @schemas.classproperty
+                def CONSUMER(cls):
+                    return cls("consumer")
+                
+                @schemas.classproperty
+                def BUSINESS(cls):
+                    return cls("business")
             balance = schemas.NumberSchema
             __annotations__ = {
                 "id": id,
@@ -77,7 +93,10 @@ class ExternalTransactionEvent(
                 "iso_currency_code": iso_currency_code,
                 "merchant_name": merchant_name,
                 "timestamp": timestamp,
+                "country_code": country_code,
                 "transaction_type": transaction_type,
+                "transaction_description": transaction_description,
+                "transaction_owner_type": transaction_owner_type,
                 "balance": balance,
             }
     
@@ -111,7 +130,16 @@ class ExternalTransactionEvent(
     def __getitem__(self, name: typing_extensions.Literal["timestamp"]) -> MetaOapg.properties.timestamp: ...
     
     @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["country_code"]) -> MetaOapg.properties.country_code: ...
+    
+    @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["transaction_type"]) -> 'TransactionEventType': ...
+    
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["transaction_description"]) -> MetaOapg.properties.transaction_description: ...
+    
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["transaction_owner_type"]) -> MetaOapg.properties.transaction_owner_type: ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["balance"]) -> MetaOapg.properties.balance: ...
@@ -119,7 +147,7 @@ class ExternalTransactionEvent(
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["id", "event_type", "status", "amount", "iso_currency_code", "merchant_name", "timestamp", "transaction_type", "balance", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["id", "event_type", "status", "amount", "iso_currency_code", "merchant_name", "timestamp", "country_code", "transaction_type", "transaction_description", "transaction_owner_type", "balance", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -146,7 +174,16 @@ class ExternalTransactionEvent(
     def get_item_oapg(self, name: typing_extensions.Literal["timestamp"]) -> MetaOapg.properties.timestamp: ...
     
     @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["country_code"]) -> typing.Union[MetaOapg.properties.country_code, schemas.Unset]: ...
+    
+    @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["transaction_type"]) -> typing.Union['TransactionEventType', schemas.Unset]: ...
+    
+    @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["transaction_description"]) -> typing.Union[MetaOapg.properties.transaction_description, schemas.Unset]: ...
+    
+    @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["transaction_owner_type"]) -> typing.Union[MetaOapg.properties.transaction_owner_type, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["balance"]) -> typing.Union[MetaOapg.properties.balance, schemas.Unset]: ...
@@ -154,7 +191,7 @@ class ExternalTransactionEvent(
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["id", "event_type", "status", "amount", "iso_currency_code", "merchant_name", "timestamp", "transaction_type", "balance", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["id", "event_type", "status", "amount", "iso_currency_code", "merchant_name", "timestamp", "country_code", "transaction_type", "transaction_description", "transaction_owner_type", "balance", ], str]):
         return super().get_item_oapg(name)
     
 
@@ -168,7 +205,10 @@ class ExternalTransactionEvent(
         id: typing.Union[MetaOapg.properties.id, str, ],
         status: 'ExternalTransactionEventStatus',
         timestamp: typing.Union[MetaOapg.properties.timestamp, str, ],
+        country_code: typing.Union[MetaOapg.properties.country_code, str, schemas.Unset] = schemas.unset,
         transaction_type: typing.Union['TransactionEventType', schemas.Unset] = schemas.unset,
+        transaction_description: typing.Union[MetaOapg.properties.transaction_description, str, schemas.Unset] = schemas.unset,
+        transaction_owner_type: typing.Union[MetaOapg.properties.transaction_owner_type, str, schemas.Unset] = schemas.unset,
         balance: typing.Union[MetaOapg.properties.balance, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
@@ -183,7 +223,10 @@ class ExternalTransactionEvent(
             id=id,
             status=status,
             timestamp=timestamp,
+            country_code=country_code,
             transaction_type=transaction_type,
+            transaction_description=transaction_description,
+            transaction_owner_type=transaction_owner_type,
             balance=balance,
             _configuration=_configuration,
             **kwargs,

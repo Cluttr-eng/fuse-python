@@ -35,18 +35,35 @@ class TransactionToEnrich(
 
     class MetaOapg:
         required = {
-            "merchant_name",
+            "amount",
+            "description",
             "id",
+            "direction",
         }
         
         class properties:
             id = schemas.StrSchema
-            merchant_name = schemas.StrSchema
-            mcc = schemas.StrSchema
-            amount = schemas.NumberSchema
             
             
-            class type(
+            class description(
+                schemas.StrSchema
+            ):
+            
+            
+                class MetaOapg:
+                    min_length = 1
+            
+            
+            class amount(
+                schemas.NumberSchema
+            ):
+            
+            
+                class MetaOapg:
+                    inclusive_minimum = 0
+            
+            
+            class direction(
                 schemas.EnumBase,
                 schemas.StrSchema
             ):
@@ -54,47 +71,90 @@ class TransactionToEnrich(
             
                 class MetaOapg:
                     enum_value_to_name = {
-                        "debit": "DEBIT",
-                        "credit": "CREDIT",
+                        "incoming": "INCOMING",
+                        "outgoing": "OUTGOING",
                     }
                 
                 @schemas.classproperty
-                def DEBIT(cls):
-                    return cls("debit")
+                def INCOMING(cls):
+                    return cls("incoming")
                 
                 @schemas.classproperty
-                def CREDIT(cls):
-                    return cls("credit")
+                def OUTGOING(cls):
+                    return cls("outgoing")
+            mcc = schemas.StrSchema
+            country_code = schemas.StrSchema
+            iso_currency_code = schemas.StrSchema
+            date = schemas.StrSchema
+            
+            
+            class owner_type(
+                schemas.EnumBase,
+                schemas.StrSchema
+            ):
+            
+            
+                class MetaOapg:
+                    enum_value_to_name = {
+                        "consumer": "CONSUMER",
+                        "business": "BUSINESS",
+                    }
+                
+                @schemas.classproperty
+                def CONSUMER(cls):
+                    return cls("consumer")
+                
+                @schemas.classproperty
+                def BUSINESS(cls):
+                    return cls("business")
             __annotations__ = {
                 "id": id,
-                "merchant_name": merchant_name,
-                "mcc": mcc,
+                "description": description,
                 "amount": amount,
-                "type": type,
+                "direction": direction,
+                "mcc": mcc,
+                "country_code": country_code,
+                "iso_currency_code": iso_currency_code,
+                "date": date,
+                "owner_type": owner_type,
             }
     
-    merchant_name: MetaOapg.properties.merchant_name
+    amount: MetaOapg.properties.amount
+    description: MetaOapg.properties.description
     id: MetaOapg.properties.id
+    direction: MetaOapg.properties.direction
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["id"]) -> MetaOapg.properties.id: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["merchant_name"]) -> MetaOapg.properties.merchant_name: ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["mcc"]) -> MetaOapg.properties.mcc: ...
+    def __getitem__(self, name: typing_extensions.Literal["description"]) -> MetaOapg.properties.description: ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["amount"]) -> MetaOapg.properties.amount: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["type"]) -> MetaOapg.properties.type: ...
+    def __getitem__(self, name: typing_extensions.Literal["direction"]) -> MetaOapg.properties.direction: ...
+    
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["mcc"]) -> MetaOapg.properties.mcc: ...
+    
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["country_code"]) -> MetaOapg.properties.country_code: ...
+    
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["iso_currency_code"]) -> MetaOapg.properties.iso_currency_code: ...
+    
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["date"]) -> MetaOapg.properties.date: ...
+    
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["owner_type"]) -> MetaOapg.properties.owner_type: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["id", "merchant_name", "mcc", "amount", "type", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["id", "description", "amount", "direction", "mcc", "country_code", "iso_currency_code", "date", "owner_type", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -103,43 +163,63 @@ class TransactionToEnrich(
     def get_item_oapg(self, name: typing_extensions.Literal["id"]) -> MetaOapg.properties.id: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["merchant_name"]) -> MetaOapg.properties.merchant_name: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["description"]) -> MetaOapg.properties.description: ...
+    
+    @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["amount"]) -> MetaOapg.properties.amount: ...
+    
+    @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["direction"]) -> MetaOapg.properties.direction: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["mcc"]) -> typing.Union[MetaOapg.properties.mcc, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["amount"]) -> typing.Union[MetaOapg.properties.amount, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["country_code"]) -> typing.Union[MetaOapg.properties.country_code, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["type"]) -> typing.Union[MetaOapg.properties.type, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["iso_currency_code"]) -> typing.Union[MetaOapg.properties.iso_currency_code, schemas.Unset]: ...
+    
+    @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["date"]) -> typing.Union[MetaOapg.properties.date, schemas.Unset]: ...
+    
+    @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["owner_type"]) -> typing.Union[MetaOapg.properties.owner_type, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["id", "merchant_name", "mcc", "amount", "type", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["id", "description", "amount", "direction", "mcc", "country_code", "iso_currency_code", "date", "owner_type", ], str]):
         return super().get_item_oapg(name)
     
 
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        merchant_name: typing.Union[MetaOapg.properties.merchant_name, str, ],
+        amount: typing.Union[MetaOapg.properties.amount, decimal.Decimal, int, float, ],
+        description: typing.Union[MetaOapg.properties.description, str, ],
         id: typing.Union[MetaOapg.properties.id, str, ],
+        direction: typing.Union[MetaOapg.properties.direction, str, ],
         mcc: typing.Union[MetaOapg.properties.mcc, str, schemas.Unset] = schemas.unset,
-        amount: typing.Union[MetaOapg.properties.amount, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
-        type: typing.Union[MetaOapg.properties.type, str, schemas.Unset] = schemas.unset,
+        country_code: typing.Union[MetaOapg.properties.country_code, str, schemas.Unset] = schemas.unset,
+        iso_currency_code: typing.Union[MetaOapg.properties.iso_currency_code, str, schemas.Unset] = schemas.unset,
+        date: typing.Union[MetaOapg.properties.date, str, schemas.Unset] = schemas.unset,
+        owner_type: typing.Union[MetaOapg.properties.owner_type, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'TransactionToEnrich':
         return super().__new__(
             cls,
             *_args,
-            merchant_name=merchant_name,
-            id=id,
-            mcc=mcc,
             amount=amount,
-            type=type,
+            description=description,
+            id=id,
+            direction=direction,
+            mcc=mcc,
+            country_code=country_code,
+            iso_currency_code=iso_currency_code,
+            date=date,
+            owner_type=owner_type,
             _configuration=_configuration,
             **kwargs,
         )

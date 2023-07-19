@@ -143,6 +143,7 @@ class Transaction(
                                 "boat": "BOAT",
                                 "boat_dealers": "BOAT_DEALERS",
                                 "boating": "BOATING",
+                                "books_and_supplies": "BOOKS_AND_SUPPLIES",
                                 "bookstores": "BOOKSTORES",
                                 "boutique": "BOUTIQUE",
                                 "bowling": "BOWLING",
@@ -963,6 +964,10 @@ class Transaction(
                         @schemas.classproperty
                         def BOATING(cls):
                             return cls("boating")
+                        
+                        @schemas.classproperty
+                        def BOOKS_AND_SUPPLIES(cls):
+                            return cls("books_and_supplies")
                         
                         @schemas.classproperty
                         def BOOKSTORES(cls):

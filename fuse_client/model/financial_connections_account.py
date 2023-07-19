@@ -39,12 +39,14 @@ class FinancialConnectionsAccount(
             "remote_id",
             "fingerprint",
             "name",
+            "currency",
             "type",
             "remote_data",
         }
         
         class properties:
             remote_id = schemas.StrSchema
+            currency = schemas.StrSchema
             fingerprint = schemas.StrSchema
             name = schemas.StrSchema
         
@@ -113,6 +115,7 @@ class FinancialConnectionsAccount(
                 return AccountSubtype
             __annotations__ = {
                 "remote_id": remote_id,
+                "currency": currency,
                 "fingerprint": fingerprint,
                 "name": name,
                 "type": type,
@@ -127,11 +130,15 @@ class FinancialConnectionsAccount(
     remote_id: MetaOapg.properties.remote_id
     fingerprint: MetaOapg.properties.fingerprint
     name: MetaOapg.properties.name
+    currency: MetaOapg.properties.currency
     type: 'AccountType'
     remote_data: MetaOapg.properties.remote_data
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["remote_id"]) -> MetaOapg.properties.remote_id: ...
+    
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["currency"]) -> MetaOapg.properties.currency: ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["fingerprint"]) -> MetaOapg.properties.fingerprint: ...
@@ -160,13 +167,16 @@ class FinancialConnectionsAccount(
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["remote_id", "fingerprint", "name", "type", "balance", "remote_data", "institution", "mask", "subtype", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["remote_id", "currency", "fingerprint", "name", "type", "balance", "remote_data", "institution", "mask", "subtype", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["remote_id"]) -> MetaOapg.properties.remote_id: ...
+    
+    @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["currency"]) -> MetaOapg.properties.currency: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["fingerprint"]) -> MetaOapg.properties.fingerprint: ...
@@ -195,7 +205,7 @@ class FinancialConnectionsAccount(
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["remote_id", "fingerprint", "name", "type", "balance", "remote_data", "institution", "mask", "subtype", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["remote_id", "currency", "fingerprint", "name", "type", "balance", "remote_data", "institution", "mask", "subtype", ], str]):
         return super().get_item_oapg(name)
     
 
@@ -206,6 +216,7 @@ class FinancialConnectionsAccount(
         remote_id: typing.Union[MetaOapg.properties.remote_id, str, ],
         fingerprint: typing.Union[MetaOapg.properties.fingerprint, str, ],
         name: typing.Union[MetaOapg.properties.name, str, ],
+        currency: typing.Union[MetaOapg.properties.currency, str, ],
         type: 'AccountType',
         remote_data: typing.Union[MetaOapg.properties.remote_data, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         institution: typing.Union[MetaOapg.properties.institution, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
@@ -221,6 +232,7 @@ class FinancialConnectionsAccount(
             remote_id=remote_id,
             fingerprint=fingerprint,
             name=name,
+            currency=currency,
             type=type,
             remote_data=remote_data,
             institution=institution,
