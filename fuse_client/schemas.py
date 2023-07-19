@@ -907,7 +907,7 @@ class EnumBase:
         try:
             cls.MetaOapg.enum_value_to_name[arg]
         except KeyError:
-            raise ApiValueError("Invalid value {} passed in to {}, allowed_values={}".format(arg, cls, cls.MetaOapg.enum_value_to_name.keys()))
+            pass
         return super()._validate_oapg(arg, validation_metadata=validation_metadata)
 
 

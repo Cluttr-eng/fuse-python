@@ -625,7 +625,7 @@ conf = fuse_client.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: 1.0.0\n"\
-               "SDK Package Version: 1.0.22".\
+               "SDK Package Version: 1.0.23".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self):
@@ -636,7 +636,11 @@ conf = fuse_client.Configuration(
         return [
             {
                 'url': "https://sandbox-api.letsfuse.com",
-                'description': "sandbox",
+                'description': "Fuse sandbox API server",
+            },
+            {
+                'url': "https://api.letsfuse.com",
+                'description': "Fuse production API server",
             }
         ]
 
