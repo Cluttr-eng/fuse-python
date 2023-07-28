@@ -23,6 +23,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **[finverse](#finverse)** | dict, frozendict.frozendict,  | frozendict.frozendict,  | Data needed to query data from Finverse | [optional] 
 **[basiq](#basiq)** | dict, frozendict.frozendict,  | frozendict.frozendict,  | Data needed to query data from Basiq | [optional] 
 **[belvo](#belvo)** | dict, frozendict.frozendict,  | frozendict.frozendict,  | Data needed to query data from Belvo | [optional] 
+**[finicity](#finicity)** | dict, frozendict.frozendict,  | frozendict.frozendict,  | Data needed to query data from Finicity. | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 # plaid
@@ -181,6 +182,22 @@ Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **link_id** | str,  | str,  | The identifier of the link for Belvo. | 
 **institution** | str,  | str,  | The identifier of the institution for Belvo. | [optional] 
+**any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
+
+# finicity
+
+Data needed to query data from Finicity.
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+dict, frozendict.frozendict,  | frozendict.frozendict,  | Data needed to query data from Finicity. | 
+
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**institution_login_id** | str,  | str,  | The Finicity institution login id. | 
+**customer_id** | str,  | str,  | The identifier of the customer for Finicity. | 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

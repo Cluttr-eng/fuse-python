@@ -658,7 +658,7 @@ with fuse_client.ApiClient(configuration) as api_client:
     # example passing only optional values
     body = CreateSessionRequest(
         supported_financial_institution_aggregators=[
-            Aggregator("plaid")
+            Aggregator("basiq")
         ],
         products=[
             Product("account_details")

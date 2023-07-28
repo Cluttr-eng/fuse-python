@@ -36,6 +36,7 @@ class ExchangeFinancialConnectionsPublicTokenResponse(
     class MetaOapg:
         required = {
             "access_token",
+            "aggregator",
             "financial_connection_id",
             "request_id",
         }
@@ -43,14 +44,25 @@ class ExchangeFinancialConnectionsPublicTokenResponse(
         class properties:
             access_token = schemas.StrSchema
             financial_connection_id = schemas.StrSchema
+        
+            @staticmethod
+            def aggregator() -> typing.Type['Aggregator']:
+                return Aggregator
             request_id = schemas.StrSchema
+        
+            @staticmethod
+            def institution() -> typing.Type['FinancialInstitution']:
+                return FinancialInstitution
             __annotations__ = {
                 "access_token": access_token,
                 "financial_connection_id": financial_connection_id,
+                "aggregator": aggregator,
                 "request_id": request_id,
+                "institution": institution,
             }
     
     access_token: MetaOapg.properties.access_token
+    aggregator: 'Aggregator'
     financial_connection_id: MetaOapg.properties.financial_connection_id
     request_id: MetaOapg.properties.request_id
     
@@ -61,12 +73,18 @@ class ExchangeFinancialConnectionsPublicTokenResponse(
     def __getitem__(self, name: typing_extensions.Literal["financial_connection_id"]) -> MetaOapg.properties.financial_connection_id: ...
     
     @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["aggregator"]) -> 'Aggregator': ...
+    
+    @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["request_id"]) -> MetaOapg.properties.request_id: ...
+    
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["institution"]) -> 'FinancialInstitution': ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["access_token", "financial_connection_id", "request_id", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["access_token", "financial_connection_id", "aggregator", "request_id", "institution", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -78,12 +96,18 @@ class ExchangeFinancialConnectionsPublicTokenResponse(
     def get_item_oapg(self, name: typing_extensions.Literal["financial_connection_id"]) -> MetaOapg.properties.financial_connection_id: ...
     
     @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["aggregator"]) -> 'Aggregator': ...
+    
+    @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["request_id"]) -> MetaOapg.properties.request_id: ...
+    
+    @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["institution"]) -> typing.Union['FinancialInstitution', schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["access_token", "financial_connection_id", "request_id", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["access_token", "financial_connection_id", "aggregator", "request_id", "institution", ], str]):
         return super().get_item_oapg(name)
     
 
@@ -91,8 +115,10 @@ class ExchangeFinancialConnectionsPublicTokenResponse(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
         access_token: typing.Union[MetaOapg.properties.access_token, str, ],
+        aggregator: 'Aggregator',
         financial_connection_id: typing.Union[MetaOapg.properties.financial_connection_id, str, ],
         request_id: typing.Union[MetaOapg.properties.request_id, str, ],
+        institution: typing.Union['FinancialInstitution', schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'ExchangeFinancialConnectionsPublicTokenResponse':
@@ -100,8 +126,13 @@ class ExchangeFinancialConnectionsPublicTokenResponse(
             cls,
             *_args,
             access_token=access_token,
+            aggregator=aggregator,
             financial_connection_id=financial_connection_id,
             request_id=request_id,
+            institution=institution,
             _configuration=_configuration,
             **kwargs,
         )
+
+from fuse_client.model.aggregator import Aggregator
+from fuse_client.model.financial_institution import FinancialInstitution

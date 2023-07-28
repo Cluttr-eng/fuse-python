@@ -718,6 +718,73 @@ class FinancialConnectionDetails(
                         _configuration=_configuration,
                         **kwargs,
                     )
+            
+            
+            class finicity(
+                schemas.DictSchema
+            ):
+            
+            
+                class MetaOapg:
+                    required = {
+                        "institution_login_id",
+                        "customer_id",
+                    }
+                    
+                    class properties:
+                        customer_id = schemas.StrSchema
+                        institution_login_id = schemas.StrSchema
+                        __annotations__ = {
+                            "customer_id": customer_id,
+                            "institution_login_id": institution_login_id,
+                        }
+                
+                institution_login_id: MetaOapg.properties.institution_login_id
+                customer_id: MetaOapg.properties.customer_id
+                
+                @typing.overload
+                def __getitem__(self, name: typing_extensions.Literal["customer_id"]) -> MetaOapg.properties.customer_id: ...
+                
+                @typing.overload
+                def __getitem__(self, name: typing_extensions.Literal["institution_login_id"]) -> MetaOapg.properties.institution_login_id: ...
+                
+                @typing.overload
+                def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
+                
+                def __getitem__(self, name: typing.Union[typing_extensions.Literal["customer_id", "institution_login_id", ], str]):
+                    # dict_instance[name] accessor
+                    return super().__getitem__(name)
+                
+                
+                @typing.overload
+                def get_item_oapg(self, name: typing_extensions.Literal["customer_id"]) -> MetaOapg.properties.customer_id: ...
+                
+                @typing.overload
+                def get_item_oapg(self, name: typing_extensions.Literal["institution_login_id"]) -> MetaOapg.properties.institution_login_id: ...
+                
+                @typing.overload
+                def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+                
+                def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["customer_id", "institution_login_id", ], str]):
+                    return super().get_item_oapg(name)
+                
+            
+                def __new__(
+                    cls,
+                    *_args: typing.Union[dict, frozendict.frozendict, ],
+                    institution_login_id: typing.Union[MetaOapg.properties.institution_login_id, str, ],
+                    customer_id: typing.Union[MetaOapg.properties.customer_id, str, ],
+                    _configuration: typing.Optional[schemas.Configuration] = None,
+                    **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
+                ) -> 'finicity':
+                    return super().__new__(
+                        cls,
+                        *_args,
+                        institution_login_id=institution_login_id,
+                        customer_id=customer_id,
+                        _configuration=_configuration,
+                        **kwargs,
+                    )
             __annotations__ = {
                 "id": id,
                 "connection_status": connection_status,
@@ -734,6 +801,7 @@ class FinancialConnectionDetails(
                 "finverse": finverse,
                 "basiq": basiq,
                 "belvo": belvo,
+                "finicity": finicity,
             }
     
     aggregator: 'Aggregator'
@@ -788,9 +856,12 @@ class FinancialConnectionDetails(
     def __getitem__(self, name: typing_extensions.Literal["belvo"]) -> MetaOapg.properties.belvo: ...
     
     @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["finicity"]) -> MetaOapg.properties.finicity: ...
+    
+    @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["id", "connection_status", "connection_status_updated_at", "is_oauth", "aggregator", "plaid", "teller", "mx", "snaptrade", "flinks", "mono", "truelayer", "finverse", "basiq", "belvo", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["id", "connection_status", "connection_status_updated_at", "is_oauth", "aggregator", "plaid", "teller", "mx", "snaptrade", "flinks", "mono", "truelayer", "finverse", "basiq", "belvo", "finicity", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -841,9 +912,12 @@ class FinancialConnectionDetails(
     def get_item_oapg(self, name: typing_extensions.Literal["belvo"]) -> typing.Union[MetaOapg.properties.belvo, schemas.Unset]: ...
     
     @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["finicity"]) -> typing.Union[MetaOapg.properties.finicity, schemas.Unset]: ...
+    
+    @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["id", "connection_status", "connection_status_updated_at", "is_oauth", "aggregator", "plaid", "teller", "mx", "snaptrade", "flinks", "mono", "truelayer", "finverse", "basiq", "belvo", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["id", "connection_status", "connection_status_updated_at", "is_oauth", "aggregator", "plaid", "teller", "mx", "snaptrade", "flinks", "mono", "truelayer", "finverse", "basiq", "belvo", "finicity", ], str]):
         return super().get_item_oapg(name)
     
 
@@ -865,6 +939,7 @@ class FinancialConnectionDetails(
         finverse: typing.Union[MetaOapg.properties.finverse, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         basiq: typing.Union[MetaOapg.properties.basiq, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         belvo: typing.Union[MetaOapg.properties.belvo, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        finicity: typing.Union[MetaOapg.properties.finicity, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'FinancialConnectionDetails':
@@ -886,6 +961,7 @@ class FinancialConnectionDetails(
             finverse=finverse,
             basiq=basiq,
             belvo=belvo,
+            finicity=finicity,
             _configuration=_configuration,
             **kwargs,
         )
