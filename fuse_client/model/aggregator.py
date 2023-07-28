@@ -36,33 +36,34 @@ class Aggregator(
 
     class MetaOapg:
         enum_value_to_name = {
-            "plaid": "PLAID",
-            "teller": "TELLER",
-            "mx": "MX",
-            "snaptrade": "SNAPTRADE",
-            "flinks": "FLINKS",
-            "mono": "MONO",
-            "truelayer": "TRUELAYER",
-            "finverse": "FINVERSE",
             "basiq": "BASIQ",
             "belvo": "BELVO",
+            "finicity": "FINICITY",
+            "finverse": "FINVERSE",
+            "flinks": "FLINKS",
+            "mono": "MONO",
+            "mx": "MX",
+            "plaid": "PLAID",
+            "snaptrade": "SNAPTRADE",
+            "teller": "TELLER",
+            "truelayer": "TRUELAYER",
         }
     
     @schemas.classproperty
-    def PLAID(cls):
-        return cls("plaid")
+    def BASIQ(cls):
+        return cls("basiq")
     
     @schemas.classproperty
-    def TELLER(cls):
-        return cls("teller")
+    def BELVO(cls):
+        return cls("belvo")
     
     @schemas.classproperty
-    def MX(cls):
-        return cls("mx")
+    def FINICITY(cls):
+        return cls("finicity")
     
     @schemas.classproperty
-    def SNAPTRADE(cls):
-        return cls("snaptrade")
+    def FINVERSE(cls):
+        return cls("finverse")
     
     @schemas.classproperty
     def FLINKS(cls):
@@ -73,17 +74,21 @@ class Aggregator(
         return cls("mono")
     
     @schemas.classproperty
+    def MX(cls):
+        return cls("mx")
+    
+    @schemas.classproperty
+    def PLAID(cls):
+        return cls("plaid")
+    
+    @schemas.classproperty
+    def SNAPTRADE(cls):
+        return cls("snaptrade")
+    
+    @schemas.classproperty
+    def TELLER(cls):
+        return cls("teller")
+    
+    @schemas.classproperty
     def TRUELAYER(cls):
         return cls("truelayer")
-    
-    @schemas.classproperty
-    def FINVERSE(cls):
-        return cls("finverse")
-    
-    @schemas.classproperty
-    def BASIQ(cls):
-        return cls("basiq")
-    
-    @schemas.classproperty
-    def BELVO(cls):
-        return cls("belvo")

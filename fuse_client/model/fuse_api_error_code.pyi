@@ -190,6 +190,18 @@ class FuseApiErrorCode(
         return cls("missing_belvo_secret_password_header")
     
     @schemas.classproperty
+    def MISSING_FINICITY_PARTNER_ID_HEADER(cls):
+        return cls("missing_finicity_partner_id_header")
+    
+    @schemas.classproperty
+    def MISSING_FINICITY_APP_KEY_HEADER(cls):
+        return cls("missing_finicity_app_key_header")
+    
+    @schemas.classproperty
+    def MISSING_FINICITY_PARTNER_SECRET_HEADER(cls):
+        return cls("missing_finicity_partner_secret_header")
+    
+    @schemas.classproperty
     def MISSING_FUSE_VERIFICATION_HEADER(cls):
         return cls("missing_fuse_verification_header")
     
