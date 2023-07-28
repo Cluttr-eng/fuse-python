@@ -80,8 +80,46 @@ class FinancialConnectionsAccountBalance(
                         *_args,
                         _configuration=_configuration,
                     )
-            iso_currency_code = schemas.StrSchema
-            last_updated_date = schemas.StrSchema
+            
+            
+            class iso_currency_code(
+                schemas.StrBase,
+                schemas.NoneBase,
+                schemas.Schema,
+                schemas.NoneStrMixin
+            ):
+            
+            
+                def __new__(
+                    cls,
+                    *_args: typing.Union[None, str, ],
+                    _configuration: typing.Optional[schemas.Configuration] = None,
+                ) -> 'iso_currency_code':
+                    return super().__new__(
+                        cls,
+                        *_args,
+                        _configuration=_configuration,
+                    )
+            
+            
+            class last_updated_date(
+                schemas.StrBase,
+                schemas.NoneBase,
+                schemas.Schema,
+                schemas.NoneStrMixin
+            ):
+            
+            
+                def __new__(
+                    cls,
+                    *_args: typing.Union[None, str, ],
+                    _configuration: typing.Optional[schemas.Configuration] = None,
+                ) -> 'last_updated_date':
+                    return super().__new__(
+                        cls,
+                        *_args,
+                        _configuration=_configuration,
+                    )
             __annotations__ = {
                 "remote_account_id": remote_account_id,
                 "available": available,
@@ -143,8 +181,8 @@ class FinancialConnectionsAccountBalance(
         remote_account_id: typing.Union[MetaOapg.properties.remote_account_id, str, ],
         available: typing.Union[MetaOapg.properties.available, None, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
         current: typing.Union[MetaOapg.properties.current, None, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
-        iso_currency_code: typing.Union[MetaOapg.properties.iso_currency_code, str, schemas.Unset] = schemas.unset,
-        last_updated_date: typing.Union[MetaOapg.properties.last_updated_date, str, schemas.Unset] = schemas.unset,
+        iso_currency_code: typing.Union[MetaOapg.properties.iso_currency_code, None, str, schemas.Unset] = schemas.unset,
+        last_updated_date: typing.Union[MetaOapg.properties.last_updated_date, None, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'FinancialConnectionsAccountBalance':
