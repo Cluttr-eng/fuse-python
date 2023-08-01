@@ -578,15 +578,6 @@ conf = fuse_client.Configuration(
                     'trueLayerClientSecret',
                 ),
             }
-        if 'trueLayerClientRedirectUri' in self.api_key:
-            auth['trueLayerClientRedirectUri'] = {
-                'type': 'api_key',
-                'in': 'header',
-                'key': 'TrueLayer-Redirect-Uri',
-                'value': self.get_api_key_with_prefix(
-                    'trueLayerClientRedirectUri',
-                ),
-            }
         if 'finverseClientId' in self.api_key:
             auth['finverseClientId'] = {
                 'type': 'api_key',
@@ -605,13 +596,49 @@ conf = fuse_client.Configuration(
                     'finverseClientSecret',
                 ),
             }
-        if 'finverseClientRedirectUri' in self.api_key:
-            auth['finverseClientRedirectUri'] = {
+        if 'belvoSecretId' in self.api_key:
+            auth['belvoSecretId'] = {
                 'type': 'api_key',
                 'in': 'header',
-                'key': 'Finverse-Redirect-Uri',
+                'key': 'Belvo-Secret-Id',
                 'value': self.get_api_key_with_prefix(
-                    'finverseClientRedirectUri',
+                    'belvoSecretId',
+                ),
+            }
+        if 'belvoSecretPassword' in self.api_key:
+            auth['belvoSecretPassword'] = {
+                'type': 'api_key',
+                'in': 'header',
+                'key': 'Belvo-Secret-Password',
+                'value': self.get_api_key_with_prefix(
+                    'belvoSecretPassword',
+                ),
+            }
+        if 'finicityPartnerSecret' in self.api_key:
+            auth['finicityPartnerSecret'] = {
+                'type': 'api_key',
+                'in': 'header',
+                'key': 'Finicity-Partner-Secret',
+                'value': self.get_api_key_with_prefix(
+                    'finicityPartnerSecret',
+                ),
+            }
+        if 'finicityPartnerId' in self.api_key:
+            auth['finicityPartnerId'] = {
+                'type': 'api_key',
+                'in': 'header',
+                'key': 'Finicity-Partner-Id',
+                'value': self.get_api_key_with_prefix(
+                    'finicityPartnerId',
+                ),
+            }
+        if 'finicityAppKey' in self.api_key:
+            auth['finicityAppKey'] = {
+                'type': 'api_key',
+                'in': 'header',
+                'key': 'Finicity-App-Key',
+                'value': self.get_api_key_with_prefix(
+                    'finicityAppKey',
                 ),
             }
         return auth
@@ -625,7 +652,7 @@ conf = fuse_client.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: 1.0.0\n"\
-               "SDK Package Version: 1.0.25".\
+               "SDK Package Version: 1.0.26".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self):
