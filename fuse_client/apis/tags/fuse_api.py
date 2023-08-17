@@ -18,7 +18,6 @@ from fuse_client.paths.v1_session.post import CreateSession
 from fuse_client.paths.v1_financial_connections_financial_connection_id_to_delete.delete import DeleteFinancialConnection
 from fuse_client.paths.v1_transactions_enrich.post import EnrichTransactions
 from fuse_client.paths.v1_financial_connections_public_token_exchange.post import ExchangeFinancialConnectionsPublicToken
-from fuse_client.paths.v1_finql_prompt.post import FinQlPrompt
 from fuse_client.paths.v1_financial_connections_asset_report.post import GetAssetReport
 from fuse_client.paths.v1_risk_report_consumer_consumer_risk_report_id.get import GetConsumerRiskReport
 from fuse_client.paths.v1_entities_entity_id.get import GetEntity
@@ -50,7 +49,6 @@ class FuseApi(
     DeleteFinancialConnection,
     EnrichTransactions,
     ExchangeFinancialConnectionsPublicToken,
-    FinQlPrompt,
     GetAssetReport,
     GetConsumerRiskReport,
     GetEntity,
