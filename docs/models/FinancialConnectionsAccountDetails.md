@@ -8,9 +8,9 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**[ach](#ach)** | dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
 **remote_id** | str,  | str,  | Remote Id of the account, ie Plaid or Teller account id | 
 **remote_data** | dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
+**[ach](#ach)** | dict, frozendict.frozendict,  | frozendict.frozendict,  |  | [optional] 
 **[account_number](#account_number)** | dict, frozendict.frozendict,  | frozendict.frozendict,  |  | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
@@ -40,7 +40,7 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**number** | str,  | str,  | Unique identifier representing the account, typically referred to as the account number. | [optional] 
+**number** | str,  | str,  | Unique identifier representing the account, typically referred to as the account number. | 
 **sort_code** | str,  | str,  | A six-digit number used by banks in the United Kingdom and Ireland to identify the branch where the account is held. | [optional] 
 **iban** | str,  | str,  | International Bank Account Number (IBAN) is an internationally agreed system of identifying bank accounts across national borders to facilitate the communication and processing of cross border transactions. | [optional] 
 **swift_bic** | str,  | str,  | SWIFT/BIC code is an international identifier used to distinctively recognize a particular bank during financial transactions, such as money transfers. | [optional] 

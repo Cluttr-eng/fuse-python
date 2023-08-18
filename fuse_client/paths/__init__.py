@@ -17,7 +17,6 @@ class PathValues(str, enum.Enum):
     V1_TRANSACTIONS_ENRICH = "/v1/transactions/enrich"
     V1_ENTITIES_ENTITY_ID = "/v1/entities/{entity_id}"
     V1_ACCOUNTS_ACCOUNT_ID_EVENTS = "/v1/accounts/{account_id}/events"
-    V1_FINQL_PROMPT = "/v1/finql/prompt"
     V1_ACCOUNTS_ACCOUNT_ID_FINANCE_SCORE = "/v1/accounts/{account_id}/finance_score"
     V1_FINANCIAL_CONNECTIONS_PUBLIC_TOKEN_EXCHANGE = "/v1/financial_connections/public_token/exchange"
     V1_FINANCIAL_CONNECTIONS_SYNC = "/v1/financial_connections/sync"

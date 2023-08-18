@@ -35,13 +35,13 @@ class FinancialConnectionsAccountDetails(
 
     class MetaOapg:
         required = {
-            "ach",
             "remote_id",
             "remote_data",
         }
         
         class properties:
             remote_id = schemas.StrSchema
+            remote_data = schemas.AnyTypeSchema
             
             
             class ach(
@@ -122,7 +122,6 @@ class FinancialConnectionsAccountDetails(
                         _configuration=_configuration,
                         **kwargs,
                     )
-            remote_data = schemas.AnyTypeSchema
             
             
             class account_number(
@@ -131,6 +130,9 @@ class FinancialConnectionsAccountDetails(
             
             
                 class MetaOapg:
+                    required = {
+                        "number",
+                    }
                     
                     class properties:
                         number = schemas.StrSchema
@@ -147,6 +149,8 @@ class FinancialConnectionsAccountDetails(
                             "bsb": bsb,
                             "bic": bic,
                         }
+                
+                number: MetaOapg.properties.number
                 
                 @typing.overload
                 def __getitem__(self, name: typing_extensions.Literal["number"]) -> MetaOapg.properties.number: ...
@@ -175,7 +179,7 @@ class FinancialConnectionsAccountDetails(
                 
                 
                 @typing.overload
-                def get_item_oapg(self, name: typing_extensions.Literal["number"]) -> typing.Union[MetaOapg.properties.number, schemas.Unset]: ...
+                def get_item_oapg(self, name: typing_extensions.Literal["number"]) -> MetaOapg.properties.number: ...
                 
                 @typing.overload
                 def get_item_oapg(self, name: typing_extensions.Literal["sort_code"]) -> typing.Union[MetaOapg.properties.sort_code, schemas.Unset]: ...
@@ -202,7 +206,7 @@ class FinancialConnectionsAccountDetails(
                 def __new__(
                     cls,
                     *_args: typing.Union[dict, frozendict.frozendict, ],
-                    number: typing.Union[MetaOapg.properties.number, str, schemas.Unset] = schemas.unset,
+                    number: typing.Union[MetaOapg.properties.number, str, ],
                     sort_code: typing.Union[MetaOapg.properties.sort_code, str, schemas.Unset] = schemas.unset,
                     iban: typing.Union[MetaOapg.properties.iban, str, schemas.Unset] = schemas.unset,
                     swift_bic: typing.Union[MetaOapg.properties.swift_bic, str, schemas.Unset] = schemas.unset,
@@ -225,12 +229,11 @@ class FinancialConnectionsAccountDetails(
                     )
             __annotations__ = {
                 "remote_id": remote_id,
-                "ach": ach,
                 "remote_data": remote_data,
+                "ach": ach,
                 "account_number": account_number,
             }
     
-    ach: MetaOapg.properties.ach
     remote_id: MetaOapg.properties.remote_id
     remote_data: MetaOapg.properties.remote_data
     
@@ -238,10 +241,10 @@ class FinancialConnectionsAccountDetails(
     def __getitem__(self, name: typing_extensions.Literal["remote_id"]) -> MetaOapg.properties.remote_id: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["ach"]) -> MetaOapg.properties.ach: ...
+    def __getitem__(self, name: typing_extensions.Literal["remote_data"]) -> MetaOapg.properties.remote_data: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["remote_data"]) -> MetaOapg.properties.remote_data: ...
+    def __getitem__(self, name: typing_extensions.Literal["ach"]) -> MetaOapg.properties.ach: ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["account_number"]) -> MetaOapg.properties.account_number: ...
@@ -249,7 +252,7 @@ class FinancialConnectionsAccountDetails(
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["remote_id", "ach", "remote_data", "account_number", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["remote_id", "remote_data", "ach", "account_number", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -258,10 +261,10 @@ class FinancialConnectionsAccountDetails(
     def get_item_oapg(self, name: typing_extensions.Literal["remote_id"]) -> MetaOapg.properties.remote_id: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["ach"]) -> MetaOapg.properties.ach: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["remote_data"]) -> MetaOapg.properties.remote_data: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["remote_data"]) -> MetaOapg.properties.remote_data: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["ach"]) -> typing.Union[MetaOapg.properties.ach, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["account_number"]) -> typing.Union[MetaOapg.properties.account_number, schemas.Unset]: ...
@@ -269,16 +272,16 @@ class FinancialConnectionsAccountDetails(
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["remote_id", "ach", "remote_data", "account_number", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["remote_id", "remote_data", "ach", "account_number", ], str]):
         return super().get_item_oapg(name)
     
 
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        ach: typing.Union[MetaOapg.properties.ach, dict, frozendict.frozendict, ],
         remote_id: typing.Union[MetaOapg.properties.remote_id, str, ],
         remote_data: typing.Union[MetaOapg.properties.remote_data, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+        ach: typing.Union[MetaOapg.properties.ach, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         account_number: typing.Union[MetaOapg.properties.account_number, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
@@ -286,9 +289,9 @@ class FinancialConnectionsAccountDetails(
         return super().__new__(
             cls,
             *_args,
-            ach=ach,
             remote_id=remote_id,
             remote_data=remote_data,
+            ach=ach,
             account_number=account_number,
             _configuration=_configuration,
             **kwargs,

@@ -58,7 +58,6 @@ class GetFinancialConnectionsOwnersResponse(
                         class MetaOapg:
                             required = {
                                 "owners",
-                                "request_id",
                                 "remote_account_id",
                             }
                             
@@ -96,7 +95,6 @@ class GetFinancialConnectionsOwnersResponse(
                                 }
                         
                         owners: MetaOapg.properties.owners
-                        request_id: schemas.AnyTypeSchema
                         remote_account_id: MetaOapg.properties.remote_account_id
                         
                         @typing.overload
@@ -130,7 +128,6 @@ class GetFinancialConnectionsOwnersResponse(
                             cls,
                             *_args: typing.Union[dict, frozendict.frozendict, ],
                             owners: typing.Union[MetaOapg.properties.owners, list, tuple, ],
-                            request_id: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                             remote_account_id: typing.Union[MetaOapg.properties.remote_account_id, str, ],
                             _configuration: typing.Optional[schemas.Configuration] = None,
                             **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
@@ -139,7 +136,6 @@ class GetFinancialConnectionsOwnersResponse(
                                 cls,
                                 *_args,
                                 owners=owners,
-                                request_id=request_id,
                                 remote_account_id=remote_account_id,
                                 _configuration=_configuration,
                                 **kwargs,

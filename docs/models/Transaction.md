@@ -18,7 +18,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **remote_account_id** | str,  | str,  | Remote Account Id of the transaction, ie Plaid Account Id | 
 **remote_data** | dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
 **status** | str,  | str,  | The status of the transaction. This will be either posted or pending. | must be one of ["pending", "posted", ] 
-**fingerprint** | str,  | str,  | Uniquely identifies this account across all transactions for a single financial connection. Used for reconnection deduplication. This field may or may not be present depending on if a transaction can be uniquely identified. See more information here: https://letsfuse.readme.io/docs/duplicate-accounts | [optional] 
+**fingerprint** | str,  | str,  | Uniquely identifies this transaction across all transactions for a single financial connection. Used for reconnection deduplication. This field may or may not be present depending on if a transaction can be uniquely identified. See more information here: https://letsfuse.readme.io/docs/duplicate-accounts | [optional] 
 **iso_currency_code** | str,  | str,  | The ISO-4217 currency code of the transaction | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
