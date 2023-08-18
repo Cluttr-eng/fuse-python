@@ -36,11 +36,106 @@ class FuseApiAggregatorError(
     class MetaOapg:
         
         class properties:
-            request_id = schemas.StrSchema
-            title = schemas.StrSchema
-            details = schemas.StrSchema
-            code = schemas.StrSchema
-            type = schemas.StrSchema
+            
+            
+            class request_id(
+                schemas.StrBase,
+                schemas.NoneBase,
+                schemas.Schema,
+                schemas.NoneStrMixin
+            ):
+            
+            
+                def __new__(
+                    cls,
+                    *_args: typing.Union[None, str, ],
+                    _configuration: typing.Optional[schemas.Configuration] = None,
+                ) -> 'request_id':
+                    return super().__new__(
+                        cls,
+                        *_args,
+                        _configuration=_configuration,
+                    )
+            
+            
+            class title(
+                schemas.StrBase,
+                schemas.NoneBase,
+                schemas.Schema,
+                schemas.NoneStrMixin
+            ):
+            
+            
+                def __new__(
+                    cls,
+                    *_args: typing.Union[None, str, ],
+                    _configuration: typing.Optional[schemas.Configuration] = None,
+                ) -> 'title':
+                    return super().__new__(
+                        cls,
+                        *_args,
+                        _configuration=_configuration,
+                    )
+            
+            
+            class details(
+                schemas.StrBase,
+                schemas.NoneBase,
+                schemas.Schema,
+                schemas.NoneStrMixin
+            ):
+            
+            
+                def __new__(
+                    cls,
+                    *_args: typing.Union[None, str, ],
+                    _configuration: typing.Optional[schemas.Configuration] = None,
+                ) -> 'details':
+                    return super().__new__(
+                        cls,
+                        *_args,
+                        _configuration=_configuration,
+                    )
+            
+            
+            class code(
+                schemas.StrBase,
+                schemas.NoneBase,
+                schemas.Schema,
+                schemas.NoneStrMixin
+            ):
+            
+            
+                def __new__(
+                    cls,
+                    *_args: typing.Union[None, str, ],
+                    _configuration: typing.Optional[schemas.Configuration] = None,
+                ) -> 'code':
+                    return super().__new__(
+                        cls,
+                        *_args,
+                        _configuration=_configuration,
+                    )
+            
+            
+            class type(
+                schemas.StrBase,
+                schemas.NoneBase,
+                schemas.Schema,
+                schemas.NoneStrMixin
+            ):
+            
+            
+                def __new__(
+                    cls,
+                    *_args: typing.Union[None, str, ],
+                    _configuration: typing.Optional[schemas.Configuration] = None,
+                ) -> 'type':
+                    return super().__new__(
+                        cls,
+                        *_args,
+                        _configuration=_configuration,
+                    )
             path = schemas.StrSchema
             __annotations__ = {
                 "request_id": request_id,
@@ -105,11 +200,11 @@ class FuseApiAggregatorError(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        request_id: typing.Union[MetaOapg.properties.request_id, str, schemas.Unset] = schemas.unset,
-        title: typing.Union[MetaOapg.properties.title, str, schemas.Unset] = schemas.unset,
-        details: typing.Union[MetaOapg.properties.details, str, schemas.Unset] = schemas.unset,
-        code: typing.Union[MetaOapg.properties.code, str, schemas.Unset] = schemas.unset,
-        type: typing.Union[MetaOapg.properties.type, str, schemas.Unset] = schemas.unset,
+        request_id: typing.Union[MetaOapg.properties.request_id, None, str, schemas.Unset] = schemas.unset,
+        title: typing.Union[MetaOapg.properties.title, None, str, schemas.Unset] = schemas.unset,
+        details: typing.Union[MetaOapg.properties.details, None, str, schemas.Unset] = schemas.unset,
+        code: typing.Union[MetaOapg.properties.code, None, str, schemas.Unset] = schemas.unset,
+        type: typing.Union[MetaOapg.properties.type, None, str, schemas.Unset] = schemas.unset,
         path: typing.Union[MetaOapg.properties.path, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],

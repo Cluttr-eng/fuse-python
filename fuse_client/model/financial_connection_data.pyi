@@ -36,19 +36,36 @@ class FinancialConnectionData(
     class MetaOapg:
         required = {
             "id",
-            "institution_id",
         }
         
         class properties:
             id = schemas.StrSchema
-            institution_id = schemas.StrSchema
+            
+            
+            class institution_id(
+                schemas.StrBase,
+                schemas.NoneBase,
+                schemas.Schema,
+                schemas.NoneStrMixin
+            ):
+            
+            
+                def __new__(
+                    cls,
+                    *_args: typing.Union[None, str, ],
+                    _configuration: typing.Optional[schemas.Configuration] = None,
+                ) -> 'institution_id':
+                    return super().__new__(
+                        cls,
+                        *_args,
+                        _configuration=_configuration,
+                    )
             __annotations__ = {
                 "id": id,
                 "institution_id": institution_id,
             }
     
     id: MetaOapg.properties.id
-    institution_id: MetaOapg.properties.institution_id
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["id"]) -> MetaOapg.properties.id: ...
@@ -68,7 +85,7 @@ class FinancialConnectionData(
     def get_item_oapg(self, name: typing_extensions.Literal["id"]) -> MetaOapg.properties.id: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["institution_id"]) -> MetaOapg.properties.institution_id: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["institution_id"]) -> typing.Union[MetaOapg.properties.institution_id, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -81,7 +98,7 @@ class FinancialConnectionData(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
         id: typing.Union[MetaOapg.properties.id, str, ],
-        institution_id: typing.Union[MetaOapg.properties.institution_id, str, ],
+        institution_id: typing.Union[MetaOapg.properties.institution_id, None, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'FinancialConnectionData':
