@@ -24,6 +24,9 @@ Key | Input Type | Accessed Type | Description | Notes
 **[basiq](#basiq)** | dict, frozendict.frozendict,  | frozendict.frozendict,  | Data needed to query data from Basiq | [optional] 
 **[belvo](#belvo)** | dict, frozendict.frozendict,  | frozendict.frozendict,  | Data needed to query data from Belvo | [optional] 
 **[finicity](#finicity)** | dict, frozendict.frozendict,  | frozendict.frozendict,  | Data needed to query data from Finicity. | [optional] 
+**[akoya](#akoya)** | dict, frozendict.frozendict,  | frozendict.frozendict,  | Data needed to query data from Akoya. | [optional] 
+**[saltedge](#saltedge)** | dict, frozendict.frozendict,  | frozendict.frozendict,  | Data needed to query data from SaltEdge. | [optional] 
+**[sophtron](#sophtron)** | dict, frozendict.frozendict,  | frozendict.frozendict,  | Data needed to query data from Sophtron. | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 # plaid
@@ -198,6 +201,54 @@ Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **institution_login_id** | str,  | str,  | The Finicity institution login id. | 
 **customer_id** | str,  | str,  | The identifier of the customer for Finicity. | 
+**any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
+
+# akoya
+
+Data needed to query data from Akoya.
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+dict, frozendict.frozendict,  | frozendict.frozendict,  | Data needed to query data from Akoya. | 
+
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**refresh_token** | str,  | str,  |  | 
+**expires_at** | str,  | str,  |  | 
+**id_token** | str,  | str,  |  | 
+**provider_id** | dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
+**any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
+
+# saltedge
+
+Data needed to query data from SaltEdge.
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+dict, frozendict.frozendict,  | frozendict.frozendict,  | Data needed to query data from SaltEdge. | 
+
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**connection_id** | str,  | str,  |  | 
+**any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
+
+# sophtron
+
+Data needed to query data from Sophtron.
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+dict, frozendict.frozendict,  | frozendict.frozendict,  | Data needed to query data from Sophtron. | 
+
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**user_institution_id** | str,  | str,  |  | 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

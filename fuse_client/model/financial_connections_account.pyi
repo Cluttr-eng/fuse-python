@@ -113,6 +113,32 @@ class FinancialConnectionsAccount(
             @staticmethod
             def subtype() -> typing.Type['AccountSubtype']:
                 return AccountSubtype
+            
+            
+            class additional_balances(
+                schemas.ListSchema
+            ):
+            
+            
+                class MetaOapg:
+                    
+                    @staticmethod
+                    def items() -> typing.Type['FinancialConnectionsAccountCachedBalance']:
+                        return FinancialConnectionsAccountCachedBalance
+            
+                def __new__(
+                    cls,
+                    _arg: typing.Union[typing.Tuple['FinancialConnectionsAccountCachedBalance'], typing.List['FinancialConnectionsAccountCachedBalance']],
+                    _configuration: typing.Optional[schemas.Configuration] = None,
+                ) -> 'additional_balances':
+                    return super().__new__(
+                        cls,
+                        _arg,
+                        _configuration=_configuration,
+                    )
+            
+                def __getitem__(self, i: int) -> 'FinancialConnectionsAccountCachedBalance':
+                    return super().__getitem__(i)
             __annotations__ = {
                 "remote_id": remote_id,
                 "currency": currency,
@@ -124,6 +150,7 @@ class FinancialConnectionsAccount(
                 "institution": institution,
                 "mask": mask,
                 "subtype": subtype,
+                "additional_balances": additional_balances,
             }
     
     balance: 'FinancialConnectionsAccountCachedBalance'
@@ -165,9 +192,12 @@ class FinancialConnectionsAccount(
     def __getitem__(self, name: typing_extensions.Literal["subtype"]) -> 'AccountSubtype': ...
     
     @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["additional_balances"]) -> MetaOapg.properties.additional_balances: ...
+    
+    @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["remote_id", "currency", "fingerprint", "name", "type", "balance", "remote_data", "institution", "mask", "subtype", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["remote_id", "currency", "fingerprint", "name", "type", "balance", "remote_data", "institution", "mask", "subtype", "additional_balances", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -203,9 +233,12 @@ class FinancialConnectionsAccount(
     def get_item_oapg(self, name: typing_extensions.Literal["subtype"]) -> typing.Union['AccountSubtype', schemas.Unset]: ...
     
     @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["additional_balances"]) -> typing.Union[MetaOapg.properties.additional_balances, schemas.Unset]: ...
+    
+    @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["remote_id", "currency", "fingerprint", "name", "type", "balance", "remote_data", "institution", "mask", "subtype", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["remote_id", "currency", "fingerprint", "name", "type", "balance", "remote_data", "institution", "mask", "subtype", "additional_balances", ], str]):
         return super().get_item_oapg(name)
     
 
@@ -222,6 +255,7 @@ class FinancialConnectionsAccount(
         institution: typing.Union[MetaOapg.properties.institution, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         mask: typing.Union[MetaOapg.properties.mask, str, schemas.Unset] = schemas.unset,
         subtype: typing.Union['AccountSubtype', schemas.Unset] = schemas.unset,
+        additional_balances: typing.Union[MetaOapg.properties.additional_balances, list, tuple, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'FinancialConnectionsAccount':
@@ -238,6 +272,7 @@ class FinancialConnectionsAccount(
             institution=institution,
             mask=mask,
             subtype=subtype,
+            additional_balances=additional_balances,
             _configuration=_configuration,
             **kwargs,
         )

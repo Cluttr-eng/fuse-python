@@ -44,6 +44,7 @@ class AccountType(
             "investment": "INVESTMENT",
             "insurance": "INSURANCE",
             "property": "PROPERTY",
+            "annuity": "ANNUITY",
             "other": "OTHER",
             "-": "HYPHEN_MINUS",
         }
@@ -71,6 +72,10 @@ class AccountType(
     @schemas.classproperty
     def PROPERTY(cls):
         return cls("property")
+    
+    @schemas.classproperty
+    def ANNUITY(cls):
+        return cls("annuity")
     
     @schemas.classproperty
     def OTHER(cls):

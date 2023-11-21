@@ -28,8 +28,11 @@ Method | HTTP request | Description
 [**get_financial_institution**](#get_financial_institution) | **get** /v1/financial_connections/institutions/{institution_id} | Get a financial institution
 [**get_investment_holdings**](#get_investment_holdings) | **post** /v1/financial_connections/investments/holdings | Get investment holdings
 [**get_investment_transactions**](#get_investment_transactions) | **post** /v1/financial_connections/investments/transactions | Get investment transactions
+[**get_recommended_financial_institutions**](#get_recommended_financial_institutions) | **post** /v1/financial_connections/institutions/recommended | 
 [**migrate_financial_connection**](#migrate_financial_connection) | **post** /v1/financial_connections/migrate | Migrate financial connection
 [**refresh_asset_report**](#refresh_asset_report) | **post** /v1/financial_connections/asset_report/refresh | 
+[**search_financial_institutions**](#search_financial_institutions) | **post** /v1/financial_connections/institutions/search | 
+[**select_financial_institutions**](#select_financial_institutions) | **post** /v1/financial_connections/institutions/select | 
 [**sync_financial_connections_data**](#sync_financial_connections_data) | **post** /v1/financial_connections/sync | Sync financial connections data
 [**update_consumer_risk_report_customization**](#update_consumer_risk_report_customization) | **post** /v1/risk_report/consumer/customization/{consumer_risk_report_customization_id} | Update consumer risk report customization
 [**v1_financial_connections_liabilities_post**](#v1_financial_connections_liabilities_post) | **post** /v1/financial_connections/liabilities | Get liabilities
@@ -657,7 +660,7 @@ with fuse_client.ApiClient(configuration) as api_client:
     # example passing only optional values
     body = CreateSessionRequest(
         supported_financial_institution_aggregators=[
-            Aggregator("basiq")
+            Aggregator("akoya")
         ],
         products=[
             Product("account_details")
@@ -1089,7 +1092,7 @@ Type | Description  | Notes
 
 # **get_asset_report**
 <a name="get_asset_report"></a>
-> RefreshAssetReportResponse get_asset_report()
+> AssetReportResponse get_asset_report()
 
 
 
@@ -1102,7 +1105,7 @@ Retrieves the Asset Report in JSON format. For Plaid, you will need to have the 
 ```python
 import fuse_client
 from fuse_client.apis.tags import fuse_api
-from fuse_client.model.refresh_asset_report_response import RefreshAssetReportResponse
+from fuse_client.model.asset_report_response import AssetReportResponse
 from fuse_client.model.get_asset_report_request import GetAssetReportRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://sandbox-api.letsfuse.com
@@ -1181,7 +1184,7 @@ headers | Unset | headers were not defined |
 # SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefreshAssetReportResponse**](../../models/RefreshAssetReportResponse.md) |  | 
+[**AssetReportResponse**](../../models/AssetReportResponse.md) |  | 
 
 
 ### Authorization
@@ -1694,6 +1697,11 @@ with fuse_client.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     body = GetFinancialConnectionsAccountDetailsRequest(
         access_token="access_token_example",
+        options=dict(
+            remote_account_ids=[
+                "remote_account_ids_example"
+            ],
+        ),
     )
     try:
         # Get account details
@@ -2589,6 +2597,108 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
+# **get_recommended_financial_institutions**
+<a name="get_recommended_financial_institutions"></a>
+> GetRecommendedFinancialInstitutionsResponse get_recommended_financial_institutions()
+
+
+
+Get the default recommended list of institutions that will be displayed when the user is not searching for anything
+
+### Example
+
+* Api Key Authentication (fuseApiKey):
+* Api Key Authentication (fuseClientId):
+```python
+import fuse_client
+from fuse_client.apis.tags import fuse_api
+from fuse_client.model.get_recommended_financial_institutions_request import GetRecommendedFinancialInstitutionsRequest
+from fuse_client.model.get_recommended_financial_institutions_response import GetRecommendedFinancialInstitutionsResponse
+from pprint import pprint
+# Defining the host is optional and defaults to https://sandbox-api.letsfuse.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = fuse_client.Configuration(
+    host = "https://sandbox-api.letsfuse.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: fuseApiKey
+configuration.api_key['fuseApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['fuseApiKey'] = 'Bearer'
+
+# Configure API key authorization: fuseClientId
+configuration.api_key['fuseClientId'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['fuseClientId'] = 'Bearer'
+# Enter a context with an instance of the API client
+with fuse_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = fuse_api.FuseApi(api_client)
+
+    # example passing only optional values
+    body = GetRecommendedFinancialInstitutionsRequest(
+        session_client_secret="session_client_secret_example",
+    )
+    try:
+        api_response = api_instance.get_recommended_financial_institutions(
+            body=body,
+        )
+        pprint(api_response)
+    except fuse_client.ApiException as e:
+        print("Exception when calling FuseApi->get_recommended_financial_institutions: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+body | typing.Union[SchemaForRequestBodyApplicationJson, Unset] | optional, default is unset |
+content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### body
+
+# SchemaForRequestBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**GetRecommendedFinancialInstitutionsRequest**](../../models/GetRecommendedFinancialInstitutionsRequest.md) |  | 
+
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#get_recommended_financial_institutions.ApiResponseFor200) | Response
+
+#### get_recommended_financial_institutions.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**GetRecommendedFinancialInstitutionsResponse**](../../models/GetRecommendedFinancialInstitutionsResponse.md) |  | 
+
+
+### Authorization
+
+[fuseApiKey](../../../README.md#fuseApiKey), [fuseClientId](../../../README.md#fuseClientId)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
 # **migrate_financial_connection**
 <a name="migrate_financial_connection"></a>
 > MigrateFinancialConnectionsTokenResponse migrate_financial_connection()
@@ -2713,7 +2823,7 @@ Type | Description  | Notes
 
 # **refresh_asset_report**
 <a name="refresh_asset_report"></a>
-> AssetReportResponse refresh_asset_report()
+> RefreshAssetReportResponse refresh_asset_report()
 
 
 
@@ -2726,7 +2836,7 @@ Refreshes the Asset Report in JSON format. For Plaid, you will need to have the 
 ```python
 import fuse_client
 from fuse_client.apis.tags import fuse_api
-from fuse_client.model.asset_report_response import AssetReportResponse
+from fuse_client.model.refresh_asset_report_response import RefreshAssetReportResponse
 from fuse_client.model.refresh_asset_report_request import RefreshAssetReportRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://sandbox-api.letsfuse.com
@@ -2806,7 +2916,213 @@ headers | Unset | headers were not defined |
 # SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AssetReportResponse**](../../models/AssetReportResponse.md) |  | 
+[**RefreshAssetReportResponse**](../../models/RefreshAssetReportResponse.md) |  | 
+
+
+### Authorization
+
+[fuseApiKey](../../../README.md#fuseApiKey), [fuseClientId](../../../README.md#fuseClientId)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **search_financial_institutions**
+<a name="search_financial_institutions"></a>
+> SearchFinancialInstitutionsResponse search_financial_institutions()
+
+
+
+Search for financial institutions given a search term.
+
+### Example
+
+* Api Key Authentication (fuseApiKey):
+* Api Key Authentication (fuseClientId):
+```python
+import fuse_client
+from fuse_client.apis.tags import fuse_api
+from fuse_client.model.search_financial_institutions_response import SearchFinancialInstitutionsResponse
+from fuse_client.model.search_financial_institutions_request import SearchFinancialInstitutionsRequest
+from pprint import pprint
+# Defining the host is optional and defaults to https://sandbox-api.letsfuse.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = fuse_client.Configuration(
+    host = "https://sandbox-api.letsfuse.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: fuseApiKey
+configuration.api_key['fuseApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['fuseApiKey'] = 'Bearer'
+
+# Configure API key authorization: fuseClientId
+configuration.api_key['fuseClientId'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['fuseClientId'] = 'Bearer'
+# Enter a context with an instance of the API client
+with fuse_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = fuse_api.FuseApi(api_client)
+
+    # example passing only optional values
+    body = SearchFinancialInstitutionsRequest(
+        session_client_secret="session_client_secret_example",
+        search_term="search_term_example",
+    )
+    try:
+        api_response = api_instance.search_financial_institutions(
+            body=body,
+        )
+        pprint(api_response)
+    except fuse_client.ApiException as e:
+        print("Exception when calling FuseApi->search_financial_institutions: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+body | typing.Union[SchemaForRequestBodyApplicationJson, Unset] | optional, default is unset |
+content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### body
+
+# SchemaForRequestBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**SearchFinancialInstitutionsRequest**](../../models/SearchFinancialInstitutionsRequest.md) |  | 
+
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#search_financial_institutions.ApiResponseFor200) | Response
+
+#### search_financial_institutions.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**SearchFinancialInstitutionsResponse**](../../models/SearchFinancialInstitutionsResponse.md) |  | 
+
+
+### Authorization
+
+[fuseApiKey](../../../README.md#fuseApiKey), [fuseClientId](../../../README.md#fuseClientId)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **select_financial_institutions**
+<a name="select_financial_institutions"></a>
+> SelectFinancialInstitutionsResponse select_financial_institutions()
+
+
+
+Endpoint to call when the user has selected a financial institution.
+
+### Example
+
+* Api Key Authentication (fuseApiKey):
+* Api Key Authentication (fuseClientId):
+```python
+import fuse_client
+from fuse_client.apis.tags import fuse_api
+from fuse_client.model.select_financial_institutions_response import SelectFinancialInstitutionsResponse
+from fuse_client.model.select_financial_institutions_request import SelectFinancialInstitutionsRequest
+from pprint import pprint
+# Defining the host is optional and defaults to https://sandbox-api.letsfuse.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = fuse_client.Configuration(
+    host = "https://sandbox-api.letsfuse.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: fuseApiKey
+configuration.api_key['fuseApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['fuseApiKey'] = 'Bearer'
+
+# Configure API key authorization: fuseClientId
+configuration.api_key['fuseClientId'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['fuseClientId'] = 'Bearer'
+# Enter a context with an instance of the API client
+with fuse_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = fuse_api.FuseApi(api_client)
+
+    # example passing only optional values
+    body = SelectFinancialInstitutionsRequest(
+        session_client_secret="session_client_secret_example",
+        financial_institution_id="financial_institution_id_example",
+    )
+    try:
+        api_response = api_instance.select_financial_institutions(
+            body=body,
+        )
+        pprint(api_response)
+    except fuse_client.ApiException as e:
+        print("Exception when calling FuseApi->select_financial_institutions: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+body | typing.Union[SchemaForRequestBodyApplicationJson, Unset] | optional, default is unset |
+content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### body
+
+# SchemaForRequestBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**SelectFinancialInstitutionsRequest**](../../models/SelectFinancialInstitutionsRequest.md) |  | 
+
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#select_financial_institutions.ApiResponseFor200) | Response
+
+#### select_financial_institutions.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**SelectFinancialInstitutionsResponse**](../../models/SelectFinancialInstitutionsResponse.md) |  | 
 
 
 ### Authorization

@@ -43,11 +43,13 @@ class CountryCode(
             "AU": "AU",
             "BD": "BD",
             "BE": "BE",
+            "BG": "BG",
             "BH": "BH",
             "BM": "BM",
             "BN": "BN",
             "BR": "BR",
             "BW": "BW",
+            "BY": "BY",
             "CA": "CA",
             "CH": "CH",
             "CI": "CI",
@@ -57,7 +59,9 @@ class CountryCode(
             "CO": "CO",
             "CZ": "CZ",
             "DE": "DE",
+            "DO": "DO",
             "DZ": "DZ",
+            "EC": "EC",
             "EG": "EG",
             "ES": "ES",
             "FI": "FI",
@@ -69,6 +73,7 @@ class CountryCode(
             "GM": "GM",
             "GR": "GR",
             "HK": "HK",
+            "HU": "HU",
             "ID": "ID",
             "IE": "IE",
             "IL": "IL",
@@ -88,6 +93,8 @@ class CountryCode(
             "LT": "LT",
             "LU": "LU",
             "MC": "MC",
+            "MD": "MD",
+            "MK": "MK",
             "MO": "MO",
             "MT": "MT",
             "MU": "MU",
@@ -105,15 +112,18 @@ class CountryCode(
             "PL": "PL",
             "PT": "PT",
             "QA": "QA",
+            "RO": "RO",
             "RU": "RU",
             "SA": "SA",
             "SE": "SE",
             "SG": "SG",
+            "SK": "SK",
             "SL": "SL",
             "TH": "TH",
             "TR": "TR",
             "TW": "TW",
             "TZ": "TZ",
+            "UA": "UA",
             "UG": "UG",
             "US": "US",
             "UY": "UY",
@@ -152,6 +162,10 @@ class CountryCode(
         return cls("BE")
     
     @schemas.classproperty
+    def BG(cls):
+        return cls("BG")
+    
+    @schemas.classproperty
     def BH(cls):
         return cls("BH")
     
@@ -170,6 +184,10 @@ class CountryCode(
     @schemas.classproperty
     def BW(cls):
         return cls("BW")
+    
+    @schemas.classproperty
+    def BY(cls):
+        return cls("BY")
     
     @schemas.classproperty
     def CA(cls):
@@ -208,8 +226,16 @@ class CountryCode(
         return cls("DE")
     
     @schemas.classproperty
+    def DO(cls):
+        return cls("DO")
+    
+    @schemas.classproperty
     def DZ(cls):
         return cls("DZ")
+    
+    @schemas.classproperty
+    def EC(cls):
+        return cls("EC")
     
     @schemas.classproperty
     def EG(cls):
@@ -254,6 +280,10 @@ class CountryCode(
     @schemas.classproperty
     def HK(cls):
         return cls("HK")
+    
+    @schemas.classproperty
+    def HU(cls):
+        return cls("HU")
     
     @schemas.classproperty
     def ID(cls):
@@ -332,6 +362,14 @@ class CountryCode(
         return cls("MC")
     
     @schemas.classproperty
+    def MD(cls):
+        return cls("MD")
+    
+    @schemas.classproperty
+    def MK(cls):
+        return cls("MK")
+    
+    @schemas.classproperty
     def MO(cls):
         return cls("MO")
     
@@ -400,6 +438,10 @@ class CountryCode(
         return cls("QA")
     
     @schemas.classproperty
+    def RO(cls):
+        return cls("RO")
+    
+    @schemas.classproperty
     def RU(cls):
         return cls("RU")
     
@@ -414,6 +456,10 @@ class CountryCode(
     @schemas.classproperty
     def SG(cls):
         return cls("SG")
+    
+    @schemas.classproperty
+    def SK(cls):
+        return cls("SK")
     
     @schemas.classproperty
     def SL(cls):
@@ -434,6 +480,10 @@ class CountryCode(
     @schemas.classproperty
     def TZ(cls):
         return cls("TZ")
+    
+    @schemas.classproperty
+    def UA(cls):
+        return cls("UA")
     
     @schemas.classproperty
     def UG(cls):

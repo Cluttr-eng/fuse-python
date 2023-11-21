@@ -19,6 +19,9 @@ from fuse_client.apis.paths.v1_financial_connections_institutions_institution_id
 from fuse_client.apis.paths.v1_financial_connections_financial_connection_id_to_delete import V1FinancialConnectionsFinancialConnectionIdToDelete
 from fuse_client.apis.paths.v1_financial_connections_financial_connection_id import V1FinancialConnectionsFinancialConnectionId
 from fuse_client.apis.paths.v1_financial_connections_migrate import V1FinancialConnectionsMigrate
+from fuse_client.apis.paths.v1_financial_connections_institutions_recommended import V1FinancialConnectionsInstitutionsRecommended
+from fuse_client.apis.paths.v1_financial_connections_institutions_search import V1FinancialConnectionsInstitutionsSearch
+from fuse_client.apis.paths.v1_financial_connections_institutions_select import V1FinancialConnectionsInstitutionsSelect
 from fuse_client.apis.paths.v1_financial_connections_investments_holdings import V1FinancialConnectionsInvestmentsHoldings
 from fuse_client.apis.paths.v1_financial_connections_investments_transactions import V1FinancialConnectionsInvestmentsTransactions
 from fuse_client.apis.paths.v1_financial_connections_liabilities import V1FinancialConnectionsLiabilities
@@ -51,6 +54,9 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.V1_FINANCIAL_CONNECTIONS_FINANCIAL_CONNECTION_ID_TO_DELETE: V1FinancialConnectionsFinancialConnectionIdToDelete,
         PathValues.V1_FINANCIAL_CONNECTIONS_FINANCIAL_CONNECTION_ID: V1FinancialConnectionsFinancialConnectionId,
         PathValues.V1_FINANCIAL_CONNECTIONS_MIGRATE: V1FinancialConnectionsMigrate,
+        PathValues.V1_FINANCIAL_CONNECTIONS_INSTITUTIONS_RECOMMENDED: V1FinancialConnectionsInstitutionsRecommended,
+        PathValues.V1_FINANCIAL_CONNECTIONS_INSTITUTIONS_SEARCH: V1FinancialConnectionsInstitutionsSearch,
+        PathValues.V1_FINANCIAL_CONNECTIONS_INSTITUTIONS_SELECT: V1FinancialConnectionsInstitutionsSelect,
         PathValues.V1_FINANCIAL_CONNECTIONS_INVESTMENTS_HOLDINGS: V1FinancialConnectionsInvestmentsHoldings,
         PathValues.V1_FINANCIAL_CONNECTIONS_INVESTMENTS_TRANSACTIONS: V1FinancialConnectionsInvestmentsTransactions,
         PathValues.V1_FINANCIAL_CONNECTIONS_LIABILITIES: V1FinancialConnectionsLiabilities,
@@ -84,6 +90,9 @@ path_to_api = PathToApi(
         PathValues.V1_FINANCIAL_CONNECTIONS_FINANCIAL_CONNECTION_ID_TO_DELETE: V1FinancialConnectionsFinancialConnectionIdToDelete,
         PathValues.V1_FINANCIAL_CONNECTIONS_FINANCIAL_CONNECTION_ID: V1FinancialConnectionsFinancialConnectionId,
         PathValues.V1_FINANCIAL_CONNECTIONS_MIGRATE: V1FinancialConnectionsMigrate,
+        PathValues.V1_FINANCIAL_CONNECTIONS_INSTITUTIONS_RECOMMENDED: V1FinancialConnectionsInstitutionsRecommended,
+        PathValues.V1_FINANCIAL_CONNECTIONS_INSTITUTIONS_SEARCH: V1FinancialConnectionsInstitutionsSearch,
+        PathValues.V1_FINANCIAL_CONNECTIONS_INSTITUTIONS_SELECT: V1FinancialConnectionsInstitutionsSelect,
         PathValues.V1_FINANCIAL_CONNECTIONS_INVESTMENTS_HOLDINGS: V1FinancialConnectionsInvestmentsHoldings,
         PathValues.V1_FINANCIAL_CONNECTIONS_INVESTMENTS_TRANSACTIONS: V1FinancialConnectionsInvestmentsTransactions,
         PathValues.V1_FINANCIAL_CONNECTIONS_LIABILITIES: V1FinancialConnectionsLiabilities,
