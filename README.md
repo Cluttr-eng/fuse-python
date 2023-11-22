@@ -34,7 +34,6 @@ fuse_api_client.default_headers.add("Mx-Client-Id", 'my-mx-client-id')
 
 ### Creating a session
 ```python
-#If you are using web SDKs, pass in the "is_web_view" property and set it to false, otherwise the Fuse frontend will not work. 
 create_session_request = CreateSessionRequest(
 	supported_financial_institution_aggregators=['plaid', 'teller', 'mx'],
 	products=['account_details'],
