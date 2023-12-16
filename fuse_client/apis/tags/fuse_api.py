@@ -32,8 +32,11 @@ from fuse_client.paths.v1_financial_connections_transactions.post import GetFina
 from fuse_client.paths.v1_financial_connections_institutions_institution_id.get import GetFinancialInstitution
 from fuse_client.paths.v1_financial_connections_investments_holdings.post import GetInvestmentHoldings
 from fuse_client.paths.v1_financial_connections_investments_transactions.post import GetInvestmentTransactions
+from fuse_client.paths.v1_financial_connections_institutions_recommended.post import GetRecommendedFinancialInstitutions
 from fuse_client.paths.v1_financial_connections_migrate.post import MigrateFinancialConnection
 from fuse_client.paths.v1_financial_connections_asset_report_refresh.post import RefreshAssetReport
+from fuse_client.paths.v1_financial_connections_institutions_search.post import SearchFinancialInstitutions
+from fuse_client.paths.v1_financial_connections_institutions_select.post import SelectFinancialInstitutions
 from fuse_client.paths.v1_financial_connections_sync.post import SyncFinancialConnectionsData
 from fuse_client.paths.v1_risk_report_consumer_customization_consumer_risk_report_customization_id.post import UpdateConsumerRiskReportCustomization
 from fuse_client.paths.v1_financial_connections_liabilities.post import V1FinancialConnectionsLiabilitiesPost
@@ -63,8 +66,11 @@ class FuseApi(
     GetFinancialInstitution,
     GetInvestmentHoldings,
     GetInvestmentTransactions,
+    GetRecommendedFinancialInstitutions,
     MigrateFinancialConnection,
     RefreshAssetReport,
+    SearchFinancialInstitutions,
+    SelectFinancialInstitutions,
     SyncFinancialConnectionsData,
     UpdateConsumerRiskReportCustomization,
     V1FinancialConnectionsLiabilitiesPost,

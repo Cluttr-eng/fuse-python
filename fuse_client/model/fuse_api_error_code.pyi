@@ -206,6 +206,30 @@ class FuseApiErrorCode(
         return cls("missing_fuse_verification_header")
     
     @schemas.classproperty
+    def MISSING_AKOYA_CLIENT_ID_HEADER(cls):
+        return cls("missing_akoya_client_id_header")
+    
+    @schemas.classproperty
+    def MISSING_AKOYA_CLIENT_SECRET_HEADER(cls):
+        return cls("missing_akoya_client_secret_header")
+    
+    @schemas.classproperty
+    def MISSING_SALTEDGE_APP_ID_HEADER(cls):
+        return cls("missing_saltedge_app_id_header")
+    
+    @schemas.classproperty
+    def MISSING_SALTEDGE_APP_SECRET_HEADER(cls):
+        return cls("missing_saltedge_app_secret_header")
+    
+    @schemas.classproperty
+    def MISSING_SOPHTRON_USER_ID_HEADER(cls):
+        return cls("missing_sophtron_user_id_header")
+    
+    @schemas.classproperty
+    def MISSING_SOPHTRON_ACCESS_KEY_HEADER(cls):
+        return cls("missing_sophtron_access_key_header")
+    
+    @schemas.classproperty
     def AGGREGATOR_ERROR(cls):
         return cls("aggregator_error")
     

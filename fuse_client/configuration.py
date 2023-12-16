@@ -641,6 +641,51 @@ conf = fuse_client.Configuration(
                     'finicityAppKey',
                 ),
             }
+        if 'basiqApiKey' in self.api_key:
+            auth['basiqApiKey'] = {
+                'type': 'api_key',
+                'in': 'header',
+                'key': 'Basiq-Api-Key',
+                'value': self.get_api_key_with_prefix(
+                    'basiqApiKey',
+                ),
+            }
+        if 'akoyaClientId' in self.api_key:
+            auth['akoyaClientId'] = {
+                'type': 'api_key',
+                'in': 'header',
+                'key': 'Akoya-Client-Id',
+                'value': self.get_api_key_with_prefix(
+                    'akoyaClientId',
+                ),
+            }
+        if 'akoyaClientSecret' in self.api_key:
+            auth['akoyaClientSecret'] = {
+                'type': 'api_key',
+                'in': 'header',
+                'key': 'Akoya-Client-Secret',
+                'value': self.get_api_key_with_prefix(
+                    'akoyaClientSecret',
+                ),
+            }
+        if 'saltEdgeAppId' in self.api_key:
+            auth['saltEdgeAppId'] = {
+                'type': 'api_key',
+                'in': 'header',
+                'key': 'SaltEdge-App-Id',
+                'value': self.get_api_key_with_prefix(
+                    'saltEdgeAppId',
+                ),
+            }
+        if 'saltEdgeAppSecret' in self.api_key:
+            auth['saltEdgeAppSecret'] = {
+                'type': 'api_key',
+                'in': 'header',
+                'key': 'SaltEdge-App-Secret',
+                'value': self.get_api_key_with_prefix(
+                    'saltEdgeAppSecret',
+                ),
+            }
         return auth
 
     def to_debug_report(self):
@@ -652,7 +697,7 @@ conf = fuse_client.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: 1.0.0\n"\
-               "SDK Package Version: 1.0.26".\
+               "SDK Package Version: 1.0.27".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self):

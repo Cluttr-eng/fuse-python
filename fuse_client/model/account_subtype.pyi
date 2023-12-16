@@ -192,6 +192,16 @@ class AccountSubtype(
             "revolving": "REVOLVING",
             "other": "OTHER",
             "time_deposit": "TIME_DEPOSIT",
+            "roth": "ROTH",
+            "military": "MILITARY",
+            "installment": "INSTALLMENT",
+            "institutional_trust": "INSTITUTIONAL_TRUST",
+            "home_line_of_credit": "HOME_LINE_OF_CREDIT",
+            "guardian": "GUARDIAN",
+            "commercial_line_of_credit": "COMMERCIAL_LINE_OF_CREDIT",
+            "charge": "CHARGE",
+            "coverdell": "COVERDELL",
+            "escrow": "ESCROW",
             "-": "HYPHEN_MINUS",
         }
     
@@ -798,6 +808,46 @@ class AccountSubtype(
     @schemas.classproperty
     def TIME_DEPOSIT(cls):
         return cls("time_deposit")
+    
+    @schemas.classproperty
+    def ROTH(cls):
+        return cls("roth")
+    
+    @schemas.classproperty
+    def MILITARY(cls):
+        return cls("military")
+    
+    @schemas.classproperty
+    def INSTALLMENT(cls):
+        return cls("installment")
+    
+    @schemas.classproperty
+    def INSTITUTIONAL_TRUST(cls):
+        return cls("institutional_trust")
+    
+    @schemas.classproperty
+    def HOME_LINE_OF_CREDIT(cls):
+        return cls("home_line_of_credit")
+    
+    @schemas.classproperty
+    def GUARDIAN(cls):
+        return cls("guardian")
+    
+    @schemas.classproperty
+    def COMMERCIAL_LINE_OF_CREDIT(cls):
+        return cls("commercial_line_of_credit")
+    
+    @schemas.classproperty
+    def CHARGE(cls):
+        return cls("charge")
+    
+    @schemas.classproperty
+    def COVERDELL(cls):
+        return cls("coverdell")
+    
+    @schemas.classproperty
+    def ESCROW(cls):
+        return cls("escrow")
     
     @schemas.classproperty
     def HYPHEN_MINUS(cls):
