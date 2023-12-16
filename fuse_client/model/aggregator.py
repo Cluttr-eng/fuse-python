@@ -36,6 +36,7 @@ class Aggregator(
 
     class MetaOapg:
         enum_value_to_name = {
+            "akoya": "AKOYA",
             "basiq": "BASIQ",
             "belvo": "BELVO",
             "finicity": "FINICITY",
@@ -44,10 +45,16 @@ class Aggregator(
             "mono": "MONO",
             "mx": "MX",
             "plaid": "PLAID",
+            "saltedge": "SALTEDGE",
             "snaptrade": "SNAPTRADE",
+            "sophtron": "SOPHTRON",
             "teller": "TELLER",
             "truelayer": "TRUELAYER",
         }
+    
+    @schemas.classproperty
+    def AKOYA(cls):
+        return cls("akoya")
     
     @schemas.classproperty
     def BASIQ(cls):
@@ -82,8 +89,16 @@ class Aggregator(
         return cls("plaid")
     
     @schemas.classproperty
+    def SALTEDGE(cls):
+        return cls("saltedge")
+    
+    @schemas.classproperty
     def SNAPTRADE(cls):
         return cls("snaptrade")
+    
+    @schemas.classproperty
+    def SOPHTRON(cls):
+        return cls("sophtron")
     
     @schemas.classproperty
     def TELLER(cls):

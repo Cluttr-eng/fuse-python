@@ -25,7 +25,7 @@ import frozendict  # noqa: F401
 
 from fuse_client import schemas  # noqa: F401
 
-from fuse_client.model.asset_report_response import AssetReportResponse
+from fuse_client.model.refresh_asset_report_response import RefreshAssetReportResponse
 from fuse_client.model.refresh_asset_report_request import RefreshAssetReportRequest
 
 from . import path
@@ -44,7 +44,7 @@ _auth = [
     'fuseApiKey',
     'fuseClientId',
 ]
-SchemaFor200ResponseBodyApplicationJson = AssetReportResponse
+SchemaFor200ResponseBodyApplicationJson = RefreshAssetReportResponse
 
 
 @dataclass

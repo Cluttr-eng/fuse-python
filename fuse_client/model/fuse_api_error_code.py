@@ -79,6 +79,12 @@ class FuseApiErrorCode(
             "missing_finicity_app_key_header": "MISSING_FINICITY_APP_KEY_HEADER",
             "missing_finicity_partner_secret_header": "MISSING_FINICITY_PARTNER_SECRET_HEADER",
             "missing_fuse_verification_header": "MISSING_FUSE_VERIFICATION_HEADER",
+            "missing_akoya_client_id_header": "MISSING_AKOYA_CLIENT_ID_HEADER",
+            "missing_akoya_client_secret_header": "MISSING_AKOYA_CLIENT_SECRET_HEADER",
+            "missing_saltedge_app_id_header": "MISSING_SALTEDGE_APP_ID_HEADER",
+            "missing_saltedge_app_secret_header": "MISSING_SALTEDGE_APP_SECRET_HEADER",
+            "missing_sophtron_user_id_header": "MISSING_SOPHTRON_USER_ID_HEADER",
+            "missing_sophtron_access_key_header": "MISSING_SOPHTRON_ACCESS_KEY_HEADER",
             "aggregator_error": "AGGREGATOR_ERROR",
             "aggregator_disconnected_error": "AGGREGATOR_DISCONNECTED_ERROR",
             "aggregator_connection_finished_error": "AGGREGATOR_CONNECTION_FINISHED_ERROR",
@@ -264,6 +270,30 @@ class FuseApiErrorCode(
     @schemas.classproperty
     def MISSING_FUSE_VERIFICATION_HEADER(cls):
         return cls("missing_fuse_verification_header")
+    
+    @schemas.classproperty
+    def MISSING_AKOYA_CLIENT_ID_HEADER(cls):
+        return cls("missing_akoya_client_id_header")
+    
+    @schemas.classproperty
+    def MISSING_AKOYA_CLIENT_SECRET_HEADER(cls):
+        return cls("missing_akoya_client_secret_header")
+    
+    @schemas.classproperty
+    def MISSING_SALTEDGE_APP_ID_HEADER(cls):
+        return cls("missing_saltedge_app_id_header")
+    
+    @schemas.classproperty
+    def MISSING_SALTEDGE_APP_SECRET_HEADER(cls):
+        return cls("missing_saltedge_app_secret_header")
+    
+    @schemas.classproperty
+    def MISSING_SOPHTRON_USER_ID_HEADER(cls):
+        return cls("missing_sophtron_user_id_header")
+    
+    @schemas.classproperty
+    def MISSING_SOPHTRON_ACCESS_KEY_HEADER(cls):
+        return cls("missing_sophtron_access_key_header")
     
     @schemas.classproperty
     def AGGREGATOR_ERROR(cls):

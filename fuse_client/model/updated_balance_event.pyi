@@ -53,8 +53,46 @@ class UpdatedBalanceEvent(
                     return cls("updated_balance")
             iso_currency_code = schemas.StrSchema
             timestamp = schemas.StrSchema
-            available = schemas.NumberSchema
-            current = schemas.NumberSchema
+            
+            
+            class available(
+                schemas.NumberBase,
+                schemas.NoneBase,
+                schemas.Schema,
+                schemas.NoneDecimalMixin
+            ):
+            
+            
+                def __new__(
+                    cls,
+                    *_args: typing.Union[None, decimal.Decimal, int, float, ],
+                    _configuration: typing.Optional[schemas.Configuration] = None,
+                ) -> 'available':
+                    return super().__new__(
+                        cls,
+                        *_args,
+                        _configuration=_configuration,
+                    )
+            
+            
+            class current(
+                schemas.NumberBase,
+                schemas.NoneBase,
+                schemas.Schema,
+                schemas.NoneDecimalMixin
+            ):
+            
+            
+                def __new__(
+                    cls,
+                    *_args: typing.Union[None, decimal.Decimal, int, float, ],
+                    _configuration: typing.Optional[schemas.Configuration] = None,
+                ) -> 'current':
+                    return super().__new__(
+                        cls,
+                        *_args,
+                        _configuration=_configuration,
+                    )
             __annotations__ = {
                 "event_type": event_type,
                 "iso_currency_code": iso_currency_code,
@@ -118,8 +156,8 @@ class UpdatedBalanceEvent(
         event_type: typing.Union[MetaOapg.properties.event_type, str, ],
         iso_currency_code: typing.Union[MetaOapg.properties.iso_currency_code, str, ],
         timestamp: typing.Union[MetaOapg.properties.timestamp, str, ],
-        available: typing.Union[MetaOapg.properties.available, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
-        current: typing.Union[MetaOapg.properties.current, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
+        available: typing.Union[MetaOapg.properties.available, None, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
+        current: typing.Union[MetaOapg.properties.current, None, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'UpdatedBalanceEvent':

@@ -60,6 +60,10 @@ class AccountType(
         return cls("property")
     
     @schemas.classproperty
+    def ANNUITY(cls):
+        return cls("annuity")
+    
+    @schemas.classproperty
     def OTHER(cls):
         return cls("other")
     

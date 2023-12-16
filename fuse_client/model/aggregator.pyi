@@ -34,6 +34,10 @@ class Aggregator(
     """
     
     @schemas.classproperty
+    def AKOYA(cls):
+        return cls("akoya")
+    
+    @schemas.classproperty
     def BASIQ(cls):
         return cls("basiq")
     
@@ -66,8 +70,16 @@ class Aggregator(
         return cls("plaid")
     
     @schemas.classproperty
+    def SALTEDGE(cls):
+        return cls("saltedge")
+    
+    @schemas.classproperty
     def SNAPTRADE(cls):
         return cls("snaptrade")
+    
+    @schemas.classproperty
+    def SOPHTRON(cls):
+        return cls("sophtron")
     
     @schemas.classproperty
     def TELLER(cls):
