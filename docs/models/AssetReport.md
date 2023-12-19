@@ -57,9 +57,9 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**available** | decimal.Decimal, int, float,  | decimal.Decimal,  | Amount after factoring in pending balances | [optional] 
-**current** | decimal.Decimal, int, float,  | decimal.Decimal,  | Amount without factoring in pending balances | [optional] 
-**iso_currency_code** | str,  | str,  | The ISO-4217 currency code of the balance. | [optional] 
+**available** | None, decimal.Decimal, int, float,  | NoneClass, decimal.Decimal,  | Amount after factoring in pending balances | [optional] 
+**current** | None, decimal.Decimal, int, float,  | NoneClass, decimal.Decimal,  | Amount without factoring in pending balances | [optional] 
+**iso_currency_code** | None, str,  | NoneClass, str,  | The ISO-4217 currency code of the balance. | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 # historical_balances
