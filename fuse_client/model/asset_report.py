@@ -71,9 +71,66 @@ class AssetReport(
                                     class MetaOapg:
                                         
                                         class properties:
-                                            available = schemas.NumberSchema
-                                            current = schemas.NumberSchema
-                                            iso_currency_code = schemas.StrSchema
+                                            
+                                            
+                                            class available(
+                                                schemas.NumberBase,
+                                                schemas.NoneBase,
+                                                schemas.Schema,
+                                                schemas.NoneDecimalMixin
+                                            ):
+                                            
+                                            
+                                                def __new__(
+                                                    cls,
+                                                    *_args: typing.Union[None, decimal.Decimal, int, float, ],
+                                                    _configuration: typing.Optional[schemas.Configuration] = None,
+                                                ) -> 'available':
+                                                    return super().__new__(
+                                                        cls,
+                                                        *_args,
+                                                        _configuration=_configuration,
+                                                    )
+                                            
+                                            
+                                            class current(
+                                                schemas.NumberBase,
+                                                schemas.NoneBase,
+                                                schemas.Schema,
+                                                schemas.NoneDecimalMixin
+                                            ):
+                                            
+                                            
+                                                def __new__(
+                                                    cls,
+                                                    *_args: typing.Union[None, decimal.Decimal, int, float, ],
+                                                    _configuration: typing.Optional[schemas.Configuration] = None,
+                                                ) -> 'current':
+                                                    return super().__new__(
+                                                        cls,
+                                                        *_args,
+                                                        _configuration=_configuration,
+                                                    )
+                                            
+                                            
+                                            class iso_currency_code(
+                                                schemas.StrBase,
+                                                schemas.NoneBase,
+                                                schemas.Schema,
+                                                schemas.NoneStrMixin
+                                            ):
+                                            
+                                            
+                                                def __new__(
+                                                    cls,
+                                                    *_args: typing.Union[None, str, ],
+                                                    _configuration: typing.Optional[schemas.Configuration] = None,
+                                                ) -> 'iso_currency_code':
+                                                    return super().__new__(
+                                                        cls,
+                                                        *_args,
+                                                        _configuration=_configuration,
+                                                    )
                                             __annotations__ = {
                                                 "available": available,
                                                 "current": current,
@@ -116,9 +173,9 @@ class AssetReport(
                                     def __new__(
                                         cls,
                                         *_args: typing.Union[dict, frozendict.frozendict, ],
-                                        available: typing.Union[MetaOapg.properties.available, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
-                                        current: typing.Union[MetaOapg.properties.current, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
-                                        iso_currency_code: typing.Union[MetaOapg.properties.iso_currency_code, str, schemas.Unset] = schemas.unset,
+                                        available: typing.Union[MetaOapg.properties.available, None, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
+                                        current: typing.Union[MetaOapg.properties.current, None, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
+                                        iso_currency_code: typing.Union[MetaOapg.properties.iso_currency_code, None, str, schemas.Unset] = schemas.unset,
                                         _configuration: typing.Optional[schemas.Configuration] = None,
                                         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
                                     ) -> 'balance':
