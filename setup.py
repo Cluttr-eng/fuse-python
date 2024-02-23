@@ -12,7 +12,7 @@
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "fuse-client"
-VERSION = "2.0.2"
+VERSION = "2.0.3"
 # To install the library, run the following
 #
 # python setup.py install
@@ -25,7 +25,7 @@ REQUIRES = [
     "frozendict ~= 2.3.4",
     "python-dateutil ~= 2.8.0",
     "setuptools >= 21.0.0",
-    "typing_extensions ~= 4.3.0",
+    "typing_extensions >= 4.3.0, < 5.0.0",
     "urllib3 ~= 1.26.7",
 ]
 
